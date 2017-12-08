@@ -1,11 +1,11 @@
-# dotfiles
+# lib
 
 ## Installation
 
 ```bash
-~$ git clone keybase://private/initbar/dotfiles ~/.lib
+~$ git clone https://initbar@bitbucket.org/initbar/lib.git ~/.lib
 ```
 
 ## License
 
-**dotfiles** is under [MIT License](./LICENSE.md).
+**lib** is under [MIT License](./LICENSE.md).
