@@ -3,6 +3,7 @@
 ## Installation
 
 ```bash
+~$ # gcloud source repos clone lib --project=initbar-master
 ~$ git clone https://source.developers.google.com/p/initbar-master/r/lib ~/.lib
 ```
 
