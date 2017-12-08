@@ -3,71 +3,69 @@
 set -uo pipefail
 
 {
-  test $(id -u) -ne 0 || exit $?
-
   sudo apt-get update
   sudo apt-get install -y \
-       apt-transport-https \
-       binwalk \
-       ca-certificates \
-       coreutils \
        cpanminus \
-       cppcheck \
        curl \
-       dnsutils \
-       emacs-goodies-el \
-       emacs25-nox \
-       exiftool \
-       flawfinder \
-       foremost \
-       ftp \
-       gdb \
        git \
        htop \
-       iputils-ping \
-       jpegoptim \
-       language-pack-en \
-       lrzip \
-       man-db \
-       mat \
-       nano \
-       net-tools \
-       nmap \
-       p7zip-full \
-       preload \
        python-pip \
-       python3-pip \
-       secure-delete \
-       shellcheck \
-       software-properties-common \
-       strace \
-       telnet \
-       texlive-xetex \
-       valgrind \
-       zsh
+       python3-pip
+       # apt-transport-https \
+       # binwalk \
+       # ca-certificates \
+       # coreutils \
+       # cppcheck \
        # dnsmasq
+       # dnsutils \
+       # emacs-goodies-el \
+       # emacs25-nox \
        # exfat-fuse
        # exfat-utils
+       # exiftool \
        # fail2ban \
+       # flawfinder \
+       # foremost \
+       # ftp \
+       # gdb \
        # ibus
        # ibus-hangul
+       # iputils-ping \
+       # jpegoptim \
+       # language-pack-en \
+       # lrzip \
        # macchanger
+       # man-db \
+       # mat \
        # mplayer
+       # nano \
+       # net-tools \
+       # nmap \
        # nodejs
        # nodejs-legacy
        # npm
        # openjdk-9-jdk
        # openjdk-9-jre
        # openssh-server
+       # p7zip-full \
        # playonlinux
+       # preload \
        # ruby-bundler
        # ruby-dev
        # rustc
        # sass
+       # secure-delete \
+       # shellcheck \
+       # software-properties-common \
        # speedtest-cli
        # sshguard \
+       # strace \
+       # telnet \
+       # texlive-xetex \
        # transmission-cli
+       # valgrind \
        # wine
+       # zsh
 
   sudo cpanm -fi \
        Term::ReadLine
@@ -103,14 +101,14 @@ set -uo pipefail
     sudo apt-get install -y git-lfs
   }
 
-  (
-    cd /tmp
-    curl 'https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz' |\
-        gzip -d - |\
-        tar -xv
-    sudo cp -r go /usr/local
-    rm -rfv /tmp/go
-  )
+  # (
+  #   cd /tmp
+  #   curl 'https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz' |\
+  #       gzip -d - |\
+  #       tar -xv
+  #   sudo cp -r go /usr/local
+  #   rm -rfv /tmp/go
+  # )
 
   # {
   #   curl -sL 'https://prerelease.keybase.io/keybase_amd64.deb' -o /tmp/keybase_amd64.deb
