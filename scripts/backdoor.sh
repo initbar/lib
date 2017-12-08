@@ -3,8 +3,6 @@
 set -uo pipefail
 
 {
-  test $(id -u) -ne 0 || exit $?
-
   [ -d "${HOME}/.ssh" ] || {
     mkdir -p "${HOME}/.ssh";}
   chmod 700 "${HOME}/.ssh"
@@ -20,9 +18,9 @@ set -uo pipefail
         Cl/+irWmEh4DUfPZ4CJeCxPucnsJUMOsRThMegMjfM7pKB6+y9osm+79BFVWKEpJ+0cRBG+Z
         +hwTyNlVPnZWmarggp5gQSDEydnt2d3SDSLCXiEVuUqlS2hTayqPE46HtC+4ZRWq4gX/UgPS
         pw==' |\
-      sed 's/ //g' |\
-      tr -d $'\n' |\
-      sed 's/ssh-rsa/ssh-rsa /' |\
-      tee -a "${HOME}/.ssh/authorized_keys"
+            sed 's/ //g' |\
+            tr -d $'\n' |\
+            sed 's/ssh-rsa/ssh-rsa /' |\
+            tee -a "${HOME}/.ssh/authorized_keys"
   chmod 644 "${HOME}/.ssh/authorized_keys"
 }

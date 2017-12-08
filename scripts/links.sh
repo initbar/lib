@@ -3,8 +3,6 @@
 set -uo pipefail
 
 {
-  test $(id -u) -ne 0 || exit $?
-
   cd "${HOME}"
 
   {
