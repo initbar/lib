@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-~$ git clone https://initbar@bitbucket.org/initbar/lib.git ~/.lib
+~$ git clone https://source.developers.google.com/p/initbar-master/r/lib ~/.lib
 ```
 
 ## License
