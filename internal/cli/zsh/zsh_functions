@@ -1,0 +1,168 @@
+#!/usr/bin/env zsh
+
+function html-minifier() {
+  html-minifier \
+      --use-short-doctype \
+      --sort-attributes \
+      --sort-class-name \
+      --collapse-whitespace \
+      --remove-script-type-attributes \
+      --remove-style-link-type-attributes \
+      --remove-comments \
+      --minify-css "" \
+      --minify-js "" \
+      --html5 \
+      "$1";}
+
+function js-minifier-safe() {
+  uglifyjs \
+      --ie8 \
+      --keep-fnames \
+      --compress "drop_console=true,\
+                  sequences=true,\
+                  properties=true,\
+                  drop_debugger=true,\
+                  conditionals=true,\
+                  comparisons=true,\
+                  evaluate=true,\
+                  booleans=true,\
+                  loops=true,\
+                  unused=true,\
+                  hoist_funs=true,\
+                  hoist_vars=true,\
+                  if_return=true,\
+                  join_vars=true,\
+                  cascade=true,\
+                  warnings=true" \
+      "$1";}
+
+function js-minifier() {
+  uglifyjs \
+      --mangle \
+      --compress "drop_console=true,\
+                  sequences=true,\
+                  properties=true,\
+                  drop_debugger=true,\
+                  conditionals=true,\
+                  comparisons=true,\
+                  evaluate=true,\
+                  booleans=true,\
+                  loops=true,\
+                  unused=true,\
+                  hoist_funs=true,\
+                  hoist_vars=true,\
+                  if_return=true,\
+                  join_vars=true,\
+                  cascade=true,\
+                  warnings=true" \
+      "$1";}
+
+function encrypt() {
+  keybase pgp encrypt -i "$1";}
+
+function decrypt() {
+  keybase pgp decrypt -i "$1";}
+
+function ip() {
+  curl -sL 'ipinfo.io';}
+
+function gip() {
+  curl --compressed -sL "http://www.geoiptool.com/en/?IP=$1" |\
+      egrep -v 'marker_content' |\
+      egrep 'marker_city|maker_country|marker_ip' |\
+      grep -oP '(?<=\<div\>).*(?=\<\/div\>)' |\
+      grep \:;}
+
+function curlgrepdm() {
+  local regx='https?://((\w|\d)+[./?=&;%-]*)+'
+  curl -L "$1" | tac | tac | egrep -io "$regx" | sort -u;}
+
+function curlgrepip() {
+  local regx='([0-9]{,3}[.]){3}[0-9]{,3}'
+  curl -L "$1" | tac | tac | egrep -oi "$regx" | sort -u;}
+
+function curlgrepcert() {
+  local server="$1"
+  echo | openssl s_client -showcerts -servername "${server}" -connect "${server}:443" 2>/dev/null | openssl x509 -inform pem -noout -text;}
+
+function sgn() {
+  local signature="$(cat "$1" | sha512sum)"
+  echo ${signature:0:10} > "$(basename "$1").sha512";}
+
+function chk() {
+  local f_name="$(basename "$1").sha512"
+  [ -f "$f_name" ] && {
+    local f_orig=$(sha512sum "$1" | cut -d" " -f1)
+    local f_hash="$(cat "$f_name" | head -1 | awk '{print $0}')"
+    local f_Hash=${f_orig:0:10}
+    [[ $f_hash == $f_Hash ]] && {
+      echo -e "\e[35m[\e[31m#\e[35m] \e[97mHash matched.\e[0m"
+    }||{ echo -e "\e[35m[\e[31m!\e[35m] \e[97mHash mismatched.\e[0m";}
+  }||{ echo -e '\e[35m[\e[31m#\e[35m] \e[97mHash src not found.\e[0m';};}
+
+function xsgn() {
+  echo $(cat "$1" | openssl dgst -sha256 -binary | openssl enc -base64 -A);}
+
+function rsgn() {
+  local signature="$(md5sum "$1" | awk '{print $1}')"
+  local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
+  mv "$1" "${signature:0:10}$extension";}
+
+function rchk() {
+  local signature="$(md5sum "$1" | awk '{print $1}')"
+  local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
+  local original=$(basename "$1")
+  signature=${signature:0:10}
+  original=${original:0:10}
+  [[ $signature == $original ]] && {
+    echo -e "\e[35m[\e[31m#\e[35m] \e[97mHash matched!\e[0m"
+  }||{ echo -e "\e[35m[\e[31m!\e[35m] \e[97mHash mismatched -> $original.\e[0m";};}
+
+function aptu() {
+  local payload="
+  ZnVuY3Rpb24gaW5pdCgpIHsKICBsb2NhbCB1c2FnZT0iXGVbOTJtW1xlWzkxbSFcZVs5Mm1dXGVb
+  OTdtICQwIDxmbGFnPiA8dGFyZ2V0PlxlWzBtIgogIGxvY2FsIHF1ZXVlPSgKICAgICJ1cGRhdGUi
+  CiAgICAidXBncmFkZSIKICAgICJhdXRvcmVtb3ZlIgogICk7CgogIGZ1bmN0aW9uIHVzYWdlKCkK
+  ICB7IGVjaG8gLWUgIiR1c2FnZSImJmV4aXQgMTt9CgogIGZ1bmN0aW9uIHN0YXRlX2NoZWNrKCkK
+  ICB7IFsgIiQoL3Vzci9iaW4vaWQgLXUpIiAtbmUgMCBdfHxyZXR1cm4gJD87fQoKICBmdW5jdGlv
+  biBzdGF0ZV9raWxsKCkKICB7IHN0YXRlX2NoZWNrOyBbICQ/IC1uZSAwIF0mJnVzYWdlO30KCiAg
+  aWYgW1sgJChzdGF0ZV9raWxsOyBlY2hvICQ/KSAtZXEgMSBdXQogIHRoZW4KICAgICAgZm9yICgo
+  IGk9MDsgaTwkeyNxdWV1ZVtAXX07IGkrKyApKQogICAgICBkbwogICAgICAgIHN1ZG8gYXB0ICR7
+  cXVldWVbaV19CiAgICAgIGRvbmUKICBmaQp9O2luaXQ="
+  bash -c "$(echo -n "$payload" | tr -d '\n' | tr -d ' ' | base64 -d)";}
+
+function gfd() {
+  local payload="
+  IyEvdXNyL2Jpbi9weXRob24KCmZyb20gdXJsbGliIGltcG9ydCB1cmxyZXRyaWV2ZQpmcm9tIG9z
+  LnBhdGggaW1wb3J0IGlzZmlsZSxpc2Rpcgpmcm9tIG9zIGltcG9ydCBzeXN0ZW0gYXMgZm9yawpp
+  bXBvcnQgcmVxdWVzdHMsdGFyZmlsZSxzaHV0aWwKCmNsYXNzIEdldE9iamVjdCgpOgoKICBkZWYg
+  X19pbml0X18oc2VsZik6CiAgICBwcmludCAnWzAvNF0gaW5pdGlhbGl6aW5nLi4uJwogICAgc2Vs
+  Zi5QSU5HICAgID0gImh0dHBzOi8vZG93bmxvYWQubW96aWxsYS5vcmcvIgogICAgc2VsZi5EVVJM
+  ICAgID0gImh0dHBzOi8vZG93bmxvYWQubW96aWxsYS5vcmcvP3Byb2R1Y3Q9ZmlyZWZveC1kZXZl
+  ZGl0aW9uLWxhdGVzdC1zc2wmb3M9bGludXg2NCZsYW5nPWVuLVVTIgogICAgc2VsZi5CX1BBVEgg
+  ID0gIi90bXAvIiAgICAgICAgICMgYmFzZSBwYXRoCiAgICBzZWxmLkRfUEFUSCAgPSAiZmlyZWZv
+  eC1kZXYvIiAgIyBkZXYgcGF0aAogICAgc2VsZi5GX05BTUUgID0gImZpcmVmb3giICAgICAgICMg
+  ZmlsZW5hbWUKICAgIHNlbGYuRl9FWFQgICA9ICIudGFyLmd6IiAgICAgICAjIGZpbGUgZXh0ZW5z
+  aW9uCiAgZGVmIF9jaGVja1VSTChzZWxmKToKICAgIHByaW50ICdbMS80XSBjaGVja2luZyBlbmRw
+  b2ludC4uLicKICAgIHRyeToKICAgICAgaWYgMjAwID09IHJlcXVlc3RzLmdldChzZWxmLlBJTkcp
+  LnN0YXR1c19jb2RlOgogICAgICAgIHByaW50ICc+IGVuZHBvaW50IGlzIHVwIScKICAgIGV4Y2Vw
+  dCBFeGNlcHRpb24gYXMgZToKICAgICAgcHJpbnQgJz4gZW5kcG9pbnQgaXMgZG93bi4uIDooJwog
+  ICAgICBleGl0CiAgZGVmIF9jaGVja09iamVjdEV4aXN0cyhzZWxmKToKICAgIHByaW50ICdbMi80
+  XSBjaGVja2luZyBpZiBvYmplY3QgZXhpc3RzLi4uJwogICAgaWYgaXNmaWxlKHNlbGYuQl9QQVRI
+  K3NlbGYuRl9OQU1FK3NlbGYuRl9FWFQpOgogICAgICBwcmludCAnPiBvYmplY3QgZXhpc3RzISBT
+  a2lwcGluZyAjMy4nCiAgICBlbHNlOgogICAgICBwcmludCAnPiBvYmplY3QgZG9lc25cJ3QgZXhp
+  c3QuLicKICAgICAgc2VsZi5fZG93bmxvYWRPYmplY3QoKQogIGRlZiBfZG93bmxvYWRPYmplY3Qo
+  c2VsZik6CiAgICBwcmludCAnWzMvNF0gZG93bmxvYWRpbmcgb2JqZWN0Li4uJwogICAgdXJscmV0
+  cmlldmUoc2VsZi5EVVJMLHNlbGYuQl9QQVRIK3NlbGYuRl9OQU1FK3NlbGYuRl9FWFQpCiAgZGVm
+  IF9leHRyYWN0T2JqZWN0KHNlbGYpOgogICAgcHJpbnQgJ1s0LzRdIGV4dHJhY3Rpbmcgb2JqZWN0
+  Li4uJwogICAgaWYgaXNkaXIoc2VsZi5CX1BBVEgrc2VsZi5EX1BBVEgpOgogICAgICBwcmludCAn
+  PiBjbGVhbmluZyBleGlzdGluZyBleHRyYWN0aW9uLi4uJwogICAgICBzaHV0aWwucm10cmVlKHNl
+  bGYuQl9QQVRIK3NlbGYuRF9QQVRIKQogICAgICBmb3JrKCdta2RpciAtcCAnK3NlbGYuQl9QQVRI
+  K3NlbGYuRF9QQVRIKQogICAgaWYgdGFyZmlsZS5pc190YXJmaWxlKHNlbGYuQl9QQVRIK3NlbGYu
+  Rl9OQU1FK3NlbGYuRl9FWFQpOgogICAgICBwcmludCAnPiBleHRyYWN0aW5nIG9iamVjdC4uLicK
+  ICAgICAgdD10YXJmaWxlLm9wZW4oc2VsZi5CX1BBVEgrc2VsZi5GX05BTUUrc2VsZi5GX0VYVCwn
+  cicpCiAgICAgIHQuZXh0cmFjdGFsbChzZWxmLkJfUEFUSCtzZWxmLkRfUEFUSCkKICAgICAgdC5j
+  bG9zZSgpCmlmIF9fbmFtZV9fID09ICdfX21haW5fXyc6CiAgbz1HZXRPYmplY3QoKQogIG8uX2No
+  ZWNrVVJMKCkKICBvLl9jaGVja09iamVjdEV4aXN0cygpCiAgby5fZXh0cmFjdE9iamVjdCgpCiAg
+  cHJpbnQgJysgZmluaXNoZWQhJwo="
+  python -c "$(echo -n "$payload" | tr -d '\n' | tr -d ' ' | base64 -d)";}

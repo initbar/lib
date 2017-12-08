@@ -1,0 +1,24 @@
+{
+	"caret_extra_bottom": 1,
+	"caret_extra_top": 1,
+	"caret_extra_width": 2,
+	"color_scheme": "Packages/Seti_UX/Seti.tmTheme",
+	"font_face": "Inconsolata",
+	"font_size": 11,
+	"highlight_line": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"installed_packages":
+	[
+		"Package Control",
+		"Seti_UX"
+	],
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"overlay_scroll_bars": "enabled",
+	"tab_size": 2,
+	"theme": "Seti_orig.sublime-theme",
+	"translate_tabs_to_spaces": false
+}

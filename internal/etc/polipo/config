@@ -1,0 +1,26 @@
+
+proxyName = "polipo"
+proxyPort = 8123
+
+localDocumentRoot = ""
+disableIndexing = false
+disableServersList = false
+
+dnsUseGethostbyname = no
+dnsQueryIPv6 = no
+
+dnsNameServer = 127.0.0.1
+allowedClients = 127.0.0.1
+
+cacheIsShared = false
+diskCacheUnlinkTime = 1d
+chunkHighMark = 50331648
+objectHighMark = 16384
+
+censoredHeaders = from, accept-language
+censorReferer = true
+scrubLogs = true
+
+logSyslog = true
+logLevel = 0xff
+logFile = /var/log/polipo/polipo.log

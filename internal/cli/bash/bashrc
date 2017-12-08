@@ -1,0 +1,59 @@
+#!/bin/bash
+
+[[ $- != *i* ]] && return
+
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+export LANG='C'
+export LC_MESSAGES='C'
+export GREP_COLOR='97;45'
+
+alias ls='ls -Q --classify --group-directories-first --color=auto'
+alias l='ls -lh'
+alias ll='ls -lah'
+
+alias ..='cd ..'
+alias ...='cd ../..'
+
+alias cp='cp -v'
+alias mv='mv -v'
+alias rm='rm -v --preserve-root'
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+alias ne='sudo netstat -ntupe | sort -r | grep ESTABLISHED'
+alias nl="sudo netstat -ntupl | sort -r | egrep '[0.]{7}'"
+alias net='sudo netstat -ntpe | sort -r | grep ESTABLISHED'
+alias nlt="sudo netstat -ntpl | sort -r | egrep '[0.]{7}'"
+alias neu='sudo netstat -nupe | sort -r | grep ESTABLISHED'
+alias nlu="sudo netstat -nupl | sort -r | egrep '[0.]{7}'"
+alias nec='sudo netstat -ntpe | sort -r | grep TIME_WAIT'
+alias nes='sudo netstat -ntpe | sort -r | grep CLOSED_WAIT'
+
+{
+  r=$(tput setaf 1)
+  g=$(tput setaf 2)
+  y=$(tput setaf 3)
+  c=$(tput setaf 4)
+  m=$(tput setaf 5)
+  w=$(tput setaf 7)
+  i=$(tput setaf 6)
+  d=$(tput sgr0)
+
+  PS1="\[$y\]\w\[$d\] "
+  test $UID -eq 0 && {
+    PS="\[$r\]=> \[$d\]"
+  } || {
+    PS="\[$m\]=> \[$d\]"
+  }
+  PS1+=${PS}
+  unset PS;
+}

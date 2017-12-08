@@ -1,0 +1,34 @@
+#!/bin/sh -e
+
+{
+  export user="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
+
+  [ -d /tmp/wine ] || {
+    mkdir -p /tmp/wine
+  }
+  chown $user:$user /tmp/wine -R
+  chmod 700 /tmp/wine -R
+
+  [ -d /sandbox ] || {
+    mkdir -p /sandbox
+  }
+  chown $user:$user /sandbox -R
+  chmod 700 /sandbox -R
+
+  [ -d /cache ] || {
+    mkdir -p /cache
+  }
+  mkdir -p /cache/opera
+  mkdir -p /cache/chromium
+  mkdir -p /cache/firefoxd
+  mkdir -p /cache/firefox/Cache
+  mkdir -p /cache/firefox/Crash
+  mkdir -p /cache/firefox/extensions
+  mkdir -p /cache/thumbnails
+  mkdir -p /cache/youtube-dl
+  mkdir -p /cache/vlc
+  chown $user:$user /cache -R
+  chmod 744 /cache -R
+
+  unset user
+}

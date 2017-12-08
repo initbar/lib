@@ -1,0 +1,93 @@
+#!/usr/bin/env zsh
+
+[[ -o login && -o interactive ]] && {
+
+  [ -f /etc/zsh_command_not_found ] && {
+    . /etc/zsh_command_not_found;}
+
+  {
+    export TERM="xterm-256color"
+    export EDITOR="emacs"
+
+    # keep me here for zsh shell bug
+    # export LANG=ko_KR.utf-8
+    export LC_ALL="en_US.UTF-8"
+    export LC_CTYPE="en_US.UTF-8"
+    export LANGUAGE="en_US.UTF-8"
+    export LANG="en_US.UTF-8"
+
+    export LESS_TERMCAP_mb=$(printf '\e[01;31m')
+    export LESS_TERMCAP_md=$(printf '\e[01;35m')
+    export LESS_TERMCAP_me=$(printf '\e[0m')
+    export LESS_TERMCAP_se=$(printf '\e[0m')
+    export LESS_TERMCAP_so=$(printf '\e[01;33m')
+    export LESS_TERMCAP_ue=$(printf '\e[0m')
+    export LESS_TERMCAP_us=$(printf '\e[04;36m')
+
+    export GREP_COLOR="97;45"
+
+    export LS_COLORS="${LS_COLORS}:di=1;91:"
+
+    export WINEPREFIX='/tmp/wine'
+
+    export GOROOT='/usr/local/go'
+    export GOPATH="${GOROOT}/pkg"
+    export GOBIN="${GOROOT}/bin"
+    export PATH="${PATH}:${GOROOT}:${GOPATH}:${GOBIN}"
+
+    export GPG_TTY=$(tty)
+    export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+  }
+
+  DISABLE_UPDATE_PROMPT=true
+  DISABLE_AUTO_UPDATE=true
+  # ZSH_THEME="awesomepanda"
+  # ZSH_THEME="cypher"
+  ZSH_THEME="fishy"
+  plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
+
+  setopt AUTOCD             # type the name of a directory to switch
+  setopt NOCLOBBER          # prevent from accidentally overwriting an existing file (note: >!)
+  setopt RCQUOTES           # elegant nested quotations
+  setopt AUTO_CD            # auto directory switch
+  setopt CDABLEVARS         # cd valid directory switch
+  setopt globdots           # match dots *.*
+  setopt ignoreeof          # need this (explicit 'exit' or 'logout')
+  setopt MULTIOS            # pipe to multiple outputs
+  setopt AUTO_NAME_DIRS     # use named dirs when possible
+  setopt NO_BEEP            # no beep
+  setopt NO_CASE_GLOB       # case insensitive globbing
+  setopt NUMERIC_GLOB_SORT  # numeric sort the globs
+
+  x="${HOME}/.zsh.d/oh-my-zsh"
+  [ -d "${x}" ] && {
+    export ZSH="${x}"
+    . "${x}/oh-my-zsh.sh"
+  } || {
+    echo -e "\e[35m[\e[31m#\e[35m] \e[97mPlugin: oh-my-zsh failed to load.\e[0m"
+  }
+
+  x="${HOME}/.zsh.d/plugins/zsh-syntax-highlighting"
+  [ -d "${x}" ] && {
+    . "${x}/zsh-syntax-highlighting.plugin.zsh"
+  } || {
+    echo -e "\e[35m[\e[31m#\e[35m] \e[97mPlugin: syntax highlighting failed to load.\e[0m"
+  }
+
+  x="${HOME}/.zsh.d/plugins/zsh-completions"
+  [ -d "${x}" ] && {
+    . "${x}/zsh-completions.plugin.zsh"
+  } || {
+    echo "Failed to load completions"
+  }
+
+  x="${HOME}/.zsh.d/plugins/zsh-autosuggestions"
+  [ -d "${x}" ] && {
+    . "${x}/zsh-autosuggestions.plugin.zsh"
+  } || {
+    echo "Failed to load suggestions"
+  }
+
+  [ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;}
+  [ -f ~/.zsh_functions ] && { . ~/.zsh_functions;}
+}

@@ -1,0 +1,17 @@
+sudo: required
+
+os:
+  - linux
+
+branches:
+  only:
+    - master
+
+services:
+  - docker
+
+before_install:
+  - docker pull ubuntu:17.04
+
+script:
+  - docker build .
