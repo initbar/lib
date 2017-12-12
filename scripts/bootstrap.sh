@@ -1,17 +1,16 @@
 #!/bin/bash
 
-set -uo pipefail
-
 {
   sudo apt-get update
   sudo apt-get install -y \
+       apt-transport-https \
        cpanminus \
        curl \
        git \
        htop \
+       nano \
        python-pip \
        python3-pip
-       # apt-transport-https \
        # binwalk \
        # ca-certificates \
        # coreutils \
@@ -38,7 +37,6 @@ set -uo pipefail
        # man-db \
        # mat \
        # mplayer
-       # nano \
        # net-tools \
        # nmap \
        # nodejs
@@ -76,20 +74,20 @@ set -uo pipefail
   sudo -H pip2 install \
        beautifulsoup4 \
        ipython \
-       psutil \
-       pyt \
-       requests \
-       scrapy \
-       seashells \
-       sqlmap \
-       virtualenv \
+       requests
+       # psutil \
+       # pyt \
+       # scrapy \
+       # seashells \
+       # sqlmap \
+       # virtualenv \
        # youtube_dl
 
-  sudo -H pip3 install \
-       --upgrade pip
+  # sudo -H pip3 install \
+  #      --upgrade pip
 
-  sudo -H pip3 install \
-       fierce
+  # sudo -H pip3 install \
+  #      fierce
 
   # sudo npm -g install \
   #      firebase-tools \
