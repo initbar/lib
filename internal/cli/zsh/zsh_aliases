@@ -221,11 +221,20 @@ alias nano='nano -E -D -A -m -u'
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d --read-only \
-             initbar/youtube-dl \
+             initbar/docker-youtube-dl \
              --extract-audio \
              --prefer-ffmpeg \
              --audio-format mp3 \
              --audio-quality 320k \
+             "$1"
+    }
+
+    function ffmpeg() {
+      docker run \
+             -v $PWD:/downloads \
+             -u $(id -u):$(id -g) \
+             --rm -d \
+             initbar/docker-ffmpeg \
              "$1"
     }
   }
