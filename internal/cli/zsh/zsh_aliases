@@ -238,7 +238,7 @@ alias nano='nano -E -D -A -m -u'
              -u $(id -u):$(id -g) \
              --rm \
              initbar/docker-ffmpeg \
-             "$1"
+             "$@"
     }
   }
 }
