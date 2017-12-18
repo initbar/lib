@@ -208,6 +208,7 @@ alias nano='nano -E -D -A -m -u'
     alias vlc='vlc -vv'
 
     function youtube-dl() {
+      docker pull initbar/docker-youtube-dl:latest
       docker run \
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
@@ -217,6 +218,7 @@ alias nano='nano -E -D -A -m -u'
     }
 
     function mp3-dl() {
+      docker pull initbar/docker-youtube-dl:latest
       docker run \
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
@@ -230,10 +232,11 @@ alias nano='nano -E -D -A -m -u'
     }
 
     function ffmpeg() {
+      docker pull initbar/docker-ffmpeg:latest
       docker run \
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
-             --rm -d \
+             --rm \
              initbar/docker-ffmpeg \
              "$1"
     }
@@ -250,6 +253,7 @@ alias nano='nano -E -D -A -m -u'
 {
   # initbar/transmission-cli
   function tcli() {
+    initbar/docker-transmission-cli:latest
     docker run \
            -v ${PWD}:/root/.torrents \
            -u $(id -u):$(id -g) \
