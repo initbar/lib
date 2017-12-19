@@ -261,7 +261,7 @@ alias nano='nano -E -D -A -m -u'
            -p $RANDOM:51413/udp \
            --dns 80.80.80.80 \
            --dns 8.8.8.8 \
-           --rm -d \
+           --rm \
            initbar/docker-transmission-cli \
            "$1" # magnet link
   }
