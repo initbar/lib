@@ -222,7 +222,7 @@ alias nano='nano -E -D -A -m -u'
       docker run \
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
-             --rm -d --read-only \
+             --rm -d \
              initbar/docker-youtube-dl \
              --extract-audio \
              --prefer-ffmpeg \
@@ -255,8 +255,7 @@ alias nano='nano -E -D -A -m -u'
   function tcli() {
     docker pull initbar/docker-transmission-cli:latest
     docker run \
-           -v ${HOME}/.torrents:/root/Downloads \
-           -u $(id -u):$(id -g) \
+           -v ${HOME}/.torrents:/torrents \
            -p $RANDOM:9091 \
            -p $RANDOM:51413/tcp \
            -p $RANDOM:51413/udp \
