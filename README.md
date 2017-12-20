@@ -8,6 +8,10 @@
 ~$ git submodule update --init --recursive
 ```
 
+## Note
+
+`scripts/` is only for Docker images.
+
 ## License
 
 **dotfiles** is under [MIT License](./LICENSE.md).
