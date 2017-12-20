@@ -4,5 +4,5 @@
   docker build . \
          --compress \
          --rm=true \
-         --tag="sandbox:latest"
+         --tag="ds:latest"
 }
