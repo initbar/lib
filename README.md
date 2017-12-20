@@ -1,23 +1,13 @@
-# lib
+# dotfiles
 
 ## Installation
 
 ```bash
-~$ # gcloud source repos clone lib --project=initbar-master
-~$ git clone https://source.developers.google.com/p/initbar-master/r/lib ~/.lib
-```
-
-## Docker
-
-```
-~$ docker run \
-          --rm -it \
-          --security-opt seccomp:unconfined \
-          --user root \
-          -v $PWD:/sandbox \
-          "lib:latest"
+~$ git clone https://github.com/initbar/dotfiles.git ~/.lib
+~$ cd ~/.lib
+~$ git submodule update --init --recursive
 ```
 
 ## License
 
-**lib** is under [MIT License](./LICENSE.md).
+**dotfiles** is under [MIT License](./LICENSE.md).
