@@ -6,7 +6,8 @@
              '("org" . "http://orgmode.org/elpa/"))
 
 (setq package-list
-      '(auto-complete
+      '(
+        auto-complete
         dockerfile-mode
         doom-themes
         go-mode
@@ -15,7 +16,9 @@
         paradox
         php-mode
         rust-mode
-        swoop))
+        sass-mode
+        swoop
+        ))
 
 (package-initialize)
 
