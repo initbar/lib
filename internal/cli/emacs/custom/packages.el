@@ -16,7 +16,6 @@
         paradox
         php-mode
         rust-mode
-        sass-mode
         swoop
         ))
 
