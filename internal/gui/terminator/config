@@ -69,7 +69,7 @@
     cursor_blink = False
     cursor_color = "#ff00ff"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 10
+    font = Fantasque Sans Mono 9
     foreground_color = "#ff0000"
     icon_bell = False
     login_shell = True
