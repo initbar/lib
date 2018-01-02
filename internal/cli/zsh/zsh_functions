@@ -81,7 +81,7 @@ function curlgrepip() {
   local regx='([0-9]{,3}[.]){3}[0-9]{,3}'
   curl -L "$1" | tac | tac | egrep -oi "$regx" | sort -u;}
 
-function curlgrepcert() {
+function curlgrepssl() {
   local server="$1"
   echo | openssl s_client -showcerts -servername "${server}" -connect "${server}:443" 2>/dev/null | openssl x509 -inform pem -noout -text;}
 
