@@ -106,15 +106,20 @@ alias nano='nano -E -D -A -m -u'
   alias sqlmap='sqlmap --random-agent --level=5 --risk=3 -a -b'
   alias strace='strace -fttTCx -s 9999 -y'
   alias valgrind='valgrind --leak-check=full --show-leak-kinds=all'
-  alias wpscan='docker run -it \
-                     --rm wpscanteam/wpscan \
-                     --random-agent \
-                     --threads 2 \
-                     --enumerate t \
-                     --enumerate p \
-                     --enumerate u \
-                     --wp-content-dir custom-content \
-                     --wp-plugins-dir wp-content/custom-plugins'
+
+  function wpscan() {
+    docker pull wpscanteam/wpscan
+    docker run -it \
+           --rm wpscanteam/wpscan \
+           --random-agent \
+           --threads 2 \
+           --enumerate t \
+           --enumerate p \
+           --enumerate u \
+           --wp-content-dir custom-content \
+           --wp-plugins-dir wp-content/custom-plugins \
+           "$@"
+  }
 }
 
 {
