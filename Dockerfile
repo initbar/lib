@@ -1,4 +1,4 @@
-FROM ubuntu:17.10
+FROM ubuntu:17.04
 
 MAINTAINER Herbert Shin
 
