@@ -18,7 +18,7 @@
   [ -d /cache ] || {
     mkdir -p /cache
   }
-  # mkdir -p /cache/opera
+  mkdir -p /cache/opera
   mkdir -p /cache/chromium
   mkdir -p /cache/firefoxd
   mkdir -p /cache/firefox/Cache
