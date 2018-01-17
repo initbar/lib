@@ -10,7 +10,7 @@
 
 ## Note
 
-`scripts/` is only for Docker images.
+`scripts/` is optimized for Docker or Xubuntu images.
 
 ## License
 
