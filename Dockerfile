@@ -9,9 +9,7 @@ RUN apt-get update && \
             curl \
             lsb-release \
             sudo && \
-    bash /src/scripts/backdoor.sh && \
-    bash /src/scripts/bootstrap.sh && \
-    bash /src/scripts/install.sh
+    bash /src/docker/install.sh
 
 WORKDIR /root
 
