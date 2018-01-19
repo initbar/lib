@@ -10,10 +10,6 @@
 ~$ git submodule update --init --recursive
 ```
 
-## Note
-
-`scripts/` is optimized for Docker or Xubuntu images.
-
 ## License
 
 **dotfiles** is under [MIT License](./LICENSE.md).
