@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/initbar/dotfiles.svg?branch=master)](https://travis-ci.org/initbar/dotfiles)
+
 # dotfiles
 
 ## Installation
