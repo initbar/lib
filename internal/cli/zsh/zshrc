@@ -42,8 +42,8 @@
   DISABLE_UPDATE_PROMPT=true
   DISABLE_AUTO_UPDATE=true
   # ZSH_THEME="awesomepanda"
-  # ZSH_THEME="cypher"
-  ZSH_THEME="fishy"
+  ZSH_THEME="cypher"
+  # ZSH_THEME="fishy"
   plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
   setopt AUTOCD             # type the name of a directory to switch
