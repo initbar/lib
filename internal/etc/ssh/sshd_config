@@ -1,104 +1,71 @@
-
-#------------------------------
 # Port & Listen Address & User
-#------------------------------
-
-Port 22
+#--------------------------------------------------------------------------------
 AddressFamily inet
+AllowUsers ubuntu
 ListenAddress 0.0.0.0
+Port 22
 
-AllowUsers herbert
-
-#----------
 # Protocol
-#----------
-
+#--------------------------------------------------------------------------------
 Protocol 2
 UseDNS no
 
-#---------
 # Hostkey
-#---------
-
-HostKey /etc/ssh/ssh_host_rsa_key
-HostKey /etc/ssh/ssh_host_dsa_key
+#--------------------------------------------------------------------------------
+# HostKey /etc/ssh/ssh_host_dsa_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
+HostKey /etc/ssh/ssh_host_rsa_key
 
-#--------
 # Banner
-#--------
-
+#--------------------------------------------------------------------------------
 Banner /etc/ssh/banner.txt
-
 PrintMotd no
 PrintLastLog yes
 
-#----------------------
 # Authentication/Login
-#----------------------
-
+#--------------------------------------------------------------------------------
 AuthorizedKeysFile %h/.ssh/authorized_keys
-
-LoginGraceTime 10
+ChallengeResponseAuthentication no
 ClientAliveInterval 0
-
-PasswordAuthentication yes
-PubkeyAuthentication yes
-
-HostbasedAuthentication no
-
+DebianBanner no
 GSSAPIAuthentication no
 GSSAPICleanupCredentials yes
-
+GatewayPorts no
+HostbasedAuthentication no
 KerberosAuthentication no
 KerberosOrLocalPasswd no
 KerberosTicketCleanup yes
-
-ChallengeResponseAuthentication no
-
+LoginGraceTime 10
+PasswordAuthentication yes
+PubkeyAuthentication no
 UsePAM no
 
-DebianBanner no
-
-GatewayPorts no
-
-#------------------
 # Hardening Tweaks
-#------------------
-
-StrictModes yes
-UsePrivilegeSeparation yes
-
-TCPKeepAlive yes
-MaxStartups 10:50:15
-MaxSessions 10
-MaxAuthTries 10
-
+#--------------------------------------------------------------------------------
 # UseLogin no
-PermitRootLogin no
-PermitTunnel no
-PermitEmptyPasswords no
-PermitUserEnvironment no
-
+AllowTcpForwarding no
+Ciphers aes256-ctr,aes256-cbc,aes128-ctr,aes128-cbc,blowfish-cbc
+Compression yes
 IgnoreRhosts yes
 IgnoreUserKnownHosts yes
-
+MaxAuthTries 10
+MaxSessions 10
+MaxStartups 10:50:15
+PermitEmptyPasswords no
+PermitRootLogin no
+PermitTunnel no
+PermitUserEnvironment no
+StrictModes yes
+TCPKeepAlive yes
+UsePrivilegeSeparation yes
 X11Forwarding no
-AllowTcpForwarding no
 
-Compression yes
-Ciphers aes256-ctr,aes256-cbc,aes128-ctr,aes128-cbc,blowfish-cbc
-
-#---------
 # Logging
-#---------
-
+#--------------------------------------------------------------------------------
 LogLevel VERBOSE
 SyslogFacility AUTH
 
-#------------
 # Subsystems
-#------------
-
-#Subsystem sftp /usr/lib/openssh/sftp-server
+#--------------------------------------------------------------------------------
+Subsystem sftp /usr/lib/openssh/sftp-server
