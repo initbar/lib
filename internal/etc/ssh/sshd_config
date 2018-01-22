@@ -44,6 +44,7 @@ UsePAM no
 # Hardening Tweaks
 #--------------------------------------------------------------------------------
 # UseLogin no
+# UsePrivilegeSeparation yes
 AllowTcpForwarding no
 Ciphers aes256-ctr,aes256-cbc,aes128-ctr,aes128-cbc,blowfish-cbc
 Compression yes
@@ -58,7 +59,6 @@ PermitTunnel no
 PermitUserEnvironment no
 StrictModes yes
 TCPKeepAlive yes
-UsePrivilegeSeparation yes
 X11Forwarding no
 
 # Logging
