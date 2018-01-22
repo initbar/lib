@@ -16,11 +16,12 @@
 (setq coffee-tab-width 2)
 (setq css-indent-offset 2)
 (setq javascript-indent-level 2)
+(setq js-indent-level 2)
 (setq perl-indent-level 2)
 (setq sh-basic-offset 2)
-(setq web-mode-markup-indent-offset 2)
-(setq web-mode-css-indent-offset 2)
 (setq web-mode-code-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-markup-indent-offset 2)
 
 ; indentation (python)
 (add-hook 'python-mode-hook
