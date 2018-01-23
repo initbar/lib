@@ -52,14 +52,14 @@ alias nano='nano -E -D -A -m -u'
   }
 
   {
-    alias ne='sudo netstat -ntupe | sort -r | grep ESTABLISHED'
-    alias nec='sudo netstat -ntpe | sort -r | grep TIME_WAIT'
-    alias nes='sudo netstat -ntpe | sort -r | grep CLOSED_WAIT'
-    alias net='sudo netstat -ntpe | sort -r | grep ESTABLISHED'
-    alias neu='sudo netstat -nupe | sort -r | grep ESTABLISHED'
-    alias nl="sudo netstat -ntupl | sort -r | egrep '[0.]{7}'"
-    alias nlt="sudo netstat -ntpl | sort -r | egrep '[0.]{7}'"
-    alias nlu="sudo netstat -nupl | sort -r | egrep '[0.]{7}'"
+    alias ne='sudo netstat -ntupe | sort | grep ESTABLISHED'
+    alias nec='sudo netstat -ntpe | sort | grep TIME_WAIT'
+    alias nes='sudo netstat -ntpe | sort | grep CLOSED_WAIT'
+    alias net='sudo netstat -ntpe | sort | grep ESTABLISHED'
+    alias neu='sudo netstat -nupe | sort | grep ESTABLISHED'
+    alias nl="sudo netstat -ntupl | sort | egrep '[0.]{7}'"
+    alias nlt="sudo netstat -ntpl | sort | egrep '[0.]{7}'"
+    alias nlu="sudo netstat -nupl | sort | egrep '[0.]{7}'"
   }
 
   {
