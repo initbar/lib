@@ -17,6 +17,7 @@
         php-mode
         rust-mode
         swoop
+        toml-mode
         ))
 
 (package-initialize)

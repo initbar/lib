@@ -14,8 +14,8 @@ export LANG='C'
 export LC_MESSAGES='C'
 export GREP_COLOR='97;45'
 
-[ ~/.zsh_functions ] && { . ~/.zsh_functions;}
-[ ~/.zsh_aliases ] && { . ~/.zsh_aliases;} || {
+[ -f ~/.zsh_functions ] && { . ~/.zsh_functions;}
+[ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;} || {
   alias ls='ls -Q --classify --group-directories-first --color=auto'
   alias l='ls -lh'
   alias ll='ls -lah'
