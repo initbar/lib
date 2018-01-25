@@ -143,13 +143,13 @@ alias nano='nano -E -D -A -m -u'
   }
 
   {
-    alias gtd='g diff'
-    alias gtl='g lga'
-    alias gtp='g pm'
-    alias gtpf='g pmf'
-    alias gtpu='g pu'
-    alias gtr='g rb'
-    alias gts='g st'
+    alias gtd='git diff'
+    alias gtl='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
+    alias gtp='git push origin --progress'
+    alias gtpf='git push origin --progress --force'
+    alias gtpu='git pull origin'
+    alias gtr='git rebase -i'
+    alias gts='git status --branch'
   }
 
   {
