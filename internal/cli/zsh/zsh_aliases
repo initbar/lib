@@ -106,6 +106,7 @@ alias nano='nano -E -D -A -m -u'
   alias sqlmap='sqlmap --random-agent --level=5 --risk=3 -a -b'
   alias strace='strace -fttTCx -s 9999 -y'
   alias valgrind='valgrind --leak-check=full --show-leak-kinds=all'
+  alias entropy="ent -t -b"
 
   function wpscan() {
     # docker pull wpscanteam/wpscan
