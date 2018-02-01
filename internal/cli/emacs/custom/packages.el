@@ -17,6 +17,7 @@
         rust-mode
         swoop
         toml-mode
+        tramp
         ))
 
 (package-initialize)

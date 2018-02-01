@@ -6,12 +6,12 @@
 (package-initialize)
 
 (add-to-list 'load-path "~/.emacs.d/custom")
+(load-library "aliases")
+(load-library "general")
+(load-library "interface")
 (load-library "packages")
 (load-library "packages-config")
-(load-library "general")
 (load-library "shortcuts")
-(load-library "aliases")
-(load-library "interface")
 (load-library "syntax")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
