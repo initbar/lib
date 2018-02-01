@@ -15,7 +15,7 @@
 
 ; highlight current line
 (global-hl-line-mode 1)
-(set-face-background 'hl-line "#101010")
+(set-face-attribute 'region nil :background "#222" :foreground "#ff0000")
 
 ; match parenthesis
 (show-paren-mode 1)
