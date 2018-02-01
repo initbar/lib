@@ -9,6 +9,7 @@
       '(
         auto-complete
         dockerfile-mode
+        doom-themes
         go-mode
         json-mode
         linum-relative
