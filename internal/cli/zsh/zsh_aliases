@@ -81,6 +81,7 @@ alias nano='nano -E -D -A -m -u'
     alias di="docker images"
     alias dl="docker logs"
     alias dp="docker ps -s"
+    # add docker wine
   }
 
   {
