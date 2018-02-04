@@ -81,7 +81,6 @@ alias b="bash"
     alias di="docker images"
     alias dl="docker logs"
     alias dp="docker ps -s"
-    # add docker wine
   }
 
   {
@@ -275,21 +274,6 @@ alias b="bash"
 }
 
 {
-  # initbar/transmission-cli
-  function tcli() {
-    # docker pull initbar/docker-transmission-cli:latest
-    docker run \
-           -v ${HOME}/.torrents:/torrents \
-           -p $RANDOM:9091 \
-           -p $RANDOM:51413/tcp \
-           -p $RANDOM:51413/udp \
-           --dns 80.80.80.80 \
-           --dns 8.8.8.8 \
-           --rm \
-           initbar/docker-transmission-cli \
-           "$1" # magnet link
-  }
-
   # initbar/dockfiles
   # function ds() {
   #   docker run \
@@ -299,4 +283,27 @@ alias b="bash"
   #          --security-opt seccomp:unconfined \
   #          initbar/dockfiles
   # }
+
+  function tcli() {
+    # docker pull initbar/docker-transmission-cli:latest
+    docker run \
+           -v ${HOME}/.torrents:/torrents \
+           -p $RANDOM:9091 \
+           -p $RANDOM:51413/tcp \
+           -p $RANDOM:51413/udp \
+           --dns 80.80.80.80 \
+           --dns 8.8.8.8 \
+           --rm -d \
+           initbar/docker-transmission-cli \
+           "$1" # magnet link
+  }
+
+  function firefox() {
+    # docker pull initbar/firefox:latest
+    docker run \
+           -e DISPLAY=$DISPLAY \
+           -v /tmp/.X11-unix:/tmp/.X11-unix \
+           --rm -it \
+           initbar/docker-firefox
+  }
 }
