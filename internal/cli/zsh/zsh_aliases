@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
-alias em="$(which emacs)"
-alias nano='nano -E -D -A -m -u'
+alias b="bash"
 
 {
   [ -d "${HOME}/Downloads" ] && alias d="cd ${HOME}/Downloads"
@@ -26,6 +25,7 @@ alias nano='nano -E -D -A -m -u'
   alias pw="acpi -V | grep Battery"
   alias ser='sudo service --status-all | grep +'
   alias sort="sort --parallel=$(nproc)"
+  alias tracepath="tracepath -b -l 65535 -m 50"
   alias w='w -hus'
 
   {
@@ -134,6 +134,7 @@ alias nano='nano -E -D -A -m -u'
   alias dt="perl -pi -e 'chomp if eof'"
   alias grip='grip --norefresh'
   alias md='pygmentize -g -O ansi,style=colorful,python=cool,bg=light'
+  alias jd='python -mjson.tool'
   alias strings='strings -a'
 
   {
@@ -166,6 +167,11 @@ alias nano='nano -E -D -A -m -u'
   {
     alias cb="cargo build --jobs $(nproc)"
     alias cbr="cargo build --release --jobs $(nproc)"
+  }
+
+  {
+    alias em="$(which emacs)"
+    alias nano='nano -E -D -A -m -u'
   }
 
   {
@@ -231,7 +237,8 @@ alias nano='nano -E -D -A -m -u'
              -u $(id -u):$(id -g) \
              --rm -d \
              initbar/docker-youtube-dl \
-             "$@"
+             -f "bestvideo+bestaudio" \
+             "$1"
     }
 
     function mp3-dl() {
