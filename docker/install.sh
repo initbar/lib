@@ -15,7 +15,7 @@ set -uo pipefail
   bash backdoor.sh
   bash bootstrap.sh
   bash links.sh
-  bash tools.sh
+  # bash tools.sh
 
   sudo apt-get update
   sudo apt-get autoremove

@@ -9,19 +9,14 @@ set -uo pipefail
     export DOTFILES='https://github.com/initbar/dotfiles.git'
     export INSTALL_PATH="${HOME}/.lib"
 
-    git lfs clone "${DOTFILES}" "${INSTALL_PATH}"
+    git clone "${DOTFILES}" "${INSTALL_PATH}"
 
     cd "${INSTALL_PATH}"
-    git submodule init
     git submodule update --init --recursive
-    git remote set-url origin 'git@github.com:initbar/dockfiles.git'
 
     # bash
     (
-      rm -fv --preserve-root \
-         "${HOME}/.bashrc" \
-         "${HOME}/.bash_history"
-      ln -sfv /dev/null "${HOME}/.bashrc"
+      rm -fv --preserve-root "${HOME}/.bash_history"
       ln -sfv /dev/null "${HOME}/.bash_history"
     )
 
@@ -37,7 +32,7 @@ set -uo pipefail
     (
       mkdir -pv "${HOME}/.emacs.d"
       ln -sLfv "${INSTALL_PATH}/internal/cli/emacs/custom" "${HOME}/.emacs.d/custom"
-      ln -sfv "${INSTALL_PATH}/internal/cli/emacs/emacs" "${HOME}/.emacs"
+      ln -sfv "${INSTALL_PATH}/internal/cli/emacs/emacs.el" "${HOME}/.emacs"
     )
 
     # fstab
@@ -46,19 +41,19 @@ set -uo pipefail
     )
 
     # host.conf
-    (
-      cat "${INSTALL_PATH}/internal/etc/host.conf" | sudo tee /etc/host.conf
-    )
+    # (
+    #   cat "${INSTALL_PATH}/internal/etc/host.conf" | sudo tee /etc/host.conf
+    # )
 
     # hosts.allow
-    (
-      cat "${INSTALL_PATH}/internal/etc/hosts.allow" | sudo tee /etc/hosts.allow
-    )
+    # (
+    #   cat "${INSTALL_PATH}/internal/etc/hosts.allow" | sudo tee /etc/hosts.allow
+    # )
 
     # hosts.deny
-    (
-      cat "${INSTALL_PATH}/internal/etc/hosts.deny" | sudo tee /etc/hosts.deny
-    )
+    # (
+    #   cat "${INSTALL_PATH}/internal/etc/hosts.deny" | sudo tee /etc/hosts.deny
+    # )
 
     # gdb
     (
@@ -74,20 +69,15 @@ set -uo pipefail
 
     # ls++
     (
-      git clone 'https://github.com/trapd00r/ls--.git' '/tmp/ls--'
-
-      sudo apt-get install -y \
-           cpanminus
-
+      sudo apt-get install -y cpanminus
       sudo cpanm -fi \
            Term::ExtendedColor \
            CPAN
       sudo cpan reload CPAN
 
-      cd '/tmp/ls--'
+      cd ./submodules/ls++
       perl Makefile.PL
-      make && \
-          sudo make install
+      make && sudo make install
 
       ln -sfv "${INSTALL_PATH}/internal/cli/ls++/ls++.conf" "${HOME}/.ls++.conf"
     )
@@ -112,14 +102,12 @@ set -uo pipefail
     # )
 
     # zsh
-    (
-      ln -sLfv "${INSTALL_PATH}/submodules/zsh" "${HOME}/.zsh.d"
-      ln -sfv "${INSTALL_PATH}/internal/cli/zsh/zshrc" "${HOME}/.zshrc"
-      ln -sfv "${INSTALL_PATH}/internal/cli/zsh/zsh_aliases" "${HOME}/.zsh_aliases"
-      ln -sfv "${INSTALL_PATH}/internal/cli/zsh/zsh_functions" "${HOME}/.zsh_functions"
-      sudo chsh -s "$(which zsh)" "${USER}"
-    )
+    # (
+    #   ln -sLfv "${INSTALL_PATH}/submodules/zsh" "${HOME}/.zsh.d"
+    #   ln -sfv "${INSTALL_PATH}/internal/cli/zsh/zshrc" "${HOME}/.zshrc"
+    #   ln -sfv "${INSTALL_PATH}/internal/cli/zsh/zsh_aliases" "${HOME}/.zsh_aliases"
+    #   ln -sfv "${INSTALL_PATH}/internal/cli/zsh/zsh_functions" "${HOME}/.zsh_functions"
+    #   sudo chsh -s "$(which zsh)" "${USER}"
+    # )
   }
-
-  rm -rfv '/tmp/ls--'
 }

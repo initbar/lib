@@ -132,8 +132,8 @@ alias b="bash"
   alias diff='colordiff'
   alias dt="perl -pi -e 'chomp if eof'"
   alias grip='grip --norefresh'
-  alias md='pygmentize -g -O ansi,style=colorful,python=cool,bg=light'
   alias jd='python -mjson.tool'
+  alias md='pygmentize -g -O ansi,style=colorful,python=cool,bg=light'
   alias strings='strings -a'
 
   {
@@ -274,15 +274,15 @@ alias b="bash"
 }
 
 {
-  # initbar/dockfiles
-  # function ds() {
-  #   docker run \
-  #          --rm -it \
-  #          --user ubuntu \
-  #          -v $PWD:/sandbox \
-  #          --security-opt seccomp:unconfined \
-  #          initbar/dockfiles
-  # }
+  function ds() {
+    # docker pull initbar/docker-dockfiles:latest
+    docker run \
+           --rm -it \
+           --user ubuntu \
+           -v $PWD:/sandbox \
+           --security-opt seccomp:unconfined \
+           'initbar/dockfiles'
+  }
 
   function tcli() {
     # docker pull initbar/docker-transmission-cli:latest

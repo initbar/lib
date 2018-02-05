@@ -38,7 +38,7 @@ KerberosOrLocalPasswd no
 KerberosTicketCleanup yes
 LoginGraceTime 10
 PasswordAuthentication yes
-PubkeyAuthentication no
+PubkeyAuthentication yes
 UsePAM no
 
 # Hardening Tweaks

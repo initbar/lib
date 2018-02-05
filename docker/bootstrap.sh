@@ -72,9 +72,9 @@
        --upgrade pip
 
   sudo -H pip2 install \
-       beautifulsoup4 \
        ipython \
        requests
+       # beautifulsoup4 \
        # psutil \
        # pyt \
        # scrapy \
