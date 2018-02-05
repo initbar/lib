@@ -316,7 +316,7 @@ alias b="bash"
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -v /dev/snd:/dev/snd \
            --privileged \
-           --rm -it \
+           --rm -it -d \
            'initbar/docker-webtorrents'
   }
 }
