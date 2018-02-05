@@ -307,4 +307,16 @@ alias b="bash"
            --rm -it -d \
            'initbar/docker-firefox'
   }
+
+  function webtorrent-desktop() {
+    xhost local:root
+    # docker pull initbar/webtorrents:latest
+    docker run \
+           -e DISPLAY=${DISPLAY} \
+           -v /tmp/.X11-unix:/tmp/.X11-unix \
+           -v /dev/snd:/dev/snd \
+           --privileged \
+           --rm -it \
+           'initbar/docker-webtorrents'
+  }
 }
