@@ -232,7 +232,7 @@ alias b="bash"
     function youtube-dl() {
       # docker pull initbar/docker-youtube-dl:latest
       docker run \
-             -v $PWD:/downloads \
+             -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
              'initbar/docker-youtube-dl' \
@@ -243,7 +243,7 @@ alias b="bash"
     function mp3-dl() {
       # docker pull initbar/docker-youtube-dl:latest
       docker run \
-             -v $PWD:/downloads \
+             -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
              'initbar/docker-youtube-dl' \
@@ -257,7 +257,7 @@ alias b="bash"
     function ffmpeg() {
       # docker pull initbar/docker-ffmpeg:latest
       docker run \
-             -v $PWD:/downloads \
+             -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
              --rm \
              'initbar/docker-ffmpeg' \
@@ -279,7 +279,7 @@ alias b="bash"
     docker run \
            --rm -it \
            --user ubuntu \
-           -v $PWD:/sandbox \
+           -v ${PWD}:/sandbox \
            --security-opt seccomp:unconfined \
            'initbar/dockfiles'
   }
@@ -288,9 +288,9 @@ alias b="bash"
     # docker pull initbar/docker-transmission-cli:latest
     docker run \
            -v ${HOME}/.torrents:/torrents \
-           -p $RANDOM:9091 \
-           -p $RANDOM:51413/tcp \
-           -p $RANDOM:51413/udp \
+           -p ${RANDOM}:9091 \
+           -p ${RANDOM}:51413/tcp \
+           -p ${RANDOM}:51413/udp \
            --dns 80.80.80.80 \
            --dns 8.8.8.8 \
            --rm -d \
