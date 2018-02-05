@@ -299,11 +299,12 @@ alias b="bash"
   }
 
   function firefox() {
+    xhost local:root
     # docker pull initbar/firefox:latest
     docker run \
-           -e DISPLAY=$DISPLAY \
+           -e DISPLAY=${DISPLAY} \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
-           --rm -it \
+           --rm -it -d \
            initbar/docker-firefox
   }
 }
