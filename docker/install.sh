@@ -12,10 +12,10 @@ set -uo pipefail
     echo -e 'ubuntu\tALL=(ALL)\tNOPASSWD:ALL' | sudo tee /etc/sudoers.d/ubuntu
   }
 
-  bash backdoor.sh
-  bash bootstrap.sh
-  bash links.sh
-  # bash tools.sh
+  find . -type f -iname 'backdoor.sh' -exec bash "{}" \;
+  find . -type f -iname 'bootstrap.sh' -exec bash "{}" \;
+  find . -type f -iname 'links.sh' -exec bash "{}" \;
+  find . -type f -iname 'tools.sh' -exec bash "{}" \;
 
   sudo apt-get update
   sudo apt-get autoremove
