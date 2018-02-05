@@ -235,7 +235,7 @@ alias b="bash"
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
-             initbar/docker-youtube-dl \
+             'initbar/docker-youtube-dl' \
              -f "bestvideo+bestaudio" \
              "$1"
     }
@@ -246,7 +246,7 @@ alias b="bash"
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
-             initbar/docker-youtube-dl \
+             'initbar/docker-youtube-dl' \
              --extract-audio \
              --prefer-ffmpeg \
              --audio-format mp3 \
@@ -260,7 +260,7 @@ alias b="bash"
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
              --rm \
-             initbar/docker-ffmpeg \
+             'initbar/docker-ffmpeg' \
              "$@"
     }
   }
@@ -294,7 +294,7 @@ alias b="bash"
            --dns 80.80.80.80 \
            --dns 8.8.8.8 \
            --rm -d \
-           initbar/docker-transmission-cli \
+           'initbar/docker-transmission-cli' \
            "$1" # magnet link
   }
 
@@ -305,6 +305,6 @@ alias b="bash"
            -e DISPLAY=${DISPLAY} \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            --rm -it -d \
-           initbar/docker-firefox
+           'initbar/docker-firefox'
   }
 }
