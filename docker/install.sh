@@ -15,7 +15,7 @@ set -uo pipefail
   find . -type f -iname 'backdoor.sh' -exec bash "{}" \;
   find . -type f -iname 'bootstrap.sh' -exec bash "{}" \;
   find . -type f -iname 'links.sh' -exec bash "{}" \;
-  find . -type f -iname 'tools.sh' -exec bash "{}" \;
+  # find . -type f -iname 'tools.sh' -exec bash "{}" \;
 
   sudo apt-get update
   sudo apt-get autoremove
