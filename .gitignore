@@ -1,2 +1,3 @@
+submodules/
 external/
 !external/*/*.gz
