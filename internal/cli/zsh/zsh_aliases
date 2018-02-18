@@ -85,7 +85,7 @@ alias b="bash"
 
   {
     [ -d /media/veracrypt64 ] && alias m='cd /media/veracrypt64'
-    alias getm='veracrypt -t /dev/sdb1 /media/veracrypt64'
+    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /media/veracrypt64'
     alias setm='veracrypt -d /media/veracrypt64'
   }
 }
