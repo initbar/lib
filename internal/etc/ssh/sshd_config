@@ -29,6 +29,7 @@ AuthorizedKeysFile %h/.ssh/authorized_keys
 ChallengeResponseAuthentication no
 ClientAliveInterval 0
 DebianBanner no
+FingerprintHash sha256
 GSSAPIAuthentication no
 GSSAPICleanupCredentials yes
 GatewayPorts no
@@ -36,7 +37,7 @@ HostbasedAuthentication no
 KerberosAuthentication no
 KerberosOrLocalPasswd no
 KerberosTicketCleanup yes
-LoginGraceTime 10
+LoginGraceTime 30
 PasswordAuthentication yes
 PubkeyAuthentication yes
 UsePAM no
@@ -50,20 +51,22 @@ Ciphers aes256-ctr,aes256-cbc,aes128-ctr,aes128-cbc,blowfish-cbc
 Compression yes
 IgnoreRhosts yes
 IgnoreUserKnownHosts yes
-MaxAuthTries 10
+MaxAuthTries 5
 MaxSessions 10
-MaxStartups 10:50:15
+MaxStartups 10:51:15
 PermitEmptyPasswords no
 PermitRootLogin no
 PermitTunnel no
 PermitUserEnvironment no
 StrictModes yes
 TCPKeepAlive yes
+VersionAddendum none
 X11Forwarding no
 
 # Logging
 #--------------------------------------------------------------------------------
 LogLevel VERBOSE
+PidFile /run/sshd.pid
 SyslogFacility AUTH
 
 # Subsystems
