@@ -311,9 +311,9 @@ alias b="bash"
     xhost local:root
     # docker pull initbar/webtorrents:latest
     docker run \
-           -e DISPLAY=${DISPLAY} \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -v /dev/snd:/dev/snd \
+           -e DISPLAY=${DISPLAY} \
+           --device /dev/snd \
            --privileged \
            --rm -it -d \
            'initbar/docker-webtorrents'
