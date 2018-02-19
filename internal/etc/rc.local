@@ -29,5 +29,11 @@
   chown $user:$user /cache -R
   chmod 744 /cache -R
 
+  [ -d /fs ] || {
+    mkdir -p /fs
+  }
+  chown $user:$user /fs -R
+  chmod 711 /fs -R
+
   unset user
 }

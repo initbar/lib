@@ -8,7 +8,6 @@ alias b="bash"
   [ -d /sandbox ] && alias s='cd /sandbox'
   [ -d /cache ] && alias c='cd /cache'
   [ -d /tmp ] && alias t='cd /tmp'
-  [ -d /fs ] && alias f='cd /fs'
 
   alias df="df -hl | grep -v Filesystem | sort | egrep -i '[0-9]+%'"
   alias du='du -xch'
@@ -84,9 +83,9 @@ alias b="bash"
   }
 
   {
-    [ -d /media/veracrypt64 ] && alias m='cd /media/veracrypt64'
-    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /media/veracrypt64'
-    alias setm='veracrypt -d /media/veracrypt64'
+    [ -d /fs ] && alias f='cd /fs'
+    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /fs'
+    alias setm='veracrypt -d /fs'
   }
 }
 
