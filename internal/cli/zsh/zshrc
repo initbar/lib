@@ -40,9 +40,9 @@
 
     # it's possible that XDG_RUNTIME_DIR is not declared at login.
     # So we need to explicitly declare it.
-    [ -n "$XDG_RUNTIME_DIR" ] || {
-      export XDG_RUNTIME_DIR=/run/user/$(id -u)
-    }
+    # [ -n "$XDG_RUNTIME_DIR" ] || {
+    #   export XDG_RUNTIME_DIR=/run/user/$(id -u)
+    # }
   }
 
   DISABLE_UPDATE_PROMPT=true
