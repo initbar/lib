@@ -16,6 +16,3 @@
 [submodule "submodules/ls++"]
 	path = submodules/ls++
 	url = https://github.com/trapd00r/ls--.git
-[submodule "submodules/grv"]
-	path = submodules/grv
-	url = https://github.com/rgburke/grv.git
