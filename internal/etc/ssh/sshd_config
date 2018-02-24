@@ -27,7 +27,7 @@ PrintLastLog yes
 #--------------------------------------------------------------------------------
 AuthorizedKeysFile %h/.ssh/authorized_keys
 ChallengeResponseAuthentication no
-ClientAliveInterval 0
+ClientAliveInterval 30
 DebianBanner no
 FingerprintHash sha256
 GSSAPIAuthentication no

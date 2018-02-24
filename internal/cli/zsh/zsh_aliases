@@ -113,7 +113,7 @@ alias b="bash"
   alias entropy="ent -t -b"
 
   function wpscan() {
-    # docker pull wpscanteam/wpscan
+    docker pull wpscanteam/wpscan
     docker run -it \
            --rm wpscanteam/wpscan \
            --random-agent \
@@ -229,7 +229,7 @@ alias b="bash"
     alias vlc='vlc -vv'
 
     function youtube-dl() {
-      # docker pull initbar/docker-youtube-dl:latest
+      docker pull initbar/docker-youtube-dl:latest
       docker run \
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
@@ -240,7 +240,7 @@ alias b="bash"
     }
 
     function mp3-dl() {
-      # docker pull initbar/docker-youtube-dl:latest
+      docker pull initbar/docker-youtube-dl:latest
       docker run \
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
@@ -254,7 +254,7 @@ alias b="bash"
     }
 
     function ffmpeg() {
-      # docker pull initbar/docker-ffmpeg:latest
+      docker pull initbar/docker-ffmpeg:latest
       docker run \
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
@@ -274,7 +274,7 @@ alias b="bash"
 
 {
   function ds() {
-    # docker pull initbar/docker-dockfiles:latest
+    docker pull initbar/docker-dockfiles:latest
     docker run \
            --rm -it \
            --user ubuntu \
@@ -284,7 +284,7 @@ alias b="bash"
   }
 
   function tcli() {
-    # docker pull initbar/docker-transmission-cli:latest
+    docker pull initbar/docker-transmission-cli:latest
     docker run \
            -v ${HOME}/.torrents:/torrents \
            -p ${RANDOM}:9091 \
@@ -299,7 +299,7 @@ alias b="bash"
 
   function firefox() {
     xhost local:root
-    # docker pull initbar/firefox:latest
+    docker pull initbar/firefox:latest
     docker run \
            -e DISPLAY=${DISPLAY} \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
@@ -309,7 +309,7 @@ alias b="bash"
 
   function webtorrent-desktop() {
     xhost local:root
-    # docker pull initbar/webtorrents:latest
+    docker pull initbar/webtorrents:latest
     docker run \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -e DISPLAY=${DISPLAY} \
