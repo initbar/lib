@@ -36,7 +36,10 @@
     export PATH="${PATH}:${GOROOT}:${GOPATH}:${GOBIN}"
 
     export GPG_TTY=$(tty)
+
+    # Google Cloud
     export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+    export GCSFUSE_REPO=gcsfuse-$(lsb_release -c -s)
 
     # it's possible that XDG_RUNTIME_DIR is not declared at login.
     # So we need to explicitly declare it.

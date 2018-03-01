@@ -17,4 +17,4 @@ set $SHOWDATAWIN = 1
 set $SHOWREGCHANGES = 1
 set $X86FLAVOR = 0
 set $USECOLOR = 1
-source /home/initbar/.gdb.d/pwndbg/gdbinit.py
+source ~/.gdb.d/pwndbg/gdbinit.py
