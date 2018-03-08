@@ -145,7 +145,7 @@ alias b="bash"
     alias skn='ssh-keygen -t rsa -b 4096 -o -a 2048 -E sha256 -v'
     alias skp='ssh-keygen -y -f'
     alias sl='ssh-add -l -c -t 3h'
-    alias ssh='ssh -2 -v -C'
+    alias ssh='ssh -2 -C'
   }
 
   {
