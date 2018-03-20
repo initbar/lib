@@ -235,7 +235,6 @@ alias b="bash"
              -u $(id -u):$(id -g) \
              --rm -d \
              'initbar/docker-youtube-dl' \
-             -f "bestvideo+bestaudio" \
              "$1"
     }
 
