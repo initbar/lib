@@ -297,19 +297,19 @@ alias b="bash"
            "$1" # magnet link
   }
 
-  function firefox() {
-    xhost local:root
-    docker pull initbar/firefox:latest
-    docker run \
-           -e DISPLAY=${DISPLAY} \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           --rm -it -d \
-           'initbar/docker-firefox'
-  }
+  # function firefox() {
+  #   xhost local:root
+  #   docker pull initbar/firefox:latest
+  #   docker run \
+  #          -e DISPLAY=${DISPLAY} \
+  #          -v /tmp/.X11-unix:/tmp/.X11-unix \
+  #          --rm -it -d \
+  #          'initbar/docker-firefox'
+  # }
 
   function webtorrent-desktop() {
     xhost local:root
-    docker pull initbar/webtorrents:latest
+    docker pull initbar/docker-webtorrents:latest
     docker run \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -e DISPLAY=${DISPLAY} \
