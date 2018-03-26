@@ -32,7 +32,7 @@
 (add-hook 'json-mode-hook
           (lambda ()
             (make-local-variable 'js-indent-level)
-            (setq js-indent-level 2)))
+            (setq js-indent-level 4)))
 
 ; custom highlighting
 (add-hook 'after-change-major-mode-hook
