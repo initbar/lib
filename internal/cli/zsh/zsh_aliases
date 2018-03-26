@@ -150,7 +150,7 @@ alias b="bash"
 
   {
     alias gtd='git diff'
-    alias gtl='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate'
+    alias gtl='git log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --show-signature -1'
     alias gtp='git push origin --progress'
     alias gtpf='git push origin --progress --force'
     alias gtpu='git pull origin'
