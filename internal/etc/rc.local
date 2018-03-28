@@ -3,23 +3,36 @@
 {
   export user="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
 
-  [ -d /tmp/wine ] || {
-    mkdir -p /tmp/wine
-  }
+  # /tmp
+  [ -d /tmp/wine ] || { mkdir -p /tmp/wine;}
   chown $user:$user /tmp/wine -R
   chmod 700 /tmp/wine -R
 
-  [ -d /sandbox ] || {
-    mkdir -p /sandbox
+  # /var
+  [ -d /var/cache/apt ] && {
+    chown root:root /var/cache/apt -R
+    chmod 755 /var/cache/apt
   }
+  [ -d /var/crash ] && {
+    chown root:root /var/crash -R
+    chmod 755 /var/crash
+  }
+  [ -d /var/tmp ] && {
+    chown root:root /var/tmp -R
+    chmod 755 /var/tmp
+  }
+
+  # /sandbox
+  [ -d /sandbox ] || { mkdir -p /sandbox;}
   chown $user:$user /sandbox -R
   chmod 700 /sandbox -R
 
-  [ -d /cache ] || {
-    mkdir -p /cache
-  }
+  # /cache
+  [ -d /cache ] || { mkdir -p /cache;}
   mkdir -p /cache/opera
   mkdir -p /cache/chromium
+  mkdir -p /cache/dnsmasq
+  touch /cache/dnsmasq/daemon.log
   mkdir -p /cache/firefoxd
   mkdir -p /cache/firefox/Cache
   mkdir -p /cache/firefox/Crash
@@ -29,11 +42,13 @@
   chown $user:$user /cache -R
   chmod 744 /cache -R
 
-  [ -d /fs ] || {
-    mkdir -p /fs
+  # dnsmasq
+  chown $user:root /cache/dnsmasq -R
+  chmod 755 /cache/dnsmasq -R
+  chmod 644 /cache/dnsmasq/daemon.log
+  [ -n "$(which dnsmasq)" ] && {
+    sudo service dnsmasq restart
   }
-  chown $user:$user /fs -R
-  chmod 711 /fs -R
 
   unset user
 }
