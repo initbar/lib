@@ -29,12 +29,14 @@
 
   # /cache
   [ -d /cache ] || { mkdir -p /cache;}
-  mkdir -p /cache/opera
   mkdir -p /cache/chromium
-  mkdir -p /cache/firefoxd
   mkdir -p /cache/firefox/Cache
   mkdir -p /cache/firefox/Crash
   mkdir -p /cache/firefox/extensions
+  mkdir -p /cache/firefoxd
+  mkdir -p /cache/keybase
+  mkdir -p /cache/opera
+  mkdir -p /cache/remmina
   mkdir -p /cache/thumbnails
   mkdir -p /cache/vlc
   touch /cache/dnsmasq.log
