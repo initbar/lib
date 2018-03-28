@@ -31,21 +31,19 @@
   [ -d /cache ] || { mkdir -p /cache;}
   mkdir -p /cache/opera
   mkdir -p /cache/chromium
-  mkdir -p /cache/dnsmasq
-  touch /cache/dnsmasq/daemon.log
   mkdir -p /cache/firefoxd
   mkdir -p /cache/firefox/Cache
   mkdir -p /cache/firefox/Crash
   mkdir -p /cache/firefox/extensions
   mkdir -p /cache/thumbnails
   mkdir -p /cache/vlc
+  touch /cache/dnsmasq.log
   chown $user:$user /cache -R
   chmod 744 /cache -R
 
   # dnsmasq
-  chown $user:root /cache/dnsmasq -R
-  chmod 755 /cache/dnsmasq -R
-  chmod 644 /cache/dnsmasq/daemon.log
+  chown $user:root /cache/dnsmasq.log
+  chmod 644 /cache/dnsmasq.log
   [ -n "$(which dnsmasq)" ] && {
     sudo service dnsmasq restart
   }
