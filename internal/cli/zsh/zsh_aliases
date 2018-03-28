@@ -83,9 +83,9 @@ alias b="bash"
   }
 
   {
-    [ -d /fs ] && alias f='cd /fs'
-    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /fs'
-    alias setm='veracrypt -d /fs'
+    [ -d /archive ] && alias a='cd /archive'
+    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /archive'
+    alias setm='veracrypt -d /archive'
   }
 }
 

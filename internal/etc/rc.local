@@ -22,6 +22,10 @@
     chmod 755 /var/tmp
   }
 
+  [ -d /archive ] || { mkdir -p /archive;}
+  chown $user:$user /archive
+  chmod 700 /archive
+
   # /sandbox
   [ -d /sandbox ] || { mkdir -p /sandbox;}
   chown $user:$user /sandbox -R
