@@ -1,8 +1,8 @@
 # /var
-tmpfs /var/cache/apt tmpfs defaults,noatime,nosuid,noexec,size=384M    0 0
-tmpfs /var/crash     tmpfs defaults,noatime,nosuid,noexec,size=1024M   0 0
-tmpfs /var/log       tmpfs defaults,noatime,nosuid,mode=0755,size=128M 0 0
-tmpfs /var/tmp       tmpfs defaults,noatime,nosuid,noexec,size=512M    0 0
+tmpfs /var/cache/apt tmpfs defaults,noatime,nosuid,noexec,size=384M           0 0
+tmpfs /var/crash     tmpfs defaults,noatime,nosuid,noexec,size=1024M          0 0
+tmpfs /var/log       tmpfs defaults,noatime,nosuid,noexec,mode=0755,size=128M 0 0
+tmpfs /var/tmp       tmpfs defaults,noatime,nosuid,noexec,size=512M           0 0
 
 # /tmp
 tmpfs /tmp       tmpfs defaults,noatime,nosuid,nodev,size=2048M 0 0
