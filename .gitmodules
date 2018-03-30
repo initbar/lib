@@ -16,3 +16,6 @@
 [submodule "submodules/ls++"]
 	path = submodules/ls++
 	url = https://github.com/trapd00r/ls--.git
+[submodule "submodules/hx"]
+	path = submodules/hx
+	url = https://github.com/krpors/hx.git
