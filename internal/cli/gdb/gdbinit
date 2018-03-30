@@ -1,0 +1,2 @@
+source ~/.lib/internal/cli/gdb/gdbinit.local
+source ~/.lib/submodules/gdb/pwndbg/gdbinit.py
