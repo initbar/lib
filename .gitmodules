@@ -19,3 +19,6 @@
 [submodule "submodules/hx"]
 	path = submodules/hx
 	url = https://github.com/krpors/hx.git
+[submodule "submodules/movfuscator"]
+	path = submodules/movfuscator
+	url = https://github.com/xoreaxeaxeax/movfuscator.git
