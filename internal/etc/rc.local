@@ -33,6 +33,7 @@
 
   # /cache
   [ -d /cache ] || { mkdir -p /cache;}
+  # mkdir -p /cache/squid # /var/cache/squid
   mkdir -p /cache/chromium # ~/.cache/google-chrome
   mkdir -p /cache/firefox/Cache # ~/.mozilla/firefox
   mkdir -p /cache/firefox/Crash # ~/.mozilla/firefox
@@ -41,7 +42,6 @@
   mkdir -p /cache/keybase # ~/.cache/keybase
   mkdir -p /cache/opera # ~/.cache/opera
   mkdir -p /cache/remmina # ~/.cache/remmina
-  mkdir -p /cache/squid # /var/cache/squid
   mkdir -p /cache/thumbnails # ~/.cache/thumbnails, ~/.thumbnails
   mkdir -p /cache/vlc # ~/.cache/vlc
   touch /cache/dnsmasq.log
@@ -56,12 +56,21 @@
   }
 
   # squid
-  {
+  [ -n "$(which squid)" ] && {
     touch /var/log/access.log
     touch /var/log/cache.log
     chown proxy:root /var/log/access.log
     chown proxy:root /var/log/cache.log
-  } && squid
+    chown proxy:proxy /var/cache/squid
+  } && squid -z && squid
+  iptables -t nat \
+           -A PREROUTING \
+           -i eth0 \
+           -p tcp \
+           -m tcp \
+           --dport 80 \
+           -j REDIRECT \
+           --to-ports 3126
 
   unset user
 }
