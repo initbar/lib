@@ -1,0 +1,186 @@
+
+##############################################
+#                                            #
+#        dnscrypt-proxy configuration        #
+#                                            #
+##############################################
+
+##################################
+#         Global settings        #
+##################################
+
+listen_addresses = ['127.0.0.1:53']
+
+server_names = ['cloudflare']
+fallback_resolver = '80.80.80.80:53'
+ignore_system_dns = true
+
+max_clients = 250
+
+ipv4_servers = true
+ipv6_servers = false
+block_ipv6 = true
+
+# Use servers implementing the DNSCrypt protocol
+dnscrypt_servers = true
+
+# Use servers implementing the DNS-over-HTTPS protocol
+doh_servers = true
+
+# Server must support DNS security extensions (DNSSEC)
+require_dnssec = false
+
+# Server must not log user queries (declarative)
+require_nolog = true
+
+# Server must not enforce its own blacklist
+require_nofilter = true
+
+## Always use TCP to connect to upstream servers
+force_tcp = false
+
+## How long a DNS query will wait for a response, in milliseconds
+timeout = 2500
+
+cert_refresh_delay = 240
+
+log_file = '/var/log/dnscrypt-proxy/dnscrypt-proxy.log'
+log_level = 2
+
+# Maximum log files size in MB
+log_files_max_size = 10
+
+# How long to keep backup files, in days
+log_files_max_age = 7
+
+# Maximum log files backups to keep (or 0 to keep all backups)
+log_files_max_backups = 1
+
+##################################################################################
+#        Route queries for specific domains to a dedicated set of servers        #
+##################################################################################
+
+# forwarding_rules = 'forwarding-rules.txt'
+
+###############################
+#        Cloaking rules       #
+###############################
+
+# cloaking_rules = 'cloaking-rules.txt'
+
+###########################
+#        DNS cache        #
+###########################
+
+## Enable a DNS cache to reduce latency and outgoing traffic
+cache = true
+
+## Cache size
+cache_size = 256
+
+## Minimum TTL for cached entries
+cache_min_ttl = 600
+
+## Maximum TTL for cached entries
+cache_max_ttl = 86400
+
+## TTL for negatively cached entries
+cache_neg_ttl = 60
+
+###############################
+#        Query logging        #
+###############################
+
+## Log client queries to a file
+[query_log]
+
+  ## Path to the query log file (absolute, or relative to the same directory as the executable file)
+  file = '/var/log/dnscrypt-proxy/query.log'
+
+  ## Query log format (currently supported: tsv and ltsv)
+  format = 'tsv'
+
+  ## Do not log these query types, to reduce verbosity. Keep empty to log everything.
+  # ignored_qtypes = ['DNSKEY', 'NS']
+
+############################################
+#        Suspicious queries logging        #
+############################################
+
+[nx_log]
+
+  ## Path to the query log file (absolute, or relative to the same directory as the executable file)
+  file = '/var/log/dnscrypt-proxy/nx.log'
+
+  ## Query log format (currently supported: tsv and ltsv)
+  format = 'tsv'
+
+######################################################
+#        Pattern-based blocking (blacklists)        #
+######################################################
+
+[blacklist]
+
+  ## Path to the file of blocking rules (absolute, or relative to the same directory as the executable file)
+  # blacklist_file = 'blacklist.txt'
+
+  ## Optional path to a file logging blocked queries
+  log_file = '/var/log/dnscrypt-proxy/blocked.log'
+
+  ## Optional log format: tsv or ltsv (default: tsv)
+  log_format = 'tsv'
+
+###########################################################
+#        Pattern-based IP blocking (IP blacklists)        #
+###########################################################
+
+[ip_blacklist]
+
+  ## Path to the file of blocking rules (absolute, or relative to the same directory as the executable file)
+  # blacklist_file = 'ip-blacklist.txt'
+
+  ## Optional path to a file logging blocked queries
+  log_file = '/var/log/dnscrypt-proxy/ip-blocked.log'
+
+  ## Optional log format: tsv or ltsv (default: tsv)
+  log_format = 'tsv'
+
+##########################################
+#        Time access restrictions        #
+##########################################
+
+[schedules]
+
+  # [schedules.'time-to-sleep']
+  # mon = [{after='21:00', before='7:00'}]
+  # tue = [{after='21:00', before='7:00'}]
+  # wed = [{after='21:00', before='7:00'}]
+  # thu = [{after='21:00', before='7:00'}]
+  # fri = [{after='23:00', before='7:00'}]
+  # sat = [{after='23:00', before='7:00'}]
+  # sun = [{after='21:00', before='7:00'}]
+
+  # [schedules.'work']
+  # mon = [{after='9:00', before='18:00'}]
+  # tue = [{after='9:00', before='18:00'}]
+  # wed = [{after='9:00', before='18:00'}]
+  # thu = [{after='9:00', before='18:00'}]
+  # fri = [{after='9:00', before='17:00'}]
+
+#########################
+#        Servers        #
+#########################
+
+[sources]
+
+  [sources.'public-resolvers']
+  urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v2/public-resolvers.md', 'https://download.dnscrypt.info/resolvers-list/v2/public-resolvers.md']
+  cache_file = 'public-resolvers.md'
+  minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
+  refresh_delay = 72
+  prefix = ''
+
+[static]
+
+  # [static.'google']
+  # stamp = 'sdns://AgUAAAAAAAAAACDyXGrcc5eNecJ8nomJCJ-q6eCLTEn6bHic0hWGUwYQaA5kbnMuZ29vZ2xlLmNvbQ0vZXhwZXJpbWVudGFs'

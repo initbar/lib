@@ -44,16 +44,16 @@
   mkdir -p /cache/remmina # ~/.cache/remmina
   mkdir -p /cache/thumbnails # ~/.cache/thumbnails, ~/.thumbnails
   mkdir -p /cache/vlc # ~/.cache/vlc
-  touch /cache/dnsmasq.log
+  # touch /cache/dnsmasq.log
   chown $user:$user /cache -R
   chmod 744 /cache -R
 
-  # dnsmasq
-  chown $user:root /cache/dnsmasq.log
-  chmod 644 /cache/dnsmasq.log
-  [ -n "$(which dnsmasq)" ] && {
-    sudo service dnsmasq restart
-  }
+  # dnsmasq (replaced by dnscrypt-proxy)
+  # chown $user:root /cache/dnsmasq.log
+  # chmod 644 /cache/dnsmasq.log
+  # [ -n "$(which dnsmasq)" ] && {
+  #   sudo service dnsmasq restart
+  # }
 
   # squid
   [ -n "$(which squid)" ] && {
