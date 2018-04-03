@@ -85,7 +85,8 @@ set -uo pipefail
     # resolv.conf
     (
       [ -L /etc/resolv.conf ] && { sudo unlink /etc/resolv.conf;}
-      echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf
+      echo -n 'nameserver 1.1.1.1' | sudo tee /etc/resolv.conf
+      sudo chattr +i /etc/resolv.conf
     )
 
     # ssh
