@@ -25,3 +25,6 @@
 [submodule "submodules/dnscrypt-proxy"]
 	path = submodules/dnscrypt-proxy
 	url = https://github.com/jedisct1/dnscrypt-proxy.git
+[submodule "submodules/upx"]
+	path = submodules/upx
+	url = https://github.com/upx/upx.git
