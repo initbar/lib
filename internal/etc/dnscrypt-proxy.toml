@@ -12,7 +12,7 @@ server_names = ['cloudflare']
 fallback_resolver = '80.80.80.80:53'
 ignore_system_dns = true
 
-max_clients = 250
+max_clients = 256
 timeout = 2500
 
 cert_refresh_delay = 240
