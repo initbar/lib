@@ -41,6 +41,9 @@
     export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
     export GCSFUSE_REPO=gcsfuse-$(lsb_release -c -s)
 
+    # disable LFS clone
+    export GIT_LFS_SKIP_SMUDGE=1
+
     # it's possible that XDG_RUNTIME_DIR is not declared at login.
     # So we need to explicitly declare it.
     # [ -n "$XDG_RUNTIME_DIR" ] || {
