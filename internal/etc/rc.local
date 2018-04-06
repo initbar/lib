@@ -39,8 +39,10 @@
   mkdir -p /cache/firefox/Crash # ~/.mozilla/firefox
   mkdir -p /cache/firefox/extensions # ~/.mozilla/firefox
   mkdir -p /cache/firefoxd # ~/.mozilla/firefox
+  mkdir -p /cache/golang # ~/.cache/go-build
   mkdir -p /cache/keybase # ~/.cache/keybase
   mkdir -p /cache/opera # ~/.cache/opera
+  mkdir -p /cache/pip # ~/.cache/pip
   mkdir -p /cache/remmina # ~/.cache/remmina
   mkdir -p /cache/thumbnails # ~/.cache/thumbnails, ~/.thumbnails
   mkdir -p /cache/vlc # ~/.cache/vlc
