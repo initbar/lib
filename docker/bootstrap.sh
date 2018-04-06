@@ -101,7 +101,7 @@
 
   # (
   #   cd /tmp
-  #   curl 'https://storage.googleapis.com/golang/go1.9.2.linux-amd64.tar.gz' |\
+  #   curl 'https://dl.google.com/go/go1.10.1.linux-amd64.tar.gz' |\
   #       gzip -d - |\
   #       tar -xv
   #   sudo cp -r go /usr/local
