@@ -225,7 +225,7 @@ alias b="bash"
   }
 
   {
-    alias mplayer='mplayer -cache 16384'
+    alias mp='mplayer -cache 4096'
     alias vlc='vlc -vv'
 
     function youtube-dl() {
