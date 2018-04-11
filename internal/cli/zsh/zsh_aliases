@@ -174,10 +174,10 @@ alias b="bash"
 
   {
     alias pycc="python -OO -m py_compile"
-    alias pipi='sudo -H pip2 install'
-    alias pipu="pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip2 install -U"
-    alias pip3i='sudo -H pip3 install'
-    alias pip3u="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 sudo -H pip3 install -U"
+    alias pipi='pip2 install'
+    alias pipu="pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install -U"
+    alias pip3i='pip3 install'
+    alias pip3u="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
   }
 
   {

@@ -1,3 +1,5 @@
 submodules/
 external/
 !external/*/*.gz
+pysandbox/
+virtualenv/

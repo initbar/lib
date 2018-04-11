@@ -109,3 +109,5 @@ if [ -f '/home/h/.google-cloud-sdk/path.zsh.inc' ]; then source '/home/h/.google
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/h/.google-cloud-sdk/completion.zsh.inc' ]; then source '/home/h/.google-cloud-sdk/completion.zsh.inc'; fi
+
+[ -d ~/.lib/pysandbox ] && { . ~/.lib/pysandbox/bin/activate;}
