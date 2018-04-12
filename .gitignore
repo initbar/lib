@@ -1,5 +1,5 @@
 submodules/
 external/
 !external/*/*.gz
-pysandbox/
-virtualenv/
+pyradox2/
+pyradox3/
