@@ -11,3 +11,6 @@ tmpfs /tmp     tmpfs defaults,noatime,nosuid,nodev,size=2048M,mode=1777 0 0
 # custom
 tmpfs /cache   tmpfs defaults,nodev,noatime,nosuid,nodev,size=1024M 0 0
 tmpfs /sandbox tmpfs defaults,noatime,nosuid,nodev,size=4096M 0 0
+
+# sd card
+/dev/mmcblk0p1 /backpack ext4 defaults,nosuid,nodev,relatime,data=ordered,uhelper=udisks2 0 0

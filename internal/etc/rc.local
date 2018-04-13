@@ -22,9 +22,10 @@
     chmod 755 /var/tmp
   }
 
-  [ -d /archive ] || { mkdir -p /archive;}
-  chown $user:$user /archive
-  chmod 700 /archive
+  # backpack
+  [ -d /backpack ] || { mkdir -p /backpack;}
+  chown $user:$user /backpack
+  chmod 700 /backpack
 
   # /sandbox
   [ -d /sandbox ] || { mkdir -p /sandbox;}
