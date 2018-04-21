@@ -13,6 +13,7 @@
         go-mode
         json-mode
         linum-relative
+        markdown-mode
         paradox
         php-mode
         rust-mode
