@@ -1,10 +1,9 @@
 #!/usr/bin/env zsh
 
-alias b="bash"
-
 {
   [ -d "${HOME}/Downloads" ] && alias d="cd ${HOME}/Downloads"
   [ -d "/keybase/private/initbar" ] && alias k="cd /keybase/private/initbar"
+  [ -d /backpack ] && alias b='cd /backpack'
   [ -d /sandbox ] && alias s='cd /sandbox'
   [ -d /cache ] && alias c='cd /cache'
   [ -d /tmp ] && alias t='cd /tmp'
@@ -142,7 +141,7 @@ alias b="bash"
 
     alias sa='ssh-add'
     alias sb='ssh-keygen -B -f'
-    alias scp='scp -C -v'
+    alias scp='scp -2 -C -v -p'
     alias sd='ssh-add -D'
     alias sk='ssh-keygen -t rsa -b 4096 -a 2048 -E sha256 -v'
     alias ski='openssl rsa -text -noout <'
