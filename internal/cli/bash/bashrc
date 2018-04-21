@@ -60,3 +60,8 @@ export GREP_COLOR='97;45'
   PS1+=${PS}
   unset PS;
 }
+
+# Google Cloud Console
+[ -f /google/devshell/bashrc.google ] && {
+  source /google/devshell/bashrc.google
+}
