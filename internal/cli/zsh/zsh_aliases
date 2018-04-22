@@ -19,6 +19,7 @@
   alias ipt="sudo iptables -L -v -n --line-numbers | egrep 'Chain [A-Za-z0-9-]+' -A100000"
   alias lspci='lspci -tv'
   alias lsusb='lsusb -tv'
+  alias ncdu='ncdu -r -x'
   alias mosh='mosh -n'
   alias pw="acpi -V | grep Battery"
   alias ser='sudo service --status-all | grep +'
