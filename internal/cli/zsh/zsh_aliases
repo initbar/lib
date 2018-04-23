@@ -83,9 +83,8 @@
   }
 
   {
-    [ -d /archive ] && alias a='cd /archive'
-    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /archive'
-    alias setm='veracrypt -d /archive'
+    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /backpack'
+    alias setm='veracrypt -d /backpack'
   }
 }
 
