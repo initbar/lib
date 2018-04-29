@@ -1,0 +1,8 @@
+// xrdb ~/.Xdefaults
+
+// alt+b, alt+f
+xterm*metaSendsEscape: true
+
+// colors
+xterm*background: black
+xterm*foreground: lightgray
