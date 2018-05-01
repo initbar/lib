@@ -64,9 +64,10 @@
     touch /var/log/cache.log
     chown proxy:root /var/log/access.log
     chown proxy:root /var/log/cache.log
-    mkdir -p /cache/squid
-    chown proxy:proxy /cache/squid
-    # chown proxy:proxy /var/cache/squid
+    # mkdir -p /cache/squid
+    # chown proxy:proxy /cache/squid
+    # chmod 744 /cache/squid
+    chown proxy:proxy /var/cache/squid # tmpfs fstab
   } && squid -z && squid
 
   unset user
