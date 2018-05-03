@@ -3,6 +3,7 @@
 
 ; hide menu bar
 (menu-bar-mode -1)
+(line-number-mode -1)
 
 ; fix weird color escape sequences
 (setq system-uses-terminfo nil)
