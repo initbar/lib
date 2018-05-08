@@ -24,21 +24,28 @@
 (setq web-mode-markup-indent-offset 2)
 
 ; indentation (python)
-(add-hook 'python-mode-hook
-          '(lambda ()
-             (setq python-indent 4)))
+(add-hook
+ 'python-mode-hook
+ '(lambda ()
+    (setq python-indent 4)))
 
 ; indentation (json)
-(add-hook 'json-mode-hook
-          (lambda ()
-            (make-local-variable 'js-indent-level)
-            (setq js-indent-level 4)))
+(add-hook
+ 'json-mode-hook
+ (lambda ()
+   (make-local-variable 'js-indent-level)
+   (setq js-indent-level 4)))
 
 ; custom highlighting
-(add-hook 'after-change-major-mode-hook
-          '(lambda ()
-             (font-lock-add-keywords
-              nil
-              '(("\\([0-9*&|()<>{}$?/,.]+\\)"
-                 1
-                 font-lock-warning-face prepend)))))
+(add-hook
+ 'after-change-major-mode-hook
+ '(lambda ()
+    (font-lock-add-keywords
+     nil
+     '(("\\([0-9*&|()<>{}$?/,.]+\\)"
+        1
+        font-lock-warning-face prepend)))))
+
+; ipython
+(setq python-shell-interpreter "ipython"
+      python-shell-interpreter-args "--simple-prompt -i")

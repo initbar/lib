@@ -44,6 +44,9 @@
     # disable LFS clone
     export GIT_LFS_SKIP_SMUDGE=1
 
+    # Hashivorp Vault
+    export VAULT_ADDR=http://127.0.0.1:8200
+
     # it's possible that XDG_RUNTIME_DIR is not declared at login.
     # So we need to explicitly declare it.
     # [ -n "$XDG_RUNTIME_DIR" ] || {

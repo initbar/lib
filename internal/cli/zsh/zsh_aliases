@@ -82,10 +82,10 @@
     alias dp="docker ps -s"
   }
 
-  {
-    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /backpack'
-    alias setm='veracrypt -d /backpack'
-  }
+  # {
+  #   alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /backpack'
+  #   alias setm='veracrypt -d /backpack'
+  # }
 }
 
 {
@@ -153,7 +153,7 @@
 
   {
     alias gtd='git diff'
-    alias gtl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --decorate"
+    alias gtl="git log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
     alias gtp='git push origin --progress'
     alias gtpf='git push origin --progress --force'
     alias gtpu='git pull origin'

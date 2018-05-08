@@ -16,6 +16,7 @@
         markdown-mode
         paradox
         php-mode
+        py-autopep8
         rust-mode
         swoop
         toml-mode

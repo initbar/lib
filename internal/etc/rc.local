@@ -23,9 +23,9 @@
   }
 
   # backpack
-  [ -d /backpack ] || { mkdir -p /backpack;}
-  chown $user:$user /backpack
-  chmod 700 /backpack
+  # [ -d /backpack ] || { mkdir -p /backpack;}
+  # chown $user:$user /backpack
+  # chmod 700 /backpack
 
   # /sandbox
   [ -d /sandbox ] || { mkdir -p /sandbox;}
