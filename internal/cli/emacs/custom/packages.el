@@ -7,10 +7,11 @@
 
 (setq package-list
       '(
+        ; doom-themes
         auto-complete
         dockerfile-mode
-        doom-themes
         go-mode
+        highlight-indent-guides
         json-mode
         linum-relative
         markdown-mode

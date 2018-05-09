@@ -15,7 +15,7 @@
 (add-hook 'prog-mode-hook 'whitespace-mode)
 
 ; highlight current line
-(global-hl-line-mode 1)
+; (global-hl-line-mode 1)
 (set-face-attribute 'region nil :background "#222" :foreground "#ff0000")
 
 ; match parenthesis

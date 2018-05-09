@@ -24,3 +24,6 @@
 (require 'py-autopep8)
 (add-hook 'elpy-mode-hook 'py-autopep8-enable-on-save)
 ; ~$ pip install autopep8
+
+; highlight-indentation
+(setq highlight-indent-guides-method 'character)
