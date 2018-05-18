@@ -14,7 +14,9 @@ export LANG='C'
 export LC_MESSAGES='C'
 export GREP_COLOR='97;45'
 
+[ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;}
 [ -f ~/.zsh_functions ] && { . ~/.zsh_functions;}
+
 {
   alias ls='ls -Q --classify --group-directories-first --color=auto'
   alias l='ls -lh'
@@ -39,7 +41,7 @@ export GREP_COLOR='97;45'
   alias nlu="sudo netstat -nupl | sort -r | egrep '[0.]{7}'"
   alias nec='sudo netstat -ntpe | sort -r | grep TIME_WAIT'
   alias nes='sudo netstat -ntpe | sort -r | grep CLOSED_WAIT'
-}; [ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;}
+}
 
 {
   r=$(tput setaf 1)

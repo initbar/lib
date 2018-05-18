@@ -12,6 +12,7 @@
   alias du='du -xch'
   alias fr="free -lh | egrep 'total|used|free' -A5"
   alias gl='glances -t2 -1 -d'
+  alias gpg='gpg -q'
   alias gsutil='gsutil -m'
   alias host='host -t any -v -l'
   alias htop="htop -u ${USER}"
@@ -109,7 +110,7 @@
   alias sqlmap='sqlmap --random-agent --level=5 --risk=3 -a -b'
   alias strace='strace -fttTCx -s 9999 -y'
   alias valgrind='valgrind --leak-check=full --show-leak-kinds=all'
-  alias entropy="ent -t -b"
+  alias entropy="ent -b"
 
   function wpscan() {
     docker pull wpscanteam/wpscan

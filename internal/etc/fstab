@@ -1,5 +1,5 @@
 # /var
-tmpfs /var/cache/apt   tmpfs defaults,noatime,nodev,nosuid,noexec,size=256M,mode=0755 0 0
+tmpfs /var/cache/apt   tmpfs defaults,noatime,nodev,nosuid,noexec,size=512M,mode=0755 0 0
 tmpfs /var/cache/squid tmpfs defaults,noatime,nodev,nosuid,noexec,size=128M,mode=0755 0 0
 tmpfs /var/crash     tmpfs defaults,noatime,nodev,nosuid,noexec,size=512M,mode=0755   0 0
 tmpfs /var/log       tmpfs defaults,noatime,nodev,nosuid,noexec,size=128M,mode=0755   0 0
