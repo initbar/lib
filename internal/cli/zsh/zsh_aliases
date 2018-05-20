@@ -83,10 +83,10 @@
     alias dp="docker ps -s"
   }
 
-  # {
-  #   alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ /backpack'
-  #   alias setm='veracrypt -d /backpack'
-  # }
+  {
+    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ ~/Desktop'
+    alias setm='veracrypt -d ~/Desktop'
+  }
 }
 
 {
@@ -311,7 +311,7 @@
   # }
 
   function webtorrent-desktop() {
-    xhost local:root
+    # xhost local:root
     docker pull initbar/docker-webtorrents:latest
     docker run \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
