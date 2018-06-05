@@ -3,13 +3,13 @@
 # Global settings
 #===============================================================================
 
-listen_addresses = ['127.0.0.1:53']
+listen_addresses = ['127.0.0.53:53']
 ipv4_servers = true
 ipv6_servers = false
 block_ipv6 = true
 
 server_names = ['cloudflare']
-fallback_resolver = '80.80.80.80:53'
+fallback_resolver = '1.1.1.1:53'
 ignore_system_dns = true
 
 max_clients = 256
@@ -67,7 +67,7 @@ cache_neg_ttl = 60
 #===============================================================================
 
 [blacklist]
-  blacklist_file = "/opt/dnscrypt/blocklist.txt" # ~/.lib/external/dnscrypt/mybase.txt
+  blacklist_file = "/opt/dnscrypt.blocklist"
   log_file = '/var/log/dnscrypt-proxy/blocked.log'
   log_format = 'tsv'
 

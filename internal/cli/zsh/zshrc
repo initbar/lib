@@ -56,9 +56,9 @@
 
   DISABLE_UPDATE_PROMPT=true
   DISABLE_AUTO_UPDATE=true
-  # ZSH_THEME="cypher"
+  ZSH_THEME="cypher"
   # ZSH_THEME="fishy"
-  ZSH_THEME="agnoster"
+  # ZSH_THEME="agnoster"
   plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
   setopt AUTOCD             # type the name of a directory to switch
@@ -113,4 +113,13 @@ if [ -f '/home/h/.google-cloud-sdk/path.zsh.inc' ]; then source '/home/h/.google
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/h/.google-cloud-sdk/completion.zsh.inc' ]; then source '/home/h/.google-cloud-sdk/completion.zsh.inc'; fi
 
-[ -d ~/.lib/pyradox2 ] && { . ~/.lib/pyradox2/bin/activate;}
+[ -d ~/.lib/pyradox2 ] && {
+  test -z "${VIRTUAL_ENV}" && {
+    . ~/.lib/pyradox2/bin/activate
+  }
+
+  test $(id -u) -ne 0 || {
+    deactivate
+  }
+  # TODO: clean up PS1.
+}

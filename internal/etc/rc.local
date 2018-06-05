@@ -60,14 +60,14 @@
 
   # squid
   [ -n "$(which squid)" ] && {
+    mkdir -p /var/log/squid
     touch /var/log/access.log
     touch /var/log/cache.log
+    chown proxy:root /var/log/squid -R
     chown proxy:root /var/log/access.log
     chown proxy:root /var/log/cache.log
-    # mkdir -p /cache/squid
-    # chown proxy:proxy /cache/squid
-    # chmod 744 /cache/squid
     chown proxy:proxy /var/cache/squid # tmpfs fstab
+    ln -sf /var/log/cache.log /var/log/squid/cache.log
   } && squid -z && squid
 
   unset user

@@ -178,10 +178,8 @@
 
   {
     alias pycc="python -OO -m py_compile"
-    alias pipi='pip2 install'
-    alias pipu="pip2 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip2 install -U"
-    alias pip3i='pip3 install'
-    alias pip3u="pip3 freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip3 install -U"
+    alias pipi='pip install'
+    alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
   }
 
   {
