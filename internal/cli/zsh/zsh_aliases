@@ -231,7 +231,7 @@
     alias vlc='vlc -vv'
 
     function youtube-dl() {
-      docker pull initbar/docker-youtube-dl:latest
+      # docker pull initbar/docker-youtube-dl:latest
       docker run \
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
@@ -241,7 +241,7 @@
     }
 
     function mp3-dl() {
-      docker pull initbar/docker-youtube-dl:latest
+      # docker pull initbar/docker-youtube-dl:latest
       docker run \
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
@@ -255,7 +255,7 @@
     }
 
     function ffmpeg() {
-      docker pull initbar/docker-ffmpeg:latest
+      # docker pull initbar/docker-ffmpeg:latest
       docker run \
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
@@ -275,7 +275,7 @@
 
 {
   function ds() {
-    docker pull initbar/docker-dockfiles:latest
+    # docker pull initbar/docker-dockfiles:latest
     docker run \
            --rm -it \
            --user ubuntu \
@@ -285,7 +285,7 @@
   }
 
   function tcli() {
-    docker pull initbar/docker-transmission-cli:latest
+    # docker pull initbar/docker-transmission-cli:latest
     docker run \
            -v ${HOME}/.torrents:/torrents \
            -p ${RANDOM}:9091 \
@@ -310,7 +310,7 @@
 
   function webtorrent-desktop() {
     # xhost local:root
-    docker pull initbar/docker-webtorrents:latest
+    # docker pull initbar/docker-webtorrents:latest
     docker run \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
            -e DISPLAY=${DISPLAY} \
