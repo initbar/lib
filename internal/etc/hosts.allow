@@ -3,3 +3,6 @@ ALL: localhost
 
 # docker
 sshd: 172.17.
+
+# local
+sshd: 192.168.
