@@ -254,15 +254,15 @@
              "$1"
     }
 
-    function ffmpeg() {
-      # docker pull initbar/docker-ffmpeg:latest
-      docker run \
-             -v ${PWD}:/downloads \
-             -u $(id -u):$(id -g) \
-             --rm \
-             'initbar/docker-ffmpeg' \
-             "$@"
-    }
+    # function ffmpeg() {
+    #   # docker pull initbar/docker-ffmpeg:latest
+    #   docker run \
+    #          -v ${PWD}:/downloads \
+    #          -u $(id -u):$(id -g) \
+    #          --rm \
+    #          'initbar/docker-ffmpeg' \
+    #          "$@"
+    # }
   }
 }
 
