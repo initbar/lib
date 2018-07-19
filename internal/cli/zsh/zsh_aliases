@@ -23,7 +23,7 @@
   alias lspci='lspci -tv'
   alias lsusb='lsusb -tv'
   alias ncdu='ncdu -r -x'
-  alias mosh='mosh -n'
+  alias mosh='mosh -n --family=prefer-inet'
   alias pw="acpi -V | grep Battery"
   alias ser='sudo service --status-all | grep +'
   alias sort="sort --parallel=$(nproc)"
