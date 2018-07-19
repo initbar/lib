@@ -13,9 +13,9 @@ UseDNS no
 # Hostkey
 #--------------------------------------------------------------------------------
 # HostKey /etc/ssh/ssh_host_dsa_key
-HostKey /etc/ssh/ssh_host_ecdsa_key
-HostKey /etc/ssh/ssh_host_ed25519_key
-HostKey /etc/ssh/ssh_host_rsa_key
+# HostKey /etc/ssh/ssh_host_ecdsa_key
+# HostKey /etc/ssh/ssh_host_ed25519_key
+# HostKey /etc/ssh/ssh_host_rsa_key
 
 # Banner
 #--------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ KerberosAuthentication no
 KerberosOrLocalPasswd no
 KerberosTicketCleanup yes
 LoginGraceTime 30
-PasswordAuthentication yes
+PasswordAuthentication no
 PubkeyAuthentication yes
 UsePAM no
 
@@ -51,7 +51,7 @@ Ciphers aes256-ctr,aes256-cbc,aes128-ctr,aes128-cbc,blowfish-cbc
 Compression yes
 IgnoreRhosts yes
 IgnoreUserKnownHosts yes
-MaxAuthTries 5
+MaxAuthTries 4
 MaxSessions 10
 MaxStartups 10:51:15
 PermitEmptyPasswords no
@@ -71,4 +71,4 @@ SyslogFacility AUTH
 
 # Subsystems
 #--------------------------------------------------------------------------------
-Subsystem sftp /usr/lib/openssh/sftp-server
+# Subsystem sftp /usr/lib/openssh/sftp-server
