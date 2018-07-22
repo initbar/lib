@@ -31,13 +31,14 @@
 	</Application>
 	<Logging />
 	<MainWindow>
-		<X>140</X>
-		<Y>62</Y>
+		<X>111</X>
+		<Y>49</Y>
 		<Width>1079</Width>
 		<Height>656</Height>
-		<SplitterHorizontalFrac>0.41516245487364623</SplitterHorizontalFrac>
+		<SplitterHorizontalFrac>0.32490974729241878</SplitterHorizontalFrac>
 		<SplitterVerticalFrac>0.22408963585434172</SplitterVerticalFrac>
 		<Layout>Default</Layout>
+		<MinimizeToTray>true</MinimizeToTray>
 		<DropToBackAfterClipboardCopy>true</DropToBackAfterClipboardCopy>
 		<DisableSaveIfNotModified>true</DisableSaveIfNotModified>
 		<ToolBar />
@@ -59,7 +60,7 @@
 		<EntryListAutoResizeColumns>true</EntryListAutoResizeColumns>
 		<ListSorting>
 			<Column>0</Column>
-			<Order>Ascending</Order>
+			<Order>Descending</Order>
 		</ListSorting>
 		<ShowEntriesOfSubGroups>true</ShowEntriesOfSubGroups>
 	</MainWindow>
@@ -67,9 +68,7 @@
 		<TrayIcon>
 			<ShowOnlyIfTrayed>true</ShowOnlyIfTrayed>
 		</TrayIcon>
-		<Hiding>
-			<HideInEntryWindow>false</HideInEntryWindow>
-		</Hiding>
+		<Hiding />
 		<StandardFont>
 			<Family>Fantasque Sans Mono</Family>
 			<Size>9</Size>
@@ -124,7 +123,7 @@
 		<UserProfiles />
 	</PasswordGenerator>
 	<Defaults>
-		<OptionsTabIndex>4</OptionsTabIndex>
+		<OptionsTabIndex>2</OptionsTabIndex>
 		<SearchParameters>
 			<ComparisonMode>InvariantCultureIgnoreCase</ComparisonMode>
 		</SearchParameters>
