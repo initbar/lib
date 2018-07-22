@@ -86,8 +86,8 @@
   }
 
   {
-    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ ~/Desktop'
-    alias setm='veracrypt -d ~/Desktop'
+    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ ~/storage'
+    alias setm='veracrypt -d ~/storage'
   }
 }
 
