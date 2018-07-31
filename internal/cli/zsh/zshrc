@@ -60,8 +60,8 @@
   DISABLE_UPDATE_PROMPT=true
   DISABLE_AUTO_UPDATE=true
   # ZSH_THEME="cypher"
-  # ZSH_THEME="fishy"
-  ZSH_THEME="agnoster"
+  ZSH_THEME="fishy"
+  # ZSH_THEME="agnoster"
   # ZSH_THEME="simple"
   plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
@@ -119,7 +119,7 @@ if [ -f '/home/h/.google-cloud-sdk/completion.zsh.inc' ]; then source '/home/h/.
 
 [ -d ~/.lib/pyradox2 ] && {
   test -z "${VIRTUAL_ENV}" && {
-    . ~/.lib/pyradox2/bin/activate
+    . ~/.lib/pyradox3/bin/activate
   }
   test $(id -u) -ne 0 || { deactivate;}
   # TODO: clean up PS1.
