@@ -67,7 +67,7 @@ cache_neg_ttl = 60
 #===============================================================================
 
 [blacklist]
-  blacklist_file = "/opt/dnscrypt.blocklist"
+  # blacklist_file = "/opt/dnscrypt.blocklist"
   log_file = '/var/log/dnscrypt-proxy/blocked.log'
   log_format = 'tsv'
 
