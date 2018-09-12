@@ -8,8 +8,8 @@
 (setq-default tab-width 2)
 (setq-default standard-indent 2)
 (setq-default indent-tabs-mode nil)
-(setq tab-width 2)
-(setq standard-indent 2)
+(setq tab-width 4)
+(setq standard-indent 4)
 
 ; indentation
 (setq c-basic-offset 2)

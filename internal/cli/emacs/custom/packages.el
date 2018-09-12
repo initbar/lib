@@ -15,7 +15,7 @@
         json-mode
         linum-relative
         markdown-mode
-        paradox
+        ; paradox
         php-mode
         protobuf-mode
         py-autopep8
