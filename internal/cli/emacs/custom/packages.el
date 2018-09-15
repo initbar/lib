@@ -8,6 +8,7 @@
 (setq package-list
       '(
         ; doom-themes
+        ; paradox
         auto-complete
         dockerfile-mode
         go-mode
@@ -15,7 +16,6 @@
         json-mode
         linum-relative
         markdown-mode
-        ; paradox
         php-mode
         protobuf-mode
         py-autopep8
@@ -23,6 +23,7 @@
         swoop
         toml-mode
         tramp
+        yaml-mode
         ))
 
 (package-initialize)
