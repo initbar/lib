@@ -12,14 +12,14 @@ server_names = ['cloudflare']
 fallback_resolver = '1.1.1.1:53'
 ignore_system_dns = true
 
-max_clients = 256
+max_clients = 1024
 timeout = 2500
 
 cert_refresh_delay = 240
 dnscrypt_servers = true
 doh_servers = true
 force_tcp = false
-require_dnssec = false
+require_dnssec = true
 require_nofilter = true
 require_nolog = true
 
@@ -43,7 +43,7 @@ log_files_max_backups = 1
 #===============================================================================
 
 cache = true
-cache_size = 512
+cache_size = 384
 cache_min_ttl = 600
 cache_max_ttl = 86400
 cache_neg_ttl = 60
@@ -54,7 +54,7 @@ cache_neg_ttl = 60
 [query_log]
   file = '/var/log/dnscrypt-proxy/query.log'
   format = 'tsv'
-  # ignored_qtypes = ['DNSKEY', 'NS']
+  ignored_qtypes = ['NS']
 
 # Suspicious queries logging
 #===============================================================================
