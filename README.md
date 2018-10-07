@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-~$ git clone https://github.com/initbar/dotfiles.git ~/.lib
+~$ git clone https://gitlab.com/initbar/dotfiles.git ~/.lib
 ~$ cd ~/.lib
 ~$ git submodule update --init --recursive
 ```
