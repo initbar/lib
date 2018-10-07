@@ -233,38 +233,25 @@
     alias vlc='vlc -vv'
 
     function youtube-dl() {
-      # docker pull initbar/docker-youtube-dl:latest
       docker run \
-             -v ${PWD}:/downloads \
-             -u $(id -u):$(id -g) \
+             -v $PWD:/downloads \
              --rm -d \
-             'initbar/docker-youtube-dl' \
+             registry.gitlab.com/initbar/docker-transmission-cli:latest \
              "$1"
     }
 
     function mp3-dl() {
-      # docker pull initbar/docker-youtube-dl:latest
       docker run \
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
-             'initbar/docker-youtube-dl' \
+             registry.gitlab.com/initbar/docker-transmission-cli \
              --extract-audio \
              --prefer-ffmpeg \
              --audio-format mp3 \
              --audio-quality 320k \
              "$1"
     }
-
-    # function ffmpeg() {
-    #   # docker pull initbar/docker-ffmpeg:latest
-    #   docker run \
-    #          -v ${PWD}:/downloads \
-    #          -u $(id -u):$(id -g) \
-    #          --rm \
-    #          'initbar/docker-ffmpeg' \
-    #          "$@"
-    # }
   }
 }
 
@@ -276,49 +263,26 @@
 }
 
 {
-  function ds() {
-    # docker pull initbar/docker-dockfiles:latest
-    docker run \
-           --rm -it \
-           --user ubuntu \
-           -v ${PWD}:/sandbox \
-           --security-opt seccomp:unconfined \
-           'initbar/dockfiles'
-  }
-
   function tcli() {
-    # docker pull initbar/docker-transmission-cli:latest
     docker run \
-           -v ${HOME}/.torrents:/torrents \
-           -p ${RANDOM}:9091 \
-           -p ${RANDOM}:51413/tcp \
-           -p ${RANDOM}:51413/udp \
-           --dns 80.80.80.80 \
-           --dns 8.8.8.8 \
+           -v ${PWD}:/root/Downloads \
+           -p $RANDOM:9091 \
+           -p $RANDOM:51413/tcp \
+           -p $RANDOM:51413/udp \
+           --dns 1.1.1.1 \
            --rm -d \
-           'initbar/docker-transmission-cli' \
+           registry.gitlab.com/initbar/docker-transmission-cli \
            "$1" # magnet link
   }
 
-  # function firefox() {
-  #   xhost local:root
-  #   docker pull initbar/firefox:latest
-  #   docker run \
-  #          -e DISPLAY=${DISPLAY} \
-  #          -v /tmp/.X11-unix:/tmp/.X11-unix \
-  #          --rm -it -d \
-  #          'initbar/docker-firefox'
-  # }
-
   function webtorrent-desktop() {
     # xhost local:root
-    # docker pull initbar/docker-webtorrents:latest
     docker run \
+           -e DISPLAY=$DISPLAY \
            -v /tmp/.X11-unix:/tmp/.X11-unix \
-           -e DISPLAY=${DISPLAY} \
            --device /dev/snd \
            --privileged \
            --rm -it -d \
-           'initbar/docker-webtorrents'
+           'registry.gitlab.com/initbar/docker-webtorrents'
   }
 }
