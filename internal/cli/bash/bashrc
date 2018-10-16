@@ -10,8 +10,10 @@ if ! shopt -oq posix; then
     fi
 fi
 
-export LANG='C'
-export LC_MESSAGES='C'
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LANGUAGE="en_US.UTF-8"
+export LANG="en_US.UTF-8"
 export GREP_COLOR='97;45'
 
 [ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;}
@@ -43,25 +45,25 @@ export GREP_COLOR='97;45'
   alias nes='sudo netstat -ntpe | sort -r | grep CLOSED_WAIT'
 }
 
-{
-  r=$(tput setaf 1)
-  g=$(tput setaf 2)
-  y=$(tput setaf 3)
-  c=$(tput setaf 4)
-  m=$(tput setaf 5)
-  w=$(tput setaf 7)
-  i=$(tput setaf 6)
-  d=$(tput sgr0)
+# {
+#   r=$(tput setaf 1)
+#   g=$(tput setaf 2)
+#   y=$(tput setaf 3)
+#   c=$(tput setaf 4)
+#   m=$(tput setaf 5)
+#   w=$(tput setaf 7)
+#   i=$(tput setaf 6)
+#   d=$(tput sgr0)
 
-  PS1="\[$y\]\w\[$d\] "
-  test $UID -eq 0 && {
-    PS="\[$r\]=> \[$d\]"
-  } || {
-    PS="\[$m\]=> \[$d\]"
-  }
-  PS1+=${PS}
-  unset PS;
-}
+#   PS1="\[$y\]\w\[$d\] "
+#   test $UID -eq 0 && {
+#     PS="\[$r\]=> \[$d\]"
+#   } || {
+#     PS="\[$m\]=> \[$d\]"
+#   }
+#   PS1+=${PS}
+#   unset PS;
+# }
 
 # Google Cloud Console
 [ -f /google/devshell/bashrc.google ] && {

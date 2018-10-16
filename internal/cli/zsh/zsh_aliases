@@ -235,8 +235,8 @@
     function youtube-dl() {
       docker run \
              -v $PWD:/downloads \
-             --rm -d \
-             registry.gitlab.com/initbar/docker-transmission-cli:latest \
+             --rm \
+             registry.gitlab.com/initbar/docker-youtube-dl:latest \
              "$1"
     }
 
@@ -245,7 +245,7 @@
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
-             registry.gitlab.com/initbar/docker-transmission-cli \
+             registry.gitlab.com/initbar/docker-youtube-dl:latest \
              --extract-audio \
              --prefer-ffmpeg \
              --audio-format mp3 \
