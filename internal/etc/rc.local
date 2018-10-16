@@ -34,7 +34,6 @@
 
   # /cache
   [ -d /cache ] || { mkdir -p /cache;}
-  # mkdir -p /cache/squid # /var/cache/squid
   mkdir -p /cache/chromium # ~/.cache/google-chrome
   mkdir -p /cache/firefox/Cache # ~/.mozilla/firefox
   mkdir -p /cache/firefox/Crash # ~/.mozilla/firefox
@@ -59,16 +58,16 @@
   # }
 
   # squid
-  [ -n "$(which squid)" ] && {
-    mkdir -p /var/log/squid
-    touch /var/log/access.log
-    touch /var/log/cache.log
-    chown proxy:root /var/log/squid -R
-    chown proxy:root /var/log/access.log
-    chown proxy:root /var/log/cache.log
-    chown proxy:proxy /var/cache/squid # tmpfs fstab
-    ln -sf /var/log/cache.log /var/log/squid/cache.log
-  } && squid -z && squid
+  # [ -n "$(which squid)" ] && {
+  #   mkdir -p /var/log/squid
+  #   touch /var/log/access.log
+  #   touch /var/log/cache.log
+  #   chown proxy:root /var/log/squid -R
+  #   chown proxy:root /var/log/access.log
+  #   chown proxy:root /var/log/cache.log
+  #   chown proxy:proxy /var/cache/squid # tmpfs fstab
+  #   ln -sf /var/log/cache.log /var/log/squid/cache.log
+  # } && squid -z && squid
 
   unset user
 }

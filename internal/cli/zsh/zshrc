@@ -48,7 +48,7 @@
     export VAULT_ADDR=http://127.0.0.1:8200
 
     # redirect using Squid proxy
-    export http_proxy=http://127.0.0.1:8128
+    # export http_proxy=http://127.0.0.1:8128
 
     # it's possible that XDG_RUNTIME_DIR is not declared at login.
     # So we need to explicitly declare it.
