@@ -37,14 +37,14 @@
    (setq js-indent-level 4)))
 
 ; custom highlighting
-(add-hook
- 'after-change-major-mode-hook
- '(lambda ()
-    (font-lock-add-keywords
-     nil
-     '(("\\([0-9*&|()<>{}$?/,.]+\\)"
-        1
-        font-lock-warning-face prepend)))))
+;; (add-hook
+;;  'after-change-major-mode-hook
+;;  '(lambda ()
+;;     (font-lock-add-keywords
+;;      nil
+;;      '(("\\([0-9*&|()<>{}$?/,.]+\\)"
+;;         1
+;;         font-lock-warning-face prepend)))))
 
 ; ipython
 (setq python-shell-interpreter "ipython"

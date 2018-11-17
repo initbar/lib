@@ -236,7 +236,7 @@
       docker run \
              -v $PWD:/downloads \
              --rm \
-             registry.gitlab.com/initbar/docker-youtube-dl:latest \
+             'docker.init.bar/initbar/docker-youtube-dl:latest' \
              "$1"
     }
 
@@ -245,7 +245,7 @@
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
-             registry.gitlab.com/initbar/docker-youtube-dl:latest \
+             'docker.init.bar/initbar/docker-youtube-dl:latest' \
              --extract-audio \
              --prefer-ffmpeg \
              --audio-format mp3 \
@@ -271,7 +271,7 @@
            -p $RANDOM:51413/udp \
            --dns 1.1.1.1 \
            --rm -d \
-           registry.gitlab.com/initbar/docker-transmission-cli \
+           'docker.init.bar/initbar/docker-transmission-cli' \
            "$1" # magnet link
   }
 
@@ -283,6 +283,6 @@
            --device /dev/snd \
            --privileged \
            --rm -it -d \
-           'registry.gitlab.com/initbar/docker-webtorrents'
+           'docker.init.bar/initbar/docker-webtorrent-desktop'
   }
 }
