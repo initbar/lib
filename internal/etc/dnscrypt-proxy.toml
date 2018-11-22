@@ -12,8 +12,8 @@ server_names = ['cloudflare']
 fallback_resolver = '1.1.1.1:53'
 ignore_system_dns = true
 
-max_clients = 1024
-timeout = 2500
+max_clients = 768
+timeout = 3000
 
 cert_refresh_delay = 240
 dnscrypt_servers = true
@@ -42,7 +42,7 @@ log_files_max_backups = 1
 # DNS cache
 #===============================================================================
 
-cache = true
+cache = false
 cache_size = 384
 cache_min_ttl = 600
 cache_max_ttl = 86400
