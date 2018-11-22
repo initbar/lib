@@ -47,6 +47,9 @@
     # Hashivorp Vault
     export VAULT_ADDR=http://127.0.0.1:8200
 
+    # default virtualenv
+    export DEFAULT_VIRTUALENV=$HOME/.lib/pyradox3
+
     # redirect using Squid proxy
     # export http_proxy=http://127.0.0.1:8128
 
@@ -108,6 +111,10 @@
 
   [ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;}
   [ -f ~/.zsh_functions ] && { . ~/.zsh_functions;}
+
+  [ ! -d "${DEFAULT_VIRTUALENV}" ] || {
+    . "${DEFAULT_VIRTUALENV}/bin/activate"
+  }
 }
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -115,17 +122,3 @@ if [ -f '/home/h/.google-cloud-sdk/path.zsh.inc' ]; then source '/home/h/.google
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/h/.google-cloud-sdk/completion.zsh.inc' ]; then source '/home/h/.google-cloud-sdk/completion.zsh.inc'; fi
-
-[ -d ~/.lib/pyradox3 ] && {
-  test -z "${VIRTUAL_ENV}" && {
-    . ~/.lib/pyradox3/bin/activate
-  }
-  test $(id -u) -ne 0 || { deactivate;}
-  # TODO: clean up PS1.
-}
-
-
-# root PS1
-test $(id -u) -eq 0 && {
-  export PS1="[root] $PS1";
-}

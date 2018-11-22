@@ -10,6 +10,26 @@
   [ -d /cache ] && alias c='cd /cache'
   [ -d /tmp ] && alias t='cd /tmp'
 
+  function cd() {
+    [ -z "$1" ] && {
+      builtin cd ~
+    } || {
+      builtin cd "$1"
+    }
+
+    # automatically detect and inherit virtualenv
+    [ -z "$(which virtualenv)" ] || {
+      deactivate || true
+      if [ -d ./.venv ]; then
+          . ./.venv/bin/activate
+      else
+        [ -d "${DEFAULT_VIRTUALENV}" ] && {
+          . "${DEFAULT_VIRTUALENV}/bin/activate"
+        }
+      fi
+    }
+  }
+
   alias df="df -hl | grep -v Filesystem | sort | egrep -i '[0-9]+%'"
   alias du='du -xch'
   alias fr="free -lh | egrep 'total|used|free' -A5"
@@ -74,7 +94,7 @@
   }
 
   {
-    alias shd='shred -n 1 -u -z -f -v'
+    alias shd='shred -n 1 -u -z -f --random-source=/dev/urandom -v'
     alias srm='srm -d -r -v'
   }
 
@@ -265,7 +285,7 @@
 {
   function tcli() {
     docker run \
-           -v ${PWD}:/root/Downloads \
+           -v $HOME/.torrents:/root/Downloads \
            -p $RANDOM:9091 \
            -p $RANDOM:51413/tcp \
            -p $RANDOM:51413/udp \
