@@ -276,7 +276,6 @@
 }
 
 {
-  # alias 7z='7z -bb3'
   alias ark-secure='7z a -t7z -m0=lzma2 -mx=9 -mfb=128 -md=64m -ms=on -mhe=on -p'
   alias ark='7z a -t7z -m0=lzma2 -mx=9 -mfb=128 -md=64m -ms=on -mhe=on'
   alias xz="xz --threads=$(cat /proc/cpuinfo|grep cores|wc -l)"
