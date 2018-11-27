@@ -11,6 +11,7 @@
   title_transmit_bg_color = "#d50000"
   title_transmit_fg_color = "#000000"
   title_use_system_font = False
+  window_state = maximise
 [keybindings]
   broadcast_all = None
   broadcast_group = None
