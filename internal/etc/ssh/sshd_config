@@ -1,7 +1,6 @@
-# Port & Listen Address & User
+# Listen
 #--------------------------------------------------------------------------------
 AddressFamily inet
-AllowUsers ubuntu
 ListenAddress 0.0.0.0
 Port 22
 
@@ -10,20 +9,25 @@ Port 22
 Protocol 2
 UseDNS no
 
-# Hostkey
+# Ciphers
 #--------------------------------------------------------------------------------
-# HostKey /etc/ssh/ssh_host_dsa_key
-# HostKey /etc/ssh/ssh_host_ecdsa_key
-# HostKey /etc/ssh/ssh_host_ed25519_key
-# HostKey /etc/ssh/ssh_host_rsa_key
+Ciphers aes128-ctr,aes192-ctr,aes256-ctr
+HostKeyAlgorithms ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,ssh-rsa,ssh-dss
+KexAlgorithms ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256
+MACs hmac-sha2-256,hmac-sha2-512
+
+# User
+#--------------------------------------------------------------------------------
+AllowUsers ubuntu
+PermitRootLogin no
 
 # Banner
 #--------------------------------------------------------------------------------
 Banner /etc/ssh/banner.txt
-PrintMotd no
 PrintLastLog yes
+PrintMotd no
 
-# Authentication/Login
+# Authentication
 #--------------------------------------------------------------------------------
 AuthorizedKeysFile %h/.ssh/authorized_keys
 ChallengeResponseAuthentication no
@@ -32,7 +36,6 @@ DebianBanner no
 FingerprintHash sha256
 GSSAPIAuthentication no
 GSSAPICleanupCredentials yes
-GatewayPorts no
 HostbasedAuthentication no
 KerberosAuthentication no
 KerberosOrLocalPasswd no
@@ -42,31 +45,44 @@ PasswordAuthentication no
 PubkeyAuthentication yes
 UsePAM no
 
+# Forwarding
+#--------------------------------------------------------------------------------
+AllowStreamLocalForwarding no
+AllowTcpForwarding no
+GatewayPorts no
+PermitTunnel no
+
 # Hardening Tweaks
 #--------------------------------------------------------------------------------
-# UseLogin no
-# UsePrivilegeSeparation yes
-AllowTcpForwarding no
+AllowAgentForwarding no
 Compression yes
 IgnoreRhosts yes
 IgnoreUserKnownHosts yes
-MaxAuthTries 4
+MaxAuthTries 3
 MaxSessions 10
 MaxStartups 10:51:15
 PermitEmptyPasswords no
-PermitRootLogin no
-PermitTunnel no
 PermitUserEnvironment no
 StrictModes yes
 TCPKeepAlive yes
 VersionAddendum none
 X11Forwarding no
 
+# Hostkey
+#--------------------------------------------------------------------------------
+# HostKey /etc/ssh/ssh_host_dsa_key
+# HostKey /etc/ssh/ssh_host_ecdsa_key
+# HostKey /etc/ssh/ssh_host_ed25519_key
+# HostKey /etc/ssh/ssh_host_rsa_key
+
 # Logging
 #--------------------------------------------------------------------------------
 LogLevel VERBOSE
-PidFile /run/sshd.pid
 SyslogFacility AUTH
+
+# PID
+#--------------------------------------------------------------------------------
+PidFile /run/sshd.pid
 
 # Subsystems
 #--------------------------------------------------------------------------------

@@ -62,8 +62,8 @@
 
   DISABLE_UPDATE_PROMPT=true
   DISABLE_AUTO_UPDATE=true
-  # ZSH_THEME="simple"
-  ZSH_THEME="fishy"
+  ZSH_THEME="simple"
+  # ZSH_THEME="fishy"
   # ZSH_THEME="agnoster"
   plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
@@ -80,6 +80,7 @@
   setopt NO_CASE_GLOB       # case insensitive globbing
   setopt NUMERIC_GLOB_SORT  # numeric sort the globs
 
+  # oh-my-zsh
   x="${HOME}/.zsh.d/oh-my-zsh"
   [ -d "${x}" ] && {
     export ZSH="${x}"
@@ -88,6 +89,7 @@
     echo -e "\e[35m[\e[31m#\e[35m] \e[97mPlugin: oh-my-zsh failed to load.\e[0m"
   }
 
+  # zsh-syntax-highliting
   x="${HOME}/.zsh.d/plugins/zsh-syntax-highlighting"
   [ -d "${x}" ] && {
     . "${x}/zsh-syntax-highlighting.plugin.zsh"
@@ -95,6 +97,7 @@
     echo -e "\e[35m[\e[31m#\e[35m] \e[97mPlugin: syntax highlighting failed to load.\e[0m"
   }
 
+  # zsh-completions
   x="${HOME}/.zsh.d/plugins/zsh-completions"
   [ -d "${x}" ] && {
     . "${x}/zsh-completions.plugin.zsh"
@@ -102,6 +105,7 @@
     echo "Failed to load completions"
   }
 
+  # zsh-autosuggestions
   x="${HOME}/.zsh.d/plugins/zsh-autosuggestions"
   [ -d "${x}" ] && {
     . "${x}/zsh-autosuggestions.plugin.zsh"
@@ -109,12 +113,12 @@
     echo "Failed to load suggestions"
   }
 
-  [ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;}
-  [ -f ~/.zsh_functions ] && { . ~/.zsh_functions;}
-
   [ ! -d "${DEFAULT_VIRTUALENV}" ] || {
     . "${DEFAULT_VIRTUALENV}/bin/activate"
   }
+
+  [ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;}
+  [ -f ~/.zsh_functions ] && { . ~/.zsh_functions;}
 }
 
 # The next line updates PATH for the Google Cloud SDK.
