@@ -255,6 +255,7 @@
     function youtube-dl() {
       docker run \
              -v $PWD:/downloads \
+             -u $(id -u):$(id -g) \
              --rm \
              'docker.init.bar/initbar/docker-youtube-dl:latest' \
              "$1"

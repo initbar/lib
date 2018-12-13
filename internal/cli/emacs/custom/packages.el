@@ -10,6 +10,7 @@
         ; doom-themes
         ; paradox
         auto-complete
+        cython-mode
         dockerfile-mode
         go-mode
         highlight-indent-guides
