@@ -86,4 +86,4 @@ PidFile /run/sshd.pid
 
 # Subsystems
 #--------------------------------------------------------------------------------
-# Subsystem sftp /usr/lib/openssh/sftp-server
+# Subsystem sftp internal-sftp
