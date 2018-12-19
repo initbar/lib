@@ -41,9 +41,9 @@ KerberosAuthentication no
 KerberosOrLocalPasswd no
 KerberosTicketCleanup yes
 LoginGraceTime 30
-PasswordAuthentication no
+PasswordAuthentication yes
 PubkeyAuthentication yes
-UsePAM no
+UsePAM yes
 
 # Forwarding
 #--------------------------------------------------------------------------------
