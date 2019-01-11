@@ -256,7 +256,7 @@
       docker run \
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
-             --rm \
+             --rm -d \
              'docker.init.bar/initbar/docker-youtube-dl:latest' \
              "$1"
     }
