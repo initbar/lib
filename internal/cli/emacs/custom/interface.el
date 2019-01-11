@@ -1,6 +1,9 @@
 ; display current time
 (display-time)
 
+; hide welcome screen
+(setq inhibit-startup-screen t)
+
 ; hide menu bar
 (menu-bar-mode -1)
 (line-number-mode -1)
