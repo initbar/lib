@@ -62,8 +62,8 @@
 
   DISABLE_UPDATE_PROMPT=true
   DISABLE_AUTO_UPDATE=true
-  ZSH_THEME="simple"
-  # ZSH_THEME="fishy"
+  # ZSH_THEME="simple"
+  ZSH_THEME="fishy"
   # ZSH_THEME="agnoster"
   plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
