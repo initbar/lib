@@ -29,6 +29,10 @@
  '(lambda ()
     (setq python-indent 4)))
 
+; python execution vertically
+(setq split-height-threshold nil)
+(setq split-width-threshold 0)
+
 ; indentation (json)
 (add-hook
  'json-mode-hook
