@@ -9,6 +9,7 @@
       '(
         ; doom-themes
         ; paradox
+        ; sass-mode
         auto-complete
         cython-mode
         dockerfile-mode

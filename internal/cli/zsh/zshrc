@@ -131,3 +131,6 @@ if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/.goog
 if [ -f "$HOME/.lib.d/gcloud/credentials.json" ]; then
     export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.lib.d/gcloud/credentials.json"
 fi
+
+# export GIT_COMMITTER_DATE=$(date -R)
+# export GIT_AUTHOR_DATE="${GIT_COMMITTER_DATE}"

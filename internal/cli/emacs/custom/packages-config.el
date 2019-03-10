@@ -1,6 +1,9 @@
 ; swoop
 (setq swoop-font-size: 0.9)
 
+; sass-mode
+; (require 'sass-mode)
+
 ; auto-complete
 (ac-config-default)
 

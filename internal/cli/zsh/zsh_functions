@@ -171,6 +171,7 @@ aWYgX19uYW1lX18gPT0gJ19fbWFpbl9fJzoKICBvPUdldE9iamVjdCgpCiAgby5fY2hlY2tVUkwo
 KQogIG8uX2NoZWNrT2JqZWN0RXhpc3RzKCkKICBvLl9leHRyYWN0T2JqZWN0KCkKICBwcmludCgn
 KyBmaW5pc2hlZCEnKQo="
   deactivate && source ~/.lib/pyradox2/bin/activate
+  [ -n "$(pip freeze | grep requests)" ] || pip install requests
   python -c "$(echo -n "$payload" | tr -d '\n' | tr -d ' ' | base64 -d)"
   deactivate && source ~/.lib/pyradox3/bin/activate
 }
