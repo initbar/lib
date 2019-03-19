@@ -257,7 +257,7 @@
              -v $PWD:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
-             'docker.init.bar/initbar/docker-youtube-dl:latest' \
+             'gcr.io/initbar/youtube-dl:latest' \
              "$1"
     }
 
@@ -266,7 +266,7 @@
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
-             'docker.init.bar/initbar/docker-youtube-dl:latest' \
+             'gcr.io/initbar/youtube-dl:latest' \
              --extract-audio \
              --prefer-ffmpeg \
              --audio-format mp3 \
@@ -295,7 +295,7 @@
            -p $RANDOM:51413/udp \
            --dns 1.1.1.1 \
            --rm -d \
-           'docker.init.bar/initbar/docker-transmission-cli' \
+           'gcr.io/initbar/transmission-cli' \
            "$1" # magnet link
   }
 
@@ -307,6 +307,6 @@
            --device /dev/snd \
            --privileged \
            --rm -it -d \
-           'docker.init.bar/initbar/docker-webtorrent-desktop'
+           'gcr.io/initbar/webtorrent-desktop'
   }
 }
