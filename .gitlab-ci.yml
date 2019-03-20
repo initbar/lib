@@ -1,6 +1,19 @@
-stages:
-  - build 
+image: docker:stable
 
-job 1:
+stages:
+  - build
+  - deploy
+
+docker build:
   stage: build
-  script: git clone https://gitlab.com/initbar/dotfiles
+  script:
+    - docker info
+    - docker build -t "${DOCKER_REGISTRY}/initbar/lib:latest" https://gitlab.com/initbar/lib.git
+
+docker push:
+  stage: deploy
+  only:
+    - master
+  script:
+    - echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USER}" --password-stdin
+    - docker push "${DOCKER_REGISTRY}/initbar/lib:latest"
