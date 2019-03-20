@@ -1,5 +1,3 @@
-#!/usr/bin/env zsh
-
 {
   [ -d "${HOME}/Downloads" ] && alias d="cd ${HOME}/Downloads"
   [ -d "${HOME}/private" ] && alias k="cd ${HOME}/private"
