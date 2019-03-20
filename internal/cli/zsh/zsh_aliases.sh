@@ -250,7 +250,9 @@
     function youtube-dl() {
       docker run \
              -v $PWD:/downloads \
+             --dns 8.8.8.8 \
              --rm -d \
+             --hostname container \
              'docker.init.bar/initbar/lib:latest' \
              'youtube-dl' \
              "$1"
@@ -260,13 +262,15 @@
       docker run \
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
+             --dns 8.8.8.8 \
              --rm -d \
+             --hostname container \
              'docker.init.bar/initbar/lib:latest' \
              'youtube-dl' \
-             --extract-audio \
-             --prefer-ffmpeg \
-             --audio-format mp3 \
-             --audio-quality 320k \
+             '--audio-format mp3' \
+             '--audio-quality 320k' \
+             '--extract-audio' \
+             '--prefer-ffmpeg' \
              "$1"
     }
   }
@@ -291,9 +295,17 @@
            -p $RANDOM:51413/udp \
            --dns 1.1.1.1 \
            --rm -d \
+           --hostname container \
            'docker.init.bar/initbar/lib:latest' \
            '/usr/bin/transmission-cli' \
-           "-b -D -er -m -t 0x28 -u 1 -v $1"
+           '-D' \
+           '-b' \
+           '-er' \
+           '-m' \
+           '-t 0x28' \
+           '-u 1' \
+           '-v' \
+           "$1"
   }
 
   # function webtorrent-desktop() {
