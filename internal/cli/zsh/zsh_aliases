@@ -255,9 +255,9 @@
     function youtube-dl() {
       docker run \
              -v $PWD:/downloads \
-             -u $(id -u):$(id -g) \
              --rm -d \
-             'gcr.io/initbar/youtube-dl:latest' \
+             'docker.init.bar/initbar/lib:latest' \
+             'youtube-dl' \
              "$1"
     }
 
@@ -266,7 +266,8 @@
              -v ${PWD}:/downloads \
              -u $(id -u):$(id -g) \
              --rm -d \
-             'gcr.io/initbar/youtube-dl:latest' \
+             'docker.init.bar/initbar/lib:latest' \
+             'youtube-dl' \
              --extract-audio \
              --prefer-ffmpeg \
              --audio-format mp3 \
@@ -295,18 +296,19 @@
            -p $RANDOM:51413/udp \
            --dns 1.1.1.1 \
            --rm -d \
-           'gcr.io/initbar/transmission-cli' \
-           "$1" # magnet link
+           'docker.init.bar/initbar/lib:latest' \
+           '/usr/bin/transmission-cli' \
+           "-b -D -er -m -t 0x28 -u 1 -v $1"
   }
 
-  function webtorrent-desktop() {
-    # xhost local:root
-    docker run \
-           -e DISPLAY=$DISPLAY \
-           -v /tmp/.X11-unix:/tmp/.X11-unix \
-           --device /dev/snd \
-           --privileged \
-           --rm -it -d \
-           'gcr.io/initbar/webtorrent-desktop'
-  }
+  # function webtorrent-desktop() {
+  #   # xhost local:root
+  #   docker run \
+  #          -e DISPLAY=$DISPLAY \
+  #          -v /tmp/.X11-unix:/tmp/.X11-unix \
+  #          --device /dev/snd \
+  #          --privileged \
+  #          --rm -it -d \
+  #          'docker.init.bar/initbar/webtorrent-desktop'
+  # }
 }

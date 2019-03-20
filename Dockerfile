@@ -44,4 +44,3 @@ RUN mkdir -p ${BLOCKLIST_PATH} && \
     rm -rf /tmp/Ultimate-Blocklist
 
 WORKDIR ~
-CMD ["/bin/bash"]
