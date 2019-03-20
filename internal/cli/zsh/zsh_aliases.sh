@@ -2,11 +2,8 @@
   [ -d "${HOME}/Downloads" ] && alias d="cd ${HOME}/Downloads"
   [ -d "${HOME}/private" ] && alias k="cd ${HOME}/private"
   [ -d "${HOME}/public" ] && alias j="cd ${HOME}/public"
-  [ -d "${HOME}/remote" ] && alias r="cd ${HOME}/remote"
-  [ -d /backpack ] && alias b='cd /backpack'
   [ -d /sandbox ] && alias s='cd /sandbox'
   [ -d /cache ] && alias c='cd /cache'
-  [ -d /tmp ] && alias t='cd /tmp'
 
   function cd() {
     [ -z "$1" ] && {
