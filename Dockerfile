@@ -41,5 +41,4 @@ RUN mkdir -p ${BLOCKLIST_PATH} && \
     pip install -r /tmp/Ultimate-Blocklist/requirements.txt && \
     python /tmp/Ultimate-Blocklist/UltimateBlockList.py && \
     mv blocklist.txt ${BLOCKLIST_PATH}/$(date +%F).txt && \
-    ln -sLf /torrents /root/Downloads && \
     rm -rf /tmp/Ultimate-Blocklist
