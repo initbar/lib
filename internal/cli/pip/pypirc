@@ -1,0 +1,14 @@
+[distutils]
+index-servers =
+  dev
+  production
+
+[dev]
+repository = https://test.pypi.org/legacy/
+# username =
+# password =
+
+[production]
+repository = https://upload.pypi.org/legacy/
+# username =
+# password =
