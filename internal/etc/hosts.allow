@@ -6,3 +6,10 @@ sshd: 172.17.
 
 # local
 sshd: 192.168.
+
+# global
+sshd: .googleusercontent.com
+sshd: .gpshopper.rbbnet.net
+sshd: .myvzw.com
+sshd: .us-east-2.compute.amazonaws.com
+sshd: .verizon.net
