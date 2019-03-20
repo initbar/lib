@@ -7,10 +7,10 @@ EXPOSE 9091 \
        50052/udp
 
 USER root
-WORKDIR ~
+WORKDIR /root
 
 ENV ULTIMATE_BLOCKLIST https://github.com/walshie4/Ultimate-Blocklist.git
-ENV BLOCKLIST_PATH ~/.config/transmission/blocklists
+ENV BLOCKLIST_PATH /root/.config/transmission/blocklists
 
 RUN apt-get update &&\
     apt-get install -y \
@@ -29,17 +29,17 @@ RUN apt-get update &&\
         virtualenv \
         youtube_dl
 
-RUN git clone https://gitlab.com/initbar/dotfiles.git ~/.lib &&\
-    cd ~/.lib && git submodule update --init --recursive
+RUN git clone https://gitlab.com/initbar/dotfiles.git /root/.lib &&\
+    cd /root/.lib && git submodule update --init --recursive
 
-RUN mkdir -p ~/.emacs.d &&\
-    ln -sf ~/.lib/internal/cli/emacs/emacs.el ~/.emacs &&\
-    ln -sLf ~/.lib/internal/cli/emacs/custom ~/.emacs.d/custom
+RUN mkdir -p /root/.emacs.d &&\
+    ln -sf /root/.lib/internal/cli/emacs/emacs.el /root/.emacs &&\
+    ln -sLf /root/.lib/internal/cli/emacs/custom /root/.emacs.d/custom
 
 RUN mkdir -p ${BLOCKLIST_PATH} && \
     git clone ${ULTIMATE_BLOCKLIST} /tmp/Ultimate-Blocklist && \
     pip install -r /tmp/Ultimate-Blocklist/requirements.txt && \
     python /tmp/Ultimate-Blocklist/UltimateBlockList.py && \
     mv blocklist.txt ${BLOCKLIST_PATH}/$(date +%F).txt && \
-    ln -sLf /torrents ~/Downloads && \
+    ln -sLf /torrents /root/Downloads && \
     rm -rf /tmp/Ultimate-Blocklist
