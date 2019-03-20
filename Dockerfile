@@ -1,6 +1,4 @@
-FROM ubuntu:18.04
-
-USER root
+FROM ubuntu:18.10
 
 EXPOSE 9091 \
        51413/tcp \
@@ -8,8 +6,11 @@ EXPOSE 9091 \
        46882/udp \
        50052/udp
 
+USER root
+WORKDIR ~
+
 ENV ULTIMATE_BLOCKLIST https://github.com/walshie4/Ultimate-Blocklist.git
-ENV BLOCKLIST_PATH /root/.config/transmission/blocklists
+ENV BLOCKLIST_PATH ~/.config/transmission/blocklists
 
 RUN apt-get update &&\
     apt-get install -y \
@@ -23,13 +24,13 @@ RUN apt-get update &&\
         python \
         python-pip \
         python3 \
-        transmission-cli
-
-RUN pip install virtualenv youtube_dl
+        transmission-cli &&\
+    pip install \
+        virtualenv \
+        youtube_dl
 
 RUN git clone https://gitlab.com/initbar/dotfiles.git ~/.lib &&\
-    cd ~/.lib &&\
-    git submodule update --init --recursive
+    cd ~/.lib && git submodule update --init --recursive
 
 RUN mkdir -p ~/.emacs.d &&\
     ln -sf ~/.lib/internal/cli/emacs/emacs.el ~/.emacs &&\
@@ -40,7 +41,5 @@ RUN mkdir -p ${BLOCKLIST_PATH} && \
     pip install -r /tmp/Ultimate-Blocklist/requirements.txt && \
     python /tmp/Ultimate-Blocklist/UltimateBlockList.py && \
     mv blocklist.txt ${BLOCKLIST_PATH}/$(date +%F).txt && \
-    ln -sLf /torrents /root/Downloads && \
+    ln -sLf /torrents ~/Downloads && \
     rm -rf /tmp/Ultimate-Blocklist
-
-WORKDIR ~
