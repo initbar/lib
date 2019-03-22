@@ -63,7 +63,7 @@
   # ZSH_THEME="simple"
   ZSH_THEME="fishy"
   # ZSH_THEME="agnoster"
-  plugins=(git zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
+  plugins=(git)
 
   setopt AUTOCD             # type the name of a directory to switch
   setopt NOCLOBBER          # prevent from accidentally overwriting an existing file (note: >!)
