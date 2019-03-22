@@ -26,6 +26,7 @@ RUN apt-get update &&\
         python3 \
         transmission-cli &&\
     pip install \
+        ipython \
         virtualenv \
         youtube_dl
 
