@@ -251,17 +251,17 @@
       docker run \
              -v $PWD:/downloads \
              --dns 8.8.8.8 \
-             --rm -d \
+             --rm \
              --hostname container \
              'docker.init.bar/initbar/lib:latest' \
              'youtube-dl' \
+             "-o /downloads/%(title)s"\
              "$1"
     }
 
     function mp3-dl() {
       docker run \
              -v ${PWD}:/downloads \
-             -u $(id -u):$(id -g) \
              --dns 8.8.8.8 \
              --rm -d \
              --hostname container \
