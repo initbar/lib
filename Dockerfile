@@ -24,14 +24,15 @@ RUN apt-get update &&\
         python \
         python-pip \
         python3 \
-        transmission-cli &&\
+        transmission-cli \
+        sudo &&\
     pip install \
         ipython \
         virtualenv \
         youtube_dl
 
-RUN git clone https://gitlab.com/initbar/dotfiles.git /root/.lib
-#    cd /root/.lib && git submodule update --init --recursive
+RUN git clone https://gitlab.com/initbar/dotfiles.git /root/.lib &&\
+    cd /root/.lib && git submodule update --init --recursive
 
 RUN mkdir -p /root/.emacs.d &&\
     ln -sf /root/.lib/internal/cli/emacs/emacs.el /root/.emacs &&\

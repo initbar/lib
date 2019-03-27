@@ -249,13 +249,12 @@
 
     function youtube-dl() {
       docker run \
-             -v $PWD:/downloads \
+             -v $PWD:/root \
              --dns 8.8.8.8 \
              --rm \
              --hostname container \
              'docker.init.bar/initbar/lib:latest' \
              'youtube-dl' \
-             "-o /downloads/%(title)s"\
              "$1"
     }
 
