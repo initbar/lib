@@ -5,7 +5,12 @@
 
   {
     export TERM="xterm-256color"
-    export EDITOR="emacs"
+
+    [ -n "$(command -v emacs)" ] && {
+      export EDITOR="emacs"
+    } || {
+      export EDITOR="vi"
+    }
 
     # keep me here for zsh shell bug
     # export LANG=ko_KR.utf-8
