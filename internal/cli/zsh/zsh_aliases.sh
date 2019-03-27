@@ -49,7 +49,7 @@
     alias ca="chattr -V"
     alias la='lsattr'
     alias ls='ls -Q --classify --group-directories-first --color=auto'
-    [ -n "$(which ls++)" ] && {
+    [ -n "$(command -v ls++)" ] && {
       alias l='ls++ --potsf'
       alias ll='ls++ --potsf -a'
     } || {
