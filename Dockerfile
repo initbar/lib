@@ -12,6 +12,11 @@ WORKDIR /root
 ENV ULTIMATE_BLOCKLIST https://github.com/walshie4/Ultimate-Blocklist.git
 ENV BLOCKLIST_PATH /root/.config/transmission/blocklists
 
+ENV LC_ALL en_US.UTF-8
+ENV LC_CTYPE en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV LANG en_US.UTF-8
+
 RUN apt-get update &&\
     apt-get install -y \
         ca-certificates \
@@ -21,6 +26,7 @@ RUN apt-get update &&\
         ffmpeg \
         git \
         language-pack-en \
+        mosh \
         nano \
         python \
         python-pip \
