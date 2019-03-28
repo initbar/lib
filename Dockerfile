@@ -15,6 +15,7 @@ ENV BLOCKLIST_PATH /root/.config/transmission/blocklists
 RUN apt-get update &&\
     apt-get install -y \
         ca-certificates \
+        curl \
         emacs-goodies-el \
         emacs25-nox \
         ffmpeg \
