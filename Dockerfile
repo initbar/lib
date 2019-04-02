@@ -21,6 +21,7 @@ RUN apt-get update &&\
     apt-get install -y \
         ca-certificates \
         curl \
+        dnsutils \
         emacs-goodies-el \
         emacs25-nox \
         ffmpeg \
