@@ -262,7 +262,7 @@
       docker run \
              -v ${PWD}:/downloads \
              --dns 8.8.8.8 \
-             --rm -d \
+             --rm \
              --hostname container \
              'docker.init.bar/initbar/lib:latest' \
              'youtube-dl' \
