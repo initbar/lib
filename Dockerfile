@@ -9,13 +9,13 @@ EXPOSE 9091 \
 USER root
 WORKDIR /root
 
-ENV ULTIMATE_BLOCKLIST https://github.com/walshie4/Ultimate-Blocklist.git
 ENV BLOCKLIST_PATH /root/.config/transmission/blocklists
+ENV ULTIMATE_BLOCKLIST https://github.com/walshie4/Ultimate-Blocklist.git
 
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV LC_CTYPE en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
-ENV LANG en_US.UTF-8
 
 RUN apt-get update &&\
     apt-get install -y \
@@ -33,7 +33,8 @@ RUN apt-get update &&\
         python-pip \
         python3 \
         transmission-cli \
-        sudo &&\
+        sudo \
+        whois &&\
     pip install \
         ipython \
         virtualenv \
