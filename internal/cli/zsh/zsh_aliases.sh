@@ -253,7 +253,7 @@
              --dns 8.8.8.8 \
              --rm \
              --hostname container \
-             'docker.init.bar/initbar/lib:latest' \
+             'initbar/lib:latest' \
              'youtube-dl' \
              "$1"
     }
@@ -264,7 +264,7 @@
              --dns 8.8.8.8 \
              --rm \
              --hostname container \
-             'docker.init.bar/initbar/lib:latest' \
+             'initbar/lib:latest' \
              'youtube-dl' \
              '--audio-format mp3' \
              '--audio-quality 320k' \
@@ -295,7 +295,7 @@
            --dns 1.1.1.1 \
            --rm -d \
            --hostname container \
-           'docker.init.bar/initbar/lib:latest' \
+           'initbar/lib:latest' \
            '/usr/bin/transmission-cli' \
            '-D' \
            '-b' \
@@ -315,6 +315,6 @@
   #          --device /dev/snd \
   #          --privileged \
   #          --rm -it -d \
-  #          'docker.init.bar/initbar/webtorrent-desktop'
+  #          'initbar/webtorrent-desktop'
   # }
 }
