@@ -128,20 +128,6 @@
   alias strace='strace -fttTCx -s 9999 -y'
   alias valgrind='valgrind --leak-check=full --show-leak-kinds=all'
   alias entropy="ent -b"
-
-  function wpscan() {
-    docker pull wpscanteam/wpscan
-    docker run -it \
-           --rm wpscanteam/wpscan \
-           --random-agent \
-           --threads 2 \
-           --enumerate t \
-           --enumerate p \
-           --enumerate u \
-           --wp-content-dir custom-content \
-           --wp-plugins-dir wp-content/custom-plugins \
-           "$@"
-  }
 }
 
 {
@@ -246,32 +232,6 @@
   {
     alias mp='mplayer -cache 4096'
     alias vlc='vlc -vv'
-
-    function youtube-dl() {
-      docker run \
-             -v $PWD:/root \
-             --dns 8.8.8.8 \
-             --rm \
-             --hostname container \
-             'initbar/lib:latest' \
-             'youtube-dl' \
-             "$1"
-    }
-
-    function mp3-dl() {
-      docker run \
-             -v ${PWD}:/downloads \
-             --dns 8.8.8.8 \
-             --rm \
-             --hostname container \
-             'initbar/lib:latest' \
-             'youtube-dl' \
-             '--audio-format mp3' \
-             '--audio-quality 320k' \
-             '--extract-audio' \
-             '--prefer-ffmpeg' \
-             "$1"
-    }
   }
 }
 
@@ -285,7 +245,25 @@
   alias xz="xz --threads=$(cat /proc/cpuinfo|grep cores|wc -l)"
 }
 
+#
+# Docker
+#
+
 {
+  function wpscan() {
+    docker pull wpscanteam/wpscan
+    docker run -it \
+           --rm wpscanteam/wpscan \
+           --random-agent \
+           --threads 2 \
+           --enumerate t \
+           --enumerate p \
+           --enumerate u \
+           --wp-content-dir custom-content \
+           --wp-plugins-dir wp-content/custom-plugins \
+           "$@"
+  }
+
   function tcli() {
     docker run \
            -v $HOME/.torrents:/root/Downloads \
@@ -307,14 +285,29 @@
            "$1"
   }
 
-  # function webtorrent-desktop() {
-  #   # xhost local:root
-  #   docker run \
-  #          -e DISPLAY=$DISPLAY \
-  #          -v /tmp/.X11-unix:/tmp/.X11-unix \
-  #          --device /dev/snd \
-  #          --privileged \
-  #          --rm -it -d \
-  #          'initbar/webtorrent-desktop'
-  # }
+    function youtube-dl() {
+      docker run \
+             -v $PWD:/root \
+             --dns 8.8.8.8 \
+             --rm \
+             --hostname container \
+             'initbar/lib:latest' \
+             'youtube-dl' \
+             "$1"
+    }
+
+    function mp3-dl() {
+      docker run \
+             -v ${PWD}:/root \
+             --dns 8.8.8.8 \
+             --rm \
+             --hostname container \
+             'initbar/lib:latest' \
+             'youtube-dl' \
+             --audio-format mp3 \
+             --audio-quality 320k \
+             --extract-audio \
+             --prefer-ffmpeg \
+             "$1"
+    }
 }
