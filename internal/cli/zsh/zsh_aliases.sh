@@ -304,6 +304,7 @@
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
+             --verbose \
              --audio-format mp3 \
              --audio-quality 320k \
              --extract-audio \
