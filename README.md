@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-~$ git clone https://bitbucket.org/initbar/lib.git ~/.lib
+~$ git clone https://github.com/initbar/lib.git ~/.lib
 ~$ cd ~/.lib && git submodule update --init --recursive
 ```
 
