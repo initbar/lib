@@ -10,8 +10,8 @@
 ## Docker
 
 ```bash
-~$ # docker pull initbar/dotfiles:latest
-~$ docker run -it --rm initbar/dotfiles:latest /bin/bash
+~$ # docker pull initbar/lib:latest
+~$ docker run -it --rm initbar/lib:latest /bin/bash
 ```
 
 ## License
