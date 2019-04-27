@@ -40,7 +40,7 @@ RUN apt-get update &&\
         virtualenv \
         youtube_dl
 
-RUN git clone https://bitbucket.org/initbar/lib.git /root/.lib &&\
+RUN git clone https://github.com/initbar/lib.git /root/.lib &&\
     cd /root/.lib && git submodule update --init --recursive
 
 RUN mkdir -p /root/.emacs.d &&\
