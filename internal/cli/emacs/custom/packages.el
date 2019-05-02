@@ -17,6 +17,7 @@
         highlight-indent-guides
         json-mode
         linum-relative
+        mark-multiple
         markdown-mode
         php-mode
         protobuf-mode
