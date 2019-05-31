@@ -266,7 +266,7 @@
 
   function tcli() {
     docker run \
-           -v $HOME/.torrents:/root/Downloads \
+           -v $HOME/.torrents:/home/ubuntu/Downloads \
            -p $RANDOM:9091 \
            -p $RANDOM:51413/tcp \
            -p $RANDOM:51413/udp \
@@ -287,7 +287,7 @@
 
     function youtube-dl() {
       docker run \
-             -v $PWD:/root \
+             -v $PWD:/home/ubuntu \
              --dns 8.8.8.8 \
              --rm \
              --hostname container \
@@ -298,7 +298,7 @@
 
     function mp3-dl() {
       docker run \
-             -v ${PWD}:/root \
+             -v ${PWD}:/home/ubuntu \
              --dns 8.8.8.8 \
              --rm \
              --hostname container \
