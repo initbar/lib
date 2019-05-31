@@ -7,15 +7,6 @@ EXPOSE 9091 \
        50052/udp
 
 USER root
-WORKDIR /root
-
-ENV BLOCKLIST_PATH /root/.config/transmission/blocklists
-ENV ULTIMATE_BLOCKLIST https://github.com/walshie4/Ultimate-Blocklist.git
-
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
-ENV LC_CTYPE en_US.UTF-8
 
 RUN apt-get update &&\
     apt-get install -y \
@@ -34,18 +25,33 @@ RUN apt-get update &&\
         python3 \
         transmission-cli \
         sudo \
-        whois &&\
-    pip install \
-        ipython \
-        virtualenv \
-        youtube_dl
+        whois
 
-RUN git clone https://github.com/initbar/dotfiles.git /root/.lib &&\
-    cd /root/.lib && git submodule update --init --recursive
+RUN useradd -rm -d /home/ubuntu -s /bin/bash -G sudo -u 1000 ubuntu
+RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/ubuntu
 
-RUN mkdir -p /root/.emacs.d &&\
-    ln -sf /root/.lib/internal/cli/emacs/emacs.el /root/.emacs &&\
-    ln -sLf /root/.lib/internal/cli/emacs/custom /root/.emacs.d/custom
+USER ubuntu
+WORKDIR /home/ubuntu
+
+ENV BLOCKLIST_PATH /home/ubuntu/.config/transmission/blocklists
+ENV ULTIMATE_BLOCKLIST https://github.com/walshie4/Ultimate-Blocklist.git
+
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LC_CTYPE en_US.UTF-8
+
+RUN sudo -H pip install \
+                ipython \
+                virtualenv \
+                youtube_dl
+
+RUN git clone https://github.com/initbar/dotfiles.git /home/ubuntu/.lib &&\
+    cd /home/ubuntu/.lib && git submodule update --init --recursive
+
+RUN mkdir -p /home/ubuntu/.emacs.d &&\
+    ln -sf /home/ubuntu/.lib/internal/cli/emacs/emacs.el /home/ubuntu/.emacs &&\
+    ln -sLf /home/ubuntu/.lib/internal/cli/emacs/custom /home/ubuntu/.emacs.d/custom
 
 RUN mkdir -p ${BLOCKLIST_PATH} && \
     git clone ${ULTIMATE_BLOCKLIST} /tmp/Ultimate-Blocklist && \
@@ -53,4 +59,5 @@ RUN mkdir -p ${BLOCKLIST_PATH} && \
     python /tmp/Ultimate-Blocklist/UltimateBlockList.py && \
     mv blocklist.txt ${BLOCKLIST_PATH}/$(date +%F).txt && \
     rm -rf /tmp/Ultimate-Blocklist &&\
-    mkdir /downloads
+    sudo mkdir /downloads &&\
+    sudo chown ubuntu /downloads
