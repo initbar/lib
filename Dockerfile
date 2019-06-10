@@ -8,6 +8,16 @@ EXPOSE 9091 \
 
 USER root
 
+ENV WORKDIR /home/ubuntu
+
+ENV BLOCKLIST_PATH $WORKDIR/.config/transmission/blocklists
+ENV ULTIMATE_BLOCKLIST https://github.com/walshie4/Ultimate-Blocklist.git
+
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LC_CTYPE en_US.UTF-8
+
 RUN apt-get update &&\
     apt-get install -y \
         ca-certificates \
@@ -23,35 +33,28 @@ RUN apt-get update &&\
         python \
         python-pip \
         python3 \
+        python3-pip \
         transmission-cli \
         sudo \
         whois
 
-RUN useradd -rm -d /home/ubuntu -s /bin/bash -G sudo -u 1000 ubuntu
+RUN useradd -rm -d $WORKDIR -s /bin/bash -G sudo -u 1000 ubuntu
 RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/ubuntu
 
 USER ubuntu
 WORKDIR /home/ubuntu
-
-ENV BLOCKLIST_PATH /home/ubuntu/.config/transmission/blocklists
-ENV ULTIMATE_BLOCKLIST https://github.com/walshie4/Ultimate-Blocklist.git
-
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
-ENV LC_CTYPE en_US.UTF-8
 
 RUN sudo -H pip install \
                 ipython \
                 virtualenv \
                 youtube_dl
 
-RUN git clone https://github.com/initbar/dotfiles.git /home/ubuntu/.lib &&\
-    cd /home/ubuntu/.lib && git submodule update --init --recursive
+RUN git clone https://github.com/initbar/dotfiles.git $WORKDIR/.lib &&\
+    cd $WORKDIR/.lib && git submodule update --init --recursive
 
-RUN mkdir -p /home/ubuntu/.emacs.d &&\
-    ln -sf /home/ubuntu/.lib/internal/cli/emacs/emacs.el /home/ubuntu/.emacs &&\
-    ln -sLf /home/ubuntu/.lib/internal/cli/emacs/custom /home/ubuntu/.emacs.d/custom
+RUN mkdir -p $WORKDIR/.emacs.d &&\
+    ln -sf $WORKDIR/.lib/internal/cli/emacs/emacs.el $WORKDIR/.emacs &&\
+    ln -sLf $WORKDIR/.lib/internal/cli/emacs/custom $WORKDIR/.emacs.d/custom
 
 RUN mkdir -p ${BLOCKLIST_PATH} && \
     git clone ${ULTIMATE_BLOCKLIST} /tmp/Ultimate-Blocklist && \
