@@ -28,3 +28,6 @@
 [submodule "submodules/upx"]
 	path = submodules/upx
 	url = https://github.com/upx/upx.git
+[submodule "submodules/nanorc"]
+	path = submodules/nanorc
+	url = https://github.com/scopatz/nanorc.git
