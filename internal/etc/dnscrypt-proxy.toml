@@ -15,7 +15,7 @@ ignore_system_dns = true
 max_clients = 32
 timeout = 3000
 
-cert_refresh_delay = 180
+cert_refresh_delay = 60
 dnscrypt_servers = true
 doh_servers = true
 force_tcp = false
@@ -28,16 +28,6 @@ log_level = 2
 log_files_max_size = 10
 log_files_max_age = 7
 log_files_max_backups = 1
-
-# Route queries for specific domains to a dedicated set of servers
-#===============================================================================
-
-# forwarding_rules = 'forwarding-rules.txt'
-
-# Cloaking rules
-#===============================================================================
-
-# cloaking_rules = 'cloaking-rules.txt'
 
 # DNS cache
 #===============================================================================
@@ -63,7 +53,7 @@ cache_neg_ttl = 10
   file = '/var/log/dnscrypt-proxy/nx.log'
   format = 'tsv'
 
-# Pattern-based blocking (blacklists)
+# Pattern-based blocking blacklist
 #===============================================================================
 
 [blacklist]
@@ -71,26 +61,13 @@ cache_neg_ttl = 10
   log_file = '/var/log/dnscrypt-proxy/blocked.log'
   log_format = 'tsv'
 
-# Pattern-based IP blocking (IP blacklists)
+# Pattern-based IP blocking blocklist
 #===============================================================================
 
 [ip_blacklist]
   # blacklist_file = 'ip-blacklist.txt'
   log_file = '/var/log/dnscrypt-proxy/ip-blocked.log'
   log_format = 'tsv'
-
-# Time access restrictions
-#===============================================================================
-
-[schedules]
-  # [schedules.'time-to-sleep']
-  # mon = [{after='21:00', before='7:00'}]
-  # tue = [{after='21:00', before='7:00'}]
-  # wed = [{after='21:00', before='7:00'}]
-  # thu = [{after='21:00', before='7:00'}]
-  # fri = [{after='23:00', before='7:00'}]
-  # sat = [{after='23:00', before='7:00'}]
-  # sun = [{after='21:00', before='7:00'}]
 
 # Servers
 #===============================================================================
@@ -102,7 +79,3 @@ cache_neg_ttl = 10
   minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
   refresh_delay = 72
   prefix = ''
-
-[static]
-  # [static.'google']
-  # stamp = 'sdns://AgUAAAAAAAAAACDyXGrcc5eNecJ8nomJCJ-q6eCLTEn6bHic0hWGUwYQaA5kbnMuZ29vZ2xlLmNvbQ0vZXhwZXJpbWVudGFs'
