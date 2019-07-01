@@ -173,3 +173,31 @@ KyBmaW5pc2hlZCEnKQo="
   python -c "$(echo -n "$payload" | tr -d '\n' | tr -d ' ' | base64 -d)"
   deactivate && source ~/.lib/pyradox3/bin/activate
 }
+
+function dda() {
+  [ -d /sandbox ] && {
+    [ -f ~/sandbox.tar.gz ] && {
+      chmod 600 ~/sandbox.tar.gz
+    }
+    cd /sandbox && (
+      rm -fv sandbox.tar*
+      tar -cvf sandbox.tar *
+      gzip --best sandbox.tar
+      mv -fv sandbox.tar.gz ~
+      [ $? -eq 0 ] && {
+        chmod 400 ~/sandbox.tar.gz
+      }
+    )
+  }
+}
+
+function dds() {
+  [ -d /sandbox ] && {
+    yes | rm -rf --preserve-root /sandbox/*
+    cp -v ~/sandbox.tar.gz /sandbox
+    cd /sandbox && (
+      tar -xvf sandbox.tar.gz
+      rm -f sandbox.tar.gz
+    )
+  }
+}

@@ -53,6 +53,7 @@ RUN git clone https://github.com/initbar/dotfiles.git $WORKDIR/.lib &&\
     cd $WORKDIR/.lib && git submodule update --init --recursive
 
 RUN mkdir -p $WORKDIR/.emacs.d &&\
+    ln -sf $WORKDIR/.lib/internal/cli/nano/nanorc $WORKDIR/.nanorc &&\
     ln -sf $WORKDIR/.lib/internal/cli/emacs/emacs.el $WORKDIR/.emacs &&\
     ln -sLf $WORKDIR/.lib/internal/cli/emacs/custom $WORKDIR/.emacs.d/custom
 
