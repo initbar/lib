@@ -32,11 +32,14 @@ RUN apt-get update \
       nano \
       python \
       python-pip \
+      python-setuptools \
       python3 \
       python3-pip \
+      python3-setuptools \
       transmission-cli \
       sudo \
-      whois
+      whois \
+ && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -rm -d $WORKDIR -s /bin/bash -G sudo -u 1000 ubuntu
 RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/ubuntu
@@ -65,5 +68,3 @@ RUN mkdir -p ${BLOCKLIST_PATH} \
  && rm -rf /tmp/Ultimate-Blocklist \
  && sudo mkdir /downloads \
  && sudo chown ubuntu /downloads
-
-RUN rm -rf /var/lib/apt/lists/*
