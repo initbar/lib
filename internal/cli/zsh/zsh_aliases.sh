@@ -5,26 +5,6 @@
   [ -d /sandbox ] && alias s='cd /sandbox'
   [ -d /cache ] && alias c='cd /cache'
 
-  function cd() {
-    [ -z "$1" ] && {
-      builtin cd ~
-    } || {
-      builtin cd "$1"
-    }
-
-    # automatically detect and inherit virtualenv
-    [ -z "$(which virtualenv)" ] || {
-      deactivate || true
-      if [ -d ./.venv ]; then
-          . ./.venv/bin/activate
-      else
-        [ -d "${DEFAULT_VIRTUALENV}" ] && {
-          . "${DEFAULT_VIRTUALENV}/bin/activate"
-        }
-      fi
-    }
-  }
-
   alias df="df -hl | grep -v Filesystem | sort | egrep -i '[0-9]+%'"
   alias du='du -xch'
   alias fr="free -lh | egrep 'total|used|free' -A5"
