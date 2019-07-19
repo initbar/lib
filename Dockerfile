@@ -19,7 +19,8 @@ ENV LC_ALL en_US.UTF-8
 ENV LC_CTYPE en_US.UTF-8
 
 RUN useradd -rm -d $WORKDIR -s /bin/bash -G sudo -u 1000 ubuntu
-RUN echo "ubuntu ALL=(ALL) NOPASSWD:ALL" | tee /etc/sudoers.d/ubuntu
+RUN mkdir -p /etc/sudoers.d \
+  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends \
