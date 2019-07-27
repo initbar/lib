@@ -1,3 +1,5 @@
+# /etc/ssh/ssh_config
+
 Host *
   ForwardAgent no
   ForwardX11 no

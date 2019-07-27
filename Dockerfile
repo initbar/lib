@@ -55,6 +55,9 @@ RUN git clone https://github.com/initbar/dotfiles.git $WORKDIR/.lib \
  && cd $WORKDIR/.lib \
  && git submodule update --init --recursive
 
+RUN mkdir $WORKDIR/.ssh \
+ && ln -sf $WORKDIR/.lib/internal/etc/ssh/config $WORKDIR/.ssh/config
+
 RUN mkdir -p $WORKDIR/.emacs.d \
  && ln -sf $WORKDIR/.lib/internal/cli/nano/nanorc $WORKDIR/.nanorc \
  && ln -sf $WORKDIR/.lib/internal/cli/emacs/emacs.el $WORKDIR/.emacs \
