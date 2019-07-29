@@ -7,7 +7,7 @@ EXPOSE 9091 \
        50052/udp
 
 USER root
-WORKDIR /home/ubuntu
+ENV WORKDIR /home/ubuntu
 
 ENV TRANSMISSION_BLOCKLIST_PATH $WORKDIR/.config/transmission/blocklists
 ENV ULTIMATE_BLOCKLIST_URL https://github.com/walshie4/Ultimate-Blocklist.git
@@ -21,28 +21,29 @@ RUN mkdir -p /etc/sudoers.d \
  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu \
  && useradd -rm -d $WORKDIR -s /bin/bash -G sudo -u 1000 ubuntu
 
-USER ubuntu
-
-RUN sudo apt-get update \
- && sudo apt-get install -y --no-install-recommends \
-      ca-certificates \
-      curl \
-      emacs-goodies-el \
-      emacs25-nox \
-      ffmpeg \
-      git \
-      language-pack-en \
-      mosh \
-      nano \
-      python \
-      python-pip \
-      python-setuptools \
-      python3 \
-      python3-pip \
-      python3-setuptools \
-      transmission-cli \
-      sudo \
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends \
+            ca-certificates \
+            curl \
+            emacs-goodies-el \
+            emacs25-nox \
+            ffmpeg \
+            git \
+            language-pack-en \
+            mosh \
+            nano \
+            python \
+            python-pip \
+            python-setuptools \
+            python3 \
+            python3-pip \
+            python3-setuptools \
+            transmission-cli \
+            sudo \
  && rm -rf /var/lib/apt/lists/*
+
+USER ubuntu
+WORKDIR $WORKDIR
 
 RUN sudo -H pip install \
                 ipython \
