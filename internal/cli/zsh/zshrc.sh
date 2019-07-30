@@ -18,10 +18,10 @@
     # export LANGUAGE="en_US.UTF-8"
     # export LC_ALL="en_US.UTF-8"
     # export LC_CTYPE="en_US.UTF-8"
-    export LC_ALL="C"
-    export LC_CTYPE="C"
-    export LANGUAGE="C"
-    export LANG="C"
+    export LC_ALL="C.UTF-8"
+    export LC_CTYPE="C.UTF-8"
+    export LANGUAGE="C.UTF-8"
+    export LANG="C.UTF-8"
 
     export LESS_TERMCAP_mb=$(printf '\e[01;31m')
     export LESS_TERMCAP_md=$(printf '\e[01;35m')

@@ -10,20 +10,21 @@
         ; doom-themes
         ; paradox
         ; sass-mode
+        ; php-mode
+        ; highlight-indent-guides
         auto-complete
         cython-mode
         dockerfile-mode
         go-mode
-        highlight-indent-guides
         json-mode
         linum-relative
         mark-multiple
         markdown-mode
-        php-mode
         protobuf-mode
         py-autopep8
         rust-mode
         swoop
+        terraform-mode
         toml-mode
         tramp
         yaml-mode
