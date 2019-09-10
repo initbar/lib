@@ -231,11 +231,9 @@
 
 {
   function wpscan() {
-    docker pull wpscanteam/wpscan
+    # docker pull wpscanteam/wpscan
     docker run -it \
            --rm wpscanteam/wpscan \
-           --random-agent \
-           --threads 2 \
            --enumerate t \
            --enumerate p \
            --enumerate u \
