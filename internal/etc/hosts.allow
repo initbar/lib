@@ -9,4 +9,5 @@ sshd: 192.168.
 
 # clouds
 sshd: .googleusercontent.com
+sshd: .us-east-1.compute.amazonaws.com
 sshd: .us-east-2.compute.amazonaws.com
