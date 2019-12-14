@@ -81,8 +81,8 @@
   }
 
   {
-    alias getvm='veracrypt -t /dev/sdb1 -k ~/.lib.d/veracrypt/ ~/.virtual'
-    alias setvm='veracrypt -d ~/.virtual'
+    alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/vera ~/Public'
+    alias setm='veracrypt -d ~/Public'
   }
 }
 
