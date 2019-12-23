@@ -3,30 +3,6 @@
 {
   export user="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
 
-  # /tmp
-  [ -d /tmp/wine ] || { mkdir -p /tmp/wine;}
-  chown $user:$user /tmp/wine -R
-  chmod 700 /tmp/wine -R
-
-  # /var
-  [ -d /var/cache/apt ] && {
-    chown root:root /var/cache/apt -R
-    chmod 755 /var/cache/apt
-  }
-  [ -d /var/crash ] && {
-    chown root:root /var/crash -R
-    chmod 755 /var/crash
-  }
-  [ -d /var/tmp ] && {
-    chown root:root /var/tmp -R
-    chmod 755 /var/tmp
-  }
-
-  # backpack
-  # [ -d /backpack ] || { mkdir -p /backpack;}
-  # chown $user:$user /backpack
-  # chmod 700 /backpack
-
   # /sandbox
   [ -d /sandbox ] || { mkdir -p /sandbox;}
   chown $user:$user /sandbox -R
@@ -34,22 +10,30 @@
 
   # /cache
   [ -d /cache ] || { mkdir -p /cache;}
-  mkdir -p /cache/chromium # ~/.cache/google-chrome
-  mkdir -p /cache/firefox/Cache # ~/.mozilla/firefox
-  mkdir -p /cache/firefox/Crash # ~/.mozilla/firefox
-  mkdir -p /cache/firefox/extensions # ~/.mozilla/firefox
-  mkdir -p /cache/firefoxd # ~/.mozilla/firefox
-  mkdir -p /cache/golang # ~/.cache/go-build
-  mkdir -p /cache/keybase # ~/.cache/keybase
-  mkdir -p /cache/npm # ~/.npm
-  mkdir -p /cache/opera # ~/.cache/opera
-  mkdir -p /cache/pip # ~/.cache/pip
-  mkdir -p /cache/remmina # ~/.cache/remmina
+  mkdir -p /cache/chromium # ~/.cache/chromium
+  mkdir -p /cache/firefox # ~/.mozilla/firefox
   mkdir -p /cache/thumbnails # ~/.cache/thumbnails, ~/.thumbnails
-  mkdir -p /cache/vlc # ~/.cache/vlc
-  # touch /cache/dnsmasq.log
   chown $user:$user /cache -R
   chmod 744 /cache -R
+
+  # /tmp
+  # [ -d /tmp/wine ] || { mkdir -p /tmp/wine;}
+  # chown $user:$user /tmp/wine -R
+  # chmod 700 /tmp/wine -R
+
+  # /var
+  # [ -d /var/cache/apt ] && {
+  #   chown root:root /var/cache/apt -R
+  #   chmod 755 /var/cache/apt
+  # }
+  # [ -d /var/crash ] && {
+  #   chown root:root /var/crash -R
+  #   chmod 755 /var/crash
+  # }
+  # [ -d /var/tmp ] && {
+  #   chown root:root /var/tmp -R
+  #   chmod 755 /var/tmp
+  # }
 
   # dnsmasq (replaced by dnscrypt-proxy)
   # chown $user:root /cache/dnsmasq.log
