@@ -75,7 +75,7 @@
     cursor_blink = False
     cursor_color = "#ff00ff"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 7.6982421875
+    font = Source Code Pro 8.099609375
     foreground_color = "#ffffff"
     icon_bell = False
     login_shell = True
