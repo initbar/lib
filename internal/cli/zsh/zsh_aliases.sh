@@ -5,6 +5,9 @@
   [ -d /sandbox ] && alias s='cd /sandbox'
   [ -d /cache ] && alias c='cd /cache'
 
+  alias tpd='xinput set-prop $(xinput list | grep Touchpad | egrep -o "id=[0-9]+" | sed "s/id=//") "Device Enabled" 0'
+  alias tpe='xinput set-prop $(xinput list | grep Touchpad | egrep -o "id=[0-9]+" | sed "s/id=//") "Device Enabled" 1'
+
   alias df="df -hl | grep -v Filesystem | sort | egrep -i '[0-9]+%'"
   alias du='du -xch'
   alias fr="free -lh | egrep 'total|used|free' -A5"
