@@ -14,6 +14,7 @@
   alias gl='glances -t2 -1 -d'
   alias gpg='gpg -q'
   alias gsutil='gsutil -m'
+  alias hd="hexyl"
   alias host='host -t any -v -l'
   alias htop="htop -u ${USER}"
   alias iotop='sudo iotop -o -a'
@@ -269,7 +270,7 @@
     function youtube-dl() {
       docker run \
              -v $PWD:/home/ubuntu \
-             --dns 8.8.8.8 \
+             --dns 1.1.1.1 \
              --rm \
              --hostname container \
              'initbar/lib:latest' \
@@ -280,7 +281,7 @@
     function mp3-dl() {
       docker run \
              -v ${PWD}:/home/ubuntu \
-             --dns 8.8.8.8 \
+             --dns 1.1.1.1 \
              --rm \
              --hostname container \
              'initbar/lib:latest' \
