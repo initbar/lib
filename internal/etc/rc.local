@@ -1,58 +1,20 @@
 #!/bin/sh -e
 
+export _USER="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
+
 {
-  export user="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
+  [ -d /cache ] || {
+    mkdir -p /cache
+    mkdir -p /cache/chromium  # ~/.cache/chromium/Cache
+    mkdir -p /cache/firefox  # ~/.mozilla/firefox
+    mkdir -p /cache/thumbnails  # ~/.thumbnails, ~/.cache/thumbnails
+    chown -R $_USER:$_USER /cache
+    chmod -R 700 /cache
+  }
 
-  # /sandbox
-  [ -d /sandbox ] || { mkdir -p /sandbox;}
-  chown $user:$user /sandbox -R
-  chmod 700 /sandbox -R
-
-  # /cache
-  [ -d /cache ] || { mkdir -p /cache;}
-  mkdir -p /cache/chromium # ~/.cache/chromium
-  mkdir -p /cache/firefox # ~/.mozilla/firefox
-  mkdir -p /cache/thumbnails # ~/.cache/thumbnails, ~/.thumbnails
-  chown $user:$user /cache -R
-  chmod 744 /cache -R
-
-  # /tmp
-  # [ -d /tmp/wine ] || { mkdir -p /tmp/wine;}
-  # chown $user:$user /tmp/wine -R
-  # chmod 700 /tmp/wine -R
-
-  # /var
-  # [ -d /var/cache/apt ] && {
-  #   chown root:root /var/cache/apt -R
-  #   chmod 755 /var/cache/apt
-  # }
-  # [ -d /var/crash ] && {
-  #   chown root:root /var/crash -R
-  #   chmod 755 /var/crash
-  # }
-  # [ -d /var/tmp ] && {
-  #   chown root:root /var/tmp -R
-  #   chmod 755 /var/tmp
-  # }
-
-  # dnsmasq (replaced by dnscrypt-proxy)
-  # chown $user:root /cache/dnsmasq.log
-  # chmod 644 /cache/dnsmasq.log
-  # [ -n "$(which dnsmasq)" ] && {
-  #   sudo service dnsmasq restart
-  # }
-
-  # squid
-  # [ -n "$(which squid)" ] && {
-  #   mkdir -p /var/log/squid
-  #   touch /var/log/access.log
-  #   touch /var/log/cache.log
-  #   chown proxy:root /var/log/squid -R
-  #   chown proxy:root /var/log/access.log
-  #   chown proxy:root /var/log/cache.log
-  #   chown proxy:proxy /var/cache/squid # tmpfs fstab
-  #   ln -sf /var/log/cache.log /var/log/squid/cache.log
-  # } && squid -z && squid
-
-  unset user
+  [ -d /sandbox ] || {
+    mkdir -p /sandbox
+    chown -R $_USER:$_USER /sandbox
+    chmod -R 700 /sandbox
+  }
 }
