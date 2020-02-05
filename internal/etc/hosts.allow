@@ -1,13 +1,17 @@
 ALL: 127.0.0.1
 ALL: localhost
 
-# docker
 sshd: 172.17.
-
-# local
 sshd: 192.168.
 
-# clouds
-sshd: .googleusercontent.com
+# AWS
 sshd: .us-east-1.compute.amazonaws.com
 sshd: .us-east-2.compute.amazonaws.com
+
+# GCP
+sshd: .googleusercontent.com
+
+# Verizon
+sshd: .myvzw.com
+
+# Custom
