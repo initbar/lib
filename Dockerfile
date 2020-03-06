@@ -1,4 +1,4 @@
-FROM ubuntu:18.10
+FROM ubuntu:18.04
 
 EXPOSE 9091 \
        51413/tcp \
