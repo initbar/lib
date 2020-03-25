@@ -100,7 +100,7 @@
     }
 
     # Golang
-    export GOROOT="$HOME/.google-golang/go"
+    export GOROOT="$HOME/.google/go"
     export GOPATH="${GOROOT}/pkg"
     export GOBIN="${GOROOT}/bin"
     export PATH="${PATH}:${GOROOT}:${GOPATH}:${GOBIN}"
