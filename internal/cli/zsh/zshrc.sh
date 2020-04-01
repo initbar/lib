@@ -94,10 +94,7 @@
   #
 
   {
-    # Emacs
-    [ -n "$(command -v emacs)" ] && {
-      export EDITOR="emacs"
-    }
+    export EDITOR="nano"
 
     # Golang
     export GOROOT="$HOME/.google/go"
