@@ -272,6 +272,7 @@
              -v $PWD:/home/ubuntu \
              --dns 1.1.1.1 \
              --rm \
+             -d \
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
@@ -283,6 +284,7 @@
              -v ${PWD}:/home/ubuntu \
              --dns 1.1.1.1 \
              --rm \
+             -d \
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
