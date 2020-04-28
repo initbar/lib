@@ -14,4 +14,5 @@ sshd: .googleusercontent.com
 # Verizon
 sshd: .myvzw.com
 
-# Custom
+# Cloudflare
+sshd: 8.46.116.
