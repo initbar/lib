@@ -1,7 +1,79 @@
-# function transfer() {
-#   curl --progress-bar --upload-file "$1" "https://transfer.sh/$(basename $1)" |\
-#       tee /dev/null
-# }
+{
+  #
+  # Docker
+  #
+  {
+    function dsh() {
+      # docker pull initbar/lib:latest
+      docker run -it \
+             --rm \
+             --dns 1.1.1.1 \
+             --hostname dsh \
+             initbar/lib:latest
+    }
+  }
+
+  function wpscan() {
+    # docker pull wpscanteam/wpscan
+    docker run -it \
+           --rm wpscanteam/wpscan \
+           --enumerate t \
+           --enumerate p \
+           --enumerate u \
+           --wp-content-dir custom-content \
+           --wp-plugins-dir wp-content/custom-plugins \
+           "$@"
+  }
+
+  function tcli() {
+    docker run \
+           -v $HOME/.torrents:/home/ubuntu/Downloads \
+           -p $RANDOM:9091 \
+           -p $RANDOM:51413/tcp \
+           -p $RANDOM:51413/udp \
+           --dns 1.1.1.1 \
+           --rm -d \
+           --hostname container \
+           'initbar/lib:latest' \
+           '/usr/bin/transmission-cli' \
+           '-D' \
+           '-b' \
+           '-er' \
+           '-m' \
+           '-t 0x28' \
+           '-u 1' \
+           '-v' \
+           "$1"
+  }
+
+    function youtube-dl() {
+      docker run \
+             -v $PWD:/home/ubuntu \
+             --dns 1.1.1.1 \
+             --rm \
+             -d \
+             --hostname container \
+             'initbar/lib:latest' \
+             'youtube-dl' \
+             "$1"
+    }
+
+    function mp3-dl() {
+      docker run \
+             -v ${PWD}:/home/ubuntu \
+             --dns 1.1.1.1 \
+             --rm \
+             --hostname container \
+             'initbar/lib:latest' \
+             'youtube-dl' \
+             --verbose \
+             --audio-format mp3 \
+             --audio-quality 320k \
+             --extract-audio \
+             --prefer-ffmpeg \
+             "$1"
+    }
+}
 
 function html-minifier() {
   html-minifier \
