@@ -11,6 +11,7 @@
   #
 
   {
+    DISABLE_MAGIC_FUNCTIONS=true
     DISABLE_UPDATE_PROMPT=true
     DISABLE_AUTO_UPDATE=true
     # ZSH_THEME='evan'
