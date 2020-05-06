@@ -71,6 +71,7 @@
              --audio-quality 320k \
              --extract-audio \
              --prefer-ffmpeg \
+             --rm-cache-dir \
              "$1"
     }
 }
