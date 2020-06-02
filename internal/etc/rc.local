@@ -3,7 +3,7 @@
 export _USER="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
 
 {
-  [ -d /cache ] || {
+  [ -d /cache ] && {
     mkdir -p /cache
     mkdir -p /cache/chromium  # ~/.cache/chromium/Cache
     mkdir -p /cache/firefox  # ~/.mozilla/firefox
@@ -12,7 +12,7 @@ export _USER="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
     chmod -R 700 /cache
   }
 
-  [ -d /sandbox ] || {
+  [ -d /sandbox ] && {
     mkdir -p /sandbox
     chown -R $_USER:$_USER /sandbox
     chmod -R 700 /sandbox

@@ -123,8 +123,8 @@
   alias strings='strings -a'
 
   {
+    alias gsh="gcloud alpha cloud-shell ssh --verbosity debug"
     alias gscp="gcloud alpha cloud-shell scp"
-    alias gssh="gcloud alpha cloud-shell ssh --verbosity debug"
     alias gsshfs="gcloud alpha cloud-shell get-mount-command"
 
     alias sa='ssh-add'
