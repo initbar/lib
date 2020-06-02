@@ -7,7 +7,8 @@
       # docker pull initbar/lib:latest
       docker run -it \
              --rm \
-             --dns 1.1.1.1 \
+             -v $PWD:/host \
+             --dns 1.1.1.2 \
              --hostname dsh \
              initbar/lib:latest
     }
@@ -31,7 +32,7 @@
            -p $RANDOM:9091 \
            -p $RANDOM:51413/tcp \
            -p $RANDOM:51413/udp \
-           --dns 1.1.1.1 \
+           --dns 1.1.1.2 \
            --rm -d \
            --hostname container \
            'initbar/lib:latest' \
@@ -49,29 +50,31 @@
     function youtube-dl() {
       docker run \
              -v $PWD:/home/ubuntu \
-             --dns 1.1.1.1 \
+             --dns 1.1.1.2 \
              --rm \
              -d \
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
+             --cache-dir /tmp \
+             --prefer-ffmpeg \
              "$1"
     }
 
     function mp3-dl() {
       docker run \
              -v ${PWD}:/home/ubuntu \
-             --dns 1.1.1.1 \
+             --dns 1.1.1.2 \
              --rm \
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
              --verbose \
+             --cache-dir /tmp \
              --audio-format mp3 \
              --audio-quality 320k \
              --extract-audio \
              --prefer-ffmpeg \
-             --rm-cache-dir \
              "$1"
     }
 }
