@@ -5,8 +5,6 @@ export _USER="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
 {
   [ -d /cache ] && {
     mkdir -p /cache
-    mkdir -p /cache/chromium  # ~/.cache/chromium/Cache
-    mkdir -p /cache/firefox  # ~/.mozilla/firefox
     mkdir -p /cache/thumbnails  # ~/.thumbnails, ~/.cache/thumbnails
     chown -R $_USER:$_USER /cache
     chmod -R 700 /cache
