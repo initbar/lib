@@ -53,6 +53,7 @@
              --dns 1.1.1.2 \
              --rm \
              -d \
+             --user=1000:1000 \
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
@@ -66,6 +67,7 @@
              -v ${PWD}:/home/ubuntu \
              --dns 1.1.1.2 \
              --rm \
+             --user=1000:1000 \
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
