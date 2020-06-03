@@ -34,6 +34,7 @@
            -p $RANDOM:51413/udp \
            --dns 1.1.1.2 \
            --rm -d \
+           --user=1000:1000 \
            --hostname container \
            'initbar/lib:latest' \
            '/usr/bin/transmission-cli' \

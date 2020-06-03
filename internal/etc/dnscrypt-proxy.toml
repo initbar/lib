@@ -1,7 +1,8 @@
-# dnscrypt-proxy configuration
+# dnscrypt-proxy.toml
 
+################################################################################
 # Global settings
-#===============================================================================
+################################################################################
 
 listen_addresses = ['127.0.0.53:53']
 ipv4_servers = true
@@ -12,7 +13,7 @@ server_names = ['NextDNS-ea1a22']
 fallback_resolver = '1.1.1.2:53'
 ignore_system_dns = true
 
-max_clients = 32
+max_clients = 100
 timeout = 3000
 
 cert_refresh_delay = 60
@@ -29,48 +30,20 @@ log_files_max_size = 10
 log_files_max_age = 7
 log_files_max_backups = 1
 
-# DNS cache
-#===============================================================================
+################################################################################
+# DNS Caching
+################################################################################
 
 cache = true
-cache_size = 384
-cache_min_ttl = 3
-cache_max_ttl = 60
-cache_neg_ttl = 10
+cache_size = 4096
+cache_min_ttl = 2400
+cache_max_ttl = 86400
+cache_neg_min_ttl = 60
+cache_neg_max_ttl = 600
 
-# Query logging
-#===============================================================================
-
-[query_log]
-  file = '/var/log/dnscrypt-proxy/query.log'
-  format = 'tsv'
-  ignored_qtypes = ['NS']
-
-# Suspicious queries logging
-#===============================================================================
-
-[nx_log]
-  file = '/var/log/dnscrypt-proxy/nx.log'
-  format = 'tsv'
-
-# Pattern-based blocking blacklist
-#===============================================================================
-
-[blacklist]
-  # blacklist_file = "/opt/dnscrypt.blocklist"
-  log_file = '/var/log/dnscrypt-proxy/blocked.log'
-  log_format = 'tsv'
-
-# Pattern-based IP blocking blocklist
-#===============================================================================
-
-[ip_blacklist]
-  # blacklist_file = 'ip-blacklist.txt'
-  log_file = '/var/log/dnscrypt-proxy/ip-blocked.log'
-  log_format = 'tsv'
-
-# Servers
-#===============================================================================
+################################################################################
+# DNS Sources
+################################################################################
 
 [sources]
   [sources.'public-resolvers']
@@ -83,3 +56,30 @@ cache_neg_ttl = 10
 [static]
   [static.'NextDNS-ea1a22']
   stamp = 'sdns://AgEAAAAAAAAACjQ1LjkwLjI4LjAADmRucy5uZXh0ZG5zLmlvBy9lYTFhMjI'
+
+################################################################################
+# Blocklist
+################################################################################
+
+[blacklist]
+  # blacklist_file = "/opt/dnscrypt.blocklist"
+  log_file = '/var/log/dnscrypt-proxy/blocked.log'
+  log_format = 'tsv'
+
+[ip_blacklist]
+  # blacklist_file = 'ip-blacklist.txt'
+  log_file = '/var/log/dnscrypt-proxy/ip-blocked.log'
+  log_format = 'tsv'
+
+################################################################################
+# Logging
+################################################################################
+
+[query_log]
+  file = '/var/log/dnscrypt-proxy/query.log'
+  format = 'tsv'
+  ignored_qtypes = ['NS']
+
+[nx_log]
+  file = '/var/log/dnscrypt-proxy/nx.log'
+  format = 'tsv'
