@@ -5,6 +5,7 @@ export _USER="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
 {
   [ -d /cache ] && {
     mkdir -p /cache
+    mkdir -p /cache/firefoxd    # ~/.cache/mozilla
     mkdir -p /cache/go          # ~/.cache/go
     mkdir -p /cache/pip         # ~/.cache/pip
     mkdir -p /cache/remmina     # ~/.cache/remmina
