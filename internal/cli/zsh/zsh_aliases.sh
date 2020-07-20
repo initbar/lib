@@ -214,7 +214,8 @@
   }
 
   {
-    alias mp='mplayer -cache 4096'
+    alias mp='mplayer -quiet'
+    alias mpp='mplayer -quiet -shuffle -playlist'
     alias vlc='vlc -vv'
   }
 }
