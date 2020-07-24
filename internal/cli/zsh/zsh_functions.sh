@@ -53,11 +53,12 @@
              -v $PWD:/home/ubuntu \
              --dns 1.1.1.2 \
              --rm \
-             -d \
              --user=1000:1000 \
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
+             -i \
+             --yes-playlist \
              --cache-dir /tmp \
              --prefer-ffmpeg \
              "$1"
@@ -80,6 +81,19 @@
              --prefer-ffmpeg \
              "$1"
     }
+}
+
+function pvpnc() {
+  sudo chattr -i -V /etc/resolv.conf
+  sudo protonvpn connect
+  echo 'nameserver 127.0.0.53' | sudo tee /etc/resolv.conf
+  sudo chattr +i -V /etc/resolv.conf
+}
+
+function pvpnd() {
+  sudo chattr -i -V /etc/resolv.conf
+  sudo protonvpn disconnect
+  sudo chattr +i -V /etc/resolv.conf
 }
 
 function html-minifier() {
