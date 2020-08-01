@@ -105,6 +105,7 @@
 
     # Git
     export GIT_LFS_SKIP_SMUDGE=1
+    export GIT_TERMINAL_PROMPT=1
 
     # GCP
     # export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"

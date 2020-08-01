@@ -7,22 +7,16 @@
 
 (setq package-list
       '(
-        ; doom-themes
-        ; paradox
-        ; sass-mode
-        ; php-mode
-        ; highlight-indent-guides
         auto-complete
         cython-mode
         dockerfile-mode
         go-mode
         json-mode
         linum-relative
-        mark-multiple
         markdown-mode
         protobuf-mode
-        py-autopep8
         rust-mode
+        sass-mode
         swoop
         terraform-mode
         toml-mode
