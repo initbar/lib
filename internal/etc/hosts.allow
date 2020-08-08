@@ -2,7 +2,8 @@ ALL: 127.0.0.1
 ALL: localhost
 
 sshd: 172.17.
-sshd: 192.168.
+sshd: 192.168.1.
+sshd: 192.168.86.
 
 # AWS
 sshd: .us-east-1.compute.amazonaws.com
