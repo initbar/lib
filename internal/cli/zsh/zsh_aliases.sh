@@ -165,7 +165,7 @@
 
   {
     alias pycc="python -OO -m py_compile"
-    alias pipi='pip install'
+    alias pipi='pip install --upgrade'
     alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
   }
 

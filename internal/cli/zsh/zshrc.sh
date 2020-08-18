@@ -14,8 +14,8 @@
     DISABLE_MAGIC_FUNCTIONS=true
     DISABLE_UPDATE_PROMPT=true
     DISABLE_AUTO_UPDATE=true
-    # ZSH_THEME='evan'
-    ZSH_THEME='fishy'
+    ZSH_THEME='evan'
+    # ZSH_THEME='fishy'
 
     setopt AUTOCD             # type the name of a directory to switch
     setopt NOCLOBBER          # prevent from accidentally overwriting an existing file (note: >!)

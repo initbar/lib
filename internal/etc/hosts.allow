@@ -1,6 +1,8 @@
+# Local
 ALL: 127.0.0.1
 ALL: localhost
 
+# Home
 sshd: 172.17.
 sshd: 192.168.1.
 sshd: 192.168.86.
@@ -12,5 +14,5 @@ sshd: .us-east-2.compute.amazonaws.com
 # GCP
 sshd: .googleusercontent.com
 
-# Verizon
-sshd: .myvzw.com
+# VZ
+# sshd: .myvzw.com

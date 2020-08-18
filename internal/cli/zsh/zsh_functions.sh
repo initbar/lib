@@ -8,7 +8,8 @@
       docker run -it \
              --rm \
              -v $PWD:/host \
-             --dns 1.1.1.2 \
+             --dns 45.90.28.198 \
+             --dns 45.90.30.198 \
              --hostname dsh \
              initbar/lib:latest
     }
@@ -32,9 +33,10 @@
            -p $RANDOM:9091 \
            -p $RANDOM:51413/tcp \
            -p $RANDOM:51413/udp \
-           --dns 1.1.1.2 \
+           --dns 45.90.28.198 \
+           --dns 45.90.30.198 \
            --rm -d \
-           --user=1000:1000 \
+           --user=$UID:1000 \
            --hostname container \
            'initbar/lib:latest' \
            '/usr/bin/transmission-cli' \
@@ -51,9 +53,10 @@
     function youtube-dl() {
       docker run \
              -v $PWD:/home/ubuntu \
-             --dns 1.1.1.2 \
+             --dns 45.90.28.198 \
+             --dns 45.90.30.198 \
              --rm \
-             --user=1000:1000 \
+             --user=$UID:1000 \
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
@@ -67,9 +70,10 @@
     function mp3-dl() {
       docker run \
              -v ${PWD}:/home/ubuntu \
-             --dns 1.1.1.2 \
+             --dns 45.90.28.198 \
+             --dns 45.90.30.198 \
              --rm \
-             --user=1000:1000 \
+             --user=$UID:1000 \
              --hostname container \
              'initbar/lib:latest' \
              'youtube-dl' \
