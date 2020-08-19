@@ -5,18 +5,12 @@ export _USER="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
 {
   [ -d /cache ] && {
     mkdir -p /cache
-    mkdir -p /cache/firefoxd    # ~/.cache/mozilla
-    mkdir -p /cache/go          # ~/.cache/go
-    mkdir -p /cache/pip         # ~/.cache/pip
-    mkdir -p /cache/remmina     # ~/.cache/remmina
-    mkdir -p /cache/thumbnails  # ~/.cache/thumbnails
+    mkdir -p /cache/google-chrome  # ~/.cache/google-chrome
+    mkdir -p /cache/software/go       # ~/.cache/go
+    mkdir -p /cache/software/openjfx  # ~/.openjfx/cache
+    mkdir -p /cache/software/python   # ~/.cache/pip
+    mkdir -p /cache/thumbnails     # ~/.cache/thumbnails
     chown -R $_USER:$_USER /cache
     chmod -R 700 /cache
-  }
-
-  [ -d /sandbox ] && {
-    mkdir -p /sandbox
-    chown -R $_USER:$_USER /sandbox
-    chmod -R 700 /sandbox
   }
 }
