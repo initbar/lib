@@ -68,7 +68,7 @@
   }
 
   {
-    alias ddf='sync -f'
+    alias ddf='sync && sync -f'
     alias ddt="cat /proc/vmstat | egrep 'dirty|write'"
   }
 
