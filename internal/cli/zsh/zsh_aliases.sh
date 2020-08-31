@@ -45,7 +45,7 @@
   {
     alias ..='cd ..'
     alias cp='cp -v'
-    alias cpr='rsync -ahHAXu --progress'
+    alias cpr='rsync -ahHAXu --info=progress2'
     alias mv='mv -v'
     alias rm='rm -v --preserve-root'
   }
