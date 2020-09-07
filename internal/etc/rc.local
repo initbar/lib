@@ -6,10 +6,9 @@ export _USER="$(cat /etc/passwd | grep 1000 | cut -d":" -f1)"
   [ -d /cache ] && {
     mkdir -p /cache
     mkdir -p /cache/google-chrome  # ~/.cache/google-chrome
-    mkdir -p /cache/software/go       # ~/.cache/go
-    mkdir -p /cache/software/openjfx  # ~/.openjfx/cache
-    mkdir -p /cache/software/python   # ~/.cache/pip
     mkdir -p /cache/thumbnails     # ~/.cache/thumbnails
+    # mkdir -p /cache/software/go       # ~/.cache/go
+    # mkdir -p /cache/software/python   # ~/.cache/pip
     chown -R $_USER:$_USER /cache
     chmod -R 700 /cache
   }

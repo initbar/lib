@@ -65,12 +65,12 @@
     cursor_blink = False
     cursor_color = "#ff00ff"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 7.7998046875
+    font = Fantasque Sans Mono 8.8984375
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
     login_shell = True
     use_system_font = False
     rewrap_on_resize = False

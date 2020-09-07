@@ -112,13 +112,14 @@
   alias strace='strace -fttTCx -s 9999 -y'
   alias valgrind='valgrind --leak-check=full --show-leak-kinds=all'
   alias entropy="ent -b"
+  alias mat="mat2 --inplace"
 }
 
 {
   alias diff='colordiff'
   alias dt="perl -pi -e 'chomp if eof'"
   alias grip='grip --norefresh'
-  alias jd='python -mjson.tool'
+  alias jd='python -m json.tool'
   alias md='pygmentize -g -O ansi,style=colorful,python=cool,bg=light'
   alias strings='strings -a'
 
@@ -218,10 +219,6 @@
     alias mpp='mplayer -quiet -shuffle -playlist'
     alias vlc='vlc -vv'
   }
-}
-
-{
-  alias cryfs="cryfs --cipher aes-256-gcm --blocksize 32768"
 }
 
 {

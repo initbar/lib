@@ -1,7 +1,6 @@
 tmpfs /cache   tmpfs defaults,nodev,noatime,nosuid,nodev,size=1G 0 0
-tmpfs /sandbox tmpfs defaults,noatime,nosuid,nodev,size=1G 0 0
-tmpfs /tmp     tmpfs defaults,noatime,nosuid,nodev,size=2G,mode=1777 0 0
-
+# tmpfs /sandbox tmpfs defaults,noatime,nosuid,nodev,size=1G 0 0
+# tmpfs /tmp     tmpfs defaults,noatime,nosuid,nodev,size=2G,mode=1777 0 0
 # tmpfs /var/cache/apt tmpfs defaults,noatime,nodev,nosuid,noexec,size=512M,mode=0755   0 0
 # tmpfs /var/cache/squid tmpfs defaults,noatime,nodev,nosuid,noexec,size=128M,mode=0755 0 0
 # tmpfs /var/crash     tmpfs defaults,noatime,nodev,nosuid,noexec,size=512M,mode=0755   0 0
