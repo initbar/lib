@@ -112,7 +112,7 @@
   alias strace='strace -fttTCx -s 9999 -y'
   alias valgrind='valgrind --leak-check=full --show-leak-kinds=all'
   alias entropy="ent -b"
-  alias mat="mat2 --inplace"
+  alias mat="mat2 --inplace --verbose"
 }
 
 {

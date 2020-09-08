@@ -36,6 +36,7 @@
            --dns 45.90.28.198 \
            --dns 45.90.30.198 \
            --rm -d \
+           --memory=128m \
            --user=$UID:1000 \
            --hostname container \
            'initbar/lib:latest' \
