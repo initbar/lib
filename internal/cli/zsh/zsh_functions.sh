@@ -133,4 +133,13 @@
            '-v' \
            "$1"
   }
+
+  function pdf() {
+    [ -n "$(which evince)" ] && {
+      alias pdf="evince"
+      [ -n "$(which google-chrome-stable)" ] && {
+        alias pdf="google-chrome-stable"
+      }
+    }
+  }
 }

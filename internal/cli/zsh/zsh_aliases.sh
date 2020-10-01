@@ -203,7 +203,8 @@
 
 {
   {
-    alias pdf='evince'
+    # alias pdf='evince'
+    alias pdf="google-chrome-stable"
     alias pdftex='xelatex'
   }
 
