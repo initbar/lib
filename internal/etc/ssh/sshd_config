@@ -25,7 +25,7 @@ PermitRootLogin no
 
 # Banner
 #--------------------------------------------------------------------------------
-Banner /etc/ssh/banner.txt
+Banner /etc/ssh/banner
 PrintLastLog yes
 PrintMotd no
 
