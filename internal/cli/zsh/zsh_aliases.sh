@@ -85,6 +85,11 @@
   }
 
   {
+    alias vboxl="vboxmanage list vms"
+    alias vboxr="vboxmanage startvm --type headless"
+  }
+
+  {
     alias getm='veracrypt -t /dev/sdb1 -k ~/.lib.d/vera ~/Public'
     alias setm='veracrypt -d ~/Public'
   }
@@ -195,9 +200,13 @@
   }
 
   {
-    alias pyserver='python -m SimpleHTTPServer 8000'
     alias wserverl="bundle exec jekyll server --watch --port ${1:-8080}"
     alias wserverg='bundle exec jekyll server --watch --host 0.0.0.0 --port 8080'
+  }
+
+  {
+    alias py.server="python -m http.server"
+    alias nginx.server="docker run -it --rm -p 8000:80 -v ${PWD}:/usr/share/nginx/html nginx:latest"
   }
 }
 

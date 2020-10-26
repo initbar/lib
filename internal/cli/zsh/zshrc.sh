@@ -137,8 +137,12 @@
   . ~/.zsh_functions
 }
 
+# google SDK configuration
 if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/completion.zsh.inc"; fi
 if [ -f "$HOME/.lib.d/gcloud/credentials.json" ]; then
     export GOOGLE_APPLICATION_CREDENTIALS="$HOME/.lib.d/gcloud/credentials.json"
 fi
+
+# opam configuration
+test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
