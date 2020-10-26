@@ -65,7 +65,7 @@
     cursor_blink = False
     cursor_color = "#ff00ff"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 8.1982421875
+    font = Fantasque Sans Mono 7.8984375
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
