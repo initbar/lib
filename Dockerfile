@@ -26,7 +26,7 @@ RUN apt-get update \
             ca-certificates \
             curl \
             emacs-goodies-el \
-            emacs25-nox \
+            emacs-nox \
             ffmpeg \
             git \
             language-pack-en \
