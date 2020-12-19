@@ -230,9 +230,7 @@
   }
 
   {
-    alias mp='mplayer -quiet'
-    alias mpp='mplayer -quiet -shuffle -playlist'
-    alias vlc='vlc -vv'
+    alias mp="mplayer -quiet -lavdopts threads=$(nproc)"
   }
 }
 
