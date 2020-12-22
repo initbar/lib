@@ -1,6 +1,5 @@
 [global_config]
   dbus = False
-  window_state = maximise
   tab_position = bottom
   scroll_tabbar = True
   hide_from_taskbar = True
@@ -70,7 +69,7 @@
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
-    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000cd:#cd00cd:#00cdcd:#faebd7:#404040:#ff0000:#00ff00:#ffff00:#0000ff:#ff00ff:#00ffff:#ffffff"
     login_shell = True
     use_system_font = False
     rewrap_on_resize = False
