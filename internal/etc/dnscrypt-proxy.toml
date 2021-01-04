@@ -9,7 +9,8 @@ ipv4_servers = true
 ipv6_servers = false
 block_ipv6 = true
 
-server_names = ['cloudflare-security']
+server_names = ['NextDNS-ea1a22', 'cloudflare-security']
+# server_names = ['cloudflare-security']
 fallback_resolver = '1.1.1.2:53'
 ignore_system_dns = true
 
