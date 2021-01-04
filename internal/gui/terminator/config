@@ -62,10 +62,9 @@
   [[default]]
     icon_bell = False
     background_darkness = 0.98
-    cursor_blink = False
     cursor_color = "#ff00ff"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 9.2998046875
+    font = The Sans Mono Condensed- 9.4482421875
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
