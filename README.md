@@ -16,4 +16,4 @@
 
 ## License
 
-**dotfiles** is under [MIT License](./LICENSE.md).
+**dotfiles** is under [MIT License](./LICENSE).
