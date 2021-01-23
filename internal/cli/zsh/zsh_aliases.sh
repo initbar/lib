@@ -181,10 +181,6 @@
   }
 
   {
-    alias gemu='sudo gem install rubygems-update && sudo update_rubygems && sudo gem update --system'
-  }
-
-  {
     alias gr='go run'
     alias gb='go build'
     alias gg='go get'
@@ -193,33 +189,13 @@
   {
     alias rustc='rustc -C opt-level=3'
   }
-
-  {
-    alias sass="sass -C"
-    alias sassm="sass -C --style compressed"
-    alias sassw="sass -C --style compressed --watch ."
-  }
-
-  {
-    alias yui='yui-compressor'
-  }
-
-  {
-    alias wserverl="bundle exec jekyll server --watch --port ${1:-8080}"
-    alias wserverg='bundle exec jekyll server --watch --host 0.0.0.0 --port 8080'
-  }
-
-  {
-    alias py.server="python -m http.server"
-    alias nginx.server="docker run -it --rm -p 8000:80 -v ${PWD}:/usr/share/nginx/html nginx:latest"
-  }
 }
 
 {
   {
     # alias pdf='evince'
+    alias mp="mplayer -quiet -lavdopts threads=$(nproc)"
     alias pdf="google-chrome-stable"
-    alias pdftex='xelatex'
   }
 
   {
@@ -227,10 +203,6 @@
     alias ditaa='ditaa -r -S'
     alias et='exiftool'
     alias jpegm='jpegoptim -s'
-  }
-
-  {
-    alias mp="mplayer -quiet -lavdopts threads=$(nproc)"
   }
 }
 

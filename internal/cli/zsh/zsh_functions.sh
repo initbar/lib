@@ -67,19 +67,29 @@
     function dsh() {
       docker run -it \
              --rm \
-             -v $PWD:/host \
-             --dns 45.90.28.198 \
-             --dns 45.90.30.198 \
+             --dns 1.1.1.1 \
+             --dns 1.0.0.1 \
              --hostname dsh \
              initbar/lib:latest
+    }
+  }
+
+  {
+    function kli() {
+      docker run -it \
+             --rm \
+             --dns 1.1.1.1 \
+             --dns 1.0.0.1 \
+             --hostname kli \
+             initbar/kli:latest
     }
   }
 
   function youtube-dl() {
     docker run \
            -v $PWD:/home/ubuntu \
-           --dns 45.90.28.198 \
-           --dns 45.90.30.198 \
+           --dns 1.1.1.1 \
+           --dns 1.0.0.1 \
            --rm \
            --user=$UID:1000 \
            --hostname container \
@@ -95,8 +105,8 @@
   function mp3-dl() {
     docker run \
            -v ${PWD}:/home/ubuntu \
-           --dns 45.90.28.198 \
-           --dns 45.90.30.198 \
+           --dns 1.1.1.1 \
+           --dns 1.0.0.1 \
            --rm \
            --user=$UID:1000 \
            --hostname container \
@@ -117,8 +127,8 @@
            -p $RANDOM:9091 \
            -p $RANDOM:51413/tcp \
            -p $RANDOM:51413/udp \
-           --dns 45.90.28.198 \
-           --dns 45.90.30.198 \
+           --dns 1.1.1.1 \
+           --dns 1.0.0.1 \
            --rm -d \
            --user=$UID:1000 \
            --hostname container \
