@@ -138,6 +138,14 @@
   . ~/.zsh_functions
 }
 
+[ -d /cache ] && {
+  mkdir -p /cache
+  mkdir -p /cache/firefox        # ~/.cache/firefox
+  mkdir -p /cache/google-chrome  # ~/.cache/google-chrome
+  mkdir -p /cache/ipython        # ~/.ipython
+  mkdir -p /cache/thumbnails     # ~/.cache/thumbnails
+}
+
 # google SDK configuration
 if [ -f "$HOME/.google-cloud-sdk/path.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/path.zsh.inc"; fi
 if [ -f "$HOME/.google-cloud-sdk/completion.zsh.inc" ]; then source "$HOME/.google-cloud-sdk/completion.zsh.inc"; fi
