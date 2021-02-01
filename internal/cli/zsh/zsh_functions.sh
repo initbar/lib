@@ -15,47 +15,26 @@
 
   {
     {
-      function sgn() {
-        local signature="$(cat "$1" | sha512sum)"
-        echo ${signature:0:10} > "$(basename "$1").sha512"
-      }
-
-      function chk() {
-        local f_name="$(basename "$1").sha512"
-        [ -f "$f_name" ] && {
-          local f_orig=$(sha512sum "$1" | cut -d" " -f1)
-          local f_hash="$(cat "$f_name" | head -1 | awk '{print $0}')"
-          local f_Hash=${f_orig:0:10}
-          [[ $f_hash == $f_Hash ]] && {
-            echo -e "\e[35m[\e[31m#\e[35m] \e[97mHash matched.\e[0m"
-          } || {
-            echo -e "\e[35m[\e[31m!\e[35m] \e[97mHash mismatched.\e[0m"
-          }
-        } || {
-          echo -e '\e[35m[\e[31m#\e[35m] \e[97mHash src not found.\e[0m'
-        }
-      }
-
-      function xsgn() {
-        echo $(cat "$1" | openssl dgst -sha256 -binary | openssl enc -base64 -A)
-      }
+      # function xsgn() {
+      #   echo $(cat "$1" | openssl dgst -sha256 -binary | openssl enc -base64 -A)
+      # }
 
       function rsgn() {
         local signature="$(md5sum "$1" | awk '{print $1}')"
         local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
-        mv "$1" "${signature:0:10}$extension"
+        mv -v "$1" "${signature:0:10}$extension"
       }
 
       function rchk() {
         local signature="$(md5sum "$1" | awk '{print $1}')"
         local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
-        local original=$(basename "$1")
-        signature=${signature:0:10}
-        original=${original:0:10}
-        [[ $signature == $original ]] && {
-          echo -e "\e[35m[\e[31m#\e[35m] \e[97mHash matched!\e[0m"
+        local original="$(basename "$1")"
+        signature="${signature:0:10}"
+        original="${original:0:10}"
+        [[ "$signature" == "$original" ]] && {
+          echo "${original}"
         } || {
-          echo -e "\e[35m[\e[31m!\e[35m] \e[97mHash mismatched -> $original.\e[0m"
+          echo "${original} <- BAD HASH"
         }
       }
     }

@@ -122,7 +122,7 @@
   alias strace='strace -fttTCx -s 9999 -y'
   alias valgrind='valgrind --leak-check=full --show-leak-kinds=all'
   alias entropy="ent -b"
-  alias mat="mat2 --inplace --verbose"
+  alias mat="mat2 --inplace"
 }
 
 {
@@ -193,9 +193,9 @@
 
 {
   {
-    # alias pdf='evince'
     alias mp="mplayer -quiet -lavdopts threads=$(nproc)"
     alias pdf="google-chrome-stable"
+    alias pdfmerge="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=_merged.pdf"
   }
 
   {
