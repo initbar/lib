@@ -1,5 +1,0 @@
-(defalias 'cur 'comment-or-uncomment-region)
-(defalias 'dt 'delete-trailing-whitespace)
-(defalias 'rs 'replace-string)
-(defalias 'sl 'sort-lines)
-(defalias 'yes-or-no-p 'y-or-n-p)
