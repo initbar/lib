@@ -1,5 +1,8 @@
-submodules/
-external/
 !external/*/*.gz
+external/
+internal/cli/emacs.d/ac-comphist.dat
+internal/cli/emacs.d/auto-save-list/
+internal/cli/emacs.d/elpa/
 pyradox2/
 pyradox3/
+submodules/
