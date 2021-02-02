@@ -62,7 +62,8 @@
   [[default]]
     icon_bell = False
     background_darkness = 0.98
-    cursor_color = "#ff00ff"
+    cursor_blink = False
+    cursor_color = "#ffffff"
     cursor_color_fg = False
     font = The Sans Mono Condensed- 9.5
     foreground_color = "#ffffff"
