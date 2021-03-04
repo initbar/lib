@@ -85,9 +85,10 @@
   }
 
   {
-    alias vl="vboxmanage list vms"
-    alias vr="vboxmanage startvm --type headless"
     alias va="vboxmanage registervm"
+    alias vi="vboxmanage list vms"
+    alias vp="vboxmanage list runningvms"
+    alias vr="vboxmanage startvm --type headless"
     function vboxs() {
       # vboxmanage controlvm "${1}" acpipowerbutton
       vboxmanage controlvm "${1}" poweroff
