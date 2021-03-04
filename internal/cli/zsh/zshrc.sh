@@ -81,6 +81,7 @@
   export EDITOR="nano"
   export GIT_LFS_SKIP_SMUDGE=1
   export GIT_TERMINAL_PROMPT=1
+  export GPG_TTY="$(tty)"
 
   # GPG
   export GPG_TTY=$(tty)
