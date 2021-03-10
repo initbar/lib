@@ -10,9 +10,6 @@
 [submodule "submodules/zsh/plugins/zsh-autosuggestions"]
 	path = submodules/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "submodules/gdb/pwndbg"]
-	path = submodules/gdb/pwndbg
-	url = https://github.com/pwndbg/pwndbg.git
 [submodule "submodules/ls++"]
 	path = submodules/ls++
 	url = https://github.com/trapd00r/ls--.git
@@ -31,3 +28,6 @@
 [submodule "submodules/nanorc"]
 	path = submodules/nanorc
 	url = https://github.com/scopatz/nanorc.git
+[submodule "submodules/pwndbg"]
+	path = submodules/pwndbg
+	url = https://github.com/pwndbg/pwndbg
