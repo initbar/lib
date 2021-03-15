@@ -1,5 +1,6 @@
 # ~/.zshrc
 
+# Initialize tmpfs cache directory structure
 [ -d /cache ] && (
   cd /cache
   mkdir -p cryptomator    # ~/.local/share/Cryptomator
@@ -8,6 +9,11 @@
   mkdir -p pip            # ~/.cache/pip
   mkdir -p thumbnails     # ~/.cache/thumbnails
 )
+
+# Autostart minikube
+[ -n "$(which minikube)" ] && [ "$(minikube status 1> /dev/null ; echo $?)" -ne 0 ] && {
+  minikube start
+}
 
 [[ -o login && -o interactive ]] && {
 

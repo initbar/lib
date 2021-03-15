@@ -1,10 +1,4 @@
 {
-  [ -d "${HOME}/Downloads" ] && alias d="cd ${HOME}/Downloads"
-  [ -d "${HOME}/private" ] && alias k="cd ${HOME}/private"
-  [ -d "${HOME}/public" ] && alias j="cd ${HOME}/public"
-  [ -d /sandbox ] && alias s='cd /sandbox'
-  [ -d /cache ] && alias c='cd /cache'
-
   alias tpd='xinput set-prop $(xinput list | grep -i touchpad | egrep -o "id=[0-9]+" | sed "s/id=//") "Device Enabled" 0'
   alias tpe='xinput set-prop $(xinput list | grep -i touchpad | egrep -o "id=[0-9]+" | sed "s/id=//") "Device Enabled" 1'
 
@@ -82,6 +76,9 @@
     alias di="docker images"
     alias dl="docker logs"
     alias dp="docker ps -s"
+
+    alias ktl="kubectl"
+    alias kg="kubectl get -o wide"
   }
 
   {
