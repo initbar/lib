@@ -1,4 +1,6 @@
 {
+  [ -d ~/Downloads ] && alias d="cd ~/Downloads"
+
   alias tpd='xinput set-prop $(xinput list | grep -i touchpad | egrep -o "id=[0-9]+" | sed "s/id=//") "Device Enabled" 0'
   alias tpe='xinput set-prop $(xinput list | grep -i touchpad | egrep -o "id=[0-9]+" | sed "s/id=//") "Device Enabled" 1'
 
