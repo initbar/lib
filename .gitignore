@@ -3,6 +3,7 @@ external/
 internal/cli/emacs.d/ac-comphist.dat
 internal/cli/emacs.d/auto-save-list/
 internal/cli/emacs.d/elpa/
+internal/cli/emacs.d/tramp
 pyradox2/
 pyradox3/
 submodules/
