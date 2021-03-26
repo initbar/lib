@@ -1,14 +1,5 @@
 # ~/.zshrc
 
-# Initialize tmpfs cache directory structure
-[ -d /cache ] && (
-  cd /cache
-  mkdir -p google-chrome  # ~/.cache/google-chrome
-  mkdir -p ipython        # ~/.ipython
-  mkdir -p pip            # ~/.cache/pip
-  mkdir -p thumbnails     # ~/.cache/thumbnails
-)
-
 [[ -o login && -o interactive ]] && {
 
   #
@@ -99,4 +90,11 @@
   [ -f ~/.zsh_aliases ]   && . ~/.zsh_aliases
   [ -f ~/.zsh_functions ] && . ~/.zsh_functions
   [ -f /etc/zsh_command_not_found ] && . /etc/zsh_command_not_found
+
+  # tmpfs
+  [ -d /cache ] && (
+    cd /cache && find /cache -type d -exec chmod 700 "{}" \;
+    mkdir -p google-chrome  # ~/.cache/google-chrome
+    mkdir -p thumbnails     # ~/.cache/thumbnails
+  )
 }
