@@ -25,7 +25,10 @@
  '(custom-enabled-themes nil)
  '(custom-safe-themes
    (quote
-    ("3d4df186126c347e002c8366d32016948068d2e9198c496093a96775cc3b3eaa" default))))
+    ("3d4df186126c347e002c8366d32016948068d2e9198c496093a96775cc3b3eaa" default)))
+ '(package-selected-packages
+   (quote
+    (yaml-mode toml-mode terraform-mode swoop sass-mode rust-mode protobuf-mode linum-relative json-mode go-mode dockerfile-mode cython-mode auto-complete tabbar session pod-mode muttrc-mode mutt-alias markdown-mode initsplit htmlize graphviz-dot-mode folding eproject diminish csv-mode browse-kill-ring boxquote bm bar-cursor apache-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
