@@ -71,6 +71,9 @@
   export GOBIN="${GOROOT}/bin"
   export PATH="${PATH}:${GOROOT}:${GOPATH}:${GOBIN}"
 
+  # Perl5
+  export PERL5LIB="${HOME}/.perl5"
+
   # Python
   export _VIRTUALENV="${HOME}/.lib/pyradox3"
   [ -d "$_VIRTUALENV" ] && . "${_VIRTUALENV}/bin/activate"
