@@ -3,14 +3,31 @@
 [[ -o login && -o interactive ]] && {
 
   #
-  # Plugins & Configurations
+  # Zsh plugins & configurations
   #
 
   {
-    DISABLE_MAGIC_FUNCTIONS=true
-    DISABLE_UPDATE_PROMPT=true
-    DISABLE_AUTO_UPDATE=true
-    ZSH_THEME='gentoo'
+    export _ZSH_OH_MY_ZSH="${HOME}/.zsh.d/oh-my-zsh"
+    export _ZSH_PLUGINS="${HOME}/.zsh.d/plugins"
+    export ZSH=$_ZSH_OH_MY_ZSH
+
+    export DISABLE_AUTO_UPDATE=true
+    export DISABLE_MAGIC_FUNCTIONS=true
+    export DISABLE_UPDATE_PROMPT=true
+    export ZSH_THEME=gentoo
+
+    # oh-my-zsh
+    . "${_ZSH_OH_MY_ZSH}/oh-my-zsh.sh"
+
+    # plugins
+    . "${_ZSH_PLUGINS}/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+    . "${_ZSH_PLUGINS}/zsh-completions/zsh-completions.plugin.zsh"
+    . "${_ZSH_PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+
+    # rcs
+    . /etc/zsh_command_not_found
+    . ~/.zsh_functions
+    . ~/.zsh_aliases
 
     setopt AUTOCD             # type the name of a directory to switch
     setopt RCQUOTES           # elegant nested quotations
@@ -23,31 +40,6 @@
     setopt NO_BEEP            # no beep
     setopt NO_CASE_GLOB       # case insensitive globbing
     setopt NUMERIC_GLOB_SORT  # numeric sort the globs
-
-    # oh-my-zsh
-    x="${HOME}/.zsh.d/oh-my-zsh"
-    [ -d "${x}" ] && {
-      export ZSH="${x}"
-      . "${x}/oh-my-zsh.sh"
-    }
-
-    # zsh-syntax-highliting
-    x="${HOME}/.zsh.d/plugins/zsh-syntax-highlighting"
-    [ -d "${x}" ] && {
-      . "${x}/zsh-syntax-highlighting.plugin.zsh"
-    }
-
-    # zsh-completions
-    x="${HOME}/.zsh.d/plugins/zsh-completions"
-    [ -d "${x}" ] && {
-      . "${x}/zsh-completions.plugin.zsh"
-    }
-
-    # zsh-autosuggestions
-    x="${HOME}/.zsh.d/plugins/zsh-autosuggestions"
-    [ -d "${x}" ] && {
-      . "${x}/zsh-autosuggestions.plugin.zsh"
-    }
   }
 
   export GREP_COLOR="97;45"
@@ -65,11 +57,8 @@
   export LS_COLORS="${LS_COLORS}:di=1;91:"
   export TERM="xterm-256color"
 
-  # Wine
-  # export WINEPREFIX='/tmp/wine'
-
   # Git
-  export EDITOR="nano"
+  export EDITOR=nano
   export GIT_LFS_SKIP_SMUDGE=1
   export GIT_TERMINAL_PROMPT=1
 
@@ -86,15 +75,13 @@
   export _VIRTUALENV="${HOME}/.lib/pyradox3"
   [ -d "$_VIRTUALENV" ] && . "${_VIRTUALENV}/bin/activate"
 
-  # Zsh
-  [ -f ~/.zsh_aliases ]   && . ~/.zsh_aliases
-  [ -f ~/.zsh_functions ] && . ~/.zsh_functions
-  [ -f /etc/zsh_command_not_found ] && . /etc/zsh_command_not_found
-
   # tmpfs
   [ -d /cache ] && (
     cd /cache && find /cache -type d -exec chmod 700 "{}" \;
     mkdir -p google-chrome  # ~/.cache/google-chrome
     mkdir -p thumbnails     # ~/.cache/thumbnails
   )
+
+  # Wine
+  # export WINEPREFIX='/tmp/wine'
 }
