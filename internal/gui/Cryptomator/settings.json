@@ -1,0 +1,31 @@
+{
+  "directories": [
+    {
+      "id": "yQmXjqUitoF8",
+      "path": "/vaults/8449fea168",
+      "displayName": "8449fea168",
+      "unlockAfterStartup": false,
+      "revealAfterMount": true,
+      "useCustomMountPath": true,
+      "customMountPath": "/home/h/.vault",
+      "usesReadOnlyMode": false,
+      "mountFlags": "-oauto_unmount -ouid=1000 -ogid=1000 -oumask=177",
+      "filenameLengthLimit": 220,
+      "actionAfterUnlock": "IGNORE"
+    }
+  ],
+  "askedForUpdateCheck": false,
+  "checkForUpdatesEnabled": false,
+  "startHidden": false,
+  "port": 42427,
+  "numTrayNotifications": 3,
+  "preferredGvfsScheme": "DAV",
+  "debugMode": false,
+  "preferredVolumeImpl": "FUSE",
+  "theme": "LIGHT",
+  "uiOrientation": "LEFT_TO_RIGHT",
+  "keychainBackend": "GNOME",
+  "licenseKey": "",
+  "showMinimizeButton": false,
+  "showTrayIcon": false
+}
