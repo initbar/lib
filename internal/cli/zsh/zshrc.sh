@@ -80,7 +80,7 @@
 
   # tmpfs
   [ -d /cache ] && (
-    cd /cache && find /cache -type d -exec chmod 700 "{}" \;
+    cd /cache
     mkdir -p google-chrome  # ~/.cache/google-chrome
     mkdir -p thumbnails     # ~/.cache/thumbnails
   )

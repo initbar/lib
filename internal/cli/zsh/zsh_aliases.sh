@@ -10,7 +10,7 @@
   alias gl='glances -t2 -1 -d'
   alias gpg='gpg -q'
   alias gsutil='gsutil -m'
-  alias hd="hexyl"
+  alias hd="hexyl -v --color=always"
   alias host='host -t any -v -l'
   alias htop="htop -u ${USER}"
   alias iotop='sudo iotop -o -a'
