@@ -71,7 +71,7 @@
            --dns 1.0.0.1 \
            --rm \
            --user=$UID:1000 \
-           --hostname container \
+           --hostname $(echo $RANDOM | md5sum | awk '{print $1}') \
            'initbar/lib:latest' \
            'youtube-dl' \
            -i \
@@ -88,7 +88,7 @@
            --dns 1.0.0.1 \
            --rm \
            --user=$UID:1000 \
-           --hostname container \
+           --hostname $(echo $RANDOM | md5sum | awk '{print $1}') \
            'initbar/lib:latest' \
            'youtube-dl' \
            --verbose \
@@ -110,7 +110,7 @@
            --dns 1.0.0.1 \
            --rm -d \
            --user=$UID:1000 \
-           --hostname container \
+           --hostname $(echo $RANDOM | md5sum | awk '{print $1}') \
            'initbar/lib:latest' \
            '/usr/bin/transmission-cli' \
            '-D' \
