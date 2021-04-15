@@ -45,90 +45,65 @@
   {
     function dsh() {
       docker run -it \
-             --rm \
              --dns 1.1.1.1 \
-             --dns 1.0.0.1 \
-             --hostname dsh \
+             --dns 1.1.1.2 \
+             --rm \
              initbar/lib:latest
-    }
-  }
-
-  {
-    function kli() {
-      docker run -it \
-             --rm \
-             --dns 1.1.1.1 \
-             --dns 1.0.0.1 \
-             --hostname kli \
-             initbar/kli:latest
     }
   }
 
   function youtube-dl() {
     docker run \
-           -v $PWD:/home/ubuntu \
            --dns 1.1.1.1 \
-           --dns 1.0.0.1 \
+           --dns 1.1.1.2 \
            --rm \
            --user=$UID:1000 \
-           --hostname $(echo $RANDOM | md5sum | awk '{print $1}') \
+           -v $PWD:/home/ubuntu \
            'initbar/lib:latest' \
            'youtube-dl' \
-           -i \
-           --yes-playlist \
            --cache-dir /tmp \
            --prefer-ffmpeg \
+           --yes-playlist \
+           -i \
            "$1"
   }
 
   function mp3-dl() {
     docker run \
-           -v ${PWD}:/home/ubuntu \
            --dns 1.1.1.1 \
-           --dns 1.0.0.1 \
+           --dns 1.1.1.2 \
            --rm \
            --user=$UID:1000 \
-           --hostname $(echo $RANDOM | md5sum | awk '{print $1}') \
+           -v ${PWD}:/home/ubuntu \
            'initbar/lib:latest' \
            'youtube-dl' \
-           --verbose \
-           --cache-dir /tmp \
            --audio-format mp3 \
            --audio-quality 320k \
+           --cache-dir /tmp \
            --extract-audio \
            --prefer-ffmpeg \
+           --verbose \
            "$1"
   }
 
   function tcli() {
     docker run \
-           -v $HOME/.torrents:/home/ubuntu/Downloads \
-           -p $RANDOM:9091 \
-           -p $RANDOM:51413/tcp \
-           -p $RANDOM:51413/udp \
            --dns 1.1.1.1 \
-           --dns 1.0.0.1 \
+           --dns 1.1.1.2 \
            --rm -d \
            --user=$UID:1000 \
-           --hostname $(echo $RANDOM | md5sum | awk '{print $1}') \
+           -p 127.0.0.1:$RANDOM:46882/udp \
+           -p 127.0.0.1:$RANDOM:50052/udp \
+           -p 127.0.0.1:$RANDOM:51413/tcp \
+           -p 127.0.0.1:$RANDOM:51413/udp \
+           -p 127.0.0.1:$RANDOM:9091 \
+           -v $HOME/.torrents:/home/ubuntu/Downloads \
            'initbar/lib:latest' \
            '/usr/bin/transmission-cli' \
            '-D' \
-           '-b' \
-           '-er' \
-           '-m' \
-           '-t 0x28' \
+           '-ep' \
            '-u 1' \
            '-v' \
            "$1"
-  }
-
-  function pdf() {
-    [ -n "$(which evince)" ] && {
-      alias pdf="evince"
-      [ -n "$(which google-chrome-stable)" ] && {
-        alias pdf="google-chrome-stable"
-      }
-    }
   }
 }
