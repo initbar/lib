@@ -75,9 +75,9 @@
 
   {
     alias de="docker exec"
-    alias di="docker images"
+    alias di="docker images --digests=true"
     alias dl="docker logs"
-    alias dp="docker ps -s"
+    alias dp="docker ps -q"
 
     alias ktl="kubectl"
     alias kg="kubectl get -o wide"
