@@ -193,7 +193,7 @@
 
 {
   {
-    alias mp="mplayer -quiet -lavdopts threads=$(nproc)"
+    alias mp="mpv --vd-lavc-threads=0 --cache-on-disk=no"
     alias pdf="google-chrome-stable"
     alias pdfmerge="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=_merged.pdf"
   }

@@ -64,6 +64,7 @@
            --cache-dir /tmp \
            --prefer-ffmpeg \
            --yes-playlist \
+           -f 'bestvideo+bestaudio' \
            -i \
            "$1"
   }
