@@ -94,6 +94,6 @@
     [[[window0]]]
       parent = ""
       profile = None
-      # size = 900, 600
-      type = Window
+      size = 900, 600
+      type = window
 [plugins]
