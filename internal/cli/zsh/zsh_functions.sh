@@ -45,8 +45,8 @@
   {
     function dsh() {
       docker run -it \
-             --dns 1.1.1.1 \
-             --dns 1.1.1.2 \
+             --dns 45.90.28.198 \
+             --dns 45.90.30.198 \
              --rm \
              initbar/lib:latest
     }
@@ -54,8 +54,8 @@
 
   function youtube-dl() {
     docker run \
-           --dns 1.1.1.1 \
-           --dns 1.1.1.2 \
+           --dns 45.90.28.198 \
+           --dns 45.90.30.198 \
            --rm \
            --user=$UID:1000 \
            -v $PWD:/home/ubuntu \
@@ -71,8 +71,8 @@
 
   function mp3-dl() {
     docker run \
-           --dns 1.1.1.1 \
-           --dns 1.1.1.2 \
+           --dns 45.90.28.198 \
+           --dns 45.90.30.198 \
            --rm \
            --user=$UID:1000 \
            -v ${PWD}:/home/ubuntu \
@@ -89,8 +89,8 @@
 
   function tcli() {
     docker run \
-           --dns 1.1.1.1 \
-           --dns 1.1.1.2 \
+           --dns 45.90.28.198 \
+           --dns 45.90.30.198 \
            --rm -d \
            --user=$UID:1000 \
            -p 127.0.0.1:$RANDOM:46882/udp \
