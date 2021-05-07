@@ -75,7 +75,7 @@
 
   {
     alias de="docker exec"
-    alias di="docker images --digests=true"
+    alias di="docker images"
     alias dl="docker logs"
     alias dp="docker ps -q"
 
