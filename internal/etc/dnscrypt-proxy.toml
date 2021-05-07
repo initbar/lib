@@ -1,50 +1,33 @@
 # dnscrypt-proxy.toml
 
-################################################################################
-# Global settings
-################################################################################
-
-listen_addresses = ['127.0.0.53:53']
-ipv4_servers = true
-ipv6_servers = false
 block_ipv6 = true
-
-server_names = ['NextDNS-ea1a22']
-# server_names = ['cloudflare-security']
-fallback_resolver = '1.1.1.2:53'
-ignore_system_dns = true
-
-max_clients = 100
-timeout = 3000
-
+cache = true
+cache_max_ttl = 86400
+cache_min_ttl = 900
+cache_neg_max_ttl = 600
+cache_neg_min_ttl = 60
+cache_size = 4096
 cert_refresh_delay = 60
 dnscrypt_servers = true
 doh_servers = true
+fallback_resolver = '1.1.1.2:53'
 force_tcp = false
+ignore_system_dns = true
+ipv4_servers = true
+ipv6_servers = false
+keepalive = 30
+listen_addresses = ['127.0.0.53:53']
+log_file = '/var/log/dnscrypt-proxy/dnscrypt-proxy.log'
+log_files_max_age = 7
+log_files_max_backups = 1
+log_files_max_size = 10
+log_level = 2
+max_clients = 100
 require_dnssec = true
 require_nofilter = true
 require_nolog = true
-
-log_file = '/var/log/dnscrypt-proxy/dnscrypt-proxy.log'
-log_level = 2
-log_files_max_size = 10
-log_files_max_age = 7
-log_files_max_backups = 1
-
-################################################################################
-# DNS Caching
-################################################################################
-
-cache = true
-cache_size = 8196
-cache_min_ttl = 900
-cache_max_ttl = 86400
-cache_neg_min_ttl = 60
-cache_neg_max_ttl = 600
-
-################################################################################
-# DNS Sources
-################################################################################
+server_names = ['NextDNS-ea1a22']
+timeout = 3000  # ms
 
 [sources]
   [sources.'public-resolvers']
@@ -57,24 +40,6 @@ cache_neg_max_ttl = 600
 [static]
   [static.'NextDNS-ea1a22']
   stamp = 'sdns://AgEAAAAAAAAACjQ1LjkwLjI4LjAADmRucy5uZXh0ZG5zLmlvBy9lYTFhMjI'
-
-################################################################################
-# Blocklist
-################################################################################
-
-[blacklist]
-  # blacklist_file = "/opt/dnscrypt.blocklist"
-  log_file = '/var/log/dnscrypt-proxy/blocked.log'
-  log_format = 'tsv'
-
-[ip_blacklist]
-  # blacklist_file = 'ip-blacklist.txt'
-  log_file = '/var/log/dnscrypt-proxy/ip-blocked.log'
-  log_format = 'tsv'
-
-################################################################################
-# Logging
-################################################################################
 
 [query_log]
   file = '/var/log/dnscrypt-proxy/query.log'
