@@ -95,5 +95,5 @@
       parent = ""
       profile = None
       size = 900, 600
-      type = window
+      type = Window
 [plugins]
