@@ -63,7 +63,7 @@
     background_darkness = 0.98
     cursor_color = "#ff0000"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 7.9
+    font = Fantasque Sans Mono 8.3984375
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
