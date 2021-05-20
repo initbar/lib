@@ -86,5 +86,5 @@
   )
 
   # Wine
-  # export WINEPREFIX='/tmp/wine'
+  export WINEPREFIX='/tmp/wine'
 }
