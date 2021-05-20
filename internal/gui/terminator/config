@@ -1,5 +1,6 @@
 [global_config]
   dbus = False
+  window_state = maximise
   tab_position = bottom
   scroll_tabbar = True
   hide_from_taskbar = True
@@ -63,7 +64,7 @@
     background_darkness = 0.98
     cursor_color = "#ff0000"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 8.3984375
+    font = Fantasque Sans Mono 7.8984375
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
