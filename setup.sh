@@ -24,8 +24,5 @@ set -euo pipefail
       test -L ~/.themes && unlink ~/.themes
       ln -sf ~/.lib/external/themes ~/.themes
     }
-
-    cd internal && {
-    }
   }
 }

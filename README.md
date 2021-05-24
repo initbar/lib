@@ -3,6 +3,12 @@
 ## Installation
 
 ```bash
+~$ curl https://raw.githubusercontent.com/initbar/dotfiles/master/setup.sh | bash
+```
+
+## Installation (Manual)
+
+```bash
 ~$ git clone https://github.com/initbar/dotfiles.git ~/.lib
 ~$ cd ~/.lib && git submodule update --init --recursive
 ```
