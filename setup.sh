@@ -100,6 +100,7 @@ set -euo pipefail
           cd gui && {
 
             # terminator
+            mkdir -p ~/.config
             test -L ~/.config/terminator && unlink ~/.config/terminator
             ln -sf ~/.lib/internal/gui/terminator ~/.config/terminator
           }
