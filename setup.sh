@@ -2,6 +2,16 @@
 
 set -euo pipefail
 
+(
+  # dnscrypt
+  rm -rf ~/.dnscrypt && mkdir -p ~/.dnscrypt
+  curl -L --output - https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/2.0.45/dnscrypt-proxy-linux_x86_64-2.0.45.tar.gz | tar -xz -C ~/.dnscrypt
+  cd ~/.dnscrypt && {
+    mv linux-x86_64/* .
+    rm -rf linux-x86_64
+  }
+)
+
 {
   [ -d ~/.lib ] || git clone https://github.com/initbar/dotfiles.git ~/.lib
 
@@ -59,6 +69,9 @@ set -euo pipefail
 
         (
           cd etc && {
+
+            # dnscrypt-proxy.toml
+            ln -sf dnscrypt-proxy.toml ~/.dnscrypt/dnscrypt-proxy.toml
 
             # hosts.{allow, deny}
             cat hosts.allow | sudo tee /etc/hosts.allow
