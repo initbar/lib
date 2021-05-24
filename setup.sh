@@ -79,9 +79,9 @@ set -euo pipefail
 
             # resolv.conf
             test -L /etc/resolv.conf && sudo unlink /etc/resolv.conf
-            sudo chattr -iV /etc/resolv.conf
+            sudo chattr -i -V /etc/resolv.conf
             cat resolv.conf | sudo tee /etc/resolv.conf
-            sudo chattr +iV /etc/resolv.conf
+            sudo chattr +i -V /etc/resolv.conf
 
             # sysctl.conf
             cat sysctl.conf | sudo tee /etc/sysctl.conf
