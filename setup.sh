@@ -68,7 +68,7 @@ set -euo pipefail
         )
 
         (
-          cd etc && {
+          cd etc && ! test -f /.dockerenv && {
 
             # dnscrypt-proxy.toml
             ln -sf dnscrypt-proxy.toml ~/.dnscrypt/dnscrypt-proxy.toml
