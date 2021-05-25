@@ -39,6 +39,5 @@ RUN apt-get update \
 USER ubuntu
 WORKDIR $WORKDIR
 
-RUN sudo -H pip3 install youtube_dl
-
-RUN curl https://raw.githubusercontent.com/initbar/dotfiles/master/setup.sh | bash
+RUN sudo -H pip3 install youtube_dl \
+ && curl https://raw.githubusercontent.com/initbar/dotfiles/master/setup.sh | bash
