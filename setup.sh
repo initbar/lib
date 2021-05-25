@@ -69,7 +69,7 @@ set -euo pipefail
         )
 
         (
-          cd etc && ! test -f /.dockerenv && {
+          [ ! -f /.dockerenv ] && cd etc && {
 
             # hosts.{allow, deny}
             cat hosts.allow | sudo tee /etc/hosts.allow
