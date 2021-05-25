@@ -67,28 +67,31 @@
         )
 
         (
-          [ ! -f /.dockerenv ] && cd etc && {
+          cd etc && {
 
             # hosts.{allow, deny}
             cat hosts.allow | sudo tee /etc/hosts.allow
             cat hosts.deny | sudo tee /etc/hosts.deny
 
-            # resolv.conf
-            test -L /etc/resolv.conf && sudo unlink /etc/resolv.conf
-            sudo chattr -i -V /etc/resolv.conf
-            cat resolv.conf | sudo tee /etc/resolv.conf
-            sudo chattr +i -V /etc/resolv.conf
+            [ ! -f /.dockerenv ] && {
 
-            # sysctl.conf
-            cat sysctl.conf | sudo tee /etc/sysctl.conf
+              # resolv.conf
+              test -L /etc/resolv.conf && sudo unlink /etc/resolv.conf
+              sudo chattr -i -V /etc/resolv.conf
+              cat resolv.conf | sudo tee /etc/resolv.conf
+              sudo chattr +i -V /etc/resolv.conf
 
-            # ssh
-            [ -d /etc/ssh ] && (
-              cd ssh && {
-                cat banner | sudo tee /etc/ssh/banner
-                cat sshd_config | sudo tee /etc/ssh/sshd_config
-              }
-            )
+              # sysctl.conf
+              cat sysctl.conf | sudo tee /etc/sysctl.conf
+
+              # ssh
+              [ -d /etc/ssh ] && (
+                cd ssh && {
+                  cat banner | sudo tee /etc/ssh/banner
+                  cat sshd_config | sudo tee /etc/ssh/sshd_config
+                }
+              )
+            }
           }
         )
 
