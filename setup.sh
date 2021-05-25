@@ -9,6 +9,7 @@ set -euo pipefail
   cd ~/.dnscrypt && {
     mv linux-x86_64/* .
     rm -rf linux-x86_64
+    ln -sf ~/.lib/internal/etc/dnscrypt-proxy.toml dnscrypt-proxy.toml
   }
 )
 
@@ -69,9 +70,6 @@ set -euo pipefail
 
         (
           cd etc && ! test -f /.dockerenv && {
-
-            # dnscrypt-proxy.toml
-            ln -sf dnscrypt-proxy.toml ~/.dnscrypt/dnscrypt-proxy.toml
 
             # hosts.{allow, deny}
             cat hosts.allow | sudo tee /etc/hosts.allow
