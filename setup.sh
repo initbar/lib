@@ -4,12 +4,12 @@ set -euo pipefail
 
 (
   # dnscrypt
-  rm -rf ~/.dnscrypt && mkdir -p ~/.dnscrypt
+  rm -vrf ~/.dnscrypt && mkdir -p ~/.dnscrypt
   curl -L --output - https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/2.0.45/dnscrypt-proxy-linux_x86_64-2.0.45.tar.gz | tar -xz -C ~/.dnscrypt
   cd ~/.dnscrypt && {
-    mv linux-x86_64/* .
-    rm -rf linux-x86_64
-    ln -sf ~/.lib/internal/etc/dnscrypt-proxy.toml dnscrypt-proxy.toml
+    mv -v linux-x86_64/* .
+    rm -vrf linux-x86_64
+    ln -vsf ~/.lib/internal/etc/dnscrypt-proxy.toml dnscrypt-proxy.toml
   }
 )
 
@@ -17,7 +17,7 @@ set -euo pipefail
   [ -d ~/.lib ] || git clone https://github.com/initbar/dotfiles.git ~/.lib
 
   cd ~/.lib && {
-    rm -rf submodules/ && git submodule update --init --recursive
+    rm -vrf submodules/ && git submodule update --init --recursive
 
     #
     # external
@@ -28,16 +28,16 @@ set -euo pipefail
 
         # cursors
         test -L ~/.icons && unlink ~/.icons
-        ln -sf ~/.lib/external/cursor ~/.icons
+        ln -vsf ~/.lib/external/cursor ~/.icons
 
         # fonts
         mkdir -p ~/.local/share
         test -L ~/.local/share/fonts && unlink ~/.local/share/fonts
-        ln -sf ~/.lib/external/fonts ~/.local/share/fonts
+        ln -vsf ~/.lib/external/fonts ~/.local/share/fonts
 
         # themes
         test -L ~/.themes && unlink ~/.themes
-        ln -sf ~/.lib/external/themes ~/.themes
+        ln -vsf ~/.lib/external/themes ~/.themes
       }
     )
 
@@ -51,20 +51,20 @@ set -euo pipefail
           cd cli && {
 
             # bash
-            ln -sf ~/.lib/internal/cli/bash/bashrc ~/.bashrc
+            ln -vsf ~/.lib/internal/cli/bash/bashrc ~/.bashrc
 
             # emacs*
             test -L ~/.emacs.d && unlink ~/.emacs.d
-            ln -sf ~/.lib/internal/cli/emacs.d ~/.emacs.d
-            ln -sf ~/.lib/internal/cli/emacs/emacs.el ~/.emacs
+            ln -vsf ~/.lib/internal/cli/emacs.d ~/.emacs.d
+            ln -vsf ~/.lib/internal/cli/emacs/emacs.el ~/.emacs
 
             # nano
-            ln -sf ~/.lib/internal/cli/nano/nanorc ~/.nanorc
+            ln -vsf ~/.lib/internal/cli/nano/nanorc ~/.nanorc
 
             # zsh
-            ln -sf ~/.lib/internal/cli/zsh/zsh_aliases.sh ~/.zsh_aliases
-            ln -sf ~/.lib/internal/cli/zsh/zsh_functions.sh ~/.zsh_functions
-            ln -sf ~/.lib/internal/cli/zsh/zshrc.sh ~/.zshrc
+            ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.sh ~/.zsh_aliases
+            ln -vsf ~/.lib/internal/cli/zsh/zsh_functions.sh ~/.zsh_functions
+            ln -vsf ~/.lib/internal/cli/zsh/zshrc.sh ~/.zshrc
           }
         )
 
@@ -98,9 +98,9 @@ set -euo pipefail
           cd gui && {
 
             # terminator
-            mkdir -p ~/.config
+            mkdir -vp ~/.config
             test -L ~/.config/terminator && unlink ~/.config/terminator
-            ln -sf ~/.lib/internal/gui/terminator ~/.config/terminator
+            ln -vsf ~/.lib/internal/gui/terminator ~/.config/terminator
           }
         )
       }
