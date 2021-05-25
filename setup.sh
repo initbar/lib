@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -euo pipefail
-
 (
   # dnscrypt
   rm -vrf ~/.dnscrypt && mkdir -p ~/.dnscrypt
