@@ -27,12 +27,13 @@ RUN apt-get update \
             ffmpeg \
             git \
             language-pack-en \
+            nano \
             python3 \
             python3-pip \
             python3-setuptools \
             python3-wheel \
-            transmission-cli \
             sudo \
+            transmission-cli \
             wget \
  && rm -rf /var/lib/apt/lists/*
 
