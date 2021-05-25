@@ -55,7 +55,7 @@ set -euo pipefail
             # emacs*
             test -L ~/.emacs.d && unlink ~/.emacs.d
             ln -sf ~/.lib/internal/cli/emacs.d ~/.emacs.d
-            ln -sf ~/.lib/internal/cli/emacs/emacs ~/.emacs
+            ln -sf ~/.lib/internal/cli/emacs/emacs.el ~/.emacs
 
             # nano
             ln -sf ~/.lib/internal/cli/nano/nanorc ~/.nanorc
