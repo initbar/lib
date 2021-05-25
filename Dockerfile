@@ -24,13 +24,9 @@ RUN apt-get update \
             ca-certificates \
             curl \
             dnsutils \
-            emacs-goodies-el \
-            emacs-nox \
             ffmpeg \
             git \
             language-pack-en \
-            mosh \
-            nano \
             python3 \
             python3-pip \
             python3-setuptools \
@@ -43,14 +39,6 @@ RUN apt-get update \
 USER ubuntu
 WORKDIR $WORKDIR
 
-RUN sudo -H pip3 install \
-                 ipython \
-                 youtube_dl
+RUN sudo -H pip3 install youtube_dl
 
-RUN git clone https://github.com/initbar/dotfiles.git $WORKDIR/.lib \
- && cd $WORKDIR/.lib \
- && git submodule update --init --recursive
-
-RUN ln -sLf $WORKDIR/.lib/internal/cli/emacs.d $WORKDIR/.emacs.d \
- && ln -sf  $WORKDIR/.lib/internal/cli/emacs/emacs.el $WORKDIR/.emacs \
- && ln -sf  $WORKDIR/.lib/internal/cli/nano/nanorc $WORKDIR/.nanorc
+RUN curl https://raw.githubusercontent.com/initbar/dotfiles/master/setup.sh | bash
