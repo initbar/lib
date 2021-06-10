@@ -136,6 +136,11 @@
   alias strings='strings -a'
 
   {
+    alias kbq="keybase fs quota"
+    alias kbs="keybase fs uploads"
+  }
+
+  {
     alias gsh="gcloud alpha cloud-shell ssh --verbosity debug"
     alias gscp="gcloud alpha cloud-shell scp"
     alias gsshfs="gcloud alpha cloud-shell get-mount-command"
