@@ -48,6 +48,7 @@
              --dns 45.90.28.198 \
              --dns 45.90.30.198 \
              --rm \
+             -v $PWD:/v \
              initbar/lib:latest
     }
   }
