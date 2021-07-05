@@ -11,15 +11,17 @@
   alias gl='glances -t2 -1 -d'
   alias gpg='gpg -q'
   alias gsutil='gsutil -m'
+  alias gzip="gzip --rsyncable"
   alias hd="hexyl -v --color=always"
   alias host='host -t any -v -l'
   alias htop="htop -u ${USER}"
   alias iotop='sudo iotop -o -a'
   alias ipt="sudo iptables -L -v -n --line-numbers | egrep 'Chain [A-Za-z0-9-]+' -A100000"
+  alias lrzip="lrzip --threads=$(nproc)"
   alias lspci='lspci -tv'
   alias lsusb='lsusb -tv'
-  alias ncdu='ncdu -r -x'
   alias mosh='mosh -n --family=prefer-inet'
+  alias ncdu='ncdu -r -x'
   alias pw="acpi -V | grep Battery"
   alias ser='sudo service --status-all | grep +'
   alias sort="sort --parallel=$(nproc)"
