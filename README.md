@@ -22,7 +22,7 @@
 ## Docker (Manual)
 
 ```bash
-~$ docker build https://github.com/initbar/dotfiles.git#master
+~$ docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#master
 ```
 
 ## License
