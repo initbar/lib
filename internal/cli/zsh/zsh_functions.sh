@@ -45,8 +45,8 @@
   {
     function dsh() {
       docker run -it \
-             --dns 45.90.28.198 \
-             --dns 45.90.30.198 \
+             --dns 1.1.1.1 \
+             --dns 8.8.8.8 \
              --rm \
              -v $PWD:/v \
              initbar/lib:latest
