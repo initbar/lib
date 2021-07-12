@@ -3,7 +3,7 @@
 ## Installation
 
 ```bash
-~$ curl https://raw.githubusercontent.com/initbar/dotfiles/master/setup.sh | bash
+~$ curl https://raw.githubusercontent.com/initbar/dotfiles/scripts/master/setup.sh | bash
 ```
 
 ## Installation (Manual)

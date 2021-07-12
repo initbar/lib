@@ -41,4 +41,4 @@ USER ubuntu
 WORKDIR $WORKDIR
 
 RUN sudo -H pip3 install youtube_dl \
- && curl https://raw.githubusercontent.com/initbar/dotfiles/master/setup.sh | bash
+ && curl https://raw.githubusercontent.com/initbar/dotfiles/tree/master/scripts/install.sh | bash
