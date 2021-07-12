@@ -22,7 +22,7 @@ docker image rm initbar/lib:latest; docker pull initbar/lib:latest
 ## Docker (Manual)
 
 ```bash
-docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#master
+docker image rm initbar/lib:latest; docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#master
 ```
 
 ## License
