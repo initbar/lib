@@ -13,11 +13,16 @@
 ~$ cd ~/.lib && git submodule update --init --recursive
 ```
 
-## Docker
+## Docker (Nightly)
 
 ```bash
-~$ # docker pull initbar/lib:latest
-~$ docker run -it --rm initbar/lib:latest /bin/bash
+~$ docker image rm initbar/lib:latest; docker pull initbar/lib:latest
+```
+
+## Docker (Manual)
+
+```bash
+~$ docker build https://github.com/initbar/dotfiles.git#master
 ```
 
 ## License
