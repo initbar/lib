@@ -26,12 +26,15 @@ RUN apt-get update \
             dnsutils \
             ffmpeg \
             git \
+            gnupg2 \
             language-pack-en \
+            lsb-release \
             nano \
             python3 \
             python3-pip \
             python3-setuptools \
             python3-wheel \
+            software-properties-common \
             sudo \
             transmission-cli \
             wget \
