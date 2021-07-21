@@ -203,6 +203,7 @@
 {
   {
     alias mp="mpv -fs --vd-lavc-threads=0 --cache-on-disk=no"
+    alias mpa="mpv -fs --vd-lavc-threads=0 --cache-on-disk=no --no-video"
     alias pdf="google-chrome-stable"
     alias pdfmerge="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=_merged.pdf"
   }
