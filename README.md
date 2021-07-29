@@ -6,25 +6,11 @@
 curl https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.sh | bash
 ```
 
-## Installation (Manual)
+## Docker
 
 ```bash
-git clone https://github.com/initbar/dotfiles.git ~/.lib
-cd ~/.lib && git submodule update --init --recursive
-```
-
-## Docker (Nightly)
-
-```bash
-# docker image rm initbar/lib:latest
+# docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#master
 docker pull initbar/lib:latest
-```
-
-## Docker (Manual)
-
-```bash
-# docker image rm initbar/lib:latest
-docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#master
 ```
 
 ## License
