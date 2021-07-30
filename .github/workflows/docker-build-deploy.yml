@@ -1,0 +1,15 @@
+name: Build and Containerize Dotfiles
+on: [push, pull_request]
+jobs:
+  build:
+    name: Build and Upload to Docker
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout GitHub repository
+      uses: actions/checkout@v2
+    - name: Build Docker image
+      run: docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#master
+    - name: Login to Docker
+      run: docker login --username ${{ secrets.DOCKER_USERNAME }} --password ${{ secrets.DOCKER_PASSWORD }}
+    - name: Upload to Docker
+      run: docker image push "initbar/lib:latest"
