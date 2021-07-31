@@ -64,7 +64,7 @@
     background_darkness = 0.98
     cursor_color = "#ff0000"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 7.6982421875
+    font = Fantasque Sans Mono 9.3984375
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
@@ -72,12 +72,12 @@
     login_shell = True
     use_system_font = False
     rewrap_on_resize = False
-  [[4k]]
+  [[1080p]]
     icon_bell = False
     background_darkness = 0.98
     cursor_color = "#ff0000"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 9.3984375
+    font = Fantasque Sans Mono 7.6982421875
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
