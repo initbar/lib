@@ -25,7 +25,7 @@ RUN apt-get update \
             command-not-found \
             curl \
             dnsutils \
-            emacs-goodies \
+            emacs-goodies-el \
             emacs-nox \
             ffmpeg \
             git \
