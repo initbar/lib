@@ -24,11 +24,14 @@ RUN apt-get update \
             ca-certificates \
             curl \
             dnsutils \
+            emacs-goodies \
+            emacs-nox \
             ffmpeg \
             git \
             gnupg2 \
             language-pack-en \
             lsb-release \
+            mat2 \
             nano \
             python3 \
             python3-pip \
