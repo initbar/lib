@@ -126,7 +126,6 @@
   alias strace='strace -fttTCx -s 9999 -y'
   alias valgrind='valgrind --leak-check=full --show-leak-kinds=all'
   alias entropy="ent -b"
-  alias mat="mat2 --inplace"
 }
 
 {
@@ -202,8 +201,8 @@
 
 {
   {
-    alias mp="mpv -fs --vd-lavc-threads=0 --cache-on-disk=no"
-    alias mpa="mpv -fs --vd-lavc-threads=0 --cache-on-disk=no --no-video"
+    alias mp="mpv -fs --vd-lavc-threads=0"
+    alias mpa="mpv -fs --vd-lavc-threads=0 --no-video"
     alias pdf="google-chrome-stable"
     alias pdfmerge="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -dAutoRotatePages=/None -sOutputFile=_merged.pdf"
   }
@@ -211,7 +210,6 @@
   {
     alias disp='display'
     alias ditaa='ditaa -r -S'
-    alias et='exiftool'
     alias jpegm='jpegoptim -s'
   }
 }

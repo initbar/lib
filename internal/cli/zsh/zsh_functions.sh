@@ -13,69 +13,80 @@
     bash -c "$(echo -n "$payload" | tr -d '\n' | tr -d ' ' | base64 -d)"
   }
 
-  {
-    {
-      # function xsgn() {
-      #   echo $(cat "$1" | openssl dgst -sha256 -binary | openssl enc -base64 -A)
-      # }
+  # function xsgn() {
+  #   echo $(cat "$1" | openssl dgst -sha256 -binary | openssl enc -base64 -A)
+  # }
 
-      function rsgn() {
-        local signature="$(md5sum "$1" | awk '{print $1}')"
-        local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
-        mv -v "$1" "${signature:0:10}$extension"
-      }
+  function rsgn() {
+    local signature="$(md5sum "$1" | awk '{print $1}')"
+    local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
+    mv -v "$1" "${signature:0:10}$extension"
+  }
 
-      function rchk() {
-        local signature="$(md5sum "$1" | awk '{print $1}')"
-        local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
-        local original="$(basename "$1")"
-        signature="${signature:0:10}"
-        original="${original:0:10}"
-        [[ "$signature" == "$original" ]] && {
-          echo "${original}"
-        } || {
-          echo "${original} <- BAD HASH"
-        }
-      }
+  function rchk() {
+    local signature="$(md5sum "$1" | awk '{print $1}')"
+    local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
+    local original="$(basename "$1")"
+    signature="${signature:0:10}"
+    original="${original:0:10}"
+    [[ "$signature" == "$original" ]] && {
+      echo "${original}"
+    } || {
+      echo "${original} <- BAD HASH"
     }
   }
 }
 
 {
-  {
-    function dsh() {
-      docker run -it \
-             --dns 1.1.1.1 \
-             --dns 8.8.8.8 \
-             --rm \
-             -v $PWD:/v \
-             initbar/lib:latest
-    }
-  }
-
-  function youtube-dl() {
-    docker run \
-           --dns 45.90.28.198 \
-           --dns 45.90.30.198 \
+  function dsh() {
+    docker run -it \
            --rm \
            --user=$UID:1000 \
-           -v $PWD:/home/ubuntu \
+           -v $PWD:/sandbox \
+           -w /sandbox \
+           'initbar/lib:latest'
+  }
+
+  function emacs() {
+    docker run -it \
+           --rm \
+           --user=$UID:1000 \
+           -v $PWD:/sandbox \
+           -w /sandbox \
            'initbar/lib:latest' \
-           'youtube-dl' \
-           --cache-dir /tmp \
-           --prefer-ffmpeg \
-           --yes-playlist \
-           -i \
-           "$1"
+           'emacs' \
+           "$@"
+  }
+
+  function et() {
+    docker run -it \
+           --rm \
+           --user=$UID:1000 \
+           -v $PWD:/sandbox \
+           -w /sandbox \
+           'initbar/lib:latest' \
+           'exiftool' \
+           "/sandbox/$@"
+  }
+
+  function mat() {
+    docker run -it \
+           --rm \
+           --user=$UID:1000 \
+           -v $PWD:/sandbox \
+           -w /sandbox \
+           'initbar/lib:latest' \
+           'mat2' \
+           --inplace \
+           "$@"
   }
 
   function mp3-dl() {
     docker run \
-           --dns 45.90.28.198 \
-           --dns 45.90.30.198 \
            --rm \
            --user=$UID:1000 \
-           -v ${PWD}:/home/ubuntu \
+           -v ${PWD}:/sandbox \
+           -w /sandbox \
            'initbar/lib:latest' \
            'youtube-dl' \
            --audio-format mp3 \
@@ -89,22 +100,37 @@
 
   function tcli() {
     docker run \
-           --dns 45.90.28.198 \
-           --dns 45.90.30.198 \
-           --rm -d \
+           --rm \
            --user=$UID:1000 \
+           -d \
            -p 127.0.0.1:$RANDOM:46882/udp \
            -p 127.0.0.1:$RANDOM:50052/udp \
            -p 127.0.0.1:$RANDOM:51413/tcp \
            -p 127.0.0.1:$RANDOM:51413/udp \
            -p 127.0.0.1:$RANDOM:9091 \
            -v $HOME/.torrents:/home/ubuntu/Downloads \
+           -w /sandbox \
            'initbar/lib:latest' \
            '/usr/bin/transmission-cli' \
            '-D' \
            '-ep' \
            '-u 1' \
            '-v' \
+           "$1"
+  }
+
+  function youtube-dl() {
+    docker run \
+           --rm \
+           --user=$UID:1000 \
+           -v $PWD:/sandbox \
+           -w /sandbox \
+           'initbar/lib:latest' \
+           'youtube-dl' \
+           --cache-dir /tmp \
+           --prefer-ffmpeg \
+           --yes-playlist \
+           -i \
            "$1"
   }
 }
