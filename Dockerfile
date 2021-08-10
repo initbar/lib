@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:21.04
 
 EXPOSE 9091 \
        51413/tcp \
@@ -34,7 +34,7 @@ RUN apt-get update \
             libimage-exiftool-perl \
             lsb-release \
             mat2 \
-            nano \
+            psmisc \
             python3 \
             python3-pip \
             python3-setuptools \
@@ -42,11 +42,11 @@ RUN apt-get update \
             software-properties-common \
             sudo \
             transmission-cli \
-            wget \
- && rm -rf /var/lib/apt/lists/*
+            wget
 
 USER ubuntu
 WORKDIR $WORKDIR
 
 RUN sudo -H pip3 install youtube_dl \
- && curl https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.sh | bash
+ && curl https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.sh | bash \
+ && emacs --daemon
