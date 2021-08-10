@@ -31,6 +31,7 @@ RUN apt-get update \
             git \
             gnupg2 \
             language-pack-en \
+            libimage-exiftool-perl \
             lsb-release \
             mat2 \
             nano \
