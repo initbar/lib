@@ -43,8 +43,8 @@
            --interactive \
            --rm \
            --tty \
-           --user="$UID:1000" \
-           --volume="$PWD:/sandbox" \
+           --user="${UID}:1000" \
+           --volume="${PWD}:/sandbox" \
            --workdir=/sandbox \
            "$@"
   }
