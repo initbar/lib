@@ -38,101 +38,83 @@
 }
 
 {
-  function dsh() {
-    docker run -it \
+  function __docker() {
+    docker run \
+           --interactive \
            --rm \
-           --user=$UID:1000 \
-           -v $PWD:/sandbox \
-           -w /sandbox \
-           'initbar/lib:latest'
+           --tty \
+           --user="$UID:1000" \
+           --volume="$PWD:/sandbox" \
+           --workdir=/sandbox \
+           "$@"
+  }
+
+  function dsh() {
+    __docker \
+      'initbar/lib:latest'
   }
 
   function emacs() {
-    docker run -it \
-           --rm \
-           --user=$UID:1000 \
-           -v $PWD:/sandbox \
-           -w /sandbox \
-           'initbar/lib:latest' \
-           'emacs' \
-           "$@"
+    __docker \
+      'initbar/lib:latest'
+      'emacs' \
+      "$@"
   }
 
   function et() {
-    docker run -it \
-           --rm \
-           --user=$UID:1000 \
-           -v $PWD:/sandbox \
-           -w /sandbox \
-           'initbar/lib:latest' \
-           'exiftool' \
-           "/sandbox/$@"
+    __docker \
+      'initbar/lib:latest' \
+      'exiftool' \
+      "$@"
   }
 
-  function ffmpeg() {}
-
   function mat() {
-    docker run -it \
-           --rm \
-           --user=$UID:1000 \
-           -v $PWD:/sandbox \
-           -w /sandbox \
-           'initbar/lib:latest' \
-           'mat2' \
-           --inplace \
-           "$@"
+    __docker \
+      'initbar/lib:latest' \
+      'mat2' \
+      '--inplace' \
+      "$@"
   }
 
   function mp3-dl() {
-    docker run \
-           --rm \
-           --user=$UID:1000 \
-           -v ${PWD}:/sandbox \
-           -w /sandbox \
-           'initbar/lib:latest' \
-           'youtube-dl' \
-           --audio-format mp3 \
-           --audio-quality 320k \
-           --cache-dir /tmp \
-           --extract-audio \
-           --prefer-ffmpeg \
-           --verbose \
-           "$1"
+    __docker \
+      'initbar/lib:latest' \
+      'youtube-dl' \
+      --audio-format mp3 \
+      --audio-quality 320k \
+      --cache-dir /tmp \
+      --extract-audio \
+      --prefer-ffmpeg \
+      --verbose \
+      "$1"
   }
 
   function tcli() {
-    docker run \
-           --rm \
-           --user=$UID:1000 \
-           -d \
-           -p 127.0.0.1:$RANDOM:46882/udp \
-           -p 127.0.0.1:$RANDOM:50052/udp \
-           -p 127.0.0.1:$RANDOM:51413/tcp \
-           -p 127.0.0.1:$RANDOM:51413/udp \
-           -p 127.0.0.1:$RANDOM:9091 \
-           -v $HOME/.torrents:/home/ubuntu/Downloads \
-           -w /sandbox \
-           'initbar/lib:latest' \
-           '/usr/bin/transmission-cli' \
-           '-D' \
-           '-ep' \
-           '-u 1' \
-           '-v' \
-           "$1"
+    __docker \
+      -d \
+      -p 127.0.0.1:$RANDOM:46882/udp \
+      -p 127.0.0.1:$RANDOM:50052/udp \
+      -p 127.0.0.1:$RANDOM:51413/tcp \
+      -p 127.0.0.1:$RANDOM:51413/udp \
+      -p 127.0.0.1:$RANDOM:9091 \
+      -v "$HOME/.torrents:/home/ubuntu/Downloads" \
+      'initbar/lib:latest' \
+      '/usr/bin/transmission-cli' \
+      '-D' \
+      '-ep' \
+      '-u 1' \
+      '-v' \
+      "$1"
   }
 
   function youtube-dl() {
-    docker run \
-           --rm \
-           --user=$UID:1000 \
-           -v $PWD:/sandbox \
-           -w /sandbox \
-           'initbar/lib:latest' \
-           'youtube-dl' \
-           --cache-dir /tmp \
-           --prefer-ffmpeg \
-           --yes-playlist \
-           -i \
-           "$1"
+    __docker \
+      'initbar/lib:latest' \
+      'youtube-dl' \
+      --cache-dir /tmp \
+      --prefer-ffmpeg \
+      --yes-playlist \
+      -i \
+      "$1"
   }
 }
