@@ -46,31 +46,28 @@
            --user="$UID:1000" \
            --volume="$PWD:/sandbox" \
            --workdir=/sandbox \
+           'initbar/lib:latest' \
            "$@"
   }
 
   function dsh() {
-    __docker \
-      'initbar/lib:latest'
+    __docker
   }
 
   function emacs() {
     __docker \
-      'initbar/lib:latest'
       'emacs' \
       "$@"
   }
 
   function et() {
     __docker \
-      'initbar/lib:latest' \
       'exiftool' \
       "$@"
   }
 
   function mat() {
     __docker \
-      'initbar/lib:latest' \
       'mat2' \
       '--inplace' \
       "$@"
@@ -78,7 +75,6 @@
 
   function mp3-dl() {
     __docker \
-      'initbar/lib:latest' \
       'youtube-dl' \
       --audio-format mp3 \
       --audio-quality 320k \
@@ -98,7 +94,6 @@
       -p 127.0.0.1:$RANDOM:51413/udp \
       -p 127.0.0.1:$RANDOM:9091 \
       -v "$HOME/.torrents:/home/ubuntu/Downloads" \
-      'initbar/lib:latest' \
       '/usr/bin/transmission-cli' \
       '-D' \
       '-ep' \
@@ -109,7 +104,6 @@
 
   function youtube-dl() {
     __docker \
-      'initbar/lib:latest' \
       'youtube-dl' \
       --cache-dir /tmp \
       --prefer-ffmpeg \
