@@ -69,6 +69,8 @@
            "/sandbox/$@"
   }
 
+  function ffmpeg() {}
+
   function mat() {
     docker run -it \
            --rm \
