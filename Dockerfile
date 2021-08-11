@@ -28,8 +28,10 @@ RUN apt-get update \
             dnsutils \
             emacs-goodies-el \
             emacs-nox \
+            ent \
             ffmpeg \
             git \
+            ghostscript \
             gnupg2 \
             language-pack-en \
             libimage-exiftool-perl \
@@ -43,6 +45,7 @@ RUN apt-get update \
             software-properties-common \
             sudo \
             transmission-cli \
+            valgrind \
             wget
 
 USER ubuntu
