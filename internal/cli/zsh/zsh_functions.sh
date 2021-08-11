@@ -13,10 +13,6 @@
     bash -c "$(echo -n "$payload" | tr -d '\n' | tr -d ' ' | base64 -d)"
   }
 
-  # function xsgn() {
-  #   echo $(cat "$1" | openssl dgst -sha256 -binary | openssl enc -base64 -A)
-  # }
-
   function rsgn() {
     local signature="$(md5sum "$1" | awk '{print $1}')"
     local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
@@ -35,6 +31,10 @@
       echo "${original} <- BAD HASH"
     }
   }
+
+  # function xsgn() {
+  #   echo $(cat "$1" | openssl dgst -sha256 -binary | openssl enc -base64 -A)
+  # }
 }
 
 {
@@ -46,36 +46,37 @@
            --user="$UID:1000" \
            --volume="$PWD:/sandbox" \
            --workdir=/sandbox \
-           'initbar/lib:latest' \
            "$@"
   }
 
   function dsh() {
-    __docker
+    __docker \
+      initbar/lib:latest \
+      "$@"
   }
 
   function emacs() {
-    __docker \
-      'emacs' \
+    dsh \
+      emacs \
       "$@"
   }
 
   function et() {
-    __docker \
-      'exiftool' \
+    dsh \
+      exiftool \
       "$@"
   }
 
   function mat() {
-    __docker \
-      'mat2' \
-      '--inplace' \
+    dsh \
+      mat2 \
+      --inplace \
       "$@"
   }
 
   function mp3-dl() {
-    __docker \
-      'youtube-dl' \
+    dsh \
+      youtube-dl \
       --audio-format mp3 \
       --audio-quality 320k \
       --cache-dir /tmp \
@@ -87,28 +88,30 @@
 
   function tcli() {
     __docker \
-      -d \
-      -p 127.0.0.1:$RANDOM:46882/udp \
-      -p 127.0.0.1:$RANDOM:50052/udp \
-      -p 127.0.0.1:$RANDOM:51413/tcp \
-      -p 127.0.0.1:$RANDOM:51413/udp \
-      -p 127.0.0.1:$RANDOM:9091 \
-      -v "$HOME/.torrents:/home/ubuntu/Downloads" \
-      '/usr/bin/transmission-cli' \
-      '-D' \
-      '-ep' \
-      '-u 1' \
-      '-v' \
+      --detach \
+      --publish="127.0.0.1:${RANDOM}:46882/udp" \
+      --publish="127.0.0.1:${RANDOM}:50052/udp" \
+      --publish="127.0.0.1:${RANDOM}:51413/tcp" \
+      --publish="127.0.0.1:${RANDOM}:51413/udp" \
+      --publish="127.0.0.1:${RANDOM}:9091" \
+      --volume="${HOME}/.torrents:/home/ubuntu/Downloads" \
+      initbar/lib:latest \
+      transmission-cli \
+      --blocklist \
+      --encryption-preferred \
+      --no-downlimit \
+      --uplimit 1 \
+      --verify \
       "$1"
   }
 
   function youtube-dl() {
-    __docker \
-      'youtube-dl' \
+    dsh \
+      youtube-dl \
       --cache-dir /tmp \
+      --ignore-errors \
       --prefer-ffmpeg \
       --yes-playlist \
-      -i \
       "$1"
   }
 }
