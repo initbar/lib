@@ -17,10 +17,9 @@ export LC_CTYPE="en_US.UTF-8"
 export GPG_TTY=$(tty)
 export GREP_COLOR='97;45'
 
-[ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;}
-[ -f ~/.zsh_functions ] && { . ~/.zsh_functions;}
-
 {
+  [ -f ~/.zsh_aliases ] && { . ~/.zsh_aliases;}
+
   alias ls='ls -Q --classify --group-directories-first --color=auto'
   alias l='ls -lh'
   alias ll='ls -lah'

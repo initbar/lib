@@ -74,10 +74,9 @@
             ln -vsf ~/.lib/internal/cli/nano/nanorc ~/.nanorc
 
             # zsh
-            ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.sh ~/.zsh_aliases
-            ln -vsf ~/.lib/internal/cli/zsh/zsh_functions.sh ~/.zsh_functions
-            ln -vsf ~/.lib/internal/cli/zsh/zshrc.sh ~/.zshrc
             ln -vsf ~/.lib/submodules/zsh ~/.zsh.d
+            ln -vsf ~/.lib/internal/cli/zsh/zshrc.sh ~/.zshrc
+            ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.sh ~/.zsh_aliases
           }
         )
 

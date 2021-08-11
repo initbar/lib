@@ -26,7 +26,6 @@
 
     # rcs
     . /etc/zsh_command_not_found
-    . ~/.zsh_functions
     . ~/.zsh_aliases
 
     setopt AUTOCD             # type the name of a directory to switch
