@@ -35,6 +35,7 @@ RUN apt-get update \
             gnupg2 \
             language-pack-en \
             libimage-exiftool-perl \
+            lrzip \
             lsb-release \
             mat2 \
             p7zip-full \
