@@ -14,6 +14,10 @@
     __docker initbar/lib:latest "$@"
   }
 
+  function 7z() {
+    dsh 7z "$@"
+  }
+
   function bat() {
     dsh batcat "$@"
   }
@@ -137,11 +141,6 @@
     alias gzip="gzip --rsyncable"
     alias lrzip="lrzip --threads=$(nproc)"
     alias xz="xz --threads=$(cat /proc/cpuinfo|grep cores|wc -l)"
-
-    {
-      alias ark='7z a -t7z -m0=lzma2 -mx=9 -mfb=128 -md=64m -ms=on -mhe=on'
-      alias ark-secure='7z a -t7z -m0=lzma2 -mx=9 -mfb=128 -md=64m -ms=on -mhe=on -p'
-    }
   }
 
   # Docker
