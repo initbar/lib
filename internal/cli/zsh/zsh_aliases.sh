@@ -38,6 +38,10 @@
     dsh ffmpeg "$@"
   }
 
+  function lrzip() {
+    dsh lrzip "$@"
+  }
+
   function mat() {
     dsh mat2 --inplace "$@"
   }
@@ -134,13 +138,6 @@
       alias gc='go build'
       alias gr='go run'
     }
-  }
-
-  # Compression
-  {
-    alias gzip="gzip --rsyncable"
-    alias lrzip="lrzip --threads=$(nproc)"
-    alias xz="xz --threads=$(cat /proc/cpuinfo|grep cores|wc -l)"
   }
 
   # Docker
