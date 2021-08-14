@@ -66,7 +66,7 @@
             # docker
             mkdir -vp ~/.docker
             test -L ~/.docker/config.json && unlink ~/.docker/config.json
-            ln -vsf ~/.lib/internal/docker/config.json ~/.docker/config.json
+            ln -vsf ~/.lib/internal/cli/docker/config.json ~/.docker/config.json
 
             # nano
             test -L ~/.nanorc && unlink ~/.nanorc
