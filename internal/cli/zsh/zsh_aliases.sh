@@ -30,6 +30,10 @@
     dsh exiftool "$@"
   }
 
+  function ffmpeg() {
+    dsh ffmpeg "$@"
+  }
+
   function mat() {
     dsh mat2 --inplace "$@"
   }
@@ -67,7 +71,6 @@
       --volume="${HOME}/.torrents:/home/ubuntu/Downloads" \
       initbar/lib:latest \
       transmission-cli \
-      --blocklist \
       --encryption-preferred \
       --no-downlimit \
       --uplimit 1 \
@@ -94,7 +97,6 @@
   # Coding
   {
     alias diff='colordiff'
-    alias em="emacs"
     alias nano='nano -E -D -A -m -u'
     alias strings='strings -a'
 
@@ -195,7 +197,7 @@
   # Media
   {
     alias mp="mpv -fs --vd-lavc-threads=0"
-    alias mpa="mpv -fs --vd-lavc-threads=0 --no-video"
+    alias mpa="mpv -fs --vd-lavc-threads=0 -shuffle --no-video"
   }
 
   # Security
