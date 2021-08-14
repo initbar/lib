@@ -30,13 +30,14 @@ RUN apt-get update \
             emacs-nox \
             ent \
             ffmpeg \
-            git \
             ghostscript \
+            git \
             gnupg2 \
             language-pack-en \
             libimage-exiftool-perl \
             lsb-release \
             mat2 \
+            p7zip-full \
             psmisc \
             python3 \
             python3-pip \
