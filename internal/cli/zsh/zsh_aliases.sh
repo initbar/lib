@@ -68,6 +68,10 @@
         "$@"
   }
 
+  function rename() {
+    dsh rename "$@"
+  }
+
   function tcli() {
     __docker \
       --detach \
