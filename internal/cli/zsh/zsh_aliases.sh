@@ -97,6 +97,10 @@
         "$@"
   }
 
+  function wget() {
+    dsh wget "$@"
+  }
+
   function youtube-dl() {
     dsh youtube-dl \
         --cache-dir /tmp \
