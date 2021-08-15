@@ -49,7 +49,8 @@ RUN apt-get update \
             sudo \
             transmission-cli \
             valgrind \
-            wget
+            wget \
+            whois
 
 USER ubuntu
 WORKDIR $WORKDIR
