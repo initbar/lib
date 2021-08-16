@@ -23,13 +23,11 @@ RUN apt-get update \
     apt-get install -y --no-install-recommends \
             bat \
             ca-certificates \
-            command-not-found \
             curl \
             dnsutils \
             emacs-goodies-el \
             emacs-nox \
             ent \
-            exa \
             ffmpeg \
             ghostscript \
             git \
@@ -52,6 +50,7 @@ RUN apt-get update \
             valgrind \
             wget \
             whois \
+            # command-not-found \
  && rm -rf /var/lib/apt/lists/*
 
 USER ubuntu
