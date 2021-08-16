@@ -22,7 +22,9 @@ RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
             bat \
+            binutils \
             ca-certificates \
+            colordiff \
             curl \
             dnsutils \
             emacs-goodies-el \
@@ -37,6 +39,7 @@ RUN apt-get update \
             lrzip \
             lsb-release \
             mat2 \
+            nano \
             p7zip-full \
             psmisc \
             python3 \
