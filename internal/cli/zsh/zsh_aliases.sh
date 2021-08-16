@@ -22,6 +22,10 @@
     dsh batcat -p --theme base16 "$@"
   }
 
+  function diff() {
+    dsh colordiff "$@"
+  }
+
   function emacs() {
     dsh emacs "$@"
   }
@@ -57,6 +61,16 @@
         "$1"
   }
 
+  function nano() {
+    dsh nano \
+        --boldtext \
+        --mouse \
+        --smarthome \
+        --tabstospaces \
+        --unix \
+        "$@"
+  }
+
   function pdfmerge() {
     dsh gs \
         -dAutoRotatePages=/None \
@@ -70,6 +84,12 @@
 
   function rename() {
     dsh rename "$@"
+  }
+
+  function strings() {
+    dsh strings \
+        --all \
+        "$@"
   }
 
   function tcli() {
@@ -112,14 +132,6 @@
 
   # Coding
   {
-    alias diff='colordiff'
-    alias nano='nano -E -D -A -m -u'
-    alias strings='strings -a'
-
-    {
-      alias cpan='cpanm'
-    }
-
     {
       alias cb="cargo build --jobs $(nproc)"
       alias cbr="cargo build --release --jobs $(nproc)"
@@ -162,28 +174,6 @@
     alias gsh="gcloud alpha cloud-shell ssh --verbosity debug"
     alias gsshfs="gcloud alpha cloud-shell get-mount-command"
     alias gsutil='gsutil -m'
-  }
-
-  # Hashing
-  {
-    function rsgn() {
-      local signature="$(md5sum "$1" | awk '{print $1}')"
-      local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
-      mv -v "$1" "${signature:0:10}$extension"
-    }
-
-    function rchk() {
-      local signature="$(md5sum "$1" | awk '{print $1}')"
-      local extension="$(echo "$1" | egrep -o '[.][a-z0-9]{3,}' | tail -1)"
-      local original="$(basename "$1")"
-      signature="${signature:0:10}"
-      original="${original:0:10}"
-      [[ "$signature" == "$original" ]] && {
-        echo "${original}"
-      } || {
-        echo "${original} <- BAD HASH"
-      }
-    }
   }
 
   # Keybase
@@ -257,14 +247,12 @@
 
   # SSH
   {
-    alias mosh='mosh -n --family=prefer-inet'
     alias scp='scp -2 -C -v -p'
     alias ssh='ssh -2 -C'
 
     {
       alias skp='ssh-keygen -y -f'
       alias sk='ssh-keygen -t rsa -b 4096 -a 2048 -E sha256 -v'
-      # alias sk='ssh-keygen -t rsa -b 4096 -o -a 2048 -E sha256 -v'
     }
 
     {
