@@ -1,6 +1,6 @@
 # dotfiles
 
-## Dependency
+## Dependencies
 
 ```bash
 # docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#master
