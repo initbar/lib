@@ -18,8 +18,8 @@
     dsh 7z "$@"
   }
 
-  function bat() {
-    dsh batcat "$@"
+  function cat() {
+    dsh batcat -p --theme base16 "$@"
   }
 
   function emacs() {
