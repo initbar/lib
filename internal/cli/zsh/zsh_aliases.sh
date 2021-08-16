@@ -38,6 +38,21 @@
     dsh ffmpeg "$@"
   }
 
+  function ls() {
+    dsh exa --group-directories-first --classify --color=always "$@"
+    # alias ls='ls -Q --classify --group-directories-first --color=auto'
+  }
+
+  function l() {
+    dsh exa --group-directories-first --classify --color=always -lh "$@"
+    # alias l='ls -lh'
+  }
+
+  function ll() {
+    dsh exa --group-directories-first --classify --color=always -lah "$@"
+    # alias ll='ls -lah'
+  }
+
   function lrzip() {
     dsh lrzip "$@"
   }
@@ -233,12 +248,6 @@
   {
     alias ..='cd ..'
     alias ...=".. && .."
-
-    {
-      alias ls='ls -Q --classify --group-directories-first --color=auto'
-      alias l='ls -lh'
-      alias ll='ls -lah'
-    }
 
     {
       alias cp='cp -v'
