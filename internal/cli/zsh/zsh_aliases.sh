@@ -38,21 +38,6 @@
     dsh ffmpeg "$@"
   }
 
-  function ls() {
-    dsh exa --group-directories-first --classify --color=always "$@"
-    # alias ls='ls -Q --classify --group-directories-first --color=auto'
-  }
-
-  function l() {
-    dsh exa --group-directories-first --classify --color=always -lh "$@"
-    # alias l='ls -lh'
-  }
-
-  function ll() {
-    dsh exa --group-directories-first --classify --color=always -lah "$@"
-    # alias ll='ls -lah'
-  }
-
   function lrzip() {
     dsh lrzip "$@"
   }
@@ -225,8 +210,6 @@
     alias arp="arp -n | egrep -v 'incomplete|address' | sort -g"
     alias arping='arping -f -c 1 -w 5'
     alias cppcheck='cppcheck --enable=all'
-    alias curl='curl -js -4 --compressed --globoff'
-    alias dotdotpwn="cd ${HOME}/storj/stack/dotdotpwn && perl dotdotpwn.pl"
     alias flawfinder='flawfinder -F -C --dataonly'
     alias gdb='gdb -q'
     alias gpg='gpg -q'
@@ -238,8 +221,6 @@
     alias ping='ping -D -s0 -t 255 -A -U -v -W 10'
     alias pingflood='ping -i 0.2 -f -r -D -s0 -t 255'
     alias shd='shred -n 1 -u -z -f --random-source=/dev/urandom -v'
-    alias shellcheck='shellcheck --color=always'
-    alias speedtest='speedtest --secure'
     alias sqlmap='sqlmap --random-agent --level=5 --risk=3 -a -b'
     alias srm='srm -d -r -v'
   }
@@ -248,6 +229,12 @@
   {
     alias ..='cd ..'
     alias ...=".. && .."
+
+    {
+      alias ls='exa --group-directories-first --classify --git --color=always'
+      alias l='ls -l'
+      alias ll='ls -la'
+    }
 
     {
       alias cp='cp -v'
