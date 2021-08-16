@@ -29,6 +29,7 @@ RUN apt-get update \
             emacs-goodies-el \
             emacs-nox \
             ent \
+            exa \
             ffmpeg \
             ghostscript \
             git \
@@ -50,7 +51,8 @@ RUN apt-get update \
             transmission-cli \
             valgrind \
             wget \
-            whois
+            whois \
+ && rm -rf /var/lib/apt/lists/*
 
 USER ubuntu
 WORKDIR $WORKDIR
