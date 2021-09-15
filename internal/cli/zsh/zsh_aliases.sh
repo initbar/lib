@@ -61,16 +61,6 @@
         "$1"
   }
 
-  function nano() {
-    dsh nano \
-        --boldtext \
-        --mouse \
-        --smarthome \
-        --tabstospaces \
-        --unix \
-        "$@"
-  }
-
   function pdfmerge() {
     dsh gs \
         -dAutoRotatePages=/None \
@@ -169,6 +159,10 @@
       alias gc='go build'
       alias gr='go run'
     }
+
+    {
+      alias nano="nano --boldtext --mouse --smarthome --tabstospaces --unix"
+    }
   }
 
   # Docker
@@ -232,7 +226,7 @@
     alias ...=".. && .."
 
     {
-      alias ls='exa --group-directories-first --classify --git --color=always'
+      alias ls='ls --group-directories-first --classify --color=always'
       alias l='ls -l'
       alias ll='ls -la'
     }
