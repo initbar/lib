@@ -18,7 +18,7 @@
     dsh 7z "$@"
   }
 
-  function cat() {
+  function bat() {
     dsh batcat -p --theme base16 "$@"
   }
 
@@ -84,6 +84,17 @@
 
   function rename() {
     dsh rename "$@"
+  }
+
+  function rchk() {
+    md5sum \
+      --binary \
+      --tag \
+      "$1"
+  }
+
+  function rsgn() {
+    mv -v "$1" "$(md5sum $1 | awk '{print $1}').${1#*.}"
   }
 
   function strings() {
