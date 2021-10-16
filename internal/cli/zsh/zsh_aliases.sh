@@ -225,7 +225,11 @@
     alias ...=".. && .."
 
     {
-      alias ls='ls -h --group-directories-first --classify --color=always'
+      [[ "${OSTYPE}" == "darwin"* ]] && {
+        alias ls="ls -hG"
+      } || {
+        alias ls='ls -h --group-directories-first --classify --color=always'
+      }
       alias l='ls -l'
       alias ll='ls -la'
     }
