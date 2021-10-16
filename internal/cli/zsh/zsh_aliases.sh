@@ -160,6 +160,9 @@
     }
 
     {
+      [[ "${OSTYPE}" == "darwin"* ]] && {
+        alias emacs="emacs -nw"
+      } || {
       alias nano="nano --boldtext --mouse --smarthome --tabstospaces"
     }
   }
