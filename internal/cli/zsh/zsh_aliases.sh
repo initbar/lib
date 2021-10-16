@@ -236,9 +236,12 @@
 
     {
       alias cp='cp -v'
-      alias cpr='rsync -ahHAXuv'
       alias mv='mv -v'
-      alias rm='rm -v --preserve-root'
+      [[ "${OSTYPE}" == "darwin"* ]] && {
+        alias rm="grm -v --preserve-root"
+      } || {
+        alias rm='rm -v --preserve-root'
+      }
     }
 
     {
