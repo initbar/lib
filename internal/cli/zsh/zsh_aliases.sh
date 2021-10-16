@@ -160,7 +160,7 @@
     }
 
     {
-      alias nano="nano --boldtext --mouse --smarthome --tabstospaces --unix"
+      alias nano="nano --boldtext --mouse --smarthome --tabstospaces"
     }
   }
 
