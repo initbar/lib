@@ -1,4 +1,13 @@
-{
+# ~/.zsh_aliases
+
+[[ "${OSTYPE}" == "darwin"* ]] && {
+  alias emacs="emacs -nw"
+  alias ls="gls -h --group-directories-first --classify --color=always"
+  alias rm="grm -v --preserve-root"
+}
+
+[[ "${OSTYPE}" == "linux"* ]] && {
+
   function __docker() {
     docker run \
            --interactive \
@@ -160,9 +169,6 @@
     }
 
     {
-      [[ "${OSTYPE}" == "darwin"* ]] && {
-        alias emacs="emacs -nw"
-      }
       alias nano="nano --boldtext --mouse --smarthome --tabstospaces"
     }
   }
@@ -228,11 +234,7 @@
     alias ...=".. && .."
 
     {
-      [[ "${OSTYPE}" == "darwin"* ]] && {
-        alias ls="gls -h --group-directories-first --classify --color=always"
-      } || {
-        alias ls="ls -h --group-directories-first --classify --color=always"
-      }
+      alias ls="ls -h --group-directories-first --classify --color=always"
       alias l='ls -l'
       alias ll='ls -la'
     }
@@ -240,11 +242,7 @@
     {
       alias cp='cp -v'
       alias mv='mv -v'
-      [[ "${OSTYPE}" == "darwin"* ]] && {
-        alias rm="grm -v --preserve-root"
-      } || {
-        alias rm='rm -v --preserve-root'
-      }
+      alias rm='rm -v --preserve-root'
     }
 
     {
