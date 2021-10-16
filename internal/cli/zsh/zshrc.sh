@@ -25,8 +25,13 @@
     . "${_ZSH_PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 
     # rcs
-    . /etc/zsh_command_not_found
-    . ~/.zsh_aliases
+    [ -f /etc/zsh_command_not_found ] && {
+      . /etc/zsh_command_not_found
+    }
+
+    [ -f "${HOME}/.zsh_aliases" ] && {
+      . "${HOME}/.zsh_aliases"
+    }
 
     setopt AUTOCD             # type the name of a directory to switch
     setopt RCQUOTES           # elegant nested quotations
@@ -65,10 +70,13 @@
   export GPG_TTY=$(tty)
 
   # Golang
-  export GOROOT="$HOME/.google/go"
+  export GOROOT="${HOME}/.google/go"
   export GOPATH="${GOROOT}/pkg"
   export GOBIN="${GOROOT}/bin"
   export PATH="${PATH}:${GOROOT}:${GOPATH}:${GOBIN}"
+
+  # Gocryptfs
+  export PATH="${PATH}:${HOME}/.gocryptfs"
 
   # Perl5
   export PERL5LIB="${HOME}/.perl5"

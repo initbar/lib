@@ -5,7 +5,7 @@
            --rm \
            --tty \
            --user="${UID}:1000" \
-           --volume="${PWD}:/sandbox" \
+           --volume="$(readlink -f ${PWD}):/sandbox" \
            --workdir=/sandbox \
            "$@"
   }
@@ -22,12 +22,9 @@
     dsh batcat -p --theme base16 "$@"
   }
 
+  unalias diff 2> /dev/null
   function diff() {
     dsh colordiff "$@"
-  }
-
-  function emacs() {
-    dsh emacs "$@"
   }
 
   function entropy() {
@@ -133,9 +130,11 @@
 
   # Coding
   {
+    alias d="cd ~/Downloads"
+
     {
-      alias cb="cargo build --jobs $(nproc)"
-      alias cbr="cargo build --release --jobs $(nproc)"
+      alias cb="cargo build"
+      alias cbr="cargo build --release"
       alias rc='rustc -C opt-level=3'
     }
 
@@ -226,14 +225,14 @@
     alias ...=".. && .."
 
     {
-      alias ls='ls --group-directories-first --classify --color=always'
+      alias ls='ls -h --group-directories-first --classify --color=always'
       alias l='ls -l'
       alias ll='ls -la'
     }
 
     {
       alias cp='cp -v'
-      alias cpr='rsync -ahHAXu'
+      alias cpr='rsync -ahHAXuv'
       alias mv='mv -v'
       alias rm='rm -v --preserve-root'
     }
@@ -254,6 +253,7 @@
   {
     alias scp='scp -2 -C -v -p'
     alias ssh='ssh -2 -C'
+    alias sshfs="sshfs -o follow_symlinks"
 
     {
       alias skp='ssh-keygen -y -f'
