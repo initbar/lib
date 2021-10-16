@@ -1,3 +1,4 @@
 # /dev/sda1 /knox    ext4  defaults 0 0
 # tmpfs     /cache   tmpfs defaults,nodev,noatime,nosuid,noexec,uid=1000,gid=1000,mode=0700,size=1G 0 0
 # tmpfs     /sandbox tmpfs defaults,nodev,noatime,nosuid,uid=1000,gid=1000,mode=0700,size=2G 0 0
+# hostfs    /hostfs  vboxsf rw,nodev,relatime,iocharset=utf8,uid=1000,gid=1000,dmode=0700,fmode=0600,tag=VBoxAutomounter 0 0

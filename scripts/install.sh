@@ -12,9 +12,17 @@
     }
   }
 
+  # gocryptfs
+  {
+    rm -vrf ~/.gocryptfs/ && mkdir -p ~/.gocryptfs/
+    curl -L --output - https://github.com/rfjakob/gocryptfs/releases/download/v2.2.0/gocryptfs_v2.2.0_linux-static_amd64.tar.gz | tar -xz -C ~/.gocryptfs
+  }
+
   # golang
-  rm -vrf ~/.google/ && mkdir -p ~/.google/
-  curl -L --output - https://golang.org/dl/go1.17.linux-amd64.tar.gz  | tar -xz -C ~/.google
+  {
+    rm -vrf ~/.google/ && mkdir -p ~/.google/
+    curl -L --output - https://golang.org/dl/go1.17.linux-amd64.tar.gz  | tar -xz -C ~/.google
+  }
 )
 
 {
