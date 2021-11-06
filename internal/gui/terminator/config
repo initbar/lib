@@ -13,6 +13,7 @@
   suppress_multiple_term_dialog = True
   title_use_system_font = False
   title_font = Terminus (TTF) Medium 9
+  line_height = 1.2
 [keybindings]
   go_next = None
   go_prev = None
@@ -64,11 +65,12 @@
     background_darkness = 0.98
     cursor_color = "#ff0000"
     cursor_color_fg = False
-    font = Fantasque Sans Mono 7.8984375
+    font = Cascadia Code Light 7.8984375
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
     scrollback_infinite = True
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
     login_shell = True
     use_system_font = False
   [[chromebook]]
