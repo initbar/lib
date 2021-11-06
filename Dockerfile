@@ -27,6 +27,8 @@ RUN apt-get update \
             colordiff \
             curl \
             dnsutils \
+            emacs-goodies-el \
+            emacs-nox \
             ent \
             ffmpeg \
             ghostscript \
