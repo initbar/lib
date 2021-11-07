@@ -31,7 +31,7 @@
     setopt NUMERIC_GLOB_SORT  # numeric sort the globs
   }
 
-  # envs
+  # Envs
   {
     export GREP_COLOR="97;45"
     export LANG="C.UTF-8"
@@ -78,19 +78,27 @@
     export WINEPREFIX="/tmp/wine"
   }
 
-  # rcs
+  # Rc's
   [ -f "/etc/zsh_command_not_found" ] && {
     . "/etc/zsh_command_not_found"
   }
 
-  # aliases
-  if [[ "${OSTYPE}" == "darwin"*  && -f "${HOME}/.zsh_aliases.mac" ]]; then
-    . "${HOME}/.zsh_aliases.mac"
-  elif [[ "${OSTYPE}" == "linux"* && -f "${HOME}/.zsh_aliases.linux" ]]; then
-    . "${HOME}/.zsh_aliases.linux"
-  fi
+  # Aliases
+  [ -f "${HOME}/.zsh_aliases" ] && {
+    . "${HOME}/.zsh_aliases"
 
-  # cache
+    # Mac
+    [[ "${OSTYPE}" == "darwin"* && -f "${HOME}/.zsh_aliases.mac" ]] && {
+      . "${HOME}/.zsh_aliases.mac"
+    }
+
+    # Linux
+    [[ "${OSTYPE}" == "linux"* && -f "${HOME}/.zsh_aliases.linux" ]] && {
+      . "${HOME}/.zsh_aliases.linux"
+    }
+  }
+
+  # Cache
   [ -z /cache ] && (
     cd /cache
     mkdir -p firefox        # ~/.cache/mozilla

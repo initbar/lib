@@ -1,16 +1,8 @@
 # ~/.zsh_aliases
 
+# Aliases
 {
-  # Development
-  {
-    alias emacs="emacs -nw"
-  }
-
-  # Shell
-  {
-    alias ls="gls -h --group-directories-first --classify --color=always"
-    alias l='ls -l'
-    alias ll='ls -la'
-    alias rm="grm -v --preserve-root"
-  }
+  alias emacs="emacs -nw"
+  alias ls="gls -h --group-directories-first --classify --color=always"
+  alias rm="grm -v --preserve-root"
 }

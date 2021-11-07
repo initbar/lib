@@ -97,9 +97,10 @@
               test -L ~/.zshrc && unlink ~/.zshrc
               ln -vsf ~/.lib/internal/cli/zsh/zshrc.sh ~/.zshrc
 
-              test -L ~/.zsh_aliases && unlink ~/.zsh_aliases  # compatibility
+              test -L ~/.zsh_aliases && unlink ~/.zsh_aliases
               test -L ~/.zsh_aliases.linux && unlink ~/.zsh_aliases.linux
               test -L ~/.zsh_aliases.mac && unlink ~/.zsh_aliases.mac
+              ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.sh ~/.zsh_aliases
               ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.linux.sh ~/.zsh_aliases.linux
               ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.mac.sh ~/.zsh_aliases.mac
             }
