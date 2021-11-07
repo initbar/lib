@@ -31,6 +31,25 @@
     setopt ignoreeof          # need this (explicit 'exit' or 'logout')
   }
 
+  # Aliases
+  [ -f "${HOME}/.bash_aliases" ] && {
+    . "${HOME}/.bash_aliases"
+  }
+
+  # Cache
+  [ -z "$(ls -A /cache)" ] && (
+    cd /cache
+    mkdir -p firefox        # ~/.cache/mozilla
+    mkdir -p google-chrome  # ~/.cache/google-chrome
+    mkdir -p thumbnails     # ~/.cache/thumbnails
+    chmod 700 /cache/*
+  )
+
+  # Commands
+  [ -f "/etc/zsh_command_not_found" ] && {
+    . "/etc/zsh_command_not_found"
+  }
+
   # Envs
   {
     export GREP_COLOR="97;45"
@@ -77,23 +96,4 @@
     # Wine
     export WINEPREFIX="/tmp/wine"
   }
-
-  # Rc's
-  [ -f "/etc/zsh_command_not_found" ] && {
-    . "/etc/zsh_command_not_found"
-  }
-
-  # Aliases
-  [ -f "${HOME}/.bash_aliases" ] && {
-    . "${HOME}/.bash_aliases"
-  }
-
-  # Cache
-  [ -z "$(ls -A /cache)" ] && (
-    cd /cache
-    mkdir -p firefox        # ~/.cache/mozilla
-    mkdir -p google-chrome  # ~/.cache/google-chrome
-    mkdir -p thumbnails     # ~/.cache/thumbnails
-    chmod 700 /cache/*
-  )
 }
