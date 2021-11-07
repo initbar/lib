@@ -1,4 +1,4 @@
-# install.sh
+#!/bin/bash
 
 {
   [ -d ~/.lib/ ] || git clone https://github.com/initbar/dotfiles.git ~/.lib/

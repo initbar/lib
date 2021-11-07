@@ -1,4 +1,4 @@
-# install.linux.sh
+#!/bin/bash
 
 (
   # dnscrypt
@@ -15,6 +15,12 @@
   # git LFS
   {
     curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+  }
+
+  # golang
+  {
+    rm -vrf ~/.google/ && mkdir -p ~/.google/
+    curl -L --output - https://golang.org/dl/go1.17.linux-amd64.tar.gz  | tar -xz -C ~/.google
   }
 
   # gocryptfs
