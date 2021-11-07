@@ -56,28 +56,31 @@
     # GPG
     export GPG_TTY=$(tty)
 
-    # Golang
-    export GOROOT="${HOME}/.google/go"
-    export GOPATH="${GOROOT}/pkg"
-    export GOBIN="${GOROOT}/bin"
-    export PATH="${PATH}:${GOROOT}:${GOPATH}:${GOBIN}"
+    # Go
+    [ -d "${HOME}/.google/go" ] && {
+      export GOROOT="${HOME}/.google/go"
+      export GOPATH="${GOROOT}/pkg"
+      export GOBIN="${GOROOT}/bin"
+      export PATH="${PATH}:${GOROOT}:${GOPATH}:${GOBIN}"
+    }
 
     # Gocryptfs
-    export PATH="${PATH}:${HOME}/.gocryptfs"
+    [ -d "${HOME}/.gocryptfs" ] && {
+      export PATH="${PATH}:${HOME}/.gocryptfs"
+    }
 
     # Python
-    export _VIRTUALENV="${HOME}/.lib/pyradox3"
-    [ -d "$_VIRTUALENV" ] && {
-      . "${_VIRTUALENV}/bin/activate"
+    [ -d "${HOME}/.lib/pyradox3" ] && {
+      . "${HOME}/.lib/pyradox3/bin/activate"
     }
 
     # Wine
-    export WINEPREFIX='/tmp/wine'
+    export WINEPREFIX="/tmp/wine"
   }
 
   # rcs
-  [ -f /etc/zsh_command_not_found ] && {
-    . /etc/zsh_command_not_found
+  [ -f "/etc/zsh_command_not_found" ] && {
+    . "/etc/zsh_command_not_found"
   }
 
   # aliases
