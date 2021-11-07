@@ -24,7 +24,6 @@ RUN apt-get update \
             bat \
             binutils \
             ca-certificates \
-            colordiff \
             curl \
             dnsutils \
             emacs-goodies-el \
