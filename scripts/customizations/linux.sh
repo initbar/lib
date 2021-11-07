@@ -50,10 +50,34 @@
     }
   )
 
+  # git
+  test -L ~/.gitconfig && sudo unlink ~/.gitconfig
+  ln -vsf ~/.lib/internal/cli/git/gitconfig ~/.gitconfig
+
   # hosts.*
   {
     cat ~/.lib/internal/etc/hosts.allow | sudo tee /etc/hosts.allow
     cat ~/.lib/internal/etc/hosts.deny | sudo tee /etc/hosts.deny
+  }
+
+  # kbfs
+  [ -d ~/.lib.d/ ] && {
+
+    # git
+    test -L ~/.gitconfig.gpg && sudo unlink ~/.gitconfig.gpg
+    ln -vsf ~/.lib.d/git/gitconfig ~/.gitconfig.gpg
+
+    # pypi
+    test -L ~/.pypirc && sudo unlink ~/.pypirc
+    ln -vsf ~/.lib.d/pypi/pypirc ~/.pypirc
+
+    # ssh
+    test -L ~/.ssh && sudo unlink ~/.ssh
+    ln -vsf ~/.lib.d/ssh.d ~/.ssh
+
+    # ssh.d
+    test -L ~/.ssh.d && sudo unlink ~/.ssh.d
+    ln -vsf ~/.lib.d/ssh.d ~/.ssh.d
   }
 
   # resolv.conf
