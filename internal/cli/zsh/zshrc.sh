@@ -88,7 +88,7 @@
     . "${HOME}/.zsh_aliases.mac"
   elif [[ "${OSTYPE}" == "linux"* && -f "${HOME}/.zsh_aliases.linux" ]]; then
     . "${HOME}/.zsh_aliases.linux"
-  }
+  fi
 
   # cache
   [ -z /cache ] && (
