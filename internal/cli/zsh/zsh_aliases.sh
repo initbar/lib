@@ -203,6 +203,7 @@
 
   # Keybase
   {
+    alias kbh="keybase fs history"
     alias kbq="keybase fs quota"
     alias kbs="keybase fs uploads"
   }
@@ -266,6 +267,10 @@
     {
       alias chattr="chattr -V"
       alias lsattr='lsattr -V'
+    }
+
+    {
+      alias dt="perl -pi -e 'chomp if eof'"
     }
   }
 
