@@ -13,7 +13,6 @@
     export _ZSH_PLUGINS="${HOME}/.zsh.d/plugins"
     export ZSH="${_ZSH_OH_MY_ZSH}"
 
-    # oh-my-zsh
     . "${_ZSH_OH_MY_ZSH}/oh-my-zsh.sh"
     . "${_ZSH_PLUGINS}/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
     . "${_ZSH_PLUGINS}/zsh-completions/zsh-completions.plugin.zsh"
