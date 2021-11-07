@@ -140,8 +140,16 @@
 # Aliases
 {
   {
-    [ -d "${HOME}/Downloads" ] && {
-      alias d="cd ~/Downloads"
+    [ -d ~/private ] && {
+      alias k="cd ~/private"
+    }
+
+    [ -d ~/project ] && {
+      alias j="cd ~/project"
+    }
+
+    [ -d ~/public ] && {
+      alias h="cd ~/public"
     }
   }
 
