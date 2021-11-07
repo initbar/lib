@@ -84,18 +84,8 @@
   }
 
   # Aliases
-  [ -f "${HOME}/.zsh_aliases" ] && {
-    . "${HOME}/.zsh_aliases"
-
-    # Mac
-    [[ "${OSTYPE}" == "darwin"* && -f "${HOME}/.zsh_aliases.mac" ]] && {
-      . "${HOME}/.zsh_aliases.mac"
-    }
-
-    # Linux
-    [[ "${OSTYPE}" == "linux"* && -f "${HOME}/.zsh_aliases.linux" ]] && {
-      . "${HOME}/.zsh_aliases.linux"
-    }
+  [ -f "${HOME}/.bash_aliases" ] && {
+    . "${HOME}/.bash_aliases"
   }
 
   # Cache

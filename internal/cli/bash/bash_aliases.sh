@@ -1,12 +1,22 @@
-# ~/.zsh_aliases
+#!/bin/bash
+
+# Imports
+{
+  # Linux
+  [[ "${OSTYPE}" == "linux"* && -f "${HOME}/.bash_aliases.linux" ]] && {
+    . "${HOME}/.bash_aliases.linux"
+  }
+
+  # Mac
+  [[ "${OSTYPE}" == "darwin"* && -f "${HOME}/.bash_aliases.mac" ]] && {
+    . "${HOME}/.bash_aliases.mac"
+  }
+}
 
 # Aliases
 {
-  {
-    alias ..='cd ..'
-    alias ...=".. && .."
-  }
-
+  alias ..='cd ..'
+  alias ...=".. && .."
   alias di="docker image"
   alias dis="docker images"
   alias dl="docker logs"

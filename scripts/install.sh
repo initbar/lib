@@ -12,11 +12,14 @@
   {
     # bash
     {
-      test -L ~/.bashrc && unlink ~/.bashrc
-      ln -vsf ~/.lib/internal/cli/bash/bashrc ~/.bashrc
-
       test -L ~/.bash_aliases && unlink ~/.bash_aliases
-      ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.sh ~/.bash_aliases
+      ln -vsf ~/.lib/internal/cli/bash/bash_aliases.sh ~/.bash_aliases
+
+      test -L ~/.bash_aliases.linux && unlink ~/.bash_aliases.linux
+      ln -vsf ~/.lib/internal/cli/bash/bash_aliases.linux.sh ~/.bash_aliases.linux
+
+      test -L ~/.bash_aliases.mac && unlink ~/.bash_aliases.mac
+      ln -vsf ~/.lib/internal/cli/bash/bash_aliases.mac.sh ~/.bash_aliases.mac
     }
 
     # emacs
@@ -44,15 +47,6 @@
 
       test -L ~/.zshrc && unlink ~/.zshrc
       ln -vsf ~/.lib/internal/cli/zsh/zshrc.sh ~/.zshrc
-
-      test -L ~/.zsh_aliases && unlink ~/.zsh_aliases
-      ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.sh ~/.zsh_aliases
-
-      test -L ~/.zsh_aliases.linux && unlink ~/.zsh_aliases.linux
-      ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.linux.sh ~/.zsh_aliases.linux
-
-      test -L ~/.zsh_aliases.mac && unlink ~/.zsh_aliases.mac
-      ln -vsf ~/.lib/internal/cli/zsh/zsh_aliases.mac.sh ~/.zsh_aliases.mac
     }
   }
 }
