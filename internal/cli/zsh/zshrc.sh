@@ -19,16 +19,16 @@
     . "${_ZSH_PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
 
     setopt AUTOCD             # type the name of a directory to switch
-    setopt RCQUOTES           # elegant nested quotations
     setopt AUTO_CD            # auto directory switch
-    setopt CDABLEVARS         # cd valid directory switch
-    setopt globdots           # match dots *.*
-    setopt ignoreeof          # need this (explicit 'exit' or 'logout')
-    setopt MULTIOS            # pipe to multiple outputs
     setopt AUTO_NAME_DIRS     # use named dirs when possible
+    setopt CDABLEVARS         # cd valid directory switch
+    setopt MULTIOS            # pipe to multiple outputs
     setopt NO_BEEP            # no beep
     setopt NO_CASE_GLOB       # case insensitive globbing
     setopt NUMERIC_GLOB_SORT  # numeric sort the globs
+    setopt RCQUOTES           # elegant nested quotations
+    setopt globdots           # match dots *.*
+    setopt ignoreeof          # need this (explicit 'exit' or 'logout')
   }
 
   # Envs
