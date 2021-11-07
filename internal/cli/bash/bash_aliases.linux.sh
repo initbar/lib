@@ -232,6 +232,7 @@
   alias sqlmap='sqlmap --random-agent --level=5 --risk=3 -a -b'
   alias sshfs="sshfs -o follow_symlinks"
   alias strace='strace -fttTCx -s 9999 -y'
+  alias sync="sync -f"
   alias tracepath="tracepath -b -l 65535 -m 50"
   alias va="vboxmanage registervm"
   alias vi="vboxmanage list vms"
