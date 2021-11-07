@@ -47,18 +47,6 @@
     dsh ffmpeg "$@"
   }
 
-  function gcc() {
-    dsh go \
-        build \
-        "$@"
-  }
-
-  function gr() {
-    dsh go \
-        run \
-        "$@"
-  }
-
   function lrzip() {
     dsh lrzip "$@"
   }
@@ -181,8 +169,10 @@
   alias dt="perl -pi -e 'chomp if eof'"
   alias du='du -xch'
   alias fr="free -lh | egrep 'total|used|free' -A5"
+  alias gc="go build"
   alias gdb='gdb -q'
   alias gpg='gpg -q'
+  alias gr="go run"
   alias gscp="gcloud alpha cloud-shell scp"
   alias gsh="gcloud alpha cloud-shell ssh --verbosity debug"
   alias gsshfs="gcloud alpha cloud-shell get-mount-command"
