@@ -60,5 +60,5 @@ WORKDIR $WORKDIR
 
 RUN sudo -H pip3 install youtube_dl \
  && curl https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.sh | bash \
- && curl https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.docker.sh | bash \
+ && curl https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/customizations/docker.sh | bash \
  && emacs --daemon
