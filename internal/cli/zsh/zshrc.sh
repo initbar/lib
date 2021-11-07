@@ -84,8 +84,10 @@
   }
 
   # aliases
-  [ -f "${HOME}/.zsh_aliases" ] && {
-    . "${HOME}/.zsh_aliases"
+  if [[ "${OSTYPE}" == "darwin"*  && -f "${HOME}/.zsh_aliases.mac" ]]; then
+    . "${HOME}/.zsh_aliases.mac"
+  elif [[ "${OSTYPE}" == "linux"* && -f "${HOME}/.zsh_aliases.linux" ]]; then
+    . "${HOME}/.zsh_aliases.linux"
   }
 
   # cache

@@ -1,25 +1,6 @@
 # ~/.zsh_aliases
 
-[[ "${OSTYPE}" == "darwin"* ]] && {
-
-  # Development
-  {
-    alias emacs="emacs -nw"
-  }
-
-  # Shell
-  {
-    alias rm="grm -v --preserve-root"
-    {
-      alias ls="gls -h --group-directories-first --classify --color=always"
-      alias l='ls -l'
-      alias ll='ls -la'
-    }
-  }
-}
-
-[[ "${OSTYPE}" == "linux"* ]] && {
-
+{
   function __docker() {
     docker run \
            --interactive \
