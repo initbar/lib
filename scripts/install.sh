@@ -12,6 +12,11 @@
     }
   }
 
+  # git (LFS)
+  {
+    # curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+  }
+
   # gocryptfs
   {
     rm -vrf ~/.gocryptfs/ && mkdir -p ~/.gocryptfs/
