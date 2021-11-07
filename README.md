@@ -14,6 +14,7 @@ curl https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.s
 
 ## Customization
 
+- [Docker](https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.docker.sh)
 - [Linux](https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.linux.sh)
 - [Mac](https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.mac.sh)
 
