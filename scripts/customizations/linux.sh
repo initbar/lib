@@ -1,8 +1,8 @@
 #!/bin/bash
 
-(
+{
   # dnscrypt
-  {
+  (
     rm -vrf ~/.dnscrypt/ && mkdir -p ~/.dnscrypt/
     curl -L --output - https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/2.1.0/dnscrypt-proxy-linux_x86_64-2.1.0.tar.gz | tar -xz -C ~/.dnscrypt
     cd ~/.dnscrypt/ && {
@@ -10,7 +10,7 @@
       mv -v   linux-x86_64/* .
       rm -vrf linux-x86_64/
     }
-  }
+  )
 
   # git-lfs
   {
@@ -28,7 +28,7 @@
     rm -vrf ~/.gocryptfs/ && mkdir -p ~/.gocryptfs/
     curl -L --output - https://github.com/rfjakob/gocryptfs/releases/download/v2.2.0/gocryptfs_v2.2.0_linux-static_amd64.tar.gz | tar -xz -C ~/.gocryptfs
   }
-)
+}
 
 {
   (
