@@ -1,4 +1,4 @@
-# ~/.zsh_aliases
+# ~/.bash_aliases.mac
 
 # Aliases
 {
