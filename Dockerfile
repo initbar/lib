@@ -40,7 +40,6 @@ RUN apt-get update \
             mat2 \
             nano \
             p7zip-full \
-            psmisc \
             python3 \
             python3-pip \
             python3-setuptools \

@@ -35,7 +35,15 @@
     dsh batcat -p "$@"
   }
 
-  function entropy() {
+  function curl() {
+    dsh curl "$@"
+  }
+
+  function dig() {
+    dsh dig "$@"
+  }
+
+  function ent() {
     dsh ent -b "$@"
   }
 
@@ -125,6 +133,10 @@
 
   function wget() {
     dsh wget "$@"
+  }
+
+  function whois() {
+    dsh whois "$@"
   }
 
   function youtube-dl() {
