@@ -1,36 +1,30 @@
 # /etc/ssh/sshd_config
 
 # Listen
-#--------------------------------------------------------------------------------
 AddressFamily inet
 ListenAddress 0.0.0.0
 Port 22
 
 # Protocol
-#--------------------------------------------------------------------------------
 Protocol 2
 UseDNS yes
 
 # Ciphers
-#--------------------------------------------------------------------------------
 Ciphers aes256-ctr,aes192-ctr,aes128-ctr
 HostKeyAlgorithms ssh-ed25519,rsa-sha2-512,rsa-sha2-256,ssh-rsa
 KexAlgorithms diffie-hellman-group18-sha512,diffie-hellman-group16-sha512,diffie-hellman-group14-sha256
 MACs hmac-sha2-512,hmac-sha2-256
 
 # User
-#--------------------------------------------------------------------------------
 AllowUsers ubuntu
 PermitRootLogin no
 
 # Banner
-#--------------------------------------------------------------------------------
 Banner /etc/ssh/banner
 PrintLastLog yes
 PrintMotd yes
 
 # Authentication
-#--------------------------------------------------------------------------------
 AuthorizedKeysFile %h/.ssh/authorized_keys
 ChallengeResponseAuthentication no
 ClientAliveInterval 30
@@ -48,14 +42,12 @@ PubkeyAuthentication yes
 UsePAM yes
 
 # Forwarding
-#--------------------------------------------------------------------------------
 AllowStreamLocalForwarding no
 AllowTcpForwarding no
 GatewayPorts no
 PermitTunnel no
 
 # Hardening Tweaks
-#--------------------------------------------------------------------------------
 AllowAgentForwarding no
 Compression yes
 IgnoreRhosts yes
@@ -71,21 +63,17 @@ VersionAddendum none
 X11Forwarding no
 
 # Hostkey
-#--------------------------------------------------------------------------------
 HostKey /etc/ssh/ssh_host_dsa_key
 HostKey /etc/ssh/ssh_host_ecdsa_key
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_rsa_key
 
 # Logging
-#--------------------------------------------------------------------------------
 LogLevel VERBOSE
 SyslogFacility AUTH
 
 # PID
-#--------------------------------------------------------------------------------
 PidFile /run/sshd.pid
 
 # Subsystems
-#--------------------------------------------------------------------------------
 # Subsystem sftp internal-sftp
