@@ -2,13 +2,13 @@
 ALL: 127.0.0.1
 ALL: localhost
 
-# VirtualBox
-sshd: 10.0.
-
-# Home
+# Internal
 sshd: 172.17.
 sshd: 192.168.1.
 sshd: 192.168.86.
+
+# VirtualBox
+sshd: 10.0.
 
 # AWS
 # sshd: .us-east-1.compute.amazonaws.com
@@ -16,6 +16,3 @@ sshd: 192.168.86.
 
 # GCP
 # sshd: .googleusercontent.com
-
-# VZ
-# sshd: .myvzw.com
