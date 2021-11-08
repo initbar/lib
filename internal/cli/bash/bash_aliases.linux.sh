@@ -35,10 +35,6 @@
     dsh batcat -p "$@"
   }
 
-  function curl() {
-    dsh curl "$@"
-  }
-
   function dig() {
     dsh dig "$@"
   }
@@ -129,10 +125,6 @@
         --leak-check=full \
         --show-leak-kinds=all \
         "$@"
-  }
-
-  function wget() {
-    dsh wget "$@"
   }
 
   function whois() {
