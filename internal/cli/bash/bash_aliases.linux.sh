@@ -60,7 +60,7 @@
   }
 
   function mp3-dl() {
-    dsh youtube-dl \
+    dsh yt-dlp \
         --audio-format mp3 \
         --audio-quality 320k \
         --cache-dir /tmp \
@@ -132,7 +132,7 @@
   }
 
   function youtube-dl() {
-    dsh youtube-dl \
+    dsh yt-dlp \
         --cache-dir /tmp \
         --ignore-errors \
         --prefer-ffmpeg \
