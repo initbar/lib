@@ -36,6 +36,10 @@
     test -L ~/.docker/config.json && unlink ~/.docker/config.json
     ln -vsf ~/.lib/internal/cli/docker/config.json ~/.docker/config.json
 
+    # git
+    test -L ~/.gitconfig && sudo unlink ~/.gitconfig
+    ln -vsf ~/.lib/internal/cli/git/gitconfig ~/.gitconfig
+
     # nano
     test -L ~/.nanorc && unlink ~/.nanorc
     ln -vsf ~/.lib/internal/cli/nano/nanorc ~/.nanorc

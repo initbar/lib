@@ -50,10 +50,6 @@
     }
   )
 
-  # git
-  test -L ~/.gitconfig && sudo unlink ~/.gitconfig
-  ln -vsf ~/.lib/internal/cli/git/gitconfig ~/.gitconfig
-
   # hosts.*
   {
     cat ~/.lib/internal/etc/hosts.allow | sudo tee /etc/hosts.allow
@@ -64,8 +60,8 @@
   [ -d ~/.lib.d/ ] && {
 
     # git
-    test -L ~/.gitconfig.gpg && sudo unlink ~/.gitconfig.gpg
-    ln -vsf ~/.lib.d/git/gitconfig ~/.gitconfig.gpg
+    test -L ~/.gitconfig.personal && sudo unlink ~/.gitconfig.personal
+    ln -vsf ~/.lib.d/git/gitconfig ~/.gitconfig.personal
 
     # pypi
     test -L ~/.pypirc && sudo unlink ~/.pypirc
