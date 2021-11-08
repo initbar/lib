@@ -37,7 +37,7 @@
   }
 
   # Cache
-  [ -z "$(ls -A /cache)" ] && (
+  [[ -d /cache && -z "$(ls -A /cache)" ]] && (
     cd /cache
     mkdir -p firefox        # ~/.cache/mozilla
     mkdir -p google-chrome  # ~/.cache/google-chrome
