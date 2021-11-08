@@ -164,19 +164,12 @@
   alias aireplay-ng='aireplay-ng -Q -T4 -B'
   alias arp="arp -n | egrep -v 'incomplete|address' | sort -g"
   alias arping='arping -f -c 1 -w 5'
-  alias cb="cargo build"
-  alias cbr="cargo build --release"
-  alias chattr="chattr -V"
   alias cp='cp -v'
   alias cppcheck='cppcheck --enable=all'
   alias df="df -hl | grep -v Filesystem | sort | egrep -i '[0-9]+%'"
   alias dt="perl -pi -e 'chomp if eof'"
   alias du='du -xch'
   alias fr="free -lh | egrep 'total|used|free' -A5"
-  alias gc="go build"
-  alias gdb='gdb -q'
-  alias gpg='gpg -q'
-  alias gr="go run"
   alias gscp="gcloud alpha cloud-shell scp"
   alias gsh="gcloud alpha cloud-shell ssh --verbosity debug"
   alias gsshfs="gcloud alpha cloud-shell get-mount-command"
@@ -188,15 +181,11 @@
   alias kbh="keybase fs history"
   alias kbq="keybase fs quota"
   alias kbs="keybase fs uploads"
-  alias ktl="kubectl"
   alias ls="ls -h --group-directories-first --classify --color=always"
-  alias lsattr='lsattr -V'
   alias lsnse='ls /usr/share/nmap/scripts/'
   alias lspci='lspci -tv'
   alias lssnort='ls /etc/snort/rules/'
   alias lsusb='lsusb -tv'
-  alias mp="mpv -fs --vd-lavc-threads=0"
-  alias mpa="mpv -fs --vd-lavc-threads=0 --no-video"
   alias mv='mv -v'
   alias nano="nano --boldtext --mouse --smarthome --tabstospaces"
   alias ne='sudo netstat -ntupe | sort | grep ESTABLISHED'
@@ -214,15 +203,8 @@
   alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
   alias pw="acpi -V | grep Battery"
   alias rm='rm -v --preserve-root'
-  alias sa='ssh-add'
-  alias sad='ssh-add -D'
-  alias sal='ssh-add -l -c -t 3h'
-  alias scp='scp -2 -C -v -p'
   alias shd='shred -n 1 -u -z -f --random-source=/dev/urandom -v'
-  alias sk='ssh-keygen -t rsa -b 4096 -a 2048 -E sha256 -v'
-  alias skp='ssh-keygen -y -f'
   alias sqlmap='sqlmap --random-agent --level=5 --risk=3 -a -b'
-  alias sshfs="sshfs -o follow_symlinks"
   alias strace='strace -fttTCx -s 9999 -y'
   alias sync="sync -f"
   alias tracepath="tracepath -b -l 65535 -m 50"
