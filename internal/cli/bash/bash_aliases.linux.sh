@@ -94,8 +94,7 @@
   }
 
   function rsgn() {
-    # mv -v "$1" "$(openssl 65535 | md5sum $1 | awk '{print $1}')"
-    mv -v "$1" "$(md5sum $1 | awk '{print $1}').${1#*.}"
+    mv -v "$1" "$(md5sum $1 | awk '{print $1}').$(echo $1 | tr . \\n | tail -n1)"
   }
 
   function strings() {
