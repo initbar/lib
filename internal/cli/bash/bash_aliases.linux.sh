@@ -154,12 +154,8 @@
       alias k="cd ~/private"
     }
 
-    [ -d ~/project ] && {
-      alias j="cd ~/project"
-    }
-
     [ -d ~/public ] && {
-      alias h="cd ~/public"
+      alias j="cd ~/public"
     }
   }
 
