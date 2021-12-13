@@ -25,7 +25,7 @@ max_clients = 100
 require_dnssec = true
 require_nofilter = true
 require_nolog = true
-# server_names = ['cloudflare-security']
+# server_names = ['google']
 server_names = ['NextDNS-ea1a22']
 timeout = 3000  # ms
 
