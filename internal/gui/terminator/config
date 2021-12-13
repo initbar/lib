@@ -1,6 +1,5 @@
 [global_config]
   dbus = False
-  window_state = maximise
   tab_position = bottom
   scroll_tabbar = True
   hide_from_taskbar = True
@@ -118,6 +117,5 @@
     [[[window0]]]
       parent = ""
       profile = None
-      size = 900, 600
       type = Window
 [plugins]
