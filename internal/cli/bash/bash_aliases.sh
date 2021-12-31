@@ -42,8 +42,8 @@
   alias l='ls -l'
   alias ll='ls -la'
   alias lsattr='lsattr -V'
-  alias mp="mpv -fs --vd-lavc-threads=0"
-  alias mpa="mpv -fs --vd-lavc-threads=0 --no-video"
+  alias mp="mpv --vd-lavc-threads=0"
+  alias mpa="mpv --vd-lavc-threads=0 --no-video"
   alias sa='ssh-add'
   alias sad='ssh-add -D'
   alias sal='ssh-add -l -c -t 3h'

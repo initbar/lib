@@ -1,5 +1,6 @@
 !external/*/*.gz
 external/
+internal/cli/docker/config.json
 internal/cli/emacs.d/ac-comphist.dat
 internal/cli/emacs.d/auto-save-list/
 internal/cli/emacs.d/elpa/

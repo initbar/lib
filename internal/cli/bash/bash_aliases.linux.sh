@@ -32,7 +32,7 @@
   }
 
   function bat() {
-    dsh batcat -p "$@"
+    dsh batcat --theme=DarkNeon -p "$@"
   }
 
   function dig() {
