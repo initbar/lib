@@ -74,6 +74,7 @@
     export GIT_TERMINAL_PROMPT=1
 
     # GPG
+    export GPG_AGENT_INFO=
     export GPG_TTY=$(tty)
 
     # Go
