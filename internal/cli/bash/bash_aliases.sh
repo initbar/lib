@@ -15,8 +15,8 @@
 
 # Aliases
 {
-  alias ..='cd ..'
   alias ...=".. && .."
+  alias ..='cd ..'
   alias cb="cargo build"
   alias cbr="cargo build --release"
   alias chattr="chattr -V"
@@ -38,6 +38,7 @@
   alias gtpu='git pull origin'
   alias gtr='git rebase -i'
   alias gts='git status --branch'
+  alias htop="htop -u $USER"
   alias ktl="kubectl"
   alias l='ls -l'
   alias ll='ls -la'
