@@ -1,5 +1,8 @@
 name: Build and Containerize Dotfiles
-on: [push, pull_request]
+on:
+  push:
+  schedule:
+    - cron: "0 0 * * *"
 jobs:
   build:
     name: Build and Upload to Docker
