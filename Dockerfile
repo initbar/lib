@@ -58,5 +58,5 @@ USER ubuntu
 WORKDIR $WORKDIR
 
 RUN sudo -H pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
- && curl https://raw.githubusercontent.com/initbar/dotfiles/master/scripts/install.sh | bash \
+ && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/install.sh | bash \
  && emacs --daemon

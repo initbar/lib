@@ -11,7 +11,7 @@ jobs:
     - name: Checkout GitHub repository
       uses: actions/checkout@v2
     - name: Build Docker image
-      run: docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#master
+      run: docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#main
     - name: Login to Docker
       run: echo -n ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
     - name: Upload to Docker
