@@ -26,8 +26,6 @@ RUN apt-get update \
             ca-certificates \
             curl \
             dnsutils \
-            emacs-goodies-el \
-            emacs-nox \
             ent \
             ffmpeg \
             ghostscript \
@@ -38,7 +36,6 @@ RUN apt-get update \
             lrzip \
             lsb-release \
             mat2 \
-            nano \
             p7zip-full \
             python3 \
             python3-pip \
@@ -52,11 +49,12 @@ RUN apt-get update \
             wget \
             whois \
             # command-not-found \
+            # emacs-goodies-el \
+            # emacs-nox \
  && rm -rf /var/lib/apt/lists/*
 
 USER ubuntu
 WORKDIR $WORKDIR
 
 RUN sudo -H pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
- && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/install.sh | bash \
- && emacs --daemon
+ && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/install.sh | bash
