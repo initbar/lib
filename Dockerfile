@@ -56,5 +56,10 @@ RUN apt-get update \
 USER ubuntu
 WORKDIR $WORKDIR
 
+RUN mkdir -p $WORKDIR/.config/transmission/blocklists \
+ && wget https://github.com/Naunter/BT_BlockLists/releases/download/master/bt_blocklists.gz \
+         -O $WORKDIR/.config/transmission/blocklists/blocklists.gz \
+ && gzip -d $WORKDIR/.config/transmission/blocklists/blocklists.gz
+
 RUN sudo -H pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
  && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/install.sh | bash

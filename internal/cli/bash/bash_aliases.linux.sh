@@ -114,6 +114,7 @@
       --volume="${HOME}/.torrents:/home/ubuntu/Downloads" \
       initbar/lib:latest \
       transmission-cli \
+      --blocklist \
       --encryption-preferred \
       --no-downlimit \
       --uplimit 1 \
