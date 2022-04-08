@@ -1,5 +1,6 @@
 [global_config]
   dbus = False
+  window_state = maximise
   tab_position = bottom
   scroll_tabbar = True
   hide_from_taskbar = True
