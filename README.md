@@ -3,18 +3,15 @@
 ## Dependencies
 
 ```bash
-docker pull initbar/lib:latest
+~$ docker pull initbar/lib:latest
 ```
 
-## Installation
+## Setup
 
 ```bash
-curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/install.sh | bash
+~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/install.sh | bash
+~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/platforms/linux.sh | bash
 ```
-
-## Platforms
-
-- [Linux](https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/install-linux.sh)
 
 ## Packages
 
