@@ -9,8 +9,8 @@
 ## Setup
 
 ```bash
-~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/install.sh | bash
-~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/platforms/linux.sh | bash
+~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
+~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-gui.sh | bash
 ```
 
 ## Packages

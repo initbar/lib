@@ -20,17 +20,6 @@
     }
   )
 
-  # dnscrypt-proxy
-  [ -d ~/.dnscrypt/ ] && {
-    ln -vsf ~/.lib/internal/etc/dnscrypt-proxy.toml dnscrypt-proxy.toml
-  }
-
-  # hosts.*
-  {
-    cat ~/.lib/internal/etc/hosts.allow | sudo tee /etc/hosts.allow
-    cat ~/.lib/internal/etc/hosts.deny | sudo tee /etc/hosts.deny
-  }
-
   # kbfs
   [ -d ~/.lib.d/ ] && {
 
@@ -51,25 +40,10 @@
     ln -vsf ~/.lib.d/ssh.d ~/.ssh.d
   }
 
-  # resolv.conf
-  {
-    test -L /etc/resolv.conf && sudo unlink /etc/resolv.conf
-    sudo chattr -i -V /etc/resolv.conf
-    cat ~/.lib/internal/etc/resolv.conf | sudo tee /etc/resolv.conf
-    sudo chattr +i -V /etc/resolv.conf
-  }
-
-  # sysctl.conf
-  cat ~/.lib/internal/etc/sysctl.conf | sudo tee /etc/sysctl.conf
-
-  # ssh
-  [ -d /etc/ssh ] && {
-    cat ~/.lib/internal/etc/ssh/banner | sudo tee /etc/ssh/banner
-    cat ~/.lib/internal/etc/ssh/sshd_config | sudo tee /etc/ssh/sshd_config
-  }
-
   # terminator
-  mkdir -vp ~/.config
-  test -L ~/.config/terminator && unlink ~/.config/terminator
-  ln -vsf ~/.lib/internal/gui/terminator ~/.config/terminator
+  {
+    mkdir -vp ~/.config
+    test -L ~/.config/terminator && unlink ~/.config/terminator
+    ln -vsf ~/.lib/internal/gui/terminator ~/.config/terminator
+  }
 }

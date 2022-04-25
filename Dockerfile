@@ -62,4 +62,4 @@ RUN mkdir -p $WORKDIR/.config/transmission/blocklists \
  && gzip -d $WORKDIR/.config/transmission/blocklists/blocklists.gz
 
 RUN sudo -H pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
- && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/install.sh | bash
+ && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
