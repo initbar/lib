@@ -1,4 +1,4 @@
-FROM ubuntu:21.04
+FROM ubuntu:22.04
 
 EXPOSE 9091 \
        51413/tcp \
@@ -24,6 +24,7 @@ RUN apt-get update \
             bat \
             binutils \
             ca-certificates \
+            command-not-found \
             curl \
             dnsutils \
             ent \
@@ -45,12 +46,10 @@ RUN apt-get update \
             software-properties-common \
             sudo \
             transmission-cli \
+            unzip \
             valgrind \
             wget \
             whois \
-            # command-not-found \
-            # emacs-goodies-el \
-            # emacs-nox \
  && rm -rf /var/lib/apt/lists/*
 
 USER ubuntu
