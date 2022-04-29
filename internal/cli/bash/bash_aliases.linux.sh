@@ -1,6 +1,5 @@
 # ~/.bash_aliases.linux
 
-# Docker
 {
   function __docker() {
     docker run \
@@ -18,7 +17,6 @@
   }
 }
 
-# Functions
 {
   function 7z() {
     dsh 7z "$@"
@@ -122,6 +120,10 @@
       "$1"
   }
 
+  function unzip() {
+    dsh unzip "$@"
+  }
+
   function valgrind() {
     dsh valgrind \
         --leak-check=full \
@@ -144,7 +146,6 @@
   }
 }
 
-# Aliases
 {
   {
     [ -d ~/Downloads ] && {
@@ -163,6 +164,7 @@
   alias aireplay-ng='aireplay-ng -Q -T4 -B'
   alias arp="arp -n | egrep -v 'incomplete|address' | sort -g"
   alias arping='arping -f -c 1 -w 5'
+  alias cal='ncal -M'
   alias cp='cp -v'
   alias cppcheck='cppcheck --enable=all'
   alias df="df -hl | grep -v Filesystem | sort | egrep -i '[0-9]+%'"
@@ -201,6 +203,8 @@
   alias pipi='pip install --upgrade'
   alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
   alias pw="acpi -V | grep Battery"
+  alias pyc="python -OO -m py_compile"
+  alias rc='rustc -C opt-level=3'
   alias rm='rm -v --preserve-root'
   alias shd='shred -n 1 -u -z -f --random-source=/dev/urandom -v'
   alias sqlmap='sqlmap --random-agent --level=5 --risk=3 -a -b'
@@ -212,6 +216,4 @@
   alias vp="vboxmanage list runningvms"
   alias vr="vboxmanage startvm --type headless"
   alias w='w -hus'
-  # alias pyc="python -OO -m py_compile"
-  # alias rc='rustc -C opt-level=3'
 }
