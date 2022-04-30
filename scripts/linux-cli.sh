@@ -14,12 +14,6 @@
     {
       test -L ~/.bash_aliases && unlink ~/.bash_aliases
       ln -vsf ~/.lib/internal/cli/bash/bash_aliases.sh ~/.bash_aliases
-
-      test -L ~/.bash_aliases.linux && unlink ~/.bash_aliases.linux
-      ln -vsf ~/.lib/internal/cli/bash/bash_aliases.linux.sh ~/.bash_aliases.linux
-
-      test -L ~/.bash_aliases.mac && unlink ~/.bash_aliases.mac
-      ln -vsf ~/.lib/internal/cli/bash/bash_aliases.mac.sh ~/.bash_aliases.mac
     }
 
     # emacs
@@ -30,7 +24,6 @@
       test -L ~/.emacs && unlink ~/.emacs
       ln -vsf ~/.lib/internal/cli/emacs/emacs.el ~/.emacs
     }
-
 
     # dnscrypt-proxy
     [ -d ~/.dnscrypt/ ] && {
