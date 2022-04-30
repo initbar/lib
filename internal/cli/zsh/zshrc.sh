@@ -4,14 +4,14 @@
 
   # oh-my-zsh
   {
+    export _ZSH_OH_MY_ZSH="${HOME}/.zsh.d/oh-my-zsh"
+    export _ZSH_PLUGINS="${HOME}/.zsh.d/plugins"
+    export ZSH="${_ZSH_OH_MY_ZSH}"
+
     export DISABLE_AUTO_UPDATE=true
     export DISABLE_MAGIC_FUNCTIONS=true
     export DISABLE_UPDATE_PROMPT=true
     export ZSH_THEME=gentoo
-
-    export _ZSH_OH_MY_ZSH="${HOME}/.zsh.d/oh-my-zsh"
-    export _ZSH_PLUGINS="${HOME}/.zsh.d/plugins"
-    export ZSH="${_ZSH_OH_MY_ZSH}"
 
     . "${_ZSH_OH_MY_ZSH}/oh-my-zsh.sh"
     . "${_ZSH_PLUGINS}/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
@@ -31,27 +31,14 @@
     setopt ignoreeof          # need this (explicit 'exit' or 'logout')
   }
 
-  # Aliases
-  [ -f "${HOME}/.bash_aliases" ] && {
-    . "${HOME}/.bash_aliases"
-  }
-
-  # Cache
-  [[ -d /cache && -z "$(ls -A /cache)" ]] && (
-    cd /cache
-    mkdir -p firefox                # ~/.cache/mozilla
-    mkdir -p firefox-crash-reports  # ~/.mozilla/firefox/Crash Reports/
-    mkdir -p google-chrome          # ~/.cache/google-chrome
-    mkdir -p thumbnails             # ~/.cache/thumbnails
-    chmod 700 /cache/*
-  )
-
-  # Commands
   [ -f "/etc/zsh_command_not_found" ] && {
     . "/etc/zsh_command_not_found"
   }
 
-  # Envs
+  [ -f "${HOME}/.bash_aliases" ] && {
+    . "${HOME}/.bash_aliases"
+  }
+
   {
     export GREP_COLOR="97;45"
     export LANG="C.UTF-8"
@@ -98,4 +85,13 @@
     # Wine
     export WINEPREFIX="/tmp/wine"
   }
+
+  [[ -d /cache && -z "$(ls -A /cache)" ]] && (
+    cd /cache
+    mkdir -p firefox                # ~/.cache/mozilla
+    mkdir -p firefox-crash-reports  # ~/.mozilla/firefox/Crash Reports/
+    mkdir -p google-chrome          # ~/.cache/google-chrome
+    mkdir -p thumbnails             # ~/.cache/thumbnails
+    chmod 700 /cache/*
+  )
 }
