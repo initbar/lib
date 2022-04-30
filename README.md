@@ -6,14 +6,14 @@
 docker pull initbar/lib:latest
 ```
 
-## Setup
+## Scripts
+
+#### Xubuntu 22.04
 
 ```bash
 curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
 curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-gui.sh | bash
 ```
-
-## Packages
 
 #### dnscrypt-proxy
 
