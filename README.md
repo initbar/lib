@@ -1,3 +1,5 @@
+[![Build and Containerize Dotfiles](https://github.com/initbar/dotfiles/actions/workflows/docker-build-deploy.yml/badge.svg?branch=main)](https://github.com/initbar/dotfiles/actions/workflows/docker-build-deploy.yml)
+
 # dotfiles
 
 ## Dependencies
