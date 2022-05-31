@@ -8,8 +8,11 @@ jobs:
     name: Build and Upload to Docker
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout GitHub repository
-      uses: actions/checkout@v2
+    - uses: actions/checkout@v2
+    - name: Lint Dockerfile
+      uses: hadolint/hadolint-action@v2.0.0
+      with:
+        dockerfile: Dockerfile
     - name: Build Docker image
       run: docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#main
     - name: Login to Docker
