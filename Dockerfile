@@ -56,7 +56,7 @@ USER ubuntu
 WORKDIR $WORKDIR
 
 RUN mkdir -p $WORKDIR/.config/transmission/blocklists \
- && wget https://github.com/Naunter/BT_BlockLists/releases/download/master/bt_blocklists.gz \
+ && wget -q https://github.com/Naunter/BT_BlockLists/releases/download/master/bt_blocklists.gz \
          -O $WORKDIR/.config/transmission/blocklists/blocklists.gz \
  && gzip -d $WORKDIR/.config/transmission/blocklists/blocklists.gz
 

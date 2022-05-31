@@ -13,6 +13,7 @@ jobs:
       uses: hadolint/hadolint-action@v2.0.0
       with:
         dockerfile: Dockerfile
+        ignore: DL3004,DL3008,DL4001,DL4006
     - name: Build Docker image
       run: docker build --tag="initbar/lib" https://github.com/initbar/dotfiles.git#main
     - name: Login to Docker
