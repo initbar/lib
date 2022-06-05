@@ -157,6 +157,7 @@
   alias chattr="chattr -V"
   alias cp='cp -v'
   alias cppcheck='cppcheck --enable=all'
+  alias cpuinfo="cat /proc/cpuinfo"
   alias df="df -hl | grep -v Filesystem | sort | egrep -i '[0-9]+%'"
   alias di="docker image"
   alias dis="docker images"
