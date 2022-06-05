@@ -53,6 +53,10 @@
     dsh lrzip "$@"
   }
 
+  function make() {
+    dsh make "$@"
+  }
+
   function mat() {
     dsh mat2 --inplace "$@"
   }

@@ -36,6 +36,7 @@ RUN apt-get update \
             libimage-exiftool-perl \
             lrzip \
             lsb-release \
+            make \
             mat2 \
             p7zip-full \
             python3 \
