@@ -1,2 +1,5 @@
-# tmpfs /cache tmpfs defaults,nodev,noatime,nosuid,noexec,uid=1000,gid=1000,mode=0700,size=1G
+# /dev/mapper/vgxubuntu-root / ext4 noatime,nodiratime,discard,errors=remount-ro 0 1
 # hostfs /hostfs vboxsf rw,nodev,relatime,uid=1000,gid=1000,dmode=0700,fmode=0600,noauto
+
+# tmpfs /cache tmpfs defaults,nodev,noatime,nodiratime,nosuid,noexec,uid=1000,gid=1000,mode=0700,size=1G
+# tmpfs /tmp tmpfs noatime,nodiratime,noexec,nosuid,size=1G
