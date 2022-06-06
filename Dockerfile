@@ -47,6 +47,7 @@ RUN apt-get update \
             software-properties-common \
             sudo \
             transmission-cli \
+            tree \
             unzip \
             valgrind \
             wget \

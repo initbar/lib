@@ -124,6 +124,10 @@
       "$1"
   }
 
+  function tree() {
+    dsh tree "$@"
+  }
+
   function unzip() {
     dsh unzip "$@"
   }
