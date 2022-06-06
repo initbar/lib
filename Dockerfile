@@ -36,7 +36,6 @@ RUN apt-get update \
             libimage-exiftool-perl \
             lrzip \
             lsb-release \
-            make \
             mat2 \
             p7zip-full \
             python3 \
@@ -47,7 +46,6 @@ RUN apt-get update \
             software-properties-common \
             sudo \
             transmission-cli \
-            tree \
             unzip \
             valgrind \
             wget \
