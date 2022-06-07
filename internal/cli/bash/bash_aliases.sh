@@ -101,6 +101,13 @@
         "$@"
   }
 
+  function skaffold() {
+    docker run \
+           gcr.io/k8s-skaffold/skaffold:latest \
+           skaffold \
+           "$@"
+  }
+
   function tcli() {
     __docker \
       --detach \

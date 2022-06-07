@@ -10,12 +10,12 @@ docker pull initbar/lib:latest
 
 ## Scripts
 
-#### Xubuntu 22.04
-
 ```bash
 curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
 curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-gui.sh | bash
 ```
+
+## Packages
 
 #### dnscrypt-proxy
 
@@ -46,6 +46,16 @@ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/go
 ```
 curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/gocryptfs.sh | bash
 ```
+
+#### Gocryptfs
+
+```
+curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/gocryptfs.sh | bash
+```
+
+#### Skaffold
+
+Please see [Dockerized alias](./internal/cli/bash/bash_aliases.sh).
 
 ## License
 
