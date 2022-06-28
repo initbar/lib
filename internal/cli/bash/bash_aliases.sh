@@ -30,11 +30,7 @@
   }
 
   function bat() {
-    dsh batcat --theme=DarkNeon -p "$@"
-  }
-
-  function dig() {
-    dsh dig "$@"
+    dsh batcat -p "$@"
   }
 
   function ent() {
@@ -125,10 +121,6 @@
       --uplimit 1 \
       --verify \
       "$1"
-  }
-
-  function tree() {
-    dsh tree "$@"
   }
 
   function unzip() {
