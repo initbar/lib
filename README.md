@@ -47,10 +47,11 @@ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/go
 curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/gocryptfs.sh | bash
 ```
 
-#### Gocryptfs
+#### Pip
 
 ```
-curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/gocryptfs.sh | bash
+# python3-distutils
+https://bootstrap.pypa.io/get-pip.py
 ```
 
 #### Skaffold
