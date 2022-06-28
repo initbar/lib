@@ -33,6 +33,10 @@
     dsh batcat -p "$@"
   }
 
+  function cal() {
+    dsh ncal
+  }
+
   function ent() {
     dsh ent -b "$@"
   }

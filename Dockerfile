@@ -36,6 +36,7 @@ RUN apt-get update \
             lrzip \
             lsb-release \
             mat2 \
+            ncal \
             p7zip-full \
             python3 \
             python3-pip \
@@ -55,9 +56,9 @@ USER ubuntu
 WORKDIR $WORKDIR
 
 RUN mkdir -p $WORKDIR/.config/transmission/blocklists \
- && wget -q https://github.com/Naunter/BT_BlockLists/releases/download/master/bt_blocklists.gz \
-         -O $WORKDIR/.config/transmission/blocklists/blocklists.gz \
- && gzip -d $WORKDIR/.config/transmission/blocklists/blocklists.gz
+ && wget -q https://github.com/Naunter/BT_BlockLists/archive/refs/tags/master.tar.gz \
+         -O $WORKDIR/.config/transmission/blocklists/blocklists.tar.gz \
+ && tar -xf $WORKDIR/.config/transmission/blocklists/blocklists.tar.gz
 
 RUN sudo -H pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
  && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
