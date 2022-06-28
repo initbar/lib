@@ -79,7 +79,7 @@
 
     # Python
     [ -d "${HOME}/.lib/pyradox3" ] && {
-      . "${HOME}/.lib/pyradox3/bin/activate"
+      . "${HOME}/.lib/pyradox3/local/bin/activate"
     }
 
     # Wine
