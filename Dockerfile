@@ -26,7 +26,6 @@ RUN apt-get update \
             ca-certificates \
             command-not-found \
             curl \
-            dnsutils \
             ent \
             ffmpeg \
             ghostscript \
