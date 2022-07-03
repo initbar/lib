@@ -56,9 +56,8 @@ USER ubuntu
 WORKDIR $WORKDIR
 
 RUN mkdir -p $WORKDIR/.config/transmission/blocklists \
- && wget -q https://github.com/Naunter/BT_BlockLists/archive/refs/tags/master.tar.gz \
-         -O $WORKDIR/.config/transmission/blocklists/blocklists.tar.gz \
- && tar -xf $WORKDIR/.config/transmission/blocklists/blocklists.tar.gz
+ && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/blocklist.sh | bash
+         -O $WORKDIR/.config/transmission/blocklists/blocklists
 
 RUN sudo -H pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
  && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
