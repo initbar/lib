@@ -5,58 +5,16 @@
 ## Dependencies
 
 ```bash
-docker pull initbar/lib:latest
+~$ docker pull initbar/lib:latest
 ```
 
-## Scripts
+## Installation
 
 ```bash
-curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
-curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-gui.sh | bash
+~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
+~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-gui.sh | bash
+~$ # https://github.com/initbar/dotfiles/tree/main/scripts/packages/*
 ```
-
-## Packages
-
-#### dnscrypt-proxy
-
-```bash
-curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/dnscrypt-proxy.sh | bash
-```
-
-#### Docker
-
-```bash
-curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/docker.sh | bash
-```
-
-#### Git LFS
-
-```bash
-curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/git-lfs.sh | bash
-```
-
-#### Go
-
-```bash
-curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/go.sh | bash
-```
-
-#### Gocryptfs
-
-```
-curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/gocryptfs.sh | bash
-```
-
-#### Pip
-
-```
-# python3-distutils
-https://bootstrap.pypa.io/get-pip.py
-```
-
-#### Skaffold
-
-Please see [Dockerized alias](./internal/cli/bash/bash_aliases.sh).
 
 ## License
 
