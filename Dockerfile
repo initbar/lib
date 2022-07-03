@@ -57,7 +57,7 @@ WORKDIR $WORKDIR
 
 RUN mkdir -p $WORKDIR/.config/transmission/blocklists \
  && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/packages/blocklist.sh | bash \
-         > $WORKDIR/.config/transmission/blocklists/blocklists
+  > $WORKDIR/.config/transmission/blocklists/blocklists
 
 RUN sudo -H pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
  && curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
