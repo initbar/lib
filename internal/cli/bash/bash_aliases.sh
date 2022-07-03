@@ -92,7 +92,9 @@
   }
 
   function rsgn() {
-    mv -v "$1" "$(md5sum $1 | awk '{print $1}').$(echo $1 | tr . \\n | tail -n1)"
+    local signature="$(md5sum $1 | head -c 8)"
+    local extension="$(echo $1 | tr . \\n | tail -n 1)"
+    mv -v "$1" "${signature}.${extension}"
   }
 
   function strings() {
