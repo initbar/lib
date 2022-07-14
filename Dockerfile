@@ -37,6 +37,7 @@ RUN apt-get update \
             lsb-release \
             mat2 \
             ncal \
+            nfs-utils \
             p7zip-full \
             python3 \
             python3-pip \
