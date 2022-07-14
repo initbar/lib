@@ -5,15 +5,20 @@
 ## Dependencies
 
 ```bash
-~$ docker pull initbar/lib:latest
+sudo apt install curl git
 ```
 
 ## Installation
 
 ```bash
-~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
-~$ curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-gui.sh | bash
-~$ # https://github.com/initbar/dotfiles/tree/main/scripts/packages/*
+curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-cli.sh | bash
+curl https://raw.githubusercontent.com/initbar/dotfiles/main/scripts/linux-gui.sh | bash
+```
+
+## Docker
+
+```
+docker pull initbar/lib:latest
 ```
 
 ## License
