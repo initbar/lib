@@ -65,7 +65,7 @@
     background_darkness = 0.98
     cursor_color = "#ff0000"
     cursor_color_fg = False
-    font = Cascadia Mono 8.1982421875
+    font = Agave 9.3984375
     foreground_color = "#ffffff"
     show_titlebar = False
     scrollbar_position = hidden
