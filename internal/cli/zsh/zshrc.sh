@@ -88,10 +88,10 @@
 
   [[ -d /cache && -z "$(ls -A /cache)" ]] && (
     cd /cache
-    mkdir -p firefox                # ~/.cache/mozilla
-    mkdir -p firefox-crash-reports  # ~/.mozilla/firefox/Crash Reports/
-    mkdir -p google-chrome          # ~/.cache/google-chrome
-    mkdir -p thumbnails             # ~/.cache/thumbnails
+    mkdir -p \
+          google-chrome \
+          protonvpn \
+          thumbnails
     chmod 700 /cache/*
   )
 }
