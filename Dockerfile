@@ -21,7 +21,6 @@ RUN mkdir -p /etc/sudoers.d \
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
-            bat \
             binutils \
             ca-certificates \
             command-not-found \

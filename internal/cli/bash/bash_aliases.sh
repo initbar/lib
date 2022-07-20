@@ -29,10 +29,6 @@
     sudo apt clean
   }
 
-  function bat() {
-    dsh batcat -p "$@"
-  }
-
   function cal() {
     dsh ncal
   }
@@ -160,6 +156,7 @@
   alias aireplay-ng='aireplay-ng -Q -T4 -B'
   alias arp="arp -n | egrep -v 'incomplete|address' | sort -g"
   alias arping='arping -f -c 1 -w 5'
+  alias bat='batcat --force-colorization --theme "Monokai Extended Bright"'
   alias cal='ncal -M'
   alias cb="cargo build"
   alias cbr="cargo build --release"
