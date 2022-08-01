@@ -157,6 +157,8 @@
   alias arp="arp -n | egrep -v 'incomplete|address' | sort -g"
   alias arping='arping -f -c 1 -w 5'
   alias bat='batcat --force-colorization --theme "Monokai Extended Bright"'
+  alias bup="b2 upload-file --threads=$(nproc)"
+  alias bls='b2 ls --recursive'
   alias cal='ncal -M'
   alias cb="cargo build"
   alias cbr="cargo build --release"
@@ -176,6 +178,7 @@
   alias fr="free -lh | egrep 'total|used|free' -A5"
   alias gc="go build"
   alias gdb='gdb -q'
+  alias gip="curl https://ipinfo.io"
   alias gpg='gpg -q'
   alias gr="go run"
   alias grep='grep --color=auto'
@@ -224,6 +227,7 @@
   alias pingflood='ping -i 0.2 -f -r -D -s0 -t 255'
   alias pipi='pip install --upgrade'
   alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+  alias pvn="protonvpn-cli"
   alias pw="acpi -V | grep Battery"
   alias pyc="python -OO -m py_compile"
   alias rc='rustc -C opt-level=3'
