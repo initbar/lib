@@ -1,2 +1,7 @@
-# Hardware video acceleration
-vo=xv
+border=no
+fullscreen=yes
+gpu-api=opengl
+osc=no
+taskbar-progress=no
+volume-max=200
+volume=100

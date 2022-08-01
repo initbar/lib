@@ -46,4 +46,11 @@
     test -L ~/.config/terminator && unlink ~/.config/terminator
     ln -vsf ~/.lib/internal/gui/terminator ~/.config/terminator
   }
+
+  # mpv
+  {
+    mkdir -vp ~/.config
+    test -L ~/.config/mpv && unlink ~/.config/mpv
+    ln -vsf ~/.lib/internal/gui/mplayer ~/.config/mpv
+  }
 }
