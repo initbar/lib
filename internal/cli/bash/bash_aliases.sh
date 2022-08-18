@@ -225,8 +225,9 @@
   alias nmap='nmap -T3 -v -n'
   alias ping='ping -D -s0 -t 255 -A -U -v -W 10'
   alias pingflood='ping -i 0.2 -f -r -D -s0 -t 255'
-  alias pipi='pip install --upgrade'
-  alias pipu="pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U"
+  alias pip='python -m pip'
+  alias pipi='python -m pip install --upgrade'
+  alias pipu="python -m pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 python -m pip install -U"
   alias pvn="protonvpn-cli"
   alias pw="acpi -V | grep Battery"
   alias pyc="python -OO -m py_compile"
