@@ -20,26 +20,6 @@
     }
   )
 
-  # kbfs
-  [ -d ~/.lib.d/ ] && {
-
-    # git
-    test -L ~/.gitconfig.personal && sudo unlink ~/.gitconfig.personal
-    ln -vsf ~/.lib.d/git/gitconfig ~/.gitconfig.personal
-
-    # pypi
-    test -L ~/.pypirc && sudo unlink ~/.pypirc
-    ln -vsf ~/.lib.d/pypi/pypirc ~/.pypirc
-
-    # ssh
-    test -L ~/.ssh && sudo unlink ~/.ssh
-    ln -vsf ~/.lib.d/ssh.d ~/.ssh
-
-    # ssh.d
-    test -L ~/.ssh.d && sudo unlink ~/.ssh.d
-    ln -vsf ~/.lib.d/ssh.d ~/.ssh.d
-  }
-
   # terminator
   {
     mkdir -vp ~/.config
