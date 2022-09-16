@@ -39,9 +39,6 @@
 [push]
   default = current
 
-[url "git@github.com:"]
-  insteadOf = https://github.com/
-
 [include]
   path = .gitconfig.personal
   path = .gitconfig.work
