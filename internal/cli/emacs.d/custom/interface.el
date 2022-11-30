@@ -12,10 +12,10 @@
 (setq system-uses-terminfo nil)
 
 ; highlight over column 80
-(require 'whitespace)
-(setq whitespace-line-column 80)
-(setq whitespace-style '(face lines-tail))
-(add-hook 'prog-mode-hook 'whitespace-mode)
+; (require 'whitespace)
+; (setq whitespace-line-column 80)
+; (setq whitespace-style '(face lines-tail))
+; (add-hook 'prog-mode-hook 'whitespace-mode)
 
 ; highlight current line
 ; (global-hl-line-mode 1)
