@@ -29,6 +29,10 @@
     sudo apt clean
   }
 
+  function binwalk() {
+    dsh binwalk
+  }
+
   function cal() {
     dsh ncal
   }
@@ -62,7 +66,7 @@
         --geo-bypass \
         --prefer-ffmpeg \
         --verbose \
-        "$1"
+        "$@"
   }
 
   function pdfmerge() {
@@ -147,7 +151,7 @@
         --ignore-errors \
         --prefer-ffmpeg \
         --yes-playlist \
-        "$1"
+        "$@"
   }
 }
 

@@ -22,6 +22,7 @@ RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
     apt-get install -y --no-install-recommends \
             binutils \
+            binwalk \
             ca-certificates \
             command-not-found \
             curl \
