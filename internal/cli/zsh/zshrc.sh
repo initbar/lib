@@ -4,20 +4,6 @@
 
   # oh-my-zsh
   {
-    export _ZSH_OH_MY_ZSH="${HOME}/.zsh.d/oh-my-zsh"
-    export _ZSH_PLUGINS="${HOME}/.zsh.d/plugins"
-    export ZSH="${_ZSH_OH_MY_ZSH}"
-
-    export DISABLE_AUTO_UPDATE=true
-    export DISABLE_MAGIC_FUNCTIONS=true
-    export DISABLE_UPDATE_PROMPT=true
-    export ZSH_THEME=gentoo
-
-    . "${_ZSH_OH_MY_ZSH}/oh-my-zsh.sh"
-    . "${_ZSH_PLUGINS}/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-    . "${_ZSH_PLUGINS}/zsh-completions/zsh-completions.plugin.zsh"
-    . "${_ZSH_PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
-
     setopt AUTOCD             # type the name of a directory to switch
     setopt AUTO_CD            # auto directory switch
     setopt AUTO_NAME_DIRS     # use named dirs when possible
@@ -29,6 +15,22 @@
     setopt RCQUOTES           # elegant nested quotations
     setopt globdots           # match dots *.*
     setopt ignoreeof          # need this (explicit 'exit' or 'logout')
+
+    export DISABLE_AUTO_UPDATE=true
+    export DISABLE_MAGIC_FUNCTIONS=true
+    export DISABLE_UPDATE_PROMPT=true
+
+    export _ZSH_OH_MY_ZSH="${HOME}/.zsh.d/oh-my-zsh"
+    export _ZSH_PLUGINS="${HOME}/.zsh.d/plugins"
+    export ZSH="${_ZSH_OH_MY_ZSH}"
+    export ZSH_THEME=gentoo
+
+    . "${_ZSH_OH_MY_ZSH}/oh-my-zsh.sh"
+    . "${_ZSH_PLUGINS}/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+    . "${_ZSH_PLUGINS}/zsh-completions/zsh-completions.plugin.zsh"
+    . "${_ZSH_PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+
+    export PROMPT="[$(date +%T)] ${PROMPT}"
   }
 
   [ -f "/etc/zsh_command_not_found" ] && {
