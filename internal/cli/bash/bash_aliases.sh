@@ -198,7 +198,7 @@
   alias gtr='git rebase -i'
   alias gts='git status --branch'
   alias hashcat='hashcat --status --status-timer 1'
-  alias hd="hexyl -v --color=always"
+  alias hexyl="hexyl -v --color=always"
   alias host='host -t any -v -l'
   alias htop="htop -u $USER"
   alias ipt="sudo iptables -L -v -n --line-numbers | egrep 'Chain [A-Za-z0-9-]+' -A100000"
