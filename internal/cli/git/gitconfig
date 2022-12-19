@@ -1,47 +1,74 @@
-[color]
-  interactive = auto
-  ui = auto
+#
+# Colors
+#
 
-[color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = magenta
+[color]
+interactive = auto
+ui = auto
+
+[color "branch"] 
+current = yellow reverse
+local = yellow
+remote = magenta
 
 [color "diff"]
-  frag = magenta bold
-  meta = yellow bold
-  new = green reverse
-  old = red reverse
-  whitespace = white reverse
+frag = magenta bold
+meta = yellow bold
+new = green reverse
+old = red reverse
+whitespace = white reverse
 
 [color "status"]
-  changed = green
-  untracked = red reverse
+changed = green
+untracked = red reverse
+
+#
+# Core
+#
 
 [core]
-  editor = nano
+editor = nano
 
 [filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
 
 [format]
-  pretty = fuller
+pretty = fuller
 
 [help]
-  autocorrect = 1
+autocorrect = 1
 
 [init]
-	defaultBranch = main
+defaultBranch = main
+
+#
+# Commits
+#
+
+[commit]
+gpgsign = true
+
+[user]
+email = h@init.bar
+name = Herbert Shin
+signingkey = 4D4D64B1
+
+#
+# Operators
+#
 
 [pull]
-  ff = only
+ff = only
 
 [push]
-  default = current
+default = current
 
-[include]
-  path = .gitconfig.personal
-  path = .gitconfig.work
+#
+# Hosts
+#
+
+[url "git@github.com:"]
+insteadOf = https://github.com/
