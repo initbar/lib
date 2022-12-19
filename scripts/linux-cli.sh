@@ -1,7 +1,7 @@
 #!/bin/bash
 
 {
-  [ -d ~/.lib/ ] || git clone https://github.com/initbar/dotfiles.git ~/.lib/
+  [ -d ~/.lib/ ] || git clone https://github.com/initbar/lib.git ~/.lib/
 
   (
     cd ~/.lib/ && {
