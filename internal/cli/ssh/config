@@ -1,0 +1,11 @@
+Include config.d/git.config
+
+Host *
+     Compression yes
+     ForwardX11 no
+     ForwardX11Trusted yes
+     Port 22
+     Protocol 2
+     ServerAliveCountMax 60
+     ServerAliveInterval 60
+     User root
