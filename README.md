@@ -2,15 +2,10 @@
 
 # lib
 
-## Dependencies
-
-```bash
-sudo apt install curl git
-```
-
 ## Installation
 
 ```bash
+# curl git
 curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-cli.sh | bash
 curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-gui.sh | bash
 ```
