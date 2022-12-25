@@ -3,24 +3,22 @@
 {
   [ -d ~/.lib/ ] || git clone https://github.com/initbar/lib.git ~/.lib/
 
+  # hosts.*
   {
-    # hosts.*
-    {
-      cat ~/.lib/internal/etc/hosts.allow | sudo tee /etc/hosts.allow
-      cat ~/.lib/internal/etc/hosts.deny | sudo tee /etc/hosts.deny
-    }
+    cat ~/.lib/internal/etc/hosts.allow | sudo tee /etc/hosts.allow
+    cat ~/.lib/internal/etc/hosts.deny | sudo tee /etc/hosts.deny
+  }
 
-    # resolv.conf
-    {
-      test -L /etc/resolv.conf && sudo unlink /etc/resolv.conf
-      sudo chattr -i -V /etc/resolv.conf
-      cat ~/.lib/internal/etc/resolv.conf | sudo tee /etc/resolv.conf
-      sudo chattr +i -V /etc/resolv.conf
-    }
+  # resolv.conf
+  {
+    test -L /etc/resolv.conf && sudo unlink /etc/resolv.conf
+    sudo chattr -i -V /etc/resolv.conf
+    cat ~/.lib/internal/etc/resolv.conf | sudo tee /etc/resolv.conf
+    sudo chattr +i -V /etc/resolv.conf
+  }
 
-    # sysctl.conf
-    {
-      cat ~/.lib/internal/etc/sysctl.conf | sudo tee /etc/sysctl.conf
-    }
+  # sysctl.conf
+  {
+    cat ~/.lib/internal/etc/sysctl.conf | sudo tee /etc/sysctl.conf
   }
 }
