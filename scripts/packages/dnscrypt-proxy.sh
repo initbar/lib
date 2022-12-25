@@ -12,4 +12,8 @@
     mv -v linux-x86_64/* .
     rm -vrf linux-x86_64/
   }
+
+  [ -d ~/.lib ] && {
+    ln -sf ~/.lib/internal/etc/dnscrypt-proxy.toml ~/.dnscrypt/dnscrypt-proxy.toml
+  }
 }
