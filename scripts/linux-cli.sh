@@ -24,11 +24,6 @@
     ln -vsf ~/.lib/internal/cli/emacs/emacs.el ~/.emacs
   }
 
-  # dnscrypt-proxy
-  [ -d ~/.dnscrypt/ ] && {
-    ln -vsf ~/.lib/internal/etc/dnscrypt-proxy.toml dnscrypt-proxy.toml
-  }
-
   # docker
   {
     mkdir -vp ~/.docker/
