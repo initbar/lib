@@ -1,26 +1,20 @@
 FROM ubuntu:22.04
 
+ENV LANG=en_US.UTF-8 \
+    LANGUAGE=en_US.UTF-8 \
+    LC_ALL=en_US.UTF-8 \
+    LC_CTYPE=en_US.UTF-8 \
+    WORKDIR=/home/ubuntu
+
 EXPOSE 9091 \
        51413/tcp \
        51413/udp \
        46882/udp \
        50052/udp
 
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
-ENV LC_CTYPE en_US.UTF-8
-ENV WORKDIR /home/ubuntu
-
-USER root
-
-RUN mkdir -p /etc/sudoers.d \
- && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu \
- && useradd -rm -d $WORKDIR -s /bin/bash -G sudo -u 1000 ubuntu
-
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y --no-install-recommends \
+    apt-get install --assume-yes --no-install-recommends \
             binutils \
             binwalk \
             ca-certificates \
@@ -51,14 +45,17 @@ RUN apt-get update \
             valgrind \
             wget \
             whois \
- && rm -rf /var/lib/apt/lists/*
+ && rm --force --recursive /var/lib/apt/lists/*
+
+RUN mkdir -p /etc/sudoers.d \
+ && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu \
+ && useradd -rm -d $WORKDIR -s /bin/bash -G sudo -u 1000 ubuntu
 
 USER ubuntu
 WORKDIR $WORKDIR
 
-RUN mkdir -p $WORKDIR/.config/transmission/blocklists \
- && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/packages/blocklist.sh | bash \
+RUN mkdir --parents $WORKDIR/.config/transmission/blocklists \
+ && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-cli.sh | bash \
+ && sudo --set-home pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
+ && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/packages/transmission-blocklist.sh | bash \
   > $WORKDIR/.config/transmission/blocklists/blocklists
-
-RUN sudo -H pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
- && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-cli.sh | bash

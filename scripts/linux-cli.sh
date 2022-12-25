@@ -9,25 +9,6 @@
     }
   )
 
-  [ -d ~/.lib.d/ ] && {
-
-    # git
-    test -L ~/.gitconfig.personal && sudo unlink ~/.gitconfig.personal
-    ln -vsf ~/.lib.d/git/gitconfig ~/.gitconfig.personal
-
-    # pypi
-    test -L ~/.pypirc && sudo unlink ~/.pypirc
-    ln -vsf ~/.lib.d/pypi/pypirc ~/.pypirc
-
-    # ssh
-    test -L ~/.ssh && sudo unlink ~/.ssh
-    ln -vsf ~/.lib.d/ssh.d ~/.ssh
-
-    # ssh.d
-    test -L ~/.ssh.d && sudo unlink ~/.ssh.d
-    ln -vsf ~/.lib.d/ssh.d ~/.ssh.d
-  }
-
   {
     # bash
     {
@@ -62,29 +43,10 @@
       ln -vsf ~/.lib/internal/cli/git/gitconfig ~/.gitconfig
     }
 
-    # hosts.*
-    {
-      cat ~/.lib/internal/etc/hosts.allow | sudo tee /etc/hosts.allow
-      cat ~/.lib/internal/etc/hosts.deny | sudo tee /etc/hosts.deny
-    }
-
     # nano
     {
       test -L ~/.nanorc && unlink ~/.nanorc
       ln -vsf ~/.lib/internal/cli/nano/nanorc ~/.nanorc
-    }
-
-    # resolv.conf
-    {
-      test -L /etc/resolv.conf && sudo unlink /etc/resolv.conf
-      sudo chattr -i -V /etc/resolv.conf
-      cat ~/.lib/internal/etc/resolv.conf | sudo tee /etc/resolv.conf
-      sudo chattr +i -V /etc/resolv.conf
-    }
-
-    # sysctl.conf
-    {
-      cat ~/.lib/internal/etc/sysctl.conf | sudo tee /etc/sysctl.conf
     }
 
     # ssh
