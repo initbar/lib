@@ -5,6 +5,7 @@ internal/cli/emacs.d/ac-comphist.dat
 internal/cli/emacs.d/auto-save-list/
 internal/cli/emacs.d/elpa/
 internal/cli/emacs.d/tramp
+internal/cli/ssh/known_hosts*
 internal/gui/Cryptomator/ipcPort.bin
 pyradox2/
 pyradox3/
