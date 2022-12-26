@@ -3,12 +3,10 @@
 set -euo pipefail
 
 function configure_dnscrypt() {
-  (
-    cd ~/.dnscrypt && {
-      wget https://raw.githubusercontent.com/initbar/lib/main/scripts/vm/home.jo/config/dnscrypt-proxy.toml
-      sudo ./dnscrypt -service install
-    }
-  )
+  cd ~/.dnscrypt && {
+    wget https://raw.githubusercontent.com/initbar/lib/main/scripts/vm/home.jo/config/dnscrypt-proxy.toml
+    sudo ./dnscrypt-proxy -service install
+  }; cd -
 }
 
 function configure_resolv_conf() {
@@ -33,9 +31,14 @@ function install_dnscrypt() {
   curl https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh | bash
 }
 
+function install_lib() {
+  curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh | bash
+}
+
 function main() {
   sudo apt update
   sudo apt upgrade --assume-yes
+  install_lib
   install_docker_ce
   install_dnscrypt
   disable_systemd_resolve
