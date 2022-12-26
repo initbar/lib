@@ -2,14 +2,6 @@
 
 set -euo pipefail
 
-function configure_dnscrypt() {
-  cd ~/.dnscrypt && {
-    curl https://raw.githubusercontent.com/initbar/lib/main/scripts/vm/home.jo/config/dnscrypt-proxy.toml | tee dnscrypt-proxy.toml
-    sudo ./dnscrypt-proxy -service install
-    sudo ./dnscrypt-proxy -service start
-  }; cd -
-}
-
 function configure_resolv_conf() {
   sudo unlink /etc/resolv.conf
   echo 'nameserver 127.0.0.1' | sudo tee /etc/resolv.conf
@@ -30,6 +22,10 @@ function install_docker_ce() {
 
 function install_dnscrypt() {
   curl https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh | bash
+  curl https://raw.githubusercontent.com/initbar/lib/main/scripts/vm/home.jo/config/dnscrypt-proxy.toml | tee dnscrypt-proxy.toml
+  cd ~/.dnscrypt && {
+    sudo ./dnscrypt-proxy -service install
+  }; cd -
 }
 
 function install_lib() {
@@ -44,5 +40,4 @@ function main() {
   install_dnscrypt
   disable_systemd_resolve
   configure_resolv_conf
-  configure_dnscrypt
 }; main
