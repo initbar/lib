@@ -1,27 +1,27 @@
-[submodule "submodules/zsh/oh-my-zsh"]
+[submodule "zsh/oh-my-zsh"]
 	path = .modules/zsh/oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "submodules/zsh/plugins/zsh-syntax-highlighting"]
+[submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = .modules/zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "submodules/zsh/plugins/zsh-completions"]
+[submodule "zsh/plugins/zsh-completions"]
 	path = .modules/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
-[submodule "submodules/zsh/plugins/zsh-autosuggestions"]
+[submodule "zsh/plugins/zsh-autosuggestions"]
 	path = .modules/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "submodules/hx"]
+[submodule "hx"]
 	path = .modules/hx
 	url = https://github.com/krpors/hx.git
-[submodule "submodules/movfuscator"]
+[submodule "movfuscator"]
 	path = .modules/movfuscator
 	url = https://github.com/xoreaxeaxeax/movfuscator.git
-[submodule "submodules/dnscrypt-proxy"]
+[submodule "dnscrypt-proxy"]
 	path = .modules/dnscrypt-proxy
 	url = https://github.com/jedisct1/dnscrypt-proxy.git
-[submodule "submodules/nanorc"]
+[submodule "nanorc"]
 	path = .modules/nanorc
 	url = https://github.com/scopatz/nanorc.git
-[submodule "submodules/pwndbg"]
+[submodule "pwndbg"]
 	path = .modules/pwndbg
 	url = https://github.com/pwndbg/pwndbg
