@@ -5,7 +5,7 @@
 
   (
     cd ~/.lib/ && {
-      rm -vrf submodules/ && git submodule update --init --recursive
+      rm -vrf .modules/ && git submodule update --init --recursive
     }
   )
 
@@ -52,7 +52,7 @@
   # zsh
   {
     test -L ~/.zsh.d && unlink ~/.zsh.d
-    ln -vsf ~/.lib/submodules/zsh ~/.zsh.d
+    ln -vsf ~/.lib/.modules/zsh ~/.zsh.d
 
     test -L ~/.zshrc && unlink ~/.zshrc
     ln -vsf ~/.lib/internal/cli/zsh/zshrc.sh ~/.zshrc
