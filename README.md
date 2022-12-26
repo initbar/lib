@@ -4,6 +4,8 @@
 
 ## Installation
 
+### Host
+
 ```bash
 curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh | bash
 curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-etc.sh | bash
@@ -14,6 +16,14 @@ https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh
 https://raw.githubusercontent.com/initbar/lib/main/scripts/docker.sh
 https://raw.githubusercontent.com/initbar/lib/main/scripts/git-lfs.sh
 https://raw.githubusercontent.com/initbar/lib/main/scripts/go.sh
+```
+
+**Note**: [Xubuntu 22.10](https://xubuntu.org)
+
+### VMs
+
+```bash
+curl https://raw.githubusercontent.com/initbar/lib/main/scripts/vm/home.jo/install.sh | bash
 ```
 
 ## Docker
