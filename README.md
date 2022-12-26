@@ -23,12 +23,12 @@ https://raw.githubusercontent.com/initbar/lib/main/scripts/go.sh
 ### VMs
 
 ```bash
-curl https://raw.githubusercontent.com/initbar/lib/main/scripts/vm/home.jo/install.sh | bash
+curl https://raw.githubusercontent.com/initbar/lib/main/scripts/vm/install.sh | bash
 ```
 
 ## Docker
 
-```
+```bash
 docker pull initbar/lib:latest
 ```
 
