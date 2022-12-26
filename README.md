@@ -5,15 +5,15 @@
 ## Installation
 
 ```bash
-curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-cli.sh | bash
-curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-etc.sh | bash
-curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-gui.sh | bash
+curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh | bash
+curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-etc.sh | bash
+curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-gui.sh | bash
 
 # Packages
-https://raw.githubusercontent.com/initbar/lib/main/scripts/packages/dnscrypt-proxy.sh
-https://raw.githubusercontent.com/initbar/lib/main/scripts/packages/docker.sh
-https://raw.githubusercontent.com/initbar/lib/main/scripts/packages/git-lfs.sh
-https://raw.githubusercontent.com/initbar/lib/main/scripts/packages/go.sh
+https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh
+https://raw.githubusercontent.com/initbar/lib/main/scripts/docker.sh
+https://raw.githubusercontent.com/initbar/lib/main/scripts/git-lfs.sh
+https://raw.githubusercontent.com/initbar/lib/main/scripts/go.sh
 ```
 
 ## Docker
