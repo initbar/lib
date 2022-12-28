@@ -1,7 +1,6 @@
 # ~/.zshrc
 
-[[ -o login && -o interactive ]] && {
-
+{
   # oh-my-zsh
   {
     setopt AUTOCD             # type the name of a directory to switch
