@@ -23,7 +23,8 @@ function install_docker_ce() {
 function install_dnscrypt() {
   curl https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh | bash
   cd ~/.dnscrypt && {
-    curl https://raw.githubusercontent.com/initbar/lib/main/scripts/vm/config/dnscrypt-proxy.toml | tee dnscrypt-proxy.toml
+    test -L dnscrypt-proxy.toml && unlink dnscrypt-proxy.toml
+    ln -sf ~/.lib/scripts/vm/config/dnscrypt-proxy.toml dnscrypt-proxy.toml
     sudo ./dnscrypt-proxy -service install
   }; cd -
 }
