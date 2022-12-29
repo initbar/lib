@@ -45,10 +45,6 @@
     dsh exiftool "$@"
   }
 
-  function ffmpeg() {
-    dsh ffmpeg "$@"
-  }
-
   function lrzip() {
     dsh lrzip "$@"
   }
