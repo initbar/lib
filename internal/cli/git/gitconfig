@@ -65,10 +65,3 @@ ff = only
 
 [push]
 default = current
-
-#
-# Hosts
-#
-
-[url "git@github.com:"]
-insteadOf = https://github.com/
