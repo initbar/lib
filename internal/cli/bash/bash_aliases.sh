@@ -76,10 +76,6 @@
         "$@"
   }
 
-  function rename() {
-    dsh rename "$@"
-  }
-
   function rchk() {
     dsh md5sum \
         --binary \
