@@ -41,7 +41,7 @@
   }
 
   {
-    export GREP_COLOR="97;45"
+    export GREP_COLORS="mt=97;45"
     export LANG="C.UTF-8"
     export LANGUAGE="C.UTF-8"
     export LC_ALL="C.UTF-8"

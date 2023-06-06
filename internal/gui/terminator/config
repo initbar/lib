@@ -13,7 +13,7 @@
   suppress_multiple_term_dialog = True
   title_use_system_font = False
   title_font = Terminus (TTF) Medium 9
-  line_height = 1.2
+  cell_height = 1.2
 [keybindings]
   go_next = None
   go_prev = None
