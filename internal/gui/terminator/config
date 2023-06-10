@@ -64,7 +64,7 @@
     icon_bell = False
     background_darkness = 0.98
     cursor_color = "#ff0000"
-    cursor_color_fg = False
+    cursor_color_fg = True
     font = Fantasque Sans Mono 9.1982421875
     foreground_color = "#ffffff"
     show_titlebar = False
@@ -73,42 +73,6 @@
     login_shell = True
     use_system_font = False
     bold_is_bright = True
-  [[chromebook]]
-    icon_bell = False
-    background_darkness = 0.98
-    cursor_color = "#ff0000"
-    cursor_color_fg = False
-    font = Fantasque Sans Mono 10.5
-    foreground_color = "#ffffff"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_infinite = True
-    login_shell = True
-    use_system_font = False
-  [[1080p]]
-    icon_bell = False
-    background_darkness = 0.98
-    cursor_color = "#ff0000"
-    cursor_color_fg = False
-    font = Fantasque Sans Mono 7.6982421875
-    foreground_color = "#ffffff"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_infinite = True
-    login_shell = True
-    use_system_font = False
-  [[4k]]
-    icon_bell = False
-    background_darkness = 0.98
-    cursor_color = "#ff0000"
-    cursor_color_fg = False
-    font = Fantasque Sans Mono 9.25
-    foreground_color = "#ffffff"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_infinite = True
-    login_shell = True
-    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
