@@ -45,6 +45,28 @@
     dsh exiftool "$@"
   }
 
+  function thumbnail() {
+    local filepath="$(basename "$1")"  # $filename + $extension
+    local filename="${filepath%.*}"
+    local extension="${filepath##*.}"
+
+    (
+      # Generate thumbnail seed.
+      local seed=$(openssl rand $RANDOM | md5sum | awk '{print $1}')
+
+      # Get total video duration in seconds.
+      local duration=$(ffprobe -i "$filepath" -show_entries format=duration -v quiet -of csv="p=0")
+
+      # Generate 20 snapshots.
+      ffmpeg -i "$filepath" -vf fps="20/${duration}" -vcodec png ${seed}-%002d.png &> /dev/null
+
+      # Collage snapshots.
+      montage -geometry +4+4 ${seed}-*.png "$filename.png" &> /dev/null
+
+      rm ${seed}-*.png
+    )
+  }
+
   function lrzip() {
     dsh lrzip "$@"
   }
