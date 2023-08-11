@@ -4,7 +4,7 @@ set -euo pipefail
 
 function configure_resolv_conf() {
   sudo unlink /etc/resolv.conf
-  echo 'nameserver 127.0.0.1' | sudo tee /etc/resolv.conf
+  echo 'nameserver 127.0.0.53' | sudo tee /etc/resolv.conf
   sudo chattr +i -V /etc/resolv.conf
 }
 
