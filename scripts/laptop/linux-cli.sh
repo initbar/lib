@@ -13,6 +13,9 @@
   {
     test -L ~/.bash_aliases && unlink ~/.bash_aliases
     ln -vsf ~/.lib/internal/cli/bash/bash_aliases.sh ~/.bash_aliases
+
+    test -L ~/.bash_functions && unlink ~/.bash_functions
+    ln -vsf ~/.lib/internal/cli/bash/bash_functions.sh ~/.bash_functions
   }
 
   # emacs

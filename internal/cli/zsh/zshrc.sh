@@ -36,6 +36,10 @@
     . "/etc/zsh_command_not_found"
   }
 
+  [ -f "${HOME}/.bash_functions" ] && {
+    . "${HOME}/.bash_functions"
+  }
+
   [ -f "${HOME}/.bash_aliases" ] && {
     . "${HOME}/.bash_aliases"
   }
@@ -90,7 +94,9 @@
   [[ -d /cache && -z "$(ls -A /cache)" ]] && (
     cd /cache
     mkdir -p \
-          firefox \
+          firefox-cache \
+          firefox-crash \
+          firefox-pings \
           google-chrome \
           protonvpn \
           thumbnails
