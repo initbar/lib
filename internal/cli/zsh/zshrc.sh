@@ -90,6 +90,7 @@
   [[ -d /cache && -z "$(ls -A /cache)" ]] && (
     cd /cache
     mkdir -p \
+          firefox \
           google-chrome \
           protonvpn \
           thumbnails
