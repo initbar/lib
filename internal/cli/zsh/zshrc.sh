@@ -28,8 +28,6 @@
     . "${_ZSH_PLUGINS}/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
     . "${_ZSH_PLUGINS}/zsh-completions/zsh-completions.plugin.zsh"
     . "${_ZSH_PLUGINS}/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
-
-    export PROMPT="[$(date +%T)] ${PROMPT}"
   }
 
   [ -f "/etc/zsh_command_not_found" ] && {
