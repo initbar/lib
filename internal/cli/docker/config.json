@@ -1,3 +1,4 @@
 {
-	"detachKeys": "ctrl-q"
+  "credsStore": "desktop.exe",
+  "detachKeys": "ctrl-q"
 }
