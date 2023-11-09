@@ -89,9 +89,9 @@
       yt-dlp \
         --audio-format mp3 \
         --audio-quality 320k \
-        --cache-dir /tmp \
         --extract-audio \
-        --geo-bypass \
+        --no-cache-dir \
+        --no-sponsorblock \
         --prefer-ffmpeg \
         --verbose \
         "$@"
@@ -177,9 +177,9 @@
   function youtube-dl() {
     dsh \
       yt-dlp \
-        --cache-dir /tmp \
-        --geo-bypass \
         --ignore-errors \
+        --no-cache-dir \
+        --no-sponsorblock \
         --prefer-ffmpeg \
         --yes-playlist \
         "$@"
