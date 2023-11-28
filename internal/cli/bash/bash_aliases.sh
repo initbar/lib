@@ -7,7 +7,7 @@
   }
 
   {
-    alias bat='batcat --force-colorization'
+    alias bat='batcat --force-colorization --theme ansi'
   }
 
   {
