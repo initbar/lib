@@ -5,7 +5,7 @@
 (ac-config-default)
 
 ; line number
-(global-linum-mode)
+(global-display-line-numbers-mode 1)
 
 ; line number (relative)                                        ;
 ; (require 'linum-relative)

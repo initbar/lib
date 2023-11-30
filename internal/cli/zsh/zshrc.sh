@@ -96,6 +96,7 @@
           firefox-crash \
           firefox-pings \
           google-chrome \
+          simple-scan \
           protonvpn \
           thumbnails
     chmod 700 /cache/*
