@@ -13,6 +13,7 @@
   title_transmit_bg_color = "#d50000"
   title_transmit_fg_color = "#000000"
   title_use_system_font = False
+  window_state = maximise
 [keybindings]
   go_next = None
   go_prev = None
@@ -60,18 +61,18 @@
   help = None
 [profiles]
   [[default]]
-    icon_bell = False
     background_darkness = 0.98
-    cursor_color = "#ff0000"
-    cursor_color_fg = True
-    font = Fantasque Sans Mono 9.1982421875
-    foreground_color = "#ffffff"
-    show_titlebar = False
-    scrollbar_position = hidden
-    scrollback_infinite = True
-    login_shell = True
-    use_system_font = False
     bold_is_bright = True
+    cursor_bg_color = "#ff0000"
+    cursor_color_default = False
+    font = "Fantasque Sans Mono 9.1982421875"
+    foreground_color = "#ffffff"
+    icon_bell = False
+    login_shell = True
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = True
+    use_system_font = False
 [layouts]
   [[default]]
     [[[child1]]]
