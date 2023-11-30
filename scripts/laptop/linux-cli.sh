@@ -52,6 +52,16 @@
     cat ~/.lib/internal/etc/ssh/sshd_config | sudo tee /etc/ssh/sshd_config
   }
 
+  # ssh
+  {
+    test -L ~/.ssh && unlink ~/.ssh
+    ln -vsf ~/.lib/internal/cli/ssh ~/.ssh
+
+    [ ! -d ~/.ssh.d ] && {
+      mkdir -vp ~/.ssh.d
+    }
+  }
+
   # zsh
   {
     test -L ~/.zsh.d && unlink ~/.zsh.d

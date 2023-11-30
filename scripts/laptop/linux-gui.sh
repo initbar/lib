@@ -31,6 +31,6 @@
   {
     mkdir -vp ~/.config
     test -L ~/.config/mpv && unlink ~/.config/mpv
-    ln -vsf ~/.lib/internal/gui/mplayer ~/.config/mpv
+    ln -vsf ~/.lib/internal/gui/mpv ~/.config/mpv
   }
 }
