@@ -44,10 +44,10 @@
 
   {
     export GREP_COLORS="mt=97;45"
-    export LANG="C"
-    export LANGUAGE="C"
-    export LC_ALL="C"
-    export LC_CTYPE="C"
+    export LANG="C.UTF-8"
+    export LANGUAGE="C.UTF-8"
+    export LC_ALL="C.UTF-8"
+    export LC_CTYPE="C.UTF-8"
     export LESS_TERMCAP_mb=$(printf '\e[01;31m')
     export LESS_TERMCAP_md=$(printf '\e[01;35m')
     export LESS_TERMCAP_me=$(printf '\e[0m')
