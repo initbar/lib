@@ -18,6 +18,7 @@ docker pull initbar/lib:latest
     https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-etc.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-gui.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/patch-system76.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/docker.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/git-lfs.sh
