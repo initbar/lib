@@ -8,26 +8,38 @@
 docker pull initbar/lib:latest
 ```
 
-## Installation
+## Hosts
 
-### Host
+### [Xubuntu 23.10](https://xubuntu.org)
 
 ```bash
 {
   scripts=(
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-etc.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-gui.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/patch-system76.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/docker.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/git-lfs.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/go.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/patch-system76.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-gui.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-etc.sh
   ); for script in ${scripts[@]}; do curl ${script} | bash; done
 }
 ```
 
-[Xubuntu 23.10](https://xubuntu.org)
+### [Windows 11 WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+```bash
+{
+  scripts=(
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/git-lfs.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/go.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-etc.sh
+  ); for script in ${scripts[@]}; do curl ${script} | bash; done
+}
+```
 
 ## License
 

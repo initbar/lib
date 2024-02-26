@@ -184,4 +184,16 @@
         --yes-playlist \
         "$@"
   }
+
+  function youtube-dl-legacy() {
+    dsh \
+      yt-dlp \
+        --ignore-errors \
+        --legacy-server-connect \
+        --no-cache-dir \
+        --no-sponsorblock \
+        --prefer-ffmpeg \
+        --yes-playlist \
+        "$@"
+  }
 }
