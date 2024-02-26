@@ -92,12 +92,13 @@
   [[ -d /cache && -z "$(ls -A /cache)" ]] && (
     cd /cache
     mkdir -p \
+          .trash \  # ~/.local/share/Trash
           firefox-cache \
           firefox-crash \
           firefox-pings \
           google-chrome \
-          simple-scan \
           protonvpn \
+          simple-scan \
           thumbnails
     chmod 700 /cache/*
   )
