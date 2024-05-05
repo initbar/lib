@@ -65,7 +65,7 @@
     bold_is_bright = True
     cursor_bg_color = "#ff0000"
     cursor_color_default = False
-    font = "Fantasque Sans Mono 9.1982421875"
+    font = "Fantasque Sans Mono 9.3"
     foreground_color = "#ffffff"
     icon_bell = False
     login_shell = True
