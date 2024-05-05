@@ -92,7 +92,7 @@
   [[ -d /cache && -z "$(ls -A /cache)" ]] && (
     cd /cache
     mkdir -p \
-          .trash \  # ~/.local/share/Trash
+          .trash \
           firefox-cache \
           firefox-crash \
           firefox-pings \
