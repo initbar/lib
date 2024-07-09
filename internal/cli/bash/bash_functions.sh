@@ -50,6 +50,10 @@
       exiftool "$@"
   }
 
+  function gip() {
+    curl https://ipinfo.io
+  }
+
   function thumbnail() {
     local filepath="$(basename "$1")"  # $filename + $extension
     local filename="${filepath%.*}"
