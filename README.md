@@ -10,7 +10,7 @@ docker pull initbar/lib:latest
 
 ## Hosts
 
-### [Xubuntu 23.10](https://xubuntu.org)
+### [Xubuntu 24.04](https://xubuntu.org)
 
 ```bash
 {
