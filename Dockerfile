@@ -48,8 +48,7 @@ RUN apt-get update \
  && rm --force --recursive /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/sudoers.d \
- && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu \
- && useradd -rm -d $WORKDIR -s /bin/bash -G sudo -u 1000 ubuntu
+ && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu
 
 USER ubuntu
 WORKDIR $WORKDIR
