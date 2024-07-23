@@ -55,7 +55,7 @@
     local filename="${filepath%.*}"
     local extension="${filepath##*.}"
 
-    (
+    {
       # Generate thumbnail seed.
       local seed=$(openssl rand $RANDOM | md5sum | awk '{print $1}')
 
@@ -68,8 +68,9 @@
       # Collage snapshots.
       montage -geometry +4+4 ${seed}-*.png "$filename.png" &> /dev/null
 
-      rm ${seed}-*.png
-    )
+      # Compress collage.
+      mogrify -quality '60%' "$filename.png"
+    } && rm ${seed}-*.png
   }
 
   function lrzip() {
