@@ -33,6 +33,7 @@ RUN apt-get update \
             ncal \
             nfs-common \
             p7zip-full \
+            pipx \
             python3 \
             python3-pip \
             python3-setuptools \
@@ -51,10 +52,10 @@ RUN mkdir -p /etc/sudoers.d \
  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu
 
 USER ubuntu
-WORKDIR $WORKDIR
+WORKDIR /home/ubuntu
 
 RUN curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh | bash \
- && sudo --set-home pip3 install --force-reinstall https://github.com/yt-dlp/yt-dlp/archive/master.zip \
+ && sudo --set-home pipx install https://github.com/yt-dlp/yt-dlp/archive/master.zip \
  && mkdir --parents $WORKDIR/.config/transmission/blocklists \
  && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/transmission-blocklist.sh | bash \
   > $WORKDIR/.config/transmission/blocklists/blocklists
