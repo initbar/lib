@@ -45,18 +45,16 @@ RUN apt-get update \
             unzip \
             valgrind \
             wget \
-            whois \
- && rm --force --recursive /var/lib/apt/lists/*
+            whois
+
+RUN add-apt-repository --yes 'ppa:tomtomtom/yt-dlp' \
+ && apt-get update \
+ && apt-get install --assume-yes --no-install-recommends yt-dlp
 
 RUN mkdir -p /etc/sudoers.d \
  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu
 
 USER ubuntu
-
-WORKDIR /usr/bin  # DL3003
-
-RUN sudo wget 'https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp' \
- && sudo chmod +x yt-dlp
 
 WORKDIR /home/ubuntu
 
