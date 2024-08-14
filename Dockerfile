@@ -45,11 +45,13 @@ RUN apt-get update \
             unzip \
             valgrind \
             wget \
-            whois
+            whois \
+ && rm --force --recursive /var/lib/apt/lists/*
 
 RUN add-apt-repository --yes 'ppa:tomtomtom/yt-dlp' \
  && apt-get update \
- && apt-get install --assume-yes --no-install-recommends yt-dlp
+ && apt-get install --assume-yes --no-install-recommends yt-dlp \
+ && rm --force --recursive /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/sudoers.d \
  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu
