@@ -52,11 +52,13 @@ RUN mkdir -p /etc/sudoers.d \
  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu
 
 USER ubuntu
-WORKDIR /home/ubuntu
 
-RUN cd /usr/bin \
- && sudo wget 'https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp' \
+WORKDIR /usr/bin  # DL3003
+
+RUN sudo wget 'https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp' \
  && sudo chmod +x yt-dlp
+
+WORKDIR /home/ubuntu
 
 RUN mkdir --parents $WORKDIR/.config/transmission/blocklists \
  && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh | bash \
