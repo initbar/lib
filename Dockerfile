@@ -54,8 +54,11 @@ RUN mkdir -p /etc/sudoers.d \
 USER ubuntu
 WORKDIR /home/ubuntu
 
-RUN curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh | bash \
- && sudo --set-home pipx install https://github.com/yt-dlp/yt-dlp/archive/master.zip \
- && mkdir --parents $WORKDIR/.config/transmission/blocklists \
+RUN cd /usr/bin \
+ && sudo wget 'https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp' \
+ && sudo chmod +x yt-dlp
+
+RUN mkdir --parents $WORKDIR/.config/transmission/blocklists \
+ && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh | bash \
  && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/transmission-blocklist.sh | bash \
   > $WORKDIR/.config/transmission/blocklists/blocklists
