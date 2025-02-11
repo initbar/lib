@@ -5,7 +5,7 @@
     rm -vrf ~/.dnscrypt/
   }; mkdir -v ~/.dnscrypt/
 
-  curl -L --output - https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/2.1.5/dnscrypt-proxy-linux_x86_64-2.1.5.tar.gz |\
+  curl -L --output - https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/2.1.7/dnscrypt-proxy-linux_x86_64-2.1.7.tar.gz |\
     tar -xz -C ~/.dnscrypt
 
   cd ~/.dnscrypt/ && {
