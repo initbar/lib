@@ -163,7 +163,7 @@
 
   function tclis() {
     while :; do
-      docker ps -q | sort | xargs -n1 -I{} sh -c 'echo "\n> Container: {}"; docker logs --tail 1 {} | egrep -o "(Progress: [0-9.]+%)|Seeding" | sort -u | tail -1' &&\
+      docker ps -q | sort | xargs -I{} sh -c 'echo "\n> Container: {}"; docker logs --tail 1 {} | egrep -o "(Progress: [0-9.]+%)|Seeding" | sort -u | tail -1' &&\
         sleep 10 &&\
         clear
     done
