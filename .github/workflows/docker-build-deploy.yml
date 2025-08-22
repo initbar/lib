@@ -32,6 +32,10 @@ jobs:
         provenance: false
         sbom: false
         outputs: >-
-          type=image,name=initbar/lib:latest,push=true,
-          oci-mediatypes=true,compression=zstd,compression-level=17,
-          force-compression=true
+          compression-level=17,
+          compression=zstd,
+          force-compression=true,
+          name=initbar/lib:latest,
+          oci-mediatypes=true,
+          push=true,
+          type=image
