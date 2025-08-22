@@ -2,41 +2,14 @@
 
 # lib
 
-## Docker
-
-```bash
-docker pull initbar/lib:latest
-```
-
-## Hosts
-
-### [Xubuntu 24.04](https://xubuntu.org)
-
 ```bash
 {
   scripts=(
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/docker.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/git-lfs.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/go.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/patch-system76.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-gui.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-etc.sh
-  ); for script in ${scripts[@]}; do curl ${script} | bash; done
-}
-```
-
-### [Windows 11 WSL](https://learn.microsoft.com/en-us/windows/wsl/install)
-
-```bash
-{
-  scripts=(
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/dnscrypt-proxy.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/git-lfs.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/go.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-etc.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/pre.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-cli.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-gui.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-etc.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/post.sh
   ); for script in ${scripts[@]}; do curl ${script} | bash; done
 }
 ```

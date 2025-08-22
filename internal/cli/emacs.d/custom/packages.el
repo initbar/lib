@@ -10,7 +10,6 @@
         auto-complete
         cython-mode
         dockerfile-mode
-        go-mode
         json-mode
         linum-relative
         markdown-mode
