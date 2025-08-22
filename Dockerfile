@@ -61,6 +61,6 @@ USER ubuntu
 WORKDIR /home/ubuntu
 
 RUN mkdir --parents $WORKDIR/.config/transmission/blocklists \
- && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/laptop/linux-cli.sh | bash \
- && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/transmission-blocklist.sh | bash \
+ && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-cli.sh | bash \
+ && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/packages/transmission-blocklist.sh | bash \
   > $WORKDIR/.config/transmission/blocklists/blocklists
