@@ -5,7 +5,7 @@ on:
     - cron: "0 0 * * 0"
 jobs:
   build:
-    name: Build and Upload to Docker
+    name: Build and Upload to Docker Hub
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4.1.7
@@ -14,9 +14,25 @@ jobs:
       with:
         dockerfile: Dockerfile
         ignore: DL3004,DL3008,DL4001,DL4006
-    - name: Build Docker image
-      run: docker build --tag="initbar/lib" https://github.com/initbar/lib.git#main
-    - name: Login to Docker
-      run: echo -n ${{ secrets.DOCKER_PASSWORD }} | docker login --username ${{ secrets.DOCKER_USERNAME }} --password-stdin
-    - name: Upload to Docker
-      run: docker image push "initbar/lib:latest"
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v3
+    - name: Login to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Upload to Docker Hub
+      uses: docker/build-push-action@v6
+      with:
+        context: https://github.com/initbar/lib.git#main
+        push: true
+        tags: |
+          initbar/lib:latest
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+        provenance: false
+        sbom: false
+        outputs: |
+          type=image,name=initbar/lib:latest,push=true,\
+          oci-mediatypes=true,compression=zstd,compression-level=17,\
+          force-compression=true
