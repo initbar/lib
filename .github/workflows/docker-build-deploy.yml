@@ -31,7 +31,7 @@ jobs:
         cache-to: type=gha,mode=max
         provenance: false
         sbom: false
-        outputs: |
-          type=image,name=initbar/lib:latest,push=true,\
-          oci-mediatypes=true,compression=zstd,compression-level=17,\
+        outputs: >-
+          type=image,name=initbar/lib:latest,push=true,
+          oci-mediatypes=true,compression=zstd,compression-level=17,
           force-compression=true
