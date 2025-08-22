@@ -21,13 +21,12 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-    - name: Upload to Docker Hub
+    - name: Build and Upload to Docker Hub
       uses: docker/build-push-action@v6
       with:
         context: https://github.com/initbar/lib.git#main
         push: true
-        tags: |
-          initbar/lib:latest
+        tags: initbar/lib:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
         provenance: false
