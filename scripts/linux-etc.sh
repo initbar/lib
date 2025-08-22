@@ -1,7 +1,7 @@
 #!/bin/bash
 
 {
-  [ -d ~/.lib/ ] || git clone --depth 2 https://github.com/initbar/lib.git ~/.lib/
+  [ -d ~/.lib ] || git clone --depth 2 https://github.com/initbar/lib.git ~/.lib
 
   # hosts.*
   {

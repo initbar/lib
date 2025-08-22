@@ -1,10 +1,10 @@
 #!/bin/bash
 
 {
-  [ -d ~/.lib/ ] || git clone --depth 2 https://github.com/initbar/lib.git ~/.lib/
+  [ -d ~/.lib ] || git clone --depth 2 https://github.com/initbar/lib.git ~/.lib
 
   (
-    cd ~/.lib/ && {
+    cd ~/.lib && {
       rm -vrf .modules/ && git submodule update --init --recursive
     }
   )
@@ -20,16 +20,16 @@
 
   # emacs
   {
-    test -L ~/.emacs.d && unlink ~/.emacs.d
-    ln -vsf ~/.lib/internal/cli/emacs.d ~/.emacs.d
-
     test -L ~/.emacs && unlink ~/.emacs
     ln -vsf ~/.lib/internal/cli/emacs/emacs.el ~/.emacs
+
+    test -L ~/.emacs.d && unlink ~/.emacs.d
+    ln -vsf ~/.lib/internal/cli/emacs.d ~/.emacs.d
   }
 
   # docker
   {
-    mkdir -vp ~/.docker/
+    mkdir -vp ~/.docker
     test -L ~/.docker/config.json && unlink ~/.docker/config.json
     ln -vsf ~/.lib/internal/cli/docker/config.json ~/.docker/config.json
   }
@@ -55,7 +55,13 @@
   # ssh
   {
     test -L ~/.ssh && unlink ~/.ssh
-    ln -vsf ~/.lib/internal/cli/ssh ~/.ssh
+
+    # Prevent nested symlink
+    if [ -d ~/.ssh ]; then
+      rm -rf ~/.ssh
+    else
+      ln -vsf ~/.lib/internal/cli/ssh ~/.ssh
+    fi
 
     [ ! -d ~/.ssh.d ] && {
       mkdir -vp ~/.ssh.d
@@ -64,10 +70,10 @@
 
   # zsh
   {
-    test -L ~/.zsh.d && unlink ~/.zsh.d
-    ln -vsf ~/.lib/.modules/zsh ~/.zsh.d
-
     test -L ~/.zshrc && unlink ~/.zshrc
     ln -vsf ~/.lib/internal/cli/zsh/zshrc.sh ~/.zshrc
+
+    test -L ~/.zsh.d && unlink ~/.zsh.d
+    ln -vsf ~/.lib/.modules/zsh ~/.zsh.d
   }
 }

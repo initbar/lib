@@ -2,7 +2,7 @@
 
 {
   (
-    cd ~/.lib/external/ && {
+    cd ~/.lib/external && {
       for i in */**.gz; do tar -xvf $i -C $(dirname $i); done
 
       # cursors
@@ -10,7 +10,7 @@
       ln -vsf ~/.lib/external/cursor ~/.icons
 
       # fonts
-      mkdir -p ~/.local/share/
+      mkdir -p ~/.local/share
       test -L ~/.local/share/fonts && unlink ~/.local/share/fonts
       ln -vsf ~/.lib/external/fonts ~/.local/share/fonts
 
