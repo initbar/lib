@@ -93,7 +93,6 @@
     cd /cache
     mkdir -p \
           .trash \
-          firefox-cache \
           firefox-crash \
           firefox-pings \
           google-chrome \
