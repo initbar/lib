@@ -13,7 +13,7 @@
   title_transmit_bg_color = "#d50000"
   title_transmit_fg_color = "#000000"
   title_use_system_font = False
-  window_state = maximise
+  # window_state = maximise
 [keybindings]
   go_next = None
   go_prev = None
@@ -83,4 +83,7 @@
       parent = ""
       profile = None
       type = Window
+      size = 1200,800
+      position = 360:140 # ((x2-x1)/2, (y2-y1)/2)
+
 [plugins]
