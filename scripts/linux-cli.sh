@@ -46,6 +46,12 @@
     ln -vsf ~/.lib/internal/cli/nano/nanorc ~/.nanorc
   }
 
+  # PulseEffects
+  {
+    test -L ~/.config/PulseEffects && unlink ~/.config/PulseEffects
+    ln -vsf ~/.lib/internal/cli/PulseEffects ~/.config/PulseEffects
+  }
+
   # ssh
   [ -d /etc/ssh ] && {
     cat ~/.lib/internal/etc/ssh/banner | sudo tee /etc/ssh/banner
