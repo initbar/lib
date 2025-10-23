@@ -162,7 +162,7 @@
 
   function tclis() {
     while :; do
-      docker ps -q | sort | xargs -I{} sh -c 'PROGRESS=$(docker logs --tail 1 {} | egrep -o "Progress: [0-9.]+%" | sort -u | tail -1 | sed "s/^/\[/; s/$/\]/"); echo "> Container: {} ${PROGRESS}"' &&\
+      docker ps -q | sort | xargs -I{} sh -c 'PROGRESS=$(docker logs --tail 1 {} | egrep -o "(Progress: [0-9.]+%)|Seeding" | sort -u | tail -1 | sed "s/^/\[/; s/$/\]/"); echo "> Container: {} ${PROGRESS}"' &&\
         sleep 10 &&\
         clear
     done
