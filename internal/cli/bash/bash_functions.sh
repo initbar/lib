@@ -97,7 +97,6 @@
         --extract-audio \
         --no-cache-dir \
         --no-sponsorblock \
-        --prefer-ffmpeg \
         --verbose \
         "$@"
   }
@@ -163,7 +162,7 @@
 
   function tclis() {
     while :; do
-      docker ps -q | sort | xargs -I{} sh -c 'echo "\n> Container: {}"; docker logs --tail 1 {} | egrep -o "(Progress: [0-9.]+%)|Seeding" | sort -u | tail -1' &&\
+      docker ps -q | sort | xargs -I{} sh -c 'PROGRESS=$(docker logs --tail 1 {} | egrep -o "Progress: [0-9.]+%" | sort -u | tail -1 | sed "s/^/\[/; s/$/\]/"); echo "> Container: {} ${PROGRESS}"' &&\
         sleep 10 &&\
         clear
     done
@@ -190,22 +189,12 @@
   function youtube-dl() {
     dsh \
       yt-dlp \
+        --add-header "Origin: https://www.google.com" \
+        --add-header "Referer: https://www.google.com" \
+        --user-agent "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15" \
         --ignore-errors \
         --no-cache-dir \
         --no-sponsorblock \
-        --prefer-ffmpeg \
-        --yes-playlist \
-        "$@"
-  }
-
-  function youtube-dl-legacy() {
-    dsh \
-      yt-dlp \
-        --ignore-errors \
-        --legacy-server-connect \
-        --no-cache-dir \
-        --no-sponsorblock \
-        --prefer-ffmpeg \
         --yes-playlist \
         "$@"
   }
