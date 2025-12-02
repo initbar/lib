@@ -52,8 +52,9 @@
 
   {
     alias k='kubectl'
-    alias kg='kubectl get'
-    alias kl='kubectl logs'
+    alias kns='kubens'
+    alias kctx='kubectx'
+    source <(kubectl completion zsh)
   }
 
   {
