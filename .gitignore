@@ -6,6 +6,7 @@ internal/cli/emacs.d/auto-save-list/
 internal/cli/emacs.d/eln-cache/
 internal/cli/emacs.d/elpa/
 internal/cli/emacs.d/tramp
+internal/cli/ssh/authorized_keys
 internal/cli/ssh/known_hosts*
 internal/gui/Cryptomator/ipcPort.bin
 pyradox2/
