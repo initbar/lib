@@ -8,7 +8,7 @@
         https://raw.githubusercontent.com/initbar/lib/main/scripts/packages/go.sh
     )
 
-    for script in ${scripts[@]}
-        do curl "${script}" | bash
+    for package in ${packages[@]}
+        do curl "${package}" | bash
     done
 }
