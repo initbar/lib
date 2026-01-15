@@ -21,10 +21,8 @@
 
   # Start DnsCrypt
   cd ~/.dnscrypt && {
-    # Stop previous instance
     sudo systemctl stop dnscrypt-proxy.service
-
-    # Install new instance
+    sudo ./dnscrypt-proxy -service uninstall
     sudo ./dnscrypt-proxy -service install
     sudo ./dnscrypt-proxy -service start
   }
