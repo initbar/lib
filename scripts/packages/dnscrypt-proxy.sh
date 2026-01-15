@@ -6,7 +6,7 @@
   }
   mkdir ~/.dnscrypt
 
-  curl -L --output - https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/2.1.13/dnscrypt-proxy-linux_x86_64-2.1.13.tar.gz |\
+  curl -L --output - https://github.com/DNSCrypt/dnscrypt-proxy/releases/download/2.1.15/dnscrypt-proxy-linux_x86_64-2.1.15.tar.gz |\
     tar -xz -C ~/.dnscrypt
 
   cd ~/.dnscrypt/ && {
