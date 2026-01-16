@@ -27,8 +27,6 @@ jobs:
         context: https://github.com/initbar/lib.git#main
         push: true
         tags: initbar/lib:latest
-        cache-from: type=gha
-        cache-to: type=gha,mode=max
         provenance: false
         sbom: false
         outputs: >-
