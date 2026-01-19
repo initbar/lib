@@ -54,7 +54,9 @@
     alias k='kubectl'
     alias kns='kubens'
     alias kctx='kubectx'
-    source <(kubectl completion zsh)
+    [ -n $(which kubectl) ] && {
+      source <(kubectl completion zsh)
+    }
   }
 
   {
