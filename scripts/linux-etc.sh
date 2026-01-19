@@ -3,6 +3,12 @@
 {
   [ -d ~/.lib ] || git clone --depth 2 https://github.com/initbar/lib.git ~/.lib
 
+  # DnsCrypt
+  [ ! -d ~/.dnscrypt ] && {
+    mkdir ~/.dnscrypt
+  }
+  ln -sf ~/.lib/internal/etc/dnscrypt-proxy.toml ~/.dnscrypt/dnscrypt-proxy.toml
+
   # hosts.*
   {
     cat ~/.lib/internal/etc/hosts.allow | sudo tee /etc/hosts.allow
