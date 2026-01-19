@@ -27,13 +27,6 @@
     ln -vsf ~/.lib/internal/cli/emacs.d ~/.emacs.d
   }
 
-  # docker
-  {
-    mkdir -vp ~/.docker
-    test -L ~/.docker/config.json && unlink ~/.docker/config.json
-    ln -vsf ~/.lib/internal/cli/docker/config.json ~/.docker/config.json
-  }
-
   # git
   {
     test -L ~/.gitconfig && sudo unlink ~/.gitconfig
