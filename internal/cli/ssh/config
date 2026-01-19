@@ -1,4 +1,5 @@
 Include config.d/git.config
+Include config.d/server.config
 
 Host *
      Compression yes
