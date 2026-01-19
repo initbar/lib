@@ -10,18 +10,6 @@
 [submodule "zsh/plugins/zsh-autosuggestions"]
 	path = .modules/zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "hx"]
-	path = .modules/hx
-	url = https://github.com/krpors/hx.git
-[submodule "movfuscator"]
-	path = .modules/movfuscator
-	url = https://github.com/xoreaxeaxeax/movfuscator.git
-[submodule "dnscrypt-proxy"]
-	path = .modules/dnscrypt-proxy
-	url = https://github.com/jedisct1/dnscrypt-proxy.git
 [submodule "nanorc"]
 	path = .modules/nanorc
 	url = https://github.com/scopatz/nanorc.git
-[submodule "pwndbg"]
-	path = .modules/pwndbg
-	url = https://github.com/pwndbg/pwndbg
