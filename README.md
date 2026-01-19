@@ -6,10 +6,10 @@
 {
   scripts=(
     https://raw.githubusercontent.com/initbar/lib/main/scripts/pre.sh
-    https://raw.githubusercontent.com/initbar/lib/main/scripts/packages.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-cli.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-gui.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-etc.sh
+    https://raw.githubusercontent.com/initbar/lib/main/scripts/packages.sh
     https://raw.githubusercontent.com/initbar/lib/main/scripts/post.sh
   ); for script in ${scripts[@]}; do curl "${script}" | bash; done
 }
