@@ -7,11 +7,11 @@ server_names = ['NextDNS-ea1a22']
 #
 
 cache = true
-cache_max_ttl = 86400
-cache_min_ttl = 2400
-cache_neg_max_ttl = 600
+cache_max_ttl = 300
+cache_min_ttl = 60
+cache_neg_max_ttl = 300
 cache_neg_min_ttl = 60
-cache_size = 4096
+cache_size = 8192
 
 #
 # Servers
@@ -34,7 +34,7 @@ block_unqualified = true
 # Connections
 #
 
-max_clients = 256
+max_clients = 1024
 
 force_tcp = false
 keepalive = 30  # s
@@ -55,10 +55,10 @@ tls_disable_session_tickets = true
 
 log_file = 'dnscrypt-proxy.log'
 log_file_latest = false
-log_files_max_age = 1
-log_files_max_backups = 1
-log_files_max_size = 10  # MB
-log_level = 2
+log_files_max_age = 30
+log_files_max_backups = 0
+log_files_max_size = 1024  # MB
+log_level = 3
 
 [query_log]
 file = 'dnscrypt-query.log'
