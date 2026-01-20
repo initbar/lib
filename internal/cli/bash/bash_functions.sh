@@ -2,14 +2,50 @@
 
 {
   function __docker() {
+    if [ -n "$(docker network ls | grep wireguard)" ]; then
+      docker run \
+        --interactive \
+        --network "container:wireguard" \
+        --rm \
+        --tty \
+        --user "${UID}:${UID}" \
+        --volume "$(readlink -f ${PWD}):/sandbox" \
+        --workdir /sandbox \
+        "$@"
+    else
+      docker run \
+        --interactive \
+        --rm \
+        --tty \
+        --user "${UID}:${UID}" \
+        --volume "$(readlink -f ${PWD}):/sandbox" \
+        --workdir /sandbox \
+        "$@"
+    fi
+  }
+
+  function __docker_vpn() {
+    [ -n "$(docker network ls | grep wireguard)" ] || {
+      docker network create wireguard
+    }
+
     docker run \
-      --interactive \
+      --cap-add=NET_ADMIN \
+      --cap-add=SYS_MODULE \
+      --detach \
+      --device /dev/net/tun \
+      --env PGID="$(id -g)" \
+      --env PUID="$(id -u)" \
+      --name wireguard \
+      --publish="127.0.0.1:${RANDOM}:46882/udp" \
+      --publish="127.0.0.1:${RANDOM}:50052/udp" \
+      --publish="127.0.0.1:${RANDOM}:51413/tcp" \
+      --publish="127.0.0.1:${RANDOM}:51413/udp" \
+      --publish="127.0.0.1:${RANDOM}:9091" \
       --rm \
-      --tty \
-      --user="${UID}:1000" \
-      --volume="$(readlink -f ${PWD}):/sandbox" \
-      --workdir=/sandbox \
-      "$@"
+      --sysctl net.ipv4.conf.all.src_valid_mark=1 \
+      --volume "$HOME/.vpn:/config" \
+      linuxserver/wireguard
   }
 
   function dsh() {
@@ -142,22 +178,36 @@
   }
 
   function tcli() {
-    __docker \
-      --detach \
-      --publish="127.0.0.1:${RANDOM}:46882/udp" \
-      --publish="127.0.0.1:${RANDOM}:50052/udp" \
-      --publish="127.0.0.1:${RANDOM}:51413/tcp" \
-      --publish="127.0.0.1:${RANDOM}:51413/udp" \
-      --publish="127.0.0.1:${RANDOM}:9091" \
-      --volume="${HOME}/.torrents:/home/ubuntu/Downloads" \
-      initbar/lib:latest \
-      transmission-cli \
-      --blocklist \
-      --encryption-preferred \
-      --no-downlimit \
-      --uplimit 1 \
-      --verify \
-      "$1"
+    if [ -n "$(docker network ls | grep wireguard)" ]; then
+      __docker \
+        --detach \
+        --volume="${HOME}/.torrents:/home/ubuntu/Downloads" \
+        initbar/lib:latest \
+        transmission-cli \
+        --blocklist \
+        --encryption-preferred \
+        --no-downlimit \
+        --uplimit 1 \
+        --verify \
+        "$1"
+    else
+      __docker \
+        --detach \
+        --publish="127.0.0.1:${RANDOM}:46882/udp" \
+        --publish="127.0.0.1:${RANDOM}:50052/udp" \
+        --publish="127.0.0.1:${RANDOM}:51413/tcp" \
+        --publish="127.0.0.1:${RANDOM}:51413/udp" \
+        --publish="127.0.0.1:${RANDOM}:9091" \
+        --volume="${HOME}/.torrents:/home/ubuntu/Downloads" \
+        initbar/lib:latest \
+        transmission-cli \
+        --blocklist \
+        --encryption-preferred \
+        --no-downlimit \
+        --uplimit 1 \
+        --verify \
+        "$1"
+    fi
   }
 
   function tclis() {
