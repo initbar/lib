@@ -75,11 +75,6 @@
       export PATH="${PATH}:${GOROOT}:${GOPATH}:${GOBIN}"
     }
 
-    # Gocryptfs
-    [ -d "${HOME}/.gocryptfs" ] && {
-      export PATH="${PATH}:${HOME}/.gocryptfs"
-    }
-
     # Python
     [ -d "${HOME}/.lib/pyradox3" ] && {
       . "${HOME}/.lib/pyradox3/bin/activate"
@@ -94,6 +89,14 @@
     export WINEPREFIX="/tmp/wine"
   }
 
+  # tmux
+  if command -v tmux >/dev/null 2>&1; then
+    if [ -z "$TMUX" ]; then
+      tmux attach -t main || tmux new -s main
+    fi
+  fi
+
+  # /cache
   [[ -d /cache && -z "$(ls -A /cache)" ]] && (
     cd /cache
     mkdir -p \
