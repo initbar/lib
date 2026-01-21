@@ -67,6 +67,12 @@
     }
   }
 
+  # tmux
+  {
+    test -L ~/.tmux.conf && unlink ~/.tmux.conf
+    ln -vsf ~/.lib/internal/cli/tmux/tmux.conf ~/.tmux.conf
+  }
+
   # zsh
   {
     test -L ~/.zshrc && unlink ~/.zshrc
