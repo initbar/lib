@@ -85,14 +85,10 @@
       . "${HOME}/.lib/pyradox3/bin/activate"
     }
 
-    # Kubernetes
-    [ -d "/opt/kubectx" ] && {
-      # ln -s /opt/kubectx/completion/_kubectx.zsh ~/.lib/internal/cli/zsh/completions/kubectx
-      # ln -s /opt/kubectx/completion/_kubens.zsh ~/.lib/internal/cli/zsh/completions/kubens
-      fpath=(~/.lib/internal/cli/zsh/completions $fpath)
-      autoload -Uz compinit
-      compinit
-    }
+    # Autocomplete
+    fpath=(~/.lib/internal/cli/zsh/completions $fpath)
+    autoload -Uz compinit
+    compinit
 
     # Wine
     export WINEPREFIX="/tmp/wine"
