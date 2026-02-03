@@ -155,15 +155,11 @@
   }
 
   function tclis() {
-    while :; do
-      docker ps |\
-        egrep -v 'vpn|CONTAINER' |\
-        awk '{print $1}' |\
-        sort |\
-        xargs -I{} sh -c 'PROGRESS=$(docker logs --tail 1 {} | egrep -o "(Progress: [0-9.]+%)|Seeding" | sort -u | tail -1 | sed "s/^/\[/; s/$/\]/"); echo "> Container: {} ${PROGRESS}"' &&\
-        sleep 10 \
-     && clear
-    done
+    docker ps |\
+      egrep -v 'vpn|CONTAINER' |\
+      awk '{print $1}' |\
+      sort |\
+      xargs -I{} sh -c 'PROGRESS=$(docker logs --tail 1 {} | egrep -o "(Progress: [0-9.]+%)|Seeding" | sort -u | tail -1 | sed "s/^/\[/; s/$/\]/"); echo "> Container: {} ${PROGRESS}"'
   }
 
   function unzip() {
