@@ -24,6 +24,9 @@
     export ZSH="${_ZSH_OH_MY_ZSH}"
     export ZSH_THEME=gentoo
 
+    export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:${PATH}"
+    export MANPATH="/opt/homebrew/opt/coreutils/libexec/gnuman:${MANPATH}"
+
     . "${_ZSH_OH_MY_ZSH}/oh-my-zsh.sh"
     . "${_ZSH_PLUGINS}/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
     . "${_ZSH_PLUGINS}/zsh-completions/zsh-completions.plugin.zsh"
@@ -32,6 +35,13 @@
 
   [ -f "/etc/zsh_command_not_found" ] && {
     . "/etc/zsh_command_not_found"
+  }
+
+  # Docker completions
+  {
+    fpath=(/Users/herbert/.docker/completions $fpath)
+    autoload -Uz compinit
+    compinit
   }
 
   [ -f "${HOME}/.bash_functions" ] && {
@@ -109,4 +119,9 @@
           thumbnails
     chmod 700 /cache/*
   )
+
+  # Clean up Google Drive symlink
+  test -L ~/Google\ Drive && {
+    unlink ~/Google\ Drive
+  }
 }
