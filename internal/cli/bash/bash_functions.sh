@@ -30,6 +30,26 @@
       mogrify -quality '60%' "$filename.png"
     } && rm ${seed}-*.png
   }
+
+  function encrypt() {
+    openssl enc \
+      -aes-256-cbc \
+      -salt \
+      -pbkdf2 \
+      -iter 1000000 \
+      -a \
+      -in "$1"
+  }
+
+  function decrypt() {
+    openssl enc \
+      -d \
+      -aes-256-cbc \
+      -pbkdf2 \
+      -iter 1000000 \
+      -a \
+      -in "$1"
+  }
 }
 
 {
