@@ -129,6 +129,18 @@
       exiftool "$@"
   }
 
+  function et-fix-mp3() {
+    for i in *.mp3 ; do
+      echo "Processing: $i"
+      title="$(echo $i | cut -d'-' -f2 | awk '{$1=$1};1' | sed 's/.mp3$//')"
+      band="$(echo $i | cut -d'-' -f1 | awk '{$1=$1};1')"
+      echo " Parsed title: ${title}"
+      echo " Parsed band:  ${band}"
+
+      eyeD3 --title "${title}" --album-artist "${band}" "$i"
+    done
+  }
+
   function lrzip() {
     dsh \
       lrzip "$@"
