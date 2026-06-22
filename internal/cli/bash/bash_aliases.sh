@@ -20,7 +20,7 @@
     alias df="df -hl | grep -v Filesystem | sort | egrep -i '[0-9]+%'"
     alias dis="docker images"
     alias dl="docker logs"
-    alias dp="docker ps"
+    alias dp="docker ps --format 'table {{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Status}}'"
     alias du='du -xch'
   }
 
