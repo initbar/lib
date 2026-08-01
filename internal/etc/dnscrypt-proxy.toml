@@ -1,6 +1,13 @@
 listen_addresses = ['127.0.0.1:53']
-# listen_addresses = ['0.0.0.0:53']
-server_names = ['NextDNS-ea1a22']
+
+#
+# Resolvers
+#
+
+server_names = [
+  'cloudflare',
+  # 'NextDNS-ea1a22'
+]
 
 #
 # Caching
