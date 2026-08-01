@@ -40,6 +40,7 @@ force_tcp = false
 keepalive = 30  # s
 timeout = 5000  # ms
 http3 = true
+http3_probe = false
 
 #
 # Privacy
@@ -48,6 +49,7 @@ http3 = true
 ignore_system_dns = true
 dnscrypt_ephemeral_keys = true
 tls_disable_session_tickets = true
+pqdnscrypt = true
 
 #
 # Logging
@@ -77,7 +79,8 @@ format = 'ltsv'
 urls = ['https://raw.githubusercontent.com/DNSCrypt/dnscrypt-resolvers/master/v3/public-resolvers.md']
 cache_file = 'public-resolvers.md'
 minisign_key = 'RWQf6LRCGA9i53mlYecO4IzT51TGPpvWucNSCh1CBM0QTaLn73Y7GFO3'
-refresh_delay = 72
+refresh_delay = 73
+cache_ttl = 168
 prefix = ''
 
 [static]
