@@ -15,6 +15,13 @@ MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
 HostKeyAlgorithms ssh-ed25519,rsa-sha2-512,rsa-sha2-256
 KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256
 
+# Restrict which *client* key types are accepted (mirrors HostKeyAlgorithms)
+PubkeyAcceptedAlgorithms ssh-ed25519,rsa-sha2-512,rsa-sha2-256
+CASignatureAlgorithms ssh-ed25519,rsa-sha2-512,rsa-sha2-256
+
+# Rekey long-lived sessions
+RekeyLimit 512M 1h
+
 # User
 AllowUsers ubuntu
 PermitRootLogin no
@@ -22,11 +29,11 @@ PermitRootLogin no
 # Banner
 Banner /etc/ssh/banner
 PrintLastLog yes
-PrintMotd yes
+PrintMotd no
 
 # Authentication
+AuthenticationMethods publickey
 AuthorizedKeysFile %h/.ssh/authorized_keys
-ChallengeResponseAuthentication no
 ClientAliveInterval 30
 ClientAliveCountMax 2
 DebianBanner no
@@ -38,7 +45,7 @@ KbdInteractiveAuthentication no
 KerberosAuthentication no
 KerberosOrLocalPasswd no
 KerberosTicketCleanup yes
-LoginGraceTime 30
+LoginGraceTime 20
 PasswordAuthentication no
 PubkeyAuthentication yes
 UsePAM yes
@@ -56,12 +63,14 @@ DisableForwarding yes
 IgnoreRhosts yes
 IgnoreUserKnownHosts yes
 MaxAuthTries 3
-MaxSessions 10
+MaxSessions 2
 MaxStartups 10:51:15
+PerSourceMaxStartups 3
+PerSourceNetBlockSize 32:64
 PermitEmptyPasswords no
 PermitUserEnvironment no
 StrictModes yes
-TCPKeepAlive yes
+TCPKeepAlive no
 VersionAddendum none
 X11Forwarding no
 
