@@ -5,21 +5,16 @@
 (setq inhibit-startup-screen t)
 
 ; hide menu bar
-(menu-bar-mode -1)
 (line-number-mode -1)
+(menu-bar-mode -1)
 
 ; fix weird color escape sequences
 (setq system-uses-terminfo nil)
 
-; highlight over column 80
-; (require 'whitespace)
-; (setq whitespace-line-column 80)
-; (setq whitespace-style '(face lines-tail))
-; (add-hook 'prog-mode-hook 'whitespace-mode)
-
 ; highlight current line
-; (global-hl-line-mode 1)
-(set-face-attribute 'region nil :background "#222" :foreground "#ff0000")
+;; (global-hl-line-mode 1)
+;; (set-face-background 'hl-line "#f0f0f0")
+;; (set-face-background 'hl-line "gray20")
 
 ; match parenthesis
 (show-paren-mode 1)

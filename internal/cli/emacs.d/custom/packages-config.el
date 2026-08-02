@@ -3,14 +3,15 @@
 
 ; auto-complete
 (ac-config-default)
+(use-package company
+  :ensure t
+  :config
+  (global-company-mode 1)
+  (setq company-idle-delay 0.2)
+  (setq company-minimum-prefix-length 1))
 
 ; line number
 (global-display-line-numbers-mode 1)
-
-; line number (relative)                                        ;
-; (require 'linum-relative)
-; (linum-relative-toggle)
-; (setq linum-relative-current-symbol "->")
 
 ; tramp
 (require 'tramp)

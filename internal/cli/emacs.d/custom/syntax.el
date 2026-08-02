@@ -1,6 +1,5 @@
 ; syntax highlight
 (global-font-lock-mode 1)
-
 (put 'set-goal-column 'disabled nil)
 (put 'scroll-left 'disabled nil)
 
