@@ -14,19 +14,19 @@
     local extension="${filepath##*.}"
 
     {
-      # Generate thumbnail seed.
+      # Generate thumbnail seed
       local seed=$(openssl rand $RANDOM | md5sum | awk '{print $1}')
 
-      # Get total video duration in seconds.
+      # Get total video duration in seconds
       local duration=$(ffprobe -i "$filepath" -show_entries format=duration -v quiet -of csv="p=0")
 
-      # Generate 20 snapshots.
+      # Generate 20 snapshots
       ffmpeg -i "$filepath" -vf fps="20/${duration}" -vcodec png ${seed}-%002d.png &> /dev/null
 
-      # Collage snapshots.
+      # Collage snapshots
       montage -geometry +4+4 ${seed}-*.png "$filename.png" &> /dev/null
 
-      # Compress collage.
+      # Compress collage
       mogrify -quality '60%' "$filename.png"
     } && rm ${seed}-*.png
   }
@@ -102,33 +102,6 @@
     __docker initbar/lib:latest "$@"
   }
 
-  function 7z() {
-    dsh \
-      7z "$@"
-  }
-
-  function binwalk() {
-    dsh \
-      binwalk
-  }
-
-  function cal() {
-    dsh \
-      ncal
-  }
-
-  function ent() {
-    dsh \
-      ent \
-        -b \
-        "$@"
-  }
-
-  function et() {
-    dsh \
-      exiftool "$@"
-  }
-
   function et-fix-mp3() {
     for i in *.mp3 ; do
       echo "Processing: $i"
@@ -141,18 +114,6 @@
     done
   }
 
-  function lrzip() {
-    dsh \
-      lrzip "$@"
-  }
-
-  function mat() {
-    dsh \
-      mat2 \
-        --inplace \
-        "$@"
-  }
-
   function pdfmerge() {
     dsh \
       gs \
@@ -162,13 +123,6 @@
         -q \
         -sDEVICE=pdfwrite \
         -sOutputFile=_merged.pdf \
-        "$@"
-  }
-
-  function strings() {
-    dsh \
-      strings \
-        --all \
         "$@"
   }
 
@@ -194,22 +148,12 @@
       xargs -I{} sh -c 'PROGRESS=$(docker logs --tail 1 {} | egrep -o "(Progress: [0-9.]+%)|Seeding" | sort -u | tail -1 | sed "s/^/\[/; s/$/\]/"); echo "> Container: {} ${PROGRESS}"'
   }
 
-  function unzip() {
-    dsh \
-      unzip "$@"
-  }
-
   function valgrind() {
     dsh \
       valgrind \
         --leak-check=full \
         --show-leak-kinds=all \
         "$@"
-  }
-
-  function whois() {
-    dsh \
-      whois "$@"
   }
 
   function youtube-dl() {
