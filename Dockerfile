@@ -1,10 +1,11 @@
-FROM ubuntu:24.04
+FROM ubuntu:26.04
 
-ENV LANG=en_US.UTF-8 \
-    LANGUAGE=en_US.UTF-8 \
-    LC_ALL=en_US.UTF-8 \
-    LC_CTYPE=en_US.UTF-8 \
-    WORKDIR=/home/ubuntu
+ENV LANG="en_US.UTF-8" \
+    LANGUAGE="en_US.UTF-8" \
+    LC_ALL="en_US.UTF-8" \
+    LC_CTYPE="en_US.UTF-8" \
+    USER_AGENT="Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0" \
+    WORKDIR="/home/ubuntu"
 
 EXPOSE 9091 \
        51413/tcp \
@@ -15,24 +16,16 @@ EXPOSE 9091 \
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive \
     apt-get install --assume-yes --no-install-recommends \
-            binutils \
-            binwalk \
             ca-certificates \
             command-not-found \
             curl \
-            ent \
             ffmpeg \
             ghostscript \
             git \
             gnupg2 \
             language-pack-en \
-            libimage-exiftool-perl \
-            lrzip \
             lsb-release \
-            mat2 \
-            ncal \
             nfs-common \
-            p7zip-full \
             pipx \
             python3 \
             python3-pip \
@@ -42,10 +35,6 @@ RUN apt-get update \
             software-properties-common \
             sudo \
             transmission-cli \
-            unzip \
-            valgrind \
-            wget \
-            whois \
  && rm --force --recursive /var/lib/apt/lists/*
 
 RUN add-apt-repository --yes 'ppa:tomtomtom/yt-dlp' \
@@ -57,10 +46,5 @@ RUN mkdir -p /etc/sudoers.d \
  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ubuntu
 
 USER ubuntu
-
 WORKDIR /home/ubuntu
-
-RUN mkdir --parents $WORKDIR/.config/transmission/blocklists \
- && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-cli.sh | bash \
- && curl https://raw.githubusercontent.com/initbar/lib/main/scripts/packages/transmission-blocklist.sh | bash \
-  > $WORKDIR/.config/transmission/blocklists/blocklists
+RUN curl https://raw.githubusercontent.com/initbar/lib/main/scripts/linux-cli.sh | bash
